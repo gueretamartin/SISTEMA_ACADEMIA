@@ -24,3 +24,17 @@ C:\Users\Martin\Desktop\LABS\TP2L03\Escritorio\obj\Debug\Escritorio.pdb
 C:\Users\Martin\Desktop\LABS\TP2L04\Escritorio\bin\Debug\Escritorio.exe.config
 C:\Users\Martin\Desktop\LABS\TP2L04\Escritorio\obj\Debug\Escritorio.exe
 C:\Users\Martin\Desktop\LABS\TP2L04\Escritorio\obj\Debug\Escritorio.pdb
+C:\Users\Martin\Desktop\LABS\TP2L04\Escritorio\bin\Debug\Escritorio.exe
+C:\Users\Martin\Desktop\LABS\TP2L04\Escritorio\bin\Debug\Escritorio.pdb
+C:\Users\Martin\Desktop\LABS\TP2L04\Escritorio\bin\Debug\Entidades.dll
+C:\Users\Martin\Desktop\LABS\TP2L04\Escritorio\bin\Debug\Negocio.dll
+C:\Users\Martin\Desktop\LABS\TP2L04\Escritorio\bin\Debug\Data.Database.dll
+C:\Users\Martin\Desktop\LABS\TP2L04\Escritorio\bin\Debug\Entidades.pdb
+C:\Users\Martin\Desktop\LABS\TP2L04\Escritorio\bin\Debug\Negocio.pdb
+C:\Users\Martin\Desktop\LABS\TP2L04\Escritorio\bin\Debug\Data.Database.pdb
+C:\Users\Martin\Desktop\LABS\TP2L04\Escritorio\obj\Debug\Escritorio.csprojResolveAssemblyReference.cache
+C:\Users\Martin\Desktop\LABS\TP2L04\Escritorio\obj\Debug\Escritorio.Properties.Resources.resources
+C:\Users\Martin\Desktop\LABS\TP2L04\Escritorio\obj\Debug\Escritorio.csproj.GenerateResource.Cache
+C:\Users\Martin\Desktop\LABS\TP2L04\Escritorio\bin\Debug\Util.dll
+C:\Users\Martin\Desktop\LABS\TP2L04\Escritorio\bin\Debug\Util.pdb
+C:\Users\Martin\Desktop\LABS\TP2L04\Escritorio\obj\Debug\Escritorio.Principal.FormularioPrincipal.resources

@@ -46,8 +46,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\FormularioBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\FormularioBase.Designer.cs">
+      <DependentUpon>FormularioBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loggin\Loggin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loggin\Loggin.Designer.cs">
+      <DependentUpon>Loggin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\FormularioPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\FormularioPrincipal.Designer.cs">
+      <DependentUpon>FormularioPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SoloMain.cs" />
+    <Compile Include="Inicio.cs" />
+    <Compile Include="Usuario\UsuarioABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuario\UsuarioABM.Designer.cs">
+      <DependentUpon>UsuarioABM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\UsuarioPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuario\UsuarioPrincipal.Designer.cs">
+      <DependentUpon>UsuarioPrincipal.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Principal\FormularioPrincipal.resx">
+      <DependentUpon>FormularioPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -79,6 +112,20 @@
       <Project>{275b2e13-964d-4b88-b069-d08d98a69c71}</Project>
       <Name>Negocio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Util\Util.csproj">
+      <Project>{25618681-3339-4bdd-b0d0-d0dccac628e4}</Project>
+      <Name>Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AlumnoInscripcion\" />
+    <Folder Include="Comision\" />
+    <Folder Include="Curso\" />
+    <Folder Include="Docente\" />
+    <Folder Include="Especialidad\" />
+    <Folder Include="Materia\" />
+    <Folder Include="Plan\" />
+    <Folder Include="TipoPersona\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
