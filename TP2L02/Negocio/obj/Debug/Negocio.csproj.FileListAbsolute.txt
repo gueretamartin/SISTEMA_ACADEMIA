@@ -1,0 +1,5 @@
+c:\users\martin\documents\visual studio 2015\Projects\SISTEMA_ACADEMIA\Negocio\bin\Debug\Negocio.dll
+c:\users\martin\documents\visual studio 2015\Projects\SISTEMA_ACADEMIA\Negocio\bin\Debug\Negocio.pdb
+c:\users\martin\documents\visual studio 2015\Projects\SISTEMA_ACADEMIA\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
+c:\users\martin\documents\visual studio 2015\Projects\SISTEMA_ACADEMIA\Negocio\obj\Debug\Negocio.dll
+c:\users\martin\documents\visual studio 2015\Projects\SISTEMA_ACADEMIA\Negocio\obj\Debug\Negocio.pdb

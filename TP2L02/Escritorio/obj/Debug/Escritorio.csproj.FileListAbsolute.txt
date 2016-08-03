@@ -1,0 +1,9 @@
+c:\users\martin\documents\visual studio 2015\Projects\SISTEMA_ACADEMIA\Escritorio\bin\Debug\Escritorio.exe.config
+c:\users\martin\documents\visual studio 2015\Projects\SISTEMA_ACADEMIA\Escritorio\obj\Debug\Escritorio.csprojResolveAssemblyReference.cache
+c:\users\martin\documents\visual studio 2015\Projects\SISTEMA_ACADEMIA\Escritorio\obj\Debug\Escritorio.Properties.Resources.resources
+c:\users\martin\documents\visual studio 2015\Projects\SISTEMA_ACADEMIA\Escritorio\obj\Debug\Escritorio.csproj.GenerateResource.Cache
+C:\Users\Martin\Desktop\LABS\TP2L01\Escritorio\bin\Debug\Escritorio.exe.config
+C:\Users\Martin\Desktop\LABS\TP2L02\Escritorio\bin\Debug\Escritorio.exe.config
+C:\Users\Martin\Desktop\LABS\TP2L02\Escritorio\obj\Debug\Escritorio.csprojResolveAssemblyReference.cache
+C:\Users\Martin\Desktop\LABS\TP2L02\Escritorio\obj\Debug\Escritorio.Properties.Resources.resources
+C:\Users\Martin\Desktop\LABS\TP2L02\Escritorio\obj\Debug\Escritorio.csproj.GenerateResource.Cache

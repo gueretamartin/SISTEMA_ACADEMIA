@@ -1,0 +1,4 @@
+c:\users\martin\documents\visual studio 2015\Projects\SISTEMA_ACADEMIA\Entidades\bin\Debug\Entidades.dll
+c:\users\martin\documents\visual studio 2015\Projects\SISTEMA_ACADEMIA\Entidades\bin\Debug\Entidades.pdb
+c:\users\martin\documents\visual studio 2015\Projects\SISTEMA_ACADEMIA\Entidades\obj\Debug\Entidades.dll
+c:\users\martin\documents\visual studio 2015\Projects\SISTEMA_ACADEMIA\Entidades\obj\Debug\Entidades.pdb

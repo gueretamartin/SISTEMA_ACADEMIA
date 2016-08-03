@@ -1,0 +1,2 @@
+c:\users\martin\documents\visual studio 2015\Projects\SISTEMA_ACADEMIA\Consola\obj\Debug\Consola.csprojResolveAssemblyReference.cache
+C:\Users\Martin\Desktop\LABS\TP2L02\Consola\obj\Debug\Consola.csprojResolveAssemblyReference.cache
