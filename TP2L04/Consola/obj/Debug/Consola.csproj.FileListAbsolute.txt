@@ -24,3 +24,5 @@ C:\Users\Martin\Desktop\LABS\TP2L04\Consola\bin\Debug\Data.Database.pdb
 C:\Users\Martin\Desktop\LABS\TP2L04\Consola\obj\Debug\Consola.csprojResolveAssemblyReference.cache
 C:\Users\Martin\Desktop\LABS\TP2L04\Consola\obj\Debug\Consola.exe
 C:\Users\Martin\Desktop\LABS\TP2L04\Consola\obj\Debug\Consola.pdb
+C:\Users\Martin\Desktop\LABS\TP2L04\Consola\bin\Debug\Datos.dll
+C:\Users\Martin\Desktop\LABS\TP2L04\Consola\bin\Debug\Datos.pdb

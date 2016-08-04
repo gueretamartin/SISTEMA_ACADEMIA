@@ -141,7 +141,7 @@ namespace Consola
             Console.WriteLine("Ingrese el Id del usuario a eliminar");
             string idIntroducido = System.Console.ReadLine();
             int idABuscar = int.Parse(idIntroducido);
-            cu.eliminarUsuario(cu.dameUno(idABuscar));
+            //cu.eliminarUsuario(cu.dameUno(idABuscar));
         }
 
 

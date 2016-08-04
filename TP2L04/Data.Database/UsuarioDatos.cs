@@ -61,15 +61,20 @@ namespace Data.Database
             usuarios = Usuarios;
             return usuarios;
         }
+
         public Entidades.Usuario dameUno(int Id)
         {
 
             return Usuarios.Find(delegate (Usuario u) { return u.Id == Id; });
         }
+
+
         public void EliminarUsuario(int ID)
         {
             Usuarios.Remove(this.dameUno(ID));
         }
+
+
         public void GuardarUsuario(Usuario usuario)
         {
             if (usuario.State == Entidades.EntidadBase.States.New)
