@@ -1,4 +1,5 @@
-﻿using Negocio;
+﻿using Entidades;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -69,11 +70,12 @@ namespace Escritorio.Usuario
         {
             this.txtID.Text = this.UsuarioActual.Id.ToString();
             this.chkHabilitado.Checked = this.UsuarioActual.Habilitado;
-            this.txtNombre.Text = this.UsuarioActual.Nombre;
-            this.txtApellido.Text = this.UsuarioActual.Apellido;
+            this.txtNombre.Text = this.UsuarioActual.Persona.Nombre;
+            this.txtApellido.Text = this.UsuarioActual.Persona.Apellido;
             this.txtClave.Text = this.UsuarioActual.Clave;
-            this.txtEmail.Text = this.UsuarioActual.Email;
+            this.txtEmail.Text = this.UsuarioActual.Persona.Email;
             this.txtUsuario.Text = this.UsuarioActual.NombreUsuario;
+            this.textIdPersona.Text = this.UsuarioActual.Persona.Id.ToString(); ;
         }
 
         public virtual void GuardarCambios()
@@ -90,23 +92,22 @@ namespace Escritorio.Usuario
                 case (ModoForm.Alta):
                     {
                         UsuarioActual = new Entidades.Usuario();
+                        Personas p = new Personas();
+
                         this.UsuarioActual.Habilitado = this.chkHabilitado.Checked;
-                        this.UsuarioActual.Nombre = this.txtNombre.Text;
-                        this.UsuarioActual.Apellido = this.txtApellido.Text;
                         this.UsuarioActual.Clave = this.txtClave.Text;
-                        this.UsuarioActual.Email = this.txtEmail.Text;
                         this.UsuarioActual.NombreUsuario = this.txtUsuario.Text;
+                        this.UsuarioActual.Persona = p;
+                        this.UsuarioActual.Persona.Id = Convert.ToInt32(this.textIdPersona.Text); 
                         this.UsuarioActual.State = Entidades.EntidadBase.States.New;
                         break;
                     }
                 case (ModoForm.Modificacion):
                     {
                         this.UsuarioActual.Habilitado = this.chkHabilitado.Checked;
-                        this.UsuarioActual.Nombre = this.txtNombre.Text;
-                        this.UsuarioActual.Apellido = this.txtApellido.Text;
                         this.UsuarioActual.Clave = this.txtClave.Text;
-                        this.UsuarioActual.Email = this.txtEmail.Text;
                         this.UsuarioActual.NombreUsuario = this.txtUsuario.Text;
+                        this.UsuarioActual.Persona.Id = Convert.ToInt32(this.textIdPersona.Text);
                         this.UsuarioActual.State = Entidades.EntidadBase.States.Modified;
                         break;
                     }

@@ -7,3 +7,8 @@ C:\Users\Martin\Desktop\LABS\TP2L02\Entidades\obj\Debug\Entidades.dll
 C:\Users\Martin\Desktop\LABS\TP2L02\Entidades\obj\Debug\Entidades.pdb
 C:\Users\Martin\Desktop\LABS\TP2L02\Entidades\bin\Debug\Entidades.dll
 C:\Users\Martin\Desktop\LABS\TP2L02\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Martin\Desktop\LABS\TP2L04\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Martin\Desktop\LABS\TP2L04\Entidades\obj\Debug\Entidades.dll
+C:\Users\Martin\Desktop\LABS\TP2L04\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Martin\Desktop\LABS\TP2L04\Entidades\bin\Debug\Entidades.dll
+C:\Users\Martin\Desktop\LABS\TP2L04\Entidades\bin\Debug\Entidades.pdb

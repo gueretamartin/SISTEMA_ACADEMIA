@@ -32,9 +32,6 @@ namespace Datos
                     usr.NombreUsuario = (string)drUsuarios["nombre_usuario"];
                     usr.Clave = (string)drUsuarios["clave"];
                     usr.Habilitado = (bool)drUsuarios["habilitado"];
-                    usr.Nombre = (string)drUsuarios["nombre"];
-                    usr.Apellido = (string)drUsuarios["apellido"];
-                    usr.Email = (string)drUsuarios["email"];
                     // Personas persona = new CatalogoPersonas().GetOne((int)drUsuarios["id_persona"]);
                     Personas persona = null;
                     usr.Persona = persona;
@@ -77,9 +74,6 @@ namespace Datos
                     usr.NombreUsuario = (string)drUsuarios["nombre_usuario"];
                     usr.Clave = (string)drUsuarios["clave"];
                     usr.Habilitado = (bool)drUsuarios["habilitado"];
-                    usr.Nombre = (string)drUsuarios["nombre"];
-                    usr.Apellido = (string)drUsuarios["apellido"];
-                    usr.Email = (string)drUsuarios["email"];
                     Personas persona = new CatalogoPersonas().GetOne((int)drUsuarios["id_persona"]);
                     usr.Persona = persona;
                 }
@@ -153,9 +147,6 @@ namespace Datos
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
                 cmdSave.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
-                cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = usuario.Nombre;
-                cmdSave.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = usuario.Apellido;
-                cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.Email;
                 cmdSave.Parameters.Add("@id_persona", SqlDbType.Int).Value = usuario.Persona.Id;
                 cmdSave.ExecuteReader();
             }
@@ -184,9 +175,7 @@ namespace Datos
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
                 cmdSave.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
-                cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = usuario.Nombre;
-                cmdSave.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = usuario.Apellido;
-                cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.Email;
+                cmdSave.Parameters.Add("@id_persona", SqlDbType.Int).Value = usuario.Persona.Id;
                 /* Aca hay que ver como lo manejamos, porque aparentemente la persona que se le esta asignando el nuevo usuario 
                  * vendria a ser la persona que esta usando el usuario 
                  * por eso facu hace usuario.Per.ID
@@ -194,7 +183,7 @@ namespace Datos
 
                 */
                // cmdSave.Parameters.Add("@id_persona", SqlDbType.Int).Value = usuario.Persona.Id;
-                usuario.Id = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar()); // asi se obtiene el ID que asigno al BD automaticamente
+                //usuario.Id = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar()); // asi se obtiene el ID que asigno al BD automaticamente
             }
             catch (Exception Ex)
             {
@@ -228,9 +217,6 @@ namespace Datos
                     usr.NombreUsuario = (string)drUsuarios["nombre_usuario"];
                     usr.Clave = (string)drUsuarios["clave"];
                     usr.Habilitado = (bool)drUsuarios["habilitado"];
-                    usr.Nombre = (string)drUsuarios["nombre"];
-                    usr.Apellido = (string)drUsuarios["apellido"];
-                    usr.Email = (string)drUsuarios["email"];
                     Personas persona = new CatalogoPersonas().GetOne((int)drUsuarios["id_persona"]);
                     usr.Persona = persona;
                 }

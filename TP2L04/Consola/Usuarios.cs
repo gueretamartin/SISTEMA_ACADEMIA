@@ -9,7 +9,7 @@ using Entidades;
 namespace Consola
 {
     class Usuarios
-    {
+    { /*
         private ControladorUsuario cu = new ControladorUsuario();
         int rta = 0;
         //Menu Interactivo
@@ -168,6 +168,8 @@ namespace Consola
                 Console.WriteLine("");
             }
         }
+        */
     }
+    
 
 }

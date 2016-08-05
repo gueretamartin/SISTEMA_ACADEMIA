@@ -8,7 +8,7 @@ using Entidades;
 namespace Negocio
 {
     public class UsuarioNegocio : NegocioBase
-    {
+    { /*
         private Data.Database.UsuarioAdapter _UsuarioData;
 
         public UsuarioNegocio()
@@ -40,6 +40,6 @@ namespace Negocio
         public void Save(Entidades.Usuario usuario)
         {
             UsuarioData.Save(usuario);
-        }
+        } */
     }
 }

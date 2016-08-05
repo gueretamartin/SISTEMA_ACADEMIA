@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsuarioPrincipal));
             this.tcUsuarios = new System.Windows.Forms.ToolStripContainer();
             this.tlUsuarios = new System.Windows.Forms.TableLayoutPanel();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
@@ -39,10 +38,7 @@
             this.tbsEditar = new System.Windows.Forms.ToolStripButton();
             this.tbsEliminar = new System.Windows.Forms.ToolStripButton();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.habilitado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tcUsuarios.ContentPanel.SuspendLayout();
             this.tcUsuarios.TopToolStripPanel.SuspendLayout();
@@ -96,10 +92,7 @@
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
-            this.nombre,
-            this.apellido,
             this.usuario,
-            this.email,
             this.habilitado});
             this.tlUsuarios.SetColumnSpan(this.dgvUsuarios, 2);
             this.dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -147,7 +140,6 @@
             // tbsNuevo
             // 
             this.tbsNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            //this.tbsNuevo.Image = ((System.Drawing.Image)(resources.GetObject("tbsNuevo.Image")));
             this.tbsNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbsNuevo.Name = "tbsNuevo";
             this.tbsNuevo.Size = new System.Drawing.Size(23, 22);
@@ -158,7 +150,6 @@
             // tbsEditar
             // 
             this.tbsEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            //this.tbsEditar.Image = ((System.Drawing.Image)(resources.GetObject("tbsEditar.Image")));
             this.tbsEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbsEditar.Name = "tbsEditar";
             this.tbsEditar.Size = new System.Drawing.Size(23, 22);
@@ -169,7 +160,6 @@
             // tbsEliminar
             // 
             this.tbsEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            //this.tbsEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tbsEliminar.Image")));
             this.tbsEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbsEliminar.Name = "tbsEliminar";
             this.tbsEliminar.Size = new System.Drawing.Size(23, 22);
@@ -183,33 +173,12 @@
             this.id.Name = "id";
             this.id.ReadOnly = true;
             // 
-            // nombre
-            // 
-            this.nombre.DataPropertyName = "Nombre";
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            // 
-            // apellido
-            // 
-            this.apellido.DataPropertyName = "Apellido";
-            this.apellido.HeaderText = "Apellido";
-            this.apellido.Name = "apellido";
-            this.apellido.ReadOnly = true;
-            // 
             // usuario
             // 
             this.usuario.DataPropertyName = "NombreUsuario";
             this.usuario.HeaderText = "Usuario";
             this.usuario.Name = "usuario";
             this.usuario.ReadOnly = true;
-            // 
-            // email
-            // 
-            this.email.DataPropertyName = "EMail";
-            this.email.HeaderText = "EMail";
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
             // 
             // habilitado
             // 
@@ -218,14 +187,14 @@
             this.habilitado.Name = "habilitado";
             this.habilitado.ReadOnly = true;
             // 
-            // Usuarios
+            // UsuarioPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 301);
             this.Controls.Add(this.tcUsuarios);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Usuarios";
+            this.Name = "UsuarioPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.Usuarios_Load);
@@ -254,10 +223,7 @@
         private System.Windows.Forms.ToolStripButton tbsEditar;
         private System.Windows.Forms.ToolStripButton tbsEliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewCheckBoxColumn habilitado;
     }
 }

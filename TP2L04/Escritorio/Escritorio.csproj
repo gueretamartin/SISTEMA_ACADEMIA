@@ -90,6 +90,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Usuario\UsuarioABM.resx">
+      <DependentUpon>UsuarioABM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuario\UsuarioPrincipal.resx">
+      <DependentUpon>UsuarioPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

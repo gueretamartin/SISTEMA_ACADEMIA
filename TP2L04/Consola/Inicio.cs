@@ -11,10 +11,10 @@ namespace Consola
     {
 
         static void Main(string[] args)
-        {
-            Usuarios menu = new Usuarios();
-            menu.Menu();
-            Console.ReadKey();
+        { 
+          //  Usuarios menu = new Usuarios();
+          //  menu.Menu();
+          //  Console.ReadKey(); 
         }
     }
 }
