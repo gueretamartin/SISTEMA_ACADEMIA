@@ -140,7 +140,7 @@ namespace Datos
                 this.OpenConnection();
 
                 SqlCommand cmdSave = new SqlCommand("UPDATE usuarios SET nombre_usuario=@nombre_usuario, clave=@clave, " +
-                    "habilitado=@habilitado, nombre=@nombre, apellido=@apellido, email=@email, id_persona=@id_persona " +
+                    "habilitado=@habilitado, id_persona=@id_persona " +
                     "WHERE id_usuario=@id", Con);
 
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = usuario.Id;
@@ -167,8 +167,8 @@ namespace Datos
             {
                 this.OpenConnection();
 
-                SqlCommand cmdSave = new SqlCommand("INSERT INTO usuarios(nombre_usuario,clave,habilitado,nombre,apellido,email,id_persona) " +
-                    "VALUES(@nombre_usuario,@clave,@habilitado,@nombre,@apellido,@email,@id_persona) " +
+                SqlCommand cmdSave = new SqlCommand("INSERT INTO usuarios(nombre_usuario,clave,habilitado,id_persona) " +
+                    "VALUES(@nombre_usuario,@clave,@habilitado,@id_persona) " +
                     "SELECT @@identity", //esta linea es para recuperar el ID que asignó el SQL automaticamente
                     Con);
 

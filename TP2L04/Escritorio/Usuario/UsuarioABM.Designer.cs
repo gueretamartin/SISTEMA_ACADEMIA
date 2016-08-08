@@ -59,7 +59,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.32155F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.67844F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 249F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 252F));
             this.tableLayoutPanel1.Controls.Add(this.lblID, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblNombre, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblEmail, 0, 2);
@@ -136,7 +136,7 @@
             // 
             this.chkHabilitado.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.chkHabilitado.AutoSize = true;
-            this.chkHabilitado.Location = new System.Drawing.Point(292, 7);
+            this.chkHabilitado.Location = new System.Drawing.Point(289, 7);
             this.chkHabilitado.Name = "chkHabilitado";
             this.chkHabilitado.Size = new System.Drawing.Size(73, 17);
             this.chkHabilitado.TabIndex = 99;
@@ -147,7 +147,7 @@
             // 
             this.lblApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(307, 43);
+            this.lblApellido.Location = new System.Drawing.Point(304, 43);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(44, 13);
             this.lblApellido.TabIndex = 5;
@@ -157,7 +157,7 @@
             // 
             this.lblUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(307, 78);
+            this.lblUsuario.Location = new System.Drawing.Point(304, 78);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 6;
@@ -167,7 +167,7 @@
             // 
             this.lblConfirmClave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblConfirmClave.AutoSize = true;
-            this.lblConfirmClave.Location = new System.Drawing.Point(288, 113);
+            this.lblConfirmClave.Location = new System.Drawing.Point(285, 113);
             this.lblConfirmClave.Name = "lblConfirmClave";
             this.lblConfirmClave.Size = new System.Drawing.Size(81, 13);
             this.lblConfirmClave.TabIndex = 7;
@@ -176,7 +176,7 @@
             // txtID
             // 
             this.txtID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtID.Location = new System.Drawing.Point(72, 6);
+            this.txtID.Location = new System.Drawing.Point(70, 6);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(201, 20);
@@ -185,7 +185,7 @@
             // txtNombre
             // 
             this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNombre.Location = new System.Drawing.Point(72, 39);
+            this.txtNombre.Location = new System.Drawing.Point(70, 39);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.ReadOnly = true;
             this.txtNombre.Size = new System.Drawing.Size(201, 20);
@@ -194,7 +194,7 @@
             // txtEmail
             // 
             this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtEmail.Location = new System.Drawing.Point(72, 74);
+            this.txtEmail.Location = new System.Drawing.Point(70, 74);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(201, 20);
@@ -203,7 +203,7 @@
             // txtClave
             // 
             this.txtClave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtClave.Location = new System.Drawing.Point(72, 110);
+            this.txtClave.Location = new System.Drawing.Point(70, 110);
             this.txtClave.Name = "txtClave";
             this.txtClave.PasswordChar = '•';
             this.txtClave.Size = new System.Drawing.Size(201, 20);
@@ -212,7 +212,7 @@
             // txtApellido
             // 
             this.txtApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtApellido.Location = new System.Drawing.Point(402, 39);
+            this.txtApellido.Location = new System.Drawing.Point(401, 39);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.ReadOnly = true;
             this.txtApellido.Size = new System.Drawing.Size(201, 20);
@@ -221,7 +221,7 @@
             // txtUsuario
             // 
             this.txtUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtUsuario.Location = new System.Drawing.Point(402, 74);
+            this.txtUsuario.Location = new System.Drawing.Point(401, 74);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(201, 20);
             this.txtUsuario.TabIndex = 4;
@@ -229,7 +229,7 @@
             // txtConfirmarClave
             // 
             this.txtConfirmarClave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtConfirmarClave.Location = new System.Drawing.Point(402, 110);
+            this.txtConfirmarClave.Location = new System.Drawing.Point(401, 110);
             this.txtConfirmarClave.Name = "txtConfirmarClave";
             this.txtConfirmarClave.PasswordChar = '•';
             this.txtConfirmarClave.Size = new System.Drawing.Size(201, 20);
@@ -239,7 +239,7 @@
             // 
             this.chkPass.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.chkPass.AutoSize = true;
-            this.chkPass.Location = new System.Drawing.Point(115, 170);
+            this.chkPass.Location = new System.Drawing.Point(113, 170);
             this.chkPass.Name = "chkPass";
             this.chkPass.Size = new System.Drawing.Size(114, 17);
             this.chkPass.TabIndex = 100;
@@ -250,7 +250,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAceptar.Location = new System.Drawing.Point(285, 166);
+            this.btnAceptar.Location = new System.Drawing.Point(282, 166);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(88, 25);
             this.btnAceptar.TabIndex = 7;
@@ -261,7 +261,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnCancelar.Location = new System.Drawing.Point(381, 166);
+            this.btnCancelar.Location = new System.Drawing.Point(378, 166);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(88, 25);
             this.btnCancelar.TabIndex = 8;
@@ -273,7 +273,7 @@
             // 
             this.lblIdPersona.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblIdPersona.AutoSize = true;
-            this.lblIdPersona.Location = new System.Drawing.Point(5, 144);
+            this.lblIdPersona.Location = new System.Drawing.Point(4, 144);
             this.lblIdPersona.Name = "lblIdPersona";
             this.lblIdPersona.Size = new System.Drawing.Size(55, 13);
             this.lblIdPersona.TabIndex = 101;
@@ -282,7 +282,7 @@
             // textIdPersona
             // 
             this.textIdPersona.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textIdPersona.Location = new System.Drawing.Point(72, 141);
+            this.textIdPersona.Location = new System.Drawing.Point(70, 141);
             this.textIdPersona.Name = "textIdPersona";
             this.textIdPersona.Size = new System.Drawing.Size(201, 20);
             this.textIdPersona.TabIndex = 102;

@@ -1,0 +1,10 @@
+c:\users\martin\documents\visual studio 2015\Projects\SISTEMA_ACADEMIA\Util\bin\Debug\Util.dll
+c:\users\martin\documents\visual studio 2015\Projects\SISTEMA_ACADEMIA\Util\bin\Debug\Util.pdb
+c:\users\martin\documents\visual studio 2015\Projects\SISTEMA_ACADEMIA\Util\obj\Debug\Util.csprojResolveAssemblyReference.cache
+c:\users\martin\documents\visual studio 2015\Projects\SISTEMA_ACADEMIA\Util\obj\Debug\Util.dll
+c:\users\martin\documents\visual studio 2015\Projects\SISTEMA_ACADEMIA\Util\obj\Debug\Util.pdb
+C:\Users\Martin\Desktop\LABS\TP2L02\Util\bin\Debug\Util.dll
+C:\Users\Martin\Desktop\LABS\TP2L02\Util\bin\Debug\Util.pdb
+C:\Users\Martin\Desktop\LABS\TP2L02\Util\obj\Debug\Util.csprojResolveAssemblyReference.cache
+C:\Users\Martin\Desktop\LABS\TP2L02\Util\obj\Debug\Util.dll
+C:\Users\Martin\Desktop\LABS\TP2L02\Util\obj\Debug\Util.pdb

@@ -15,16 +15,19 @@ namespace Escritorio.Usuario
     public partial class UsuarioABM : Escritorio.Base.FormularioBase
     {
 
-
+        #region VARIABLES
         private Entidades.Usuario _usuarioActual;
         bool est = true;
+        #endregion
 
+        #region PROPIEDADES
 
         public Entidades.Usuario UsuarioActual
         {
             get { return _usuarioActual; }
             set { _usuarioActual = value; }
         }
+        #endregion
 
         #region CONSTRUCTORES
         public UsuarioABM()
@@ -32,12 +35,15 @@ namespace Escritorio.Usuario
             InitializeComponent();
         }
 
+        //Recibe el modo del formulario. Internamete debe setear a ModoForm en el modo enviado, este constructor
+        //servirá para las altas. Y no recibe ID porque será un nuevo usuario.
         public UsuarioABM(ModoForm modo)
             : this()
         {
             this.Modo = modo;
         }
 
+        //Recibe un entero que representa el ID del usuario y el Modo en que estará el Formulario
         public UsuarioABM(int ID, ModoForm modo)
             : this()
         {
@@ -45,7 +51,7 @@ namespace Escritorio.Usuario
             UsuarioActual = new ControladorUsuario().dameUno(ID);
             MapearDeDatos();
             switch (modo)
-            {
+            { //Dependiendo el modo, la ventana de carga como se setea
                 case (ModoForm.Alta):
                     this.btnAceptar.Text = "Guardar";
                     break;
@@ -66,6 +72,7 @@ namespace Escritorio.Usuario
 
         #region METODOS
        
+
         public virtual void MapearDeDatos()
         {
             this.txtID.Text = this.UsuarioActual.Id.ToString();
@@ -86,7 +93,7 @@ namespace Escritorio.Usuario
 
         public virtual void MapearADatos()
         {
-
+            //La propiedad State se setea dependiendo el Modo del Formulario
             switch (this.Modo)
             {
                 case (ModoForm.Alta):
@@ -128,10 +135,10 @@ namespace Escritorio.Usuario
         {
             Boolean estado = true;
             if (!(this.Modo == ModoForm.Baja))
-            {
+            {   
                 foreach (Control control in this.tableLayoutPanel1.Controls)
                 {
-                    if (!(control == txtID))
+                    if (!(control == txtID) && !(control == txtNombre) && !(control == txtApellido) && !(control == txtEmail))
                     {
                         if (control is TextBox && control.Text == String.Empty)
                         {
@@ -144,7 +151,7 @@ namespace Escritorio.Usuario
                 {
                     Notificar("Campos vacíos", "Existen campos sin completar.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-               /*else if (!(Util.ValidarEMails.esMailValido(this.txtEmail.Text)))
+              /* else if (!(Util.ValidarEMails.esMailValido(this.txtEmail.Text)))
                 {
                     estado = false;
                     Notificar("Mail no valido", "Mail no valido. Escribe una dirección de correo electrónico con el formato alguien@ejemplo.com.", MessageBoxButtons.OK, MessageBoxIcon.Error);
