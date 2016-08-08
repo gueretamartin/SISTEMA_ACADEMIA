@@ -59,3 +59,6 @@ C:\Users\Martin\Desktop\LABS\TP2L05\Escritorio\obj\Debug\Escritorio.Properties.R
 C:\Users\Martin\Desktop\LABS\TP2L05\Escritorio\obj\Debug\Escritorio.Usuario.UsuarioABM.resources
 C:\Users\Martin\Desktop\LABS\TP2L05\Escritorio\obj\Debug\Escritorio.Usuario.UsuarioPrincipal.resources
 C:\Users\Martin\Desktop\LABS\TP2L05\Escritorio\obj\Debug\Escritorio.csproj.GenerateResource.Cache
+C:\Users\Martin\Desktop\git\SISTEMA_ACADEMIA\TP2L06\Escritorio\bin\Debug\Escritorio.exe.config
+C:\Users\Martin\Desktop\git\SISTEMA_ACADEMIA\TP2L06\Escritorio\obj\Debug\Escritorio.exe
+C:\Users\Martin\Desktop\git\SISTEMA_ACADEMIA\TP2L06\Escritorio\obj\Debug\Escritorio.pdb
