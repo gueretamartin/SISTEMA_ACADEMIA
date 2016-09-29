@@ -1,0 +1,9 @@
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\bin\Debug\Academia.exe.config
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\bin\Debug\Academia.exe
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\bin\Debug\Academia.pdb
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\obj\Debug\Academia.csprojResolveAssemblyReference.cache
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\obj\Debug\Academia.Properties.Resources.resources
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\obj\Debug\Academia.csproj.GenerateResource.Cache
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\obj\Debug\Academia.exe
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\obj\Debug\Academia.pdb
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\obj\Debug\Academia.formularioLogin.resources

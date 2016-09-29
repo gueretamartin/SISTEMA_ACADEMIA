@@ -1,0 +1,4 @@
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Entidades\bin\Debug\Entidades.dll
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Entidades\obj\Debug\Entidades.dll
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Entidades\obj\Debug\Entidades.pdb

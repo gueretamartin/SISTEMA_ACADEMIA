@@ -1,0 +1,16 @@
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\obj\Debug\Escritorio.csprojResolveAssemblyReference.cache
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\obj\Debug\Escritorio.formularioLogin.resources
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\obj\Debug\Escritorio.Properties.Resources.resources
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\obj\Debug\Escritorio.csproj.GenerateResource.Cache
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\bin\Debug\Academia.exe.config
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\obj\Debug\Academia.exe
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\obj\Debug\Academia.pdb
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\bin\Debug\Academia.exe
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\bin\Debug\Academia.pdb
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\bin\Debug\Entidades.dll
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\bin\Debug\Negocio.dll
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\bin\Debug\Datos.dll
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\bin\Debug\Entidades.pdb
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\bin\Debug\Negocio.pdb
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\bin\Debug\Datos.pdb
+C:\Users\Martin\Desktop\NET\Laboratorios\Unidad 3\Academia\Academia\obj\Debug\Escritorio.formMain.resources
