@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Escritorio", "Escritorio\Escritorio.csproj", "{098FCDAE-7A77-42B8-881F-200733E79F16}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj", "{53972C19-606C-49BF-BBB8-64E940705CE2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{CFF48C44-3035-49E6-8573-2EC03074771E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTest", "WebTest\WebTest.csproj", "{343FE63B-F881-4960-B187-C70FEC5D4B02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{CFF48C44-3035-49E6-8573-2EC03074771E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFF48C44-3035-49E6-8573-2EC03074771E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFF48C44-3035-49E6-8573-2EC03074771E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{343FE63B-F881-4960-B187-C70FEC5D4B02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{343FE63B-F881-4960-B187-C70FEC5D4B02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{343FE63B-F881-4960-B187-C70FEC5D4B02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{343FE63B-F881-4960-B187-C70FEC5D4B02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,7 +7,7 @@ using Entidades;
 using Datos;
 namespace Negocio
 {
-    public class ControladorUsuario
+    public class ControladorUsuario 
     {
 
         public ControladorUsuario()
@@ -36,8 +36,24 @@ namespace Negocio
             Usuario usuario = usu;
             usuarioData.Save(usuario);
         }
-        //Metodo que le pide que elimine el usuario
-      
+
+        public void eliminarUsuario(int id) {
+            usuarioData.Delete(id);
+        }
+        //Metodo que le pide que valide el usuario
+        public Usuario validarUsuario(string nombreUsuario, string pass)
+        {
+            Usuario usudb = usuarioData.getUsuario(nombreUsuario);
+
+            if(usudb.Clave == pass)
+            {
+                return usudb;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
 

@@ -36,3 +36,15 @@ C:\Users\Martin\Desktop\LABS\TP2L05\Consola\bin\Debug\Datos.pdb
 C:\Users\Martin\Desktop\LABS\TP2L05\Consola\obj\Debug\Consola.csprojResolveAssemblyReference.cache
 C:\Users\Martin\Desktop\LABS\TP2L05\Consola\obj\Debug\Consola.exe
 C:\Users\Martin\Desktop\LABS\TP2L05\Consola\obj\Debug\Consola.pdb
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Consola.exe.config
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Consola.exe
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Consola.pdb
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Entidades.dll
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Negocio.dll
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Datos.dll
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Entidades.pdb
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Negocio.pdb
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Datos.pdb
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Consola\obj\Debug\Consola.csprojResolveAssemblyReference.cache
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Consola\obj\Debug\Consola.exe
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Consola\obj\Debug\Consola.pdb

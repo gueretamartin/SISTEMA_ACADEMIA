@@ -91,7 +91,45 @@ namespace Datos
             return usr;
         }
 
-       
+        public Entidades.Usuario getUsuario(string userName)
+        {
+            Usuario usr = new Usuario();
+
+            try
+            {
+                this.OpenConnection();
+
+                SqlCommand cmdUsuario = new SqlCommand("SELECT * FROM usuarios WHERE nombre_usuario=@userName", Con);
+                cmdUsuario.Parameters.Add("@userName", SqlDbType.VarChar).Value = userName;
+
+                SqlDataReader drUsuarios = cmdUsuario.ExecuteReader();
+
+                if (drUsuarios.Read())
+                {
+                    usr.Id = (int)drUsuarios["id_usuario"];
+                    usr.NombreUsuario = (string)drUsuarios["nombre_usuario"];
+                    usr.Clave = (string)drUsuarios["clave"];
+                    usr.Habilitado = (bool)drUsuarios["habilitado"];
+                    Personas persona = new CatalogoPersonas().GetOne((int)drUsuarios["id_persona"]);
+                    usr.Persona = persona;
+                }
+
+                drUsuarios.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al recuperar datos de usuario", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+
+            return usr;
+        }
+
         #region METODOS PARA EL ABM
         public void Save(Usuario usuario)
         {

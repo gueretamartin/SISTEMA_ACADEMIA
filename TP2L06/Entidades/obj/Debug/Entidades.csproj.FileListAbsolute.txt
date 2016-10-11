@@ -12,3 +12,8 @@ C:\Users\Martin\Desktop\LABS\TP2L04\Entidades\obj\Debug\Entidades.dll
 C:\Users\Martin\Desktop\LABS\TP2L04\Entidades\obj\Debug\Entidades.pdb
 C:\Users\Martin\Desktop\LABS\TP2L04\Entidades\bin\Debug\Entidades.dll
 C:\Users\Martin\Desktop\LABS\TP2L04\Entidades\bin\Debug\Entidades.pdb
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Entidades\bin\Debug\Entidades.dll
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Entidades\bin\Debug\Entidades.pdb
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Entidades\obj\Debug\Entidades.dll
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Entidades\obj\Debug\Entidades.pdb

@@ -8,3 +8,8 @@ C:\Users\Martin\Desktop\LABS\TP2L02\Util\bin\Debug\Util.pdb
 C:\Users\Martin\Desktop\LABS\TP2L02\Util\obj\Debug\Util.csprojResolveAssemblyReference.cache
 C:\Users\Martin\Desktop\LABS\TP2L02\Util\obj\Debug\Util.dll
 C:\Users\Martin\Desktop\LABS\TP2L02\Util\obj\Debug\Util.pdb
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Util\bin\Debug\Util.dll
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Util\bin\Debug\Util.pdb
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Util\obj\Debug\Util.csprojResolveAssemblyReference.cache
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Util\obj\Debug\Util.dll
+C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Util\obj\Debug\Util.pdb
