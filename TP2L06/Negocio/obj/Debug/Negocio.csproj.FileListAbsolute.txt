@@ -1,0 +1,9 @@
+C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Negocio.dll
+C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Datos.dll
+C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Entidades.dll
+C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Datos.pdb
+C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Entidades.pdb
+C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Negocio\obj\Debug\Negocio.dll
+C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Negocio\obj\Debug\Negocio.pdb
