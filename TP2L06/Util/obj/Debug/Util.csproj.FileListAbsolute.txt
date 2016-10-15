@@ -18,3 +18,7 @@ C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Util\bin\Debug\Util.pdb
 C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Util\obj\Debug\Util.csprojResolveAssemblyReference.cache
 C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Util\obj\Debug\Util.dll
 C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Util\obj\Debug\Util.pdb
+C:\Users\Martin\Desktop\SISTEMA_ACADEMIA-master\TP2L06\Util\bin\Debug\Util.dll
+C:\Users\Martin\Desktop\SISTEMA_ACADEMIA-master\TP2L06\Util\bin\Debug\Util.pdb
+C:\Users\Martin\Desktop\SISTEMA_ACADEMIA-master\TP2L06\Util\obj\Debug\Util.dll
+C:\Users\Martin\Desktop\SISTEMA_ACADEMIA-master\TP2L06\Util\obj\Debug\Util.pdb

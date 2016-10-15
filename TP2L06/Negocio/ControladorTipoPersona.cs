@@ -16,5 +16,10 @@ namespace Negocio
         {
             return cp.GetOne(id);
         }
+
+        public object dameTodos()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

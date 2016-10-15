@@ -13,73 +13,28 @@ namespace Escritorio.Persona
 {
     public partial class PersonaPrincipal : Form
     {
+        #region Constructores
         public PersonaPrincipal()
         {
             InitializeComponent();
             this.dgvPersonas.AutoGenerateColumns = false;
-        }
 
+        }
+        #endregion
 
         #region Metodos
 
         public void Listar()
         {
-            ControladorPersona ul = new ControladorPersona();
-            dgvPersonas.DataSource = ul.dameTodos();  //asignaremos el resultado a la propiedad DataSource de la grilla
+            ControladorPersona cp = new ControladorPersona();
+            this.dgvPersonas.DataSource = cp.dameTodos();  //asignaremos el resultado a la propiedad DataSource de la grilla
         }
 
         #endregion
 
-        private void tbsNuevo_Click(object sender, EventArgs e)
-        {
-            PersonaABM formPersona = new PersonaABM(Escritorio.Base.FormularioBase.ModoForm.Alta);
-            formPersona.ShowDialog();
-            this.Listar();
-        }
+        #region Eventos
 
-        private void tbsEditar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!(this.dgvPersonas.SelectedRows == null)) //Controlamos que la tabla tenga elementos dentro
-                {
-                    //Obtenemos el ID del Persona de la tabla seleccionado
-                    int ID = ((Entidades.Personas)this.dgvPersonas.SelectedRows[0].DataBoundItem).Id;
-                    PersonaABM formPersona = new PersonaABM(ID, Escritorio.Base.FormularioBase.ModoForm.Modificacion);
-                    formPersona.ShowDialog();
-                    this.Listar();
-                }
-            }
-            catch (ArgumentOutOfRangeException ef)
-            {
-                MessageBox.Show("No existen registros a editar.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void tbsEliminar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!(this.dgvPersonas.SelectedRows == null))
-                {
-                    int ID = ((Entidades.Personas)this.dgvPersonas.SelectedRows[0].DataBoundItem).Id;
-                    PersonaABM formPersona = new PersonaABM(ID, Escritorio.Base.FormularioBase.ModoForm.Baja);
-                    formPersona.ShowDialog();
-                    this.Listar();
-                }
-            }
-            catch (ArgumentOutOfRangeException ef)
-            {
-                MessageBox.Show("No existen registros a eliminar.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void dgvPersonas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void PersonaPrincipal_Load(object sender, EventArgs e)
+        private void Usuarios_Load(object sender, EventArgs e)
         {
             this.Listar();
         }
@@ -93,5 +48,51 @@ namespace Escritorio.Persona
         {
             this.Close();
         }
+
+        private void tbsNuevo_Click(object sender, EventArgs e)
+        {
+            PersonaABM formUsuario = new PersonaABM(Escritorio.Base.FormularioBase.ModoForm.Alta);
+            formUsuario.ShowDialog();
+            this.Listar();
+        }
+
+        private void tbsEditar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!(this.dgvPersonas.SelectedRows == null)) //Controlamos que la tabla tenga elementos dentro
+                {
+                    //Obtenemos el ID del usuario de la tabla seleccionado
+                    int ID = ((Entidades.Usuario)this.dgvPersonas.SelectedRows[0].DataBoundItem).Id;
+                    PersonaABM formUsuario = new PersonaABM(ID, Escritorio.Base.FormularioBase.ModoForm.Modificacion);
+                    formUsuario.ShowDialog();
+                    this.Listar();
+                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("No existen registros a editar.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void tbsEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!(this.dgvPersonas.SelectedRows == null))
+                {
+                    int ID = ((Entidades.Usuario)this.dgvPersonas.SelectedRows[0].DataBoundItem).Id;
+                    PersonaABM formUsuario = new PersonaABM(ID, Escritorio.Base.FormularioBase.ModoForm.Baja);
+                    formUsuario.ShowDialog();
+                    this.Listar();
+                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("No existen registros a eliminar.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        #endregion
     }
 }

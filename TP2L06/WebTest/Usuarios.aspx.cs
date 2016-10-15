@@ -12,7 +12,7 @@ namespace WebTest
 
     public partial class Usuarios : WebForm
     {
-        ControladorUsuario cu = new ControladorUsuario();
+        ControladorMateria cu = new ControladorMateria();
         ControladorPersona cp = new ControladorPersona();
         Usuario usuarioActual;
 
@@ -55,13 +55,13 @@ namespace WebTest
 
         }
 
-        private ControladorUsuario Cu
+        private ControladorMateria Cu
         {
             get
             {
                 if (cu == null)
                 {
-                    cu = new ControladorUsuario();
+                    cu = new ControladorMateria();
                 }
                 return cu;
             }

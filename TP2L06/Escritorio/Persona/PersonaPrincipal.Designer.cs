@@ -28,60 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tcPersonas = new System.Windows.Forms.ToolStripContainer();
-            this.tlPersonas = new System.Windows.Forms.TableLayoutPanel();
+            this.tcUsuarios = new System.Windows.Forms.ToolStripContainer();
+            this.tlUsuarios = new System.Windows.Forms.TableLayoutPanel();
             this.dgvPersonas = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.persona = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.habilitado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.tsPersonas = new System.Windows.Forms.ToolStrip();
+            this.tsUsuarios = new System.Windows.Forms.ToolStrip();
             this.tbsNuevo = new System.Windows.Forms.ToolStripButton();
             this.tbsEditar = new System.Windows.Forms.ToolStripButton();
             this.tbsEliminar = new System.Windows.Forms.ToolStripButton();
-            this.tcPersonas.ContentPanel.SuspendLayout();
-            this.tcPersonas.TopToolStripPanel.SuspendLayout();
-            this.tcPersonas.SuspendLayout();
-            this.tlPersonas.SuspendLayout();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Legajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaNac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tcUsuarios.ContentPanel.SuspendLayout();
+            this.tcUsuarios.TopToolStripPanel.SuspendLayout();
+            this.tcUsuarios.SuspendLayout();
+            this.tlUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonas)).BeginInit();
-            this.tsPersonas.SuspendLayout();
+            this.tsUsuarios.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tcPersonas
+            // tcUsuarios
             // 
             // 
-            // tcPersonas.ContentPanel
+            // tcUsuarios.ContentPanel
             // 
-            this.tcPersonas.ContentPanel.Controls.Add(this.tlPersonas);
-            this.tcPersonas.ContentPanel.Size = new System.Drawing.Size(699, 276);
-            this.tcPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tcPersonas.Location = new System.Drawing.Point(0, 0);
-            this.tcPersonas.Name = "tcPersonas";
-            this.tcPersonas.Size = new System.Drawing.Size(699, 301);
-            this.tcPersonas.TabIndex = 0;
-            this.tcPersonas.Text = "toolStripContainer1";
+            this.tcUsuarios.ContentPanel.Controls.Add(this.tlUsuarios);
+            this.tcUsuarios.ContentPanel.Size = new System.Drawing.Size(968, 347);
+            this.tcUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcUsuarios.Location = new System.Drawing.Point(0, 0);
+            this.tcUsuarios.Name = "tcUsuarios";
+            this.tcUsuarios.Size = new System.Drawing.Size(968, 372);
+            this.tcUsuarios.TabIndex = 0;
+            this.tcUsuarios.Text = "toolStripContainer1";
             // 
-            // tcPersonas.TopToolStripPanel
+            // tcUsuarios.TopToolStripPanel
             // 
-            this.tcPersonas.TopToolStripPanel.Controls.Add(this.tsPersonas);
+            this.tcUsuarios.TopToolStripPanel.Controls.Add(this.tsUsuarios);
             // 
-            // tlPersonas
+            // tlUsuarios
             // 
-            this.tlPersonas.ColumnCount = 2;
-            this.tlPersonas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlPersonas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlPersonas.Controls.Add(this.dgvPersonas, 0, 0);
-            this.tlPersonas.Controls.Add(this.btnActualizar, 0, 1);
-            this.tlPersonas.Controls.Add(this.btnSalir, 1, 1);
-            this.tlPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlPersonas.Location = new System.Drawing.Point(0, 0);
-            this.tlPersonas.Name = "tlPersonas";
-            this.tlPersonas.RowCount = 2;
-            this.tlPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlPersonas.Size = new System.Drawing.Size(699, 276);
-            this.tlPersonas.TabIndex = 0;
+            this.tlUsuarios.ColumnCount = 2;
+            this.tlUsuarios.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlUsuarios.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlUsuarios.Controls.Add(this.dgvPersonas, 0, 0);
+            this.tlUsuarios.Controls.Add(this.btnActualizar, 0, 1);
+            this.tlUsuarios.Controls.Add(this.btnSalir, 1, 1);
+            this.tlUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlUsuarios.Location = new System.Drawing.Point(0, 0);
+            this.tlUsuarios.Name = "tlUsuarios";
+            this.tlUsuarios.RowCount = 2;
+            this.tlUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlUsuarios.Size = new System.Drawing.Size(968, 347);
+            this.tlUsuarios.TabIndex = 0;
             // 
             // dgvPersonas
             // 
@@ -92,44 +97,27 @@
             this.dgvPersonas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPersonas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
-            this.persona,
-            this.habilitado});
-            this.tlPersonas.SetColumnSpan(this.dgvPersonas, 2);
+            this.Nombre,
+            this.Apellido,
+            this.Legajo,
+            this.Email,
+            this.Telefono,
+            this.Direccion,
+            this.FechaNac});
+            this.tlUsuarios.SetColumnSpan(this.dgvPersonas, 2);
             this.dgvPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPersonas.Location = new System.Drawing.Point(3, 3);
             this.dgvPersonas.MultiSelect = false;
             this.dgvPersonas.Name = "dgvPersonas";
             this.dgvPersonas.ReadOnly = true;
             this.dgvPersonas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPersonas.Size = new System.Drawing.Size(693, 232);
+            this.dgvPersonas.Size = new System.Drawing.Size(962, 303);
             this.dgvPersonas.TabIndex = 0;
-            this.dgvPersonas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPersonas_CellContentClick);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "ID";
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // persona
-            // 
-            this.persona.DataPropertyName = "NombrePersona";
-            this.persona.HeaderText = "Persona";
-            this.persona.Name = "persona";
-            this.persona.ReadOnly = true;
-            // 
-            // habilitado
-            // 
-            this.habilitado.DataPropertyName = "Habilitado";
-            this.habilitado.HeaderText = "Habilitado";
-            this.habilitado.Name = "habilitado";
-            this.habilitado.ReadOnly = true;
             // 
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(534, 241);
+            this.btnActualizar.Location = new System.Drawing.Point(803, 312);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(78, 32);
             this.btnActualizar.TabIndex = 1;
@@ -139,7 +127,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(618, 241);
+            this.btnSalir.Location = new System.Drawing.Point(887, 312);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(78, 32);
             this.btnSalir.TabIndex = 2;
@@ -147,17 +135,17 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // tsPersonas
+            // tsUsuarios
             // 
-            this.tsPersonas.Dock = System.Windows.Forms.DockStyle.None;
-            this.tsPersonas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsUsuarios.Dock = System.Windows.Forms.DockStyle.None;
+            this.tsUsuarios.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tbsNuevo,
             this.tbsEditar,
             this.tbsEliminar});
-            this.tsPersonas.Location = new System.Drawing.Point(3, 0);
-            this.tsPersonas.Name = "tsPersonas";
-            this.tsPersonas.Size = new System.Drawing.Size(81, 25);
-            this.tsPersonas.TabIndex = 0;
+            this.tsUsuarios.Location = new System.Drawing.Point(3, 0);
+            this.tsUsuarios.Name = "tsUsuarios";
+            this.tsUsuarios.Size = new System.Drawing.Size(81, 25);
+            this.tsUsuarios.TabIndex = 0;
             // 
             // tbsNuevo
             // 
@@ -192,46 +180,104 @@
             this.tbsEliminar.Text = "Eliminar";
             this.tbsEliminar.Click += new System.EventHandler(this.tbsEliminar_Click);
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "ID";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Apellido
+            // 
+            this.Apellido.DataPropertyName = "Apellido";
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            this.Apellido.ReadOnly = true;
+            // 
+            // Legajo
+            // 
+            this.Legajo.DataPropertyName = "Legajo";
+            this.Legajo.HeaderText = "Legajo";
+            this.Legajo.Name = "Legajo";
+            this.Legajo.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            // 
+            // Telefono
+            // 
+            this.Telefono.DataPropertyName = "Telefono";
+            this.Telefono.HeaderText = "Telefono";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
+            // 
+            // Direccion
+            // 
+            this.Direccion.DataPropertyName = "Direccion";
+            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
+            // 
+            // FechaNac
+            // 
+            this.FechaNac.DataPropertyName = "FechaNacimiento";
+            this.FechaNac.HeaderText = "FechaNac";
+            this.FechaNac.Name = "FechaNac";
+            this.FechaNac.ReadOnly = true;
+            // 
             // PersonaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(699, 301);
-            this.Controls.Add(this.tcPersonas);
+            this.ClientSize = new System.Drawing.Size(968, 372);
+            this.Controls.Add(this.tcUsuarios);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "PersonaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Personas";
-            this.Load += new System.EventHandler(this.PersonaPrincipal_Load);
-            this.tcPersonas.ContentPanel.ResumeLayout(false);
-            this.tcPersonas.TopToolStripPanel.ResumeLayout(false);
-            this.tcPersonas.TopToolStripPanel.PerformLayout();
-            this.tcPersonas.ResumeLayout(false);
-            this.tcPersonas.PerformLayout();
-            this.tlPersonas.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.Usuarios_Load);
+            this.tcUsuarios.ContentPanel.ResumeLayout(false);
+            this.tcUsuarios.TopToolStripPanel.ResumeLayout(false);
+            this.tcUsuarios.TopToolStripPanel.PerformLayout();
+            this.tcUsuarios.ResumeLayout(false);
+            this.tcUsuarios.PerformLayout();
+            this.tlUsuarios.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonas)).EndInit();
-            this.tsPersonas.ResumeLayout(false);
-            this.tsPersonas.PerformLayout();
+            this.tsUsuarios.ResumeLayout(false);
+            this.tsUsuarios.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ToolStripContainer tcPersonas;
-        private System.Windows.Forms.TableLayoutPanel tlPersonas;
+        private System.Windows.Forms.ToolStripContainer tcUsuarios;
+        private System.Windows.Forms.TableLayoutPanel tlUsuarios;
         private System.Windows.Forms.DataGridView dgvPersonas;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.ToolStrip tsPersonas;
+        private System.Windows.Forms.ToolStrip tsUsuarios;
         private System.Windows.Forms.ToolStripButton tbsNuevo;
         private System.Windows.Forms.ToolStripButton tbsEditar;
         private System.Windows.Forms.ToolStripButton tbsEliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn persona;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn habilitado;
-    
-
-       
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Legajo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaNac;
     }
 }

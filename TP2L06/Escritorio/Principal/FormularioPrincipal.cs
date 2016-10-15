@@ -70,5 +70,17 @@ namespace Escritorio.Principal
             Escritorio.Usuario.UsuarioPrincipal formU = new Escritorio.Usuario.UsuarioPrincipal();
             formU.Show();
         }
+
+        private void personasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Escritorio.Persona.PersonaPrincipal formU = new Escritorio.Persona.PersonaPrincipal();
+            formU.Show();
+        }
+
+        private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Escritorio.Materia.MateriaPrincipal formU = new Escritorio.Materia.MateriaPrincipal();
+            formU.Show();
+        }
     }
 }

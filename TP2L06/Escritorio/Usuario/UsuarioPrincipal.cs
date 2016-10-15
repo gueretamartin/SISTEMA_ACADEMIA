@@ -70,7 +70,7 @@ namespace Escritorio.Usuario
                     this.Listar(); 
                 }
             }
-            catch (ArgumentOutOfRangeException ef)
+            catch (ArgumentOutOfRangeException )
             {
                 MessageBox.Show("No existen registros a editar.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -88,7 +88,7 @@ namespace Escritorio.Usuario
                     this.Listar(); 
                 }
             }
-            catch (ArgumentOutOfRangeException ef)
+            catch (ArgumentOutOfRangeException )
             {
                 MessageBox.Show("No existen registros a eliminar.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
