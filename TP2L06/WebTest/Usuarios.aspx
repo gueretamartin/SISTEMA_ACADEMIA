@@ -37,8 +37,8 @@
         <div class="form-group">
         <asp:Label Text="ID Usuario: " ID="lblId" runat="server" />
         <asp:TextBox class="form-control" Text="ID" ID="txtId" runat="server" ReadOnly="true" /><br />
-         <asp:Label Text="ID Persona: " ID="lblIdPersona" runat="server" />
-        <asp:TextBox class="form-control" Text="" ID="txtIdPersona" runat="server" ReadOnly="false" /><br />
+         <asp:Label Text="Persona: " ID="lblIdPersona" runat="server" />
+        <asp:ListBox class="form-control"  ID="listIdPersona" runat="server" ReadOnly="false" /><br />
         <asp:Label Text="Usuario: " ID="lblNombreUsuario" runat="server" />
         <asp:TextBox  class="form-control"  Text="Usuario" ID="txtNombreUsuario" runat="server" /><br />
         <asp:Label Text="Nombre: " ID="lblNombrePersona" runat="server" />

@@ -103,13 +103,13 @@ namespace WebTest {
         protected global::System.Web.UI.WebControls.Label lblIdPersona;
         
         /// <summary>
-        /// txtIdPersona control.
+        /// listIdPersona control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdPersona;
+        protected global::System.Web.UI.WebControls.ListBox listIdPersona;
         
         /// <summary>
         /// lblNombreUsuario control.

@@ -23,7 +23,7 @@ namespace WebTest
             if (!IsPostBack) this.BindGV();
             this.formActionPanel.Visible = false;
             this.formPanel.Visible = false;
-            
+
         }
 
         protected void BindGV()
@@ -84,13 +84,14 @@ namespace WebTest
             this.IdSeleccionado = (int)this.gridView.SelectedValue;
         }
 
-        
+
 
         protected void LoadForm(int id)
         {
-            
+
             this.UsuarioActual = this.cu.dameUno(id);
-            
+            var dataList = cp.dameTodos();
+        
             this.txtNombreUsuario.Text = UsuarioActual.NombreUsuario;
             this.txtNombrePersona.Text = UsuarioActual.Persona.Nombre;
             this.txtApellidoPersona.Text = UsuarioActual.Persona.Apellido;
@@ -102,7 +103,12 @@ namespace WebTest
             this.txtClave.Text = "";
             this.txtRepetirClave.Text = "";
             this.txtId.Text = UsuarioActual.Id.ToString();
-            this.txtIdPersona.Text = UsuarioActual.Persona.Id.ToString();
+            this.listIdPersona.DataBind();
+            this.listIdPersona  .DataSource = dataList;
+            this.listIdPersona.DataValueField = "Id";
+            this.listIdPersona.DataTextField = "Nombre";
+            this.listIdPersona.SelectedValue = UsuarioActual.Persona.Id.ToString();
+
         }
 
         protected void LbtnEditar_Click(object sender, EventArgs e)
@@ -139,7 +145,7 @@ namespace WebTest
             if (!Page.IsValid)
                 return;
             switch (formMode)
-            { 
+            {
                 case FormModes.Alta:
                     this.usuarioActual = new Usuario();
                     this.usuarioActual.State = Entidades.EntidadBase.States.New;
@@ -153,13 +159,13 @@ namespace WebTest
                     this.cargarUsuario(this.usuarioActual);
                     this.guardarUsuario(this.usuarioActual);
                     break;
-                    case FormModes.Baja:
-                        this.borrarEntidad(this.IdSeleccionado);
-                        break;
+                case FormModes.Baja:
+                    this.borrarEntidad(this.IdSeleccionado);
+                    break;
 
             }
             this.renovarForm();
-                   
+
             this.BindGV();
         }
         public override void renovarForm()
@@ -175,7 +181,7 @@ namespace WebTest
             this.txtClave.Text = String.Empty;
             this.txtRepetirClave.Text = String.Empty;
             this.txtId.Text = String.Empty;
-            this.txtIdPersona.Text = String.Empty;
+            this.listIdPersona.SelectedValue = String.Empty;
         }
 
         public override void habilitarForm(bool enabled)
@@ -191,11 +197,12 @@ namespace WebTest
             this.txtClave.Enabled = enabled;
             this.txtRepetirClave.Enabled = enabled;
             this.txtId.Enabled = enabled;
-            this.txtIdPersona.Enabled = enabled;
+            this.listIdPersona.Enabled = enabled;
 
         }
 
-        public void guardarUsuario(Usuario usu) {
+        public void guardarUsuario(Usuario usu)
+        {
             this.cu.guardarUsuario(usu);
         }
         protected void lbtnEliminar_Click(object sender, EventArgs e)
@@ -218,21 +225,22 @@ namespace WebTest
             this.formActionPanel.Visible = false;
             this.renovarForm();
         }
-        public void cargarUsuario(Usuario usu) {
+        public void cargarUsuario(Usuario usu)
+        {
             // usu.Id = Convert.ToInt32(this.txtId.Text);
             usu.NombreUsuario = this.txtNombreUsuario.Text;
-            usu.Habilitado = this.chkHabilitado.Checked ;
+            usu.Habilitado = this.chkHabilitado.Checked;
             usu.Clave = this.txtClave.Text;
             Personas per = new Personas();
-            per = this.cp.dameUno(Convert.ToInt32(txtIdPersona.Text));
-            usu.Persona = per;            
+            per = this.cp.dameUno(Convert.ToInt32(listIdPersona.SelectedValue));
+            usu.Persona = per;
         }
 
         protected void lbtnNuevo_Click(object sender, EventArgs e)
         {
             {
-               // this.formPanel.Visible = true;
-               //  this.LoadForm(this.IdSeleccionado);
+                // this.formPanel.Visible = true;
+                //  this.LoadForm(this.IdSeleccionado);
 
                 this.formPanel.Visible = true;
                 this.formActionPanel.Visible = true;

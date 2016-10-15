@@ -16,6 +16,12 @@ namespace Negocio
             return personasData.GetOne(id);
         }
 
+        public List<Personas> dameTodos()
+        {
+            var personas = personasData.GetAll();
+            return personas;
+        }
+
         
     }
 }
