@@ -59,7 +59,7 @@ namespace Escritorio.Materia
                 if (!(this.dgvUsuarios.SelectedRows == null)) //Controlamos que la tabla tenga elementos dentro
                 {
                     //Obtenemos el ID del usuario de la tabla seleccionado
-                    int ID = ((Entidades.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).Id;
+                    int ID = ((Entidades.Materia)this.dgvUsuarios.SelectedRows[0].DataBoundItem).Id;
                     MateriaABM formUsuario = new MateriaABM(ID, Escritorio.Base.FormularioBase.ModoForm.Modificacion);
                     formUsuario.ShowDialog();
                     this.Listar();
@@ -77,7 +77,7 @@ namespace Escritorio.Materia
             {
                 if (!(this.dgvUsuarios.SelectedRows == null))
                 {
-                    int ID = ((Entidades.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).Id;
+                    int ID = ((Entidades.Materia)this.dgvUsuarios.SelectedRows[0].DataBoundItem).Id;
                     MateriaABM formUsuario = new MateriaABM(ID, Escritorio.Base.FormularioBase.ModoForm.Baja);
                     formUsuario.ShowDialog();
                     this.Listar();

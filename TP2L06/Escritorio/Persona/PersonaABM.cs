@@ -86,13 +86,19 @@ namespace Escritorio.Persona
             this.txtDireccion.Text = this.PersonaActual.Direccion;
             this.txtTelefono.Text = this.PersonaActual.Telefono;
             this.dateFechaNac.Text = this.PersonaActual.FechaNacimiento.ToString();
-     
+
+
+            this.lstBoxPlan.SelectedIndex = this.lstBoxPlan.FindString(PersonaActual.Plan.DescripcionPlan);
+            this.lstBoxTipoPersona.SelectedIndex = this.lstBoxTipoPersona.FindString(PersonaActual.TipoPersona.DescripcionTipo);
+
+
+
         }
 
         public override void GuardarCambios()
         {
             MapearADatos();
-            new ControladorPersona().guardarUsuario(PersonaActual);
+            new ControladorPersona().save(PersonaActual);
         }
 
         public override void MapearADatos()
@@ -221,8 +227,6 @@ namespace Escritorio.Persona
             this.lstBoxTipoPersona.ValueMember = "Id";
             this.lstBoxTipoPersona.DisplayMember = "DescripcionTipo";
 
-            this.lstBoxPlan.SelectedIndex = this.lstBoxPlan.FindString(PersonaActual.Plan.DescripcionPlan);
-            this.lstBoxTipoPersona.SelectedIndex = this.lstBoxTipoPersona.FindString(PersonaActual.TipoPersona.DescripcionTipo);
 
             if (ModoForm.Baja == this.Modo)
             {
@@ -231,6 +235,7 @@ namespace Escritorio.Persona
             } 
         }
 
+       
     }
 }
 

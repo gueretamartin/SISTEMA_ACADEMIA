@@ -15,12 +15,14 @@ namespace Datos
         {
             List<Materia> materias = new List<Materia>();
             Materia mat = null;
+            this.OpenConnection();
             try
             {
                 SqlCommand cmdMaterias = new SqlCommand("Select * from materias", Con);
                 SqlDataReader drMaterias = cmdMaterias.ExecuteReader();
                 while (drMaterias.Read())
                 {
+                    mat = new Materia();
                     mat.DescripcionMateria = (string)drMaterias["desc_materia"];
                     mat.HorasSemanales = (int)drMaterias["hs_semanales"];
                     mat.HorasTotales = (int)drMaterias["hs_totales"];
@@ -46,6 +48,7 @@ namespace Datos
         public Materia GetOne(int id)
         {
             Materia mat = new Materia();
+            this.OpenConnection();
             try
             {
                 SqlCommand cmdMaterias = new SqlCommand("Select * from materias where id_materia = @id", Con);

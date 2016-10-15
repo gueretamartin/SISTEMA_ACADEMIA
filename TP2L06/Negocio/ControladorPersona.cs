@@ -22,9 +22,9 @@ namespace Negocio
             return personas;
         }
 
-        public void guardarUsuario(Personas personaActual)
+        public void save(Personas per)
         {
-            throw new NotImplementedException();
+            personasData.Save(per);
         }
     }
 }

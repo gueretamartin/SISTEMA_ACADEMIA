@@ -17,9 +17,9 @@ namespace Negocio
             return cp.GetOne(id);
         }
 
-        public object dameTodos()
+        public List<TipoPersona> dameTodos()
         {
-            throw new NotImplementedException();
+            return cp.getAll();
         }
     }
 }

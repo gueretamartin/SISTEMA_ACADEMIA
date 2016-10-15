@@ -62,7 +62,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.32155F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.67844F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 261F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 262F));
             this.tableLayoutPanel1.Controls.Add(this.lblID, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblNombre, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblEmail, 0, 2);
@@ -136,7 +136,7 @@
             // 
             this.lblApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(353, 81);
+            this.lblApellido.Location = new System.Drawing.Point(352, 81);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(44, 13);
             this.lblApellido.TabIndex = 5;
@@ -146,7 +146,7 @@
             // 
             this.lblDireccion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(349, 130);
+            this.lblDireccion.Location = new System.Drawing.Point(348, 130);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(52, 13);
             this.lblDireccion.TabIndex = 6;
@@ -205,7 +205,7 @@
             // 
             this.lblLegajo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblLegajo.AutoSize = true;
-            this.lblLegajo.Location = new System.Drawing.Point(355, 21);
+            this.lblLegajo.Location = new System.Drawing.Point(354, 21);
             this.lblLegajo.Name = "lblLegajo";
             this.lblLegajo.Size = new System.Drawing.Size(39, 13);
             this.lblLegajo.TabIndex = 7;
@@ -223,7 +223,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(345, 159);
+            this.label1.Location = new System.Drawing.Point(344, 159);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 26);
             this.label1.TabIndex = 11;
@@ -232,7 +232,7 @@
             // dateFechaNac
             // 
             this.dateFechaNac.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateFechaNac.Location = new System.Drawing.Point(455, 162);
+            this.dateFechaNac.Location = new System.Drawing.Point(454, 162);
             this.dateFechaNac.Name = "dateFechaNac";
             this.dateFechaNac.Size = new System.Drawing.Size(200, 20);
             this.dateFechaNac.TabIndex = 12;
@@ -312,6 +312,7 @@
             this.Name = "PersonaABM";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Personas";
+            this.Load += new System.EventHandler(this.PersonaABM_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

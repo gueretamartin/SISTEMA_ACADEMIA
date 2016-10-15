@@ -34,7 +34,7 @@ namespace Escritorio.Persona
 
         #region Eventos
 
-        private void Usuarios_Load(object sender, EventArgs e)
+        private void Personas_Load(object sender, EventArgs e)
         {
             this.Listar();
         }
@@ -51,8 +51,8 @@ namespace Escritorio.Persona
 
         private void tbsNuevo_Click(object sender, EventArgs e)
         {
-            PersonaABM formUsuario = new PersonaABM(Escritorio.Base.FormularioBase.ModoForm.Alta);
-            formUsuario.ShowDialog();
+            PersonaABM formPersona = new PersonaABM(Escritorio.Base.FormularioBase.ModoForm.Alta);
+            formPersona.ShowDialog();
             this.Listar();
         }
 
@@ -62,10 +62,10 @@ namespace Escritorio.Persona
             {
                 if (!(this.dgvPersonas.SelectedRows == null)) //Controlamos que la tabla tenga elementos dentro
                 {
-                    //Obtenemos el ID del usuario de la tabla seleccionado
-                    int ID = ((Entidades.Usuario)this.dgvPersonas.SelectedRows[0].DataBoundItem).Id;
-                    PersonaABM formUsuario = new PersonaABM(ID, Escritorio.Base.FormularioBase.ModoForm.Modificacion);
-                    formUsuario.ShowDialog();
+                    //Obtenemos el ID del Persona de la tabla seleccionado
+                    int ID = ((Entidades.Personas)this.dgvPersonas.SelectedRows[0].DataBoundItem).Id;
+                    PersonaABM formPersona = new PersonaABM(ID, Escritorio.Base.FormularioBase.ModoForm.Modificacion);
+                    formPersona.ShowDialog();
                     this.Listar();
                 }
             }
@@ -81,9 +81,9 @@ namespace Escritorio.Persona
             {
                 if (!(this.dgvPersonas.SelectedRows == null))
                 {
-                    int ID = ((Entidades.Usuario)this.dgvPersonas.SelectedRows[0].DataBoundItem).Id;
-                    PersonaABM formUsuario = new PersonaABM(ID, Escritorio.Base.FormularioBase.ModoForm.Baja);
-                    formUsuario.ShowDialog();
+                    int ID = ((Entidades.Personas)this.dgvPersonas.SelectedRows[0].DataBoundItem).Id;
+                    PersonaABM formPersona = new PersonaABM(ID, Escritorio.Base.FormularioBase.ModoForm.Baja);
+                    formPersona.ShowDialog();
                     this.Listar();
                 }
             }

@@ -34,7 +34,7 @@ namespace Datos
             catch (Exception Ex)
             {
                 Exception ExcepcionManejada =
-                new Exception("Error al recuperar datos de usuario", Ex);
+                new Exception("Error al recuperar tipos de persona", Ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -42,6 +42,41 @@ namespace Datos
                 this.CloseConnection();
             }
             return p;
+        }
+
+        public List<TipoPersona> getAll()
+        {
+            List<TipoPersona> tiposP = new List<TipoPersona>();
+            TipoPersona p = new TipoPersona();
+            try
+            {
+                this.OpenConnection();
+
+                SqlCommand cmdTipoPersona = new SqlCommand("SELECT * FROM tipo_persona", Con);
+
+                SqlDataReader drTipoPersona = cmdTipoPersona.ExecuteReader();
+
+                while (drTipoPersona.Read())
+                {
+                    p = new TipoPersona();
+                    p.Id = (int)drTipoPersona["id_tipo_persona"];
+                    p.DescripcionTipo = (string)drTipoPersona["desc_tipo_persona"];
+                    tiposP.Add(p);
+                }
+
+                drTipoPersona.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al recuperar tipos de persona", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return tiposP;
         }
     }
 }

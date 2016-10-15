@@ -175,14 +175,14 @@
             // 
             // DescripcionMateria
             // 
-            this.DescripcionMateria.DataPropertyName = "Descripcion";
+            this.DescripcionMateria.DataPropertyName = "DescripcionMateria";
             this.DescripcionMateria.HeaderText = "Descripcion Materia";
             this.DescripcionMateria.Name = "DescripcionMateria";
             this.DescripcionMateria.ReadOnly = true;
             // 
             // HorasSemanales
-            // 
-            this.HorasSemanales.DataPropertyName = "Horas Semanales";
+            //
+            this.HorasSemanales.DataPropertyName = "HorasSemanales";
             this.HorasSemanales.HeaderText = "Horas Semanales";
             this.HorasSemanales.Name = "HorasSemanales";
             this.HorasSemanales.ReadOnly = true;
