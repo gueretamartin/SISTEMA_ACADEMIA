@@ -8,9 +8,9 @@
 <body>
     <form id="form1" runat="server">
         <label>Usuario</label><br />
-        <asp:TextBox ID="txtUser" runat="server" Text="martinguere" /><br />
+        <asp:TextBox ID="txtUser" runat="server" Text="nicocda" /><br />
         <label>Password</label><br />
-        <asp:TextBox ID="txtPass" runat="server" Text="24029477" TextMode="Password" /><br />   
+        <asp:TextBox ID="txtPass" runat="server" Text="nicolas23" TextMode="Password" /><br />   
         <p>
         <asp:Button ID="btnLogin" Text="Ingresar" runat="server" OnClick="validarEIngresar"  />
         </p>
