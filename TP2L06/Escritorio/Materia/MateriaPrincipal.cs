@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,35 +8,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Negocio;
 
-namespace Escritorio.Usuario
+namespace Escritorio.Materia
 {
-    public partial class UsuarioPrincipal : Form
+    public partial class MateriaPrincipal : Form
     {
-        #region Constructores
-
-        public UsuarioPrincipal()
+        public MateriaPrincipal()
         {
             InitializeComponent();
             this.dgvUsuarios.AutoGenerateColumns = false;
         }
 
-        #endregion
-
         #region Metodos
 
         public void Listar()
         {
-            ControladorUsuario ul = new ControladorUsuario();
+            ControladorMaterias ul = new ControladorMaterias();
             dgvUsuarios.DataSource = ul.dameTodos();  //asignaremos el resultado a la propiedad DataSource de la grilla
         }
 
         #endregion
-
         #region Eventos
 
-        private void Usuarios_Load(object sender, EventArgs e)
+        private void Materia_Load(object sender, EventArgs e)
         {
             this.Listar();
         }
@@ -52,7 +47,7 @@ namespace Escritorio.Usuario
 
         private void tbsNuevo_Click(object sender, EventArgs e)
         {
-            UsuarioABM formUsuario = new UsuarioABM(Escritorio.Base.FormularioBase.ModoForm.Alta);
+            MateriaABM formUsuario = new MateriaABM(Escritorio.Base.FormularioBase.ModoForm.Alta);
             formUsuario.ShowDialog();
             this.Listar();
         }
@@ -65,12 +60,12 @@ namespace Escritorio.Usuario
                 {
                     //Obtenemos el ID del usuario de la tabla seleccionado
                     int ID = ((Entidades.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).Id;
-                    UsuarioABM formUsuario = new UsuarioABM(ID, Escritorio.Base.FormularioBase.ModoForm.Modificacion);
+                    MateriaABM formUsuario = new MateriaABM(ID, Escritorio.Base.FormularioBase.ModoForm.Modificacion);
                     formUsuario.ShowDialog();
-                    this.Listar(); 
+                    this.Listar();
                 }
             }
-            catch (ArgumentOutOfRangeException )
+            catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("No existen registros a editar.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -82,18 +77,19 @@ namespace Escritorio.Usuario
             {
                 if (!(this.dgvUsuarios.SelectedRows == null))
                 {
-                     int ID = ((Entidades.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).Id;
-                    UsuarioABM formUsuario = new UsuarioABM(ID, Escritorio.Base.FormularioBase.ModoForm.Baja);
+                    int ID = ((Entidades.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).Id;
+                    MateriaABM formUsuario = new MateriaABM(ID, Escritorio.Base.FormularioBase.ModoForm.Baja);
                     formUsuario.ShowDialog();
-                    this.Listar(); 
+                    this.Listar();
                 }
             }
-            catch (ArgumentOutOfRangeException )
+            catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("No existen registros a eliminar.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         #endregion
+
     }
 }

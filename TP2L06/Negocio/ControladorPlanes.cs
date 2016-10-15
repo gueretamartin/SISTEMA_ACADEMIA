@@ -21,5 +21,12 @@ namespace Negocio
         {
             throw new NotImplementedException();
         }
+
+        public List<Plan> dameTodos() {
+            List<Plan> planes = new List<Plan>();
+  
+            return planes;
+        }
+       
     }
 }

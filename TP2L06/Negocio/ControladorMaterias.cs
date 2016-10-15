@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Datos;
-using Entidades; 
+using Entidades;
 
 namespace Negocio
 {
-    public class ControladorTipoPersona
+    public class ControladorMaterias
     {
-        private  CatalogoTipoPersona cp  = new CatalogoTipoPersona();
-
-        public TipoPersona dameUno(int id)
+        public Materia dameUno(int iD)
         {
-            return cp.GetOne(id);
+            throw new NotImplementedException();
         }
 
         public object dameTodos()

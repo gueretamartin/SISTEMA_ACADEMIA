@@ -22,6 +22,9 @@ namespace Negocio
             return personas;
         }
 
-        
+        public void guardarUsuario(Personas personaActual)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

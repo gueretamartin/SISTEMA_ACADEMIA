@@ -16,7 +16,7 @@ namespace WebTest
         {
             String nombreUsuario = this.txtUser.Text;
             String pass = this.txtPass.Text;
-            ControladorUsuario cu = new ControladorUsuario();
+            ControladorMateria cu = new ControladorMateria();
             Usuario user = cu.validarUsuario(nombreUsuario, pass);
             if(user != null)
             {

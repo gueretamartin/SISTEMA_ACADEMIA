@@ -12,12 +12,12 @@ using System.Windows.Forms;
 // using Util; VER LO DE VALIDAR MAIL MAS ABAJO
 namespace Escritorio.Usuario
 {
-    public partial class UsuarioABM : Escritorio.Base.FormularioBase
+    public partial class UsuarioABM : Base.FormularioBase
     {
 
         #region VARIABLES
-        private Entidades.Usuario _usuarioActual;
-        bool est = true;
+            private Entidades.Usuario _usuarioActual;
+            bool est = true;
         #endregion
 
         #region PROPIEDADES
@@ -72,8 +72,8 @@ namespace Escritorio.Usuario
 
         #region METODOS
        
-
-        public virtual void MapearDeDatos()
+        
+        public  override void  MapearDeDatos()
         {
             this.txtID.Text = this.UsuarioActual.Id.ToString();
             this.chkHabilitado.Checked = this.UsuarioActual.Habilitado;
@@ -81,19 +81,19 @@ namespace Escritorio.Usuario
             this.txtApellido.Text = this.UsuarioActual.Persona.Apellido;
             this.txtClave.Text = this.UsuarioActual.Clave;
             this.txtEmail.Text = this.UsuarioActual.Persona.Email;
-             
             this.txtUsuario.Text = this.UsuarioActual.NombreUsuario;
-            lstBoxPersonas.SelectedItem = this.UsuarioActual.Persona;
+           
+
 
         }
 
-        public virtual void GuardarCambios()
+        public override void GuardarCambios()
         {
             MapearADatos();
             new ControladorUsuario().guardarUsuario(UsuarioActual);
         }
 
-        public virtual void MapearADatos()
+        public override void MapearADatos()
         {
             //La propiedad State se setea dependiendo el Modo del Formulario
             switch (this.Modo)
@@ -136,7 +136,7 @@ namespace Escritorio.Usuario
             }
         }
 
-        public virtual bool Validar()
+        public override bool Validar()
         {
             int idP = Convert.ToInt32(lstBoxPersonas.SelectedValue);
             bool est = validarPersonaExiste(idP);
@@ -207,7 +207,7 @@ namespace Escritorio.Usuario
          * Validar será el método que devuelva si los datos son válidos para poder registrar los cambios realizados. */
 
 
-        public void Notificar(string titulo, string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
+        public new void Notificar(string titulo, string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
         {
             MessageBox.Show(mensaje, titulo, botones, icono);
         }
@@ -216,7 +216,7 @@ namespace Escritorio.Usuario
           realizan los avisos al usuario sólo se debe modificar este método, en lugar de tener que reemplazarlo en toda la aplicación.*/
 
 
-        public void Notificar(string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
+        public new void Notificar(string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
         {
             this.Notificar(this.Text, mensaje, botones, icono);
         }
@@ -268,6 +268,8 @@ namespace Escritorio.Usuario
             this.lstBoxPersonas.DataSource = (new ControladorPersona()).dameTodos();
             this.lstBoxPersonas.ValueMember = "Id";
             this.lstBoxPersonas.DisplayMember = "PersonaString";
+            this.lstBoxPersonas.SelectedIndex = this.lstBoxPersonas.FindString(UsuarioActual.Persona.PersonaString);
+
             if (ModoForm.Baja == this.Modo)
             {
                 this.lstBoxPersonas.Visible = false;
