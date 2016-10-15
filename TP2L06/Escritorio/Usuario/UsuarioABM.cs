@@ -81,10 +81,10 @@ namespace Escritorio.Usuario
             this.txtApellido.Text = this.UsuarioActual.Persona.Apellido;
             this.txtClave.Text = this.UsuarioActual.Clave;
             this.txtEmail.Text = this.UsuarioActual.Persona.Email;
-            // traer listas de us this.txtUsuario.Text = this.UsuarioActual.NombreUsuario;
-            // this.lstBoxPersonas.DataSource = this.
-            // this.lstBoxPersonas.ValueMember = 
-            // this.lstBoxPersonas.DisplayMember = 
+             
+            this.txtUsuario.Text = this.UsuarioActual.NombreUsuario;
+            lstBoxPersonas.SelectedItem = this.UsuarioActual.Persona;
+
         }
 
         public virtual void GuardarCambios()
@@ -107,8 +107,10 @@ namespace Escritorio.Usuario
                         this.UsuarioActual.Clave = this.txtClave.Text;
                         this.UsuarioActual.NombreUsuario = this.txtUsuario.Text;
                         this.UsuarioActual.Persona = p;
-                        this.UsuarioActual.Persona.Id = Convert.ToInt32(this.lstBoxPersonas.Text); 
+                        this.UsuarioActual.Persona.Id = Convert.ToInt32(this.lstBoxPersonas.SelectedValue); 
                         this.UsuarioActual.State = Entidades.EntidadBase.States.New;
+                       
+                      
                         break;
                     }
                 case (ModoForm.Modificacion):
@@ -116,13 +118,14 @@ namespace Escritorio.Usuario
                         this.UsuarioActual.Habilitado = this.chkHabilitado.Checked;
                         this.UsuarioActual.Clave = this.txtClave.Text;
                         this.UsuarioActual.NombreUsuario = this.txtUsuario.Text;
-                        this.UsuarioActual.Persona.Id = Convert.ToInt32(this.lstBoxPersonas.Text);
+                        this.UsuarioActual.Persona.Id = Convert.ToInt32(this.lstBoxPersonas.SelectedValue);
                         this.UsuarioActual.State = Entidades.EntidadBase.States.Modified;
                         break;
                     }
                 case (ModoForm.Baja):
                     {
                         this.UsuarioActual.State = Entidades.EntidadBase.States.Deleted;
+                       
                         break;
                     }
                 case (ModoForm.Consulta):
@@ -135,7 +138,7 @@ namespace Escritorio.Usuario
 
         public virtual bool Validar()
         {
-            int idP = Convert.ToInt32(lstBoxPersonas.Text);
+            int idP = Convert.ToInt32(lstBoxPersonas.SelectedValue);
             bool est = validarPersonaExiste(idP);
             Boolean estado = true;
             if (est == true)
@@ -258,6 +261,18 @@ namespace Escritorio.Usuario
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void UsuarioABM_Load(object sender, EventArgs e)
+        {
+            this.lstBoxPersonas.DataSource = (new ControladorPersona()).dameTodos();
+            this.lstBoxPersonas.ValueMember = "Id";
+            this.lstBoxPersonas.DisplayMember = "PersonaString";
+            if (ModoForm.Baja == this.Modo)
+            {
+                this.lstBoxPersonas.Visible = false;
+                this.lblIdPersona.Visible = false;
+            }
         }
     }
 }

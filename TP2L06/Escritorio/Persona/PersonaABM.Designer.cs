@@ -1,6 +1,6 @@
-﻿namespace Escritorio.Usuario
+﻿namespace Escritorio.Persona
 {
-    partial class UsuarioABM
+    partial class PersonaABM 
     {
         /// <summary>
         /// Required designer variable.
@@ -19,7 +19,6 @@
             }
             base.Dispose(disposing);
         }
-
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -32,23 +31,25 @@
             this.lblID = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.lblClave = new System.Windows.Forms.Label();
-            this.chkHabilitado = new System.Windows.Forms.CheckBox();
+            this.lblLegajo = new System.Windows.Forms.Label();
             this.lblApellido = new System.Windows.Forms.Label();
-            this.lblUsuario = new System.Windows.Forms.Label();
-            this.lblConfirmClave = new System.Windows.Forms.Label();
+            this.lblTelefono = new System.Windows.Forms.Label();
+            this.lblFechaNac = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtClave = new System.Windows.Forms.TextBox();
+            this.txtLegajo = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.txtConfirmarClave = new System.Windows.Forms.TextBox();
-            this.chkPass = new System.Windows.Forms.CheckBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.lblIdPersona = new System.Windows.Forms.Label();
-            this.lstBoxPersonas = new System.Windows.Forms.ListBox();
+            this.lblPlan = new System.Windows.Forms.Label();
+            this.lstBoxPlan = new System.Windows.Forms.ListBox();
+            this.dateFechaNac = new System.Windows.Forms.DateTimePicker();
+            this.lstBoxTipoPersona = new System.Windows.Forms.ListBox();
+            this.lblTipoPersona = new System.Windows.Forms.Label();
+            this.lblDireccion = new System.Windows.Forms.Label();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,23 +60,23 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.32155F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.67844F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 258F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 259F));
             this.tableLayoutPanel1.Controls.Add(this.lblID, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblNombre, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblEmail, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.lblClave, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.chkHabilitado, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblApellido, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblUsuario, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.lblConfirmClave, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.lblTelefono, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblFechaNac, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtNombre, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtEmail, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtClave, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtApellido, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtUsuario, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtConfirmarClave, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.chkPass, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.txtTelefono, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.dateFechaNac, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.txtLegajo, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblLegajo, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtDireccion, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.lblDireccion, 0, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(89, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
@@ -87,7 +88,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(628, 194);
             this.tableLayoutPanel1.TabIndex = 0;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // lblID
             // 
@@ -119,66 +119,52 @@
             this.lblEmail.TabIndex = 2;
             this.lblEmail.Text = "Email";
             // 
-            // lblClave
+            // lblLegajo
             // 
-            this.lblClave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblClave.AutoSize = true;
-            this.lblClave.Location = new System.Drawing.Point(14, 113);
-            this.lblClave.Name = "lblClave";
-            this.lblClave.Size = new System.Drawing.Size(34, 13);
-            this.lblClave.TabIndex = 3;
-            this.lblClave.Text = "Clave";
-            // 
-            // chkHabilitado
-            // 
-            this.chkHabilitado.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chkHabilitado.AutoSize = true;
-            this.chkHabilitado.Checked = true;
-            this.chkHabilitado.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkHabilitado.Location = new System.Drawing.Point(283, 7);
-            this.chkHabilitado.Name = "chkHabilitado";
-            this.chkHabilitado.Size = new System.Drawing.Size(73, 17);
-            this.chkHabilitado.TabIndex = 99;
-            this.chkHabilitado.TabStop = false;
-            this.chkHabilitado.Text = "Habilitado";
-            this.chkHabilitado.UseVisualStyleBackColor = true;
+            this.lblLegajo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblLegajo.AutoSize = true;
+            this.lblLegajo.Location = new System.Drawing.Point(299, 9);
+            this.lblLegajo.Name = "lblLegajo";
+            this.lblLegajo.Size = new System.Drawing.Size(39, 13);
+            this.lblLegajo.TabIndex = 3;
+            this.lblLegajo.Text = "Legajo";
             // 
             // lblApellido
             // 
             this.lblApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(298, 43);
+            this.lblApellido.Location = new System.Drawing.Point(297, 43);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(44, 13);
             this.lblApellido.TabIndex = 5;
             this.lblApellido.Text = "Apellido";
             // 
-            // lblUsuario
+            // lblTelefono
             // 
-            this.lblUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(298, 78);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(43, 13);
-            this.lblUsuario.TabIndex = 6;
-            this.lblUsuario.Text = "Usuario";
+            this.lblTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTelefono.AutoSize = true;
+            this.lblTelefono.Location = new System.Drawing.Point(294, 78);
+            this.lblTelefono.Name = "lblTelefono";
+            this.lblTelefono.Size = new System.Drawing.Size(49, 13);
+            this.lblTelefono.TabIndex = 6;
+            this.lblTelefono.Text = "Telefono";
             // 
-            // lblConfirmClave
+            // lblFechaNac
             // 
-            this.lblConfirmClave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblConfirmClave.AutoSize = true;
-            this.lblConfirmClave.Location = new System.Drawing.Point(279, 113);
-            this.lblConfirmClave.Name = "lblConfirmClave";
-            this.lblConfirmClave.Size = new System.Drawing.Size(81, 13);
-            this.lblConfirmClave.TabIndex = 7;
-            this.lblConfirmClave.Text = "Confirmar Clave";
+            this.lblFechaNac.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFechaNac.AutoSize = true;
+            this.lblFechaNac.Location = new System.Drawing.Point(289, 107);
+            this.lblFechaNac.Name = "lblFechaNac";
+            this.lblFechaNac.Size = new System.Drawing.Size(60, 26);
+            this.lblFechaNac.TabIndex = 7;
+            this.lblFechaNac.Text = "Fecha de Nacimiento";
+            this.lblFechaNac.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtID
             // 
             this.txtID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtID.Location = new System.Drawing.Point(66, 6);
             this.txtID.Name = "txtID";
-            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(201, 20);
             this.txtID.TabIndex = 10;
             // 
@@ -187,7 +173,6 @@
             this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNombre.Location = new System.Drawing.Point(66, 39);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.ReadOnly = true;
             this.txtNombre.Size = new System.Drawing.Size(201, 20);
             this.txtNombre.TabIndex = 1;
             // 
@@ -196,56 +181,32 @@
             this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEmail.Location = new System.Drawing.Point(66, 74);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(201, 20);
             this.txtEmail.TabIndex = 3;
             // 
-            // txtClave
+            // txtLegajo
             // 
-            this.txtClave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtClave.Location = new System.Drawing.Point(66, 110);
-            this.txtClave.Name = "txtClave";
-            this.txtClave.PasswordChar = '•';
-            this.txtClave.Size = new System.Drawing.Size(201, 20);
-            this.txtClave.TabIndex = 5;
+            this.txtLegajo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtLegajo.Location = new System.Drawing.Point(397, 6);
+            this.txtLegajo.Name = "txtLegajo";
+            this.txtLegajo.Size = new System.Drawing.Size(201, 20);
+            this.txtLegajo.TabIndex = 5;
             // 
             // txtApellido
             // 
             this.txtApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtApellido.Location = new System.Drawing.Point(398, 39);
+            this.txtApellido.Location = new System.Drawing.Point(397, 39);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.ReadOnly = true;
             this.txtApellido.Size = new System.Drawing.Size(201, 20);
             this.txtApellido.TabIndex = 2;
             // 
-            // txtUsuario
+            // txtTelefono
             // 
-            this.txtUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtUsuario.Location = new System.Drawing.Point(398, 74);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(201, 20);
-            this.txtUsuario.TabIndex = 4;
-            // 
-            // txtConfirmarClave
-            // 
-            this.txtConfirmarClave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtConfirmarClave.Location = new System.Drawing.Point(398, 110);
-            this.txtConfirmarClave.Name = "txtConfirmarClave";
-            this.txtConfirmarClave.PasswordChar = '•';
-            this.txtConfirmarClave.Size = new System.Drawing.Size(201, 20);
-            this.txtConfirmarClave.TabIndex = 6;
-            // 
-            // chkPass
-            // 
-            this.chkPass.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chkPass.AutoSize = true;
-            this.chkPass.Location = new System.Drawing.Point(110, 170);
-            this.chkPass.Name = "chkPass";
-            this.chkPass.Size = new System.Drawing.Size(114, 17);
-            this.chkPass.TabIndex = 100;
-            this.chkPass.Text = "Mostrar caracteres";
-            this.chkPass.UseVisualStyleBackColor = true;
-            this.chkPass.CheckedChanged += new System.EventHandler(this.chkPass_CheckedChanged);
+            this.txtTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtTelefono.Location = new System.Drawing.Point(397, 74);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(201, 20);
+            this.txtTelefono.TabIndex = 4;
             // 
             // btnAceptar
             // 
@@ -269,40 +230,88 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // lblIdPersona
+            // lblPlan
             // 
-            this.lblIdPersona.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblIdPersona.AutoSize = true;
-            this.lblIdPersona.Location = new System.Drawing.Point(98, 219);
-            this.lblIdPersona.Name = "lblIdPersona";
-            this.lblIdPersona.Size = new System.Drawing.Size(115, 13);
-            this.lblIdPersona.TabIndex = 101;
-            this.lblIdPersona.Text = "Seleccione la persona:";
+            this.lblPlan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPlan.AutoSize = true;
+            this.lblPlan.Location = new System.Drawing.Point(98, 219);
+            this.lblPlan.Name = "lblPlan";
+            this.lblPlan.Size = new System.Drawing.Size(98, 13);
+            this.lblPlan.TabIndex = 101;
+            this.lblPlan.Text = "Seleccione el Plan:";
             // 
-            // lstBoxPersonas
+            // lstBoxPlan
             // 
-            this.lstBoxPersonas.FormattingEnabled = true;
-            this.lstBoxPersonas.Location = new System.Drawing.Point(101, 245);
-            this.lstBoxPersonas.Name = "lstBoxPersonas";
-            this.lstBoxPersonas.Size = new System.Drawing.Size(616, 160);
-            this.lstBoxPersonas.TabIndex = 103;
+            this.lstBoxPlan.FormattingEnabled = true;
+            this.lstBoxPlan.Location = new System.Drawing.Point(101, 245);
+            this.lstBoxPlan.Name = "lstBoxPlan";
+            this.lstBoxPlan.Size = new System.Drawing.Size(616, 43);
+            this.lstBoxPlan.TabIndex = 103;
             // 
-            // UsuarioABM
+            // dateFechaNac
+            // 
+            this.dateFechaNac.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateFechaNac.Location = new System.Drawing.Point(398, 110);
+            this.dateFechaNac.MaxDate = new System.DateTime(1998, 12, 31, 0, 0, 0, 0);
+            this.dateFechaNac.Name = "dateFechaNac";
+            this.dateFechaNac.Size = new System.Drawing.Size(200, 20);
+            this.dateFechaNac.TabIndex = 101;
+            this.dateFechaNac.Value = new System.DateTime(1998, 12, 31, 0, 0, 0, 0);
+            // 
+            // lstBoxTipoPersona
+            // 
+            this.lstBoxTipoPersona.FormattingEnabled = true;
+            this.lstBoxTipoPersona.Location = new System.Drawing.Point(101, 332);
+            this.lstBoxTipoPersona.Name = "lstBoxTipoPersona";
+            this.lstBoxTipoPersona.Size = new System.Drawing.Size(616, 43);
+            this.lstBoxTipoPersona.TabIndex = 105;
+            // 
+            // lblTipoPersona
+            // 
+            this.lblTipoPersona.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTipoPersona.AutoSize = true;
+            this.lblTipoPersona.Location = new System.Drawing.Point(98, 306);
+            this.lblTipoPersona.Name = "lblTipoPersona";
+            this.lblTipoPersona.Size = new System.Drawing.Size(155, 13);
+            this.lblTipoPersona.TabIndex = 104;
+            this.lblTipoPersona.Text = "Seleccione el Tipo de Persona:";
+            // 
+            // lblDireccion
+            // 
+            this.lblDireccion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDireccion.AutoSize = true;
+            this.lblDireccion.Location = new System.Drawing.Point(5, 113);
+            this.lblDireccion.Name = "lblDireccion";
+            this.lblDireccion.Size = new System.Drawing.Size(52, 13);
+            this.lblDireccion.TabIndex = 102;
+            this.lblDireccion.Text = "Direccion";
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDireccion.Location = new System.Drawing.Point(66, 110);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(201, 20);
+            this.txtDireccion.TabIndex = 103;
+            // 
+            // PersonaABM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(811, 467);
-            this.Controls.Add(this.lstBoxPersonas);
+            this.Controls.Add(this.lstBoxTipoPersona);
+            this.Controls.Add(this.lblTipoPersona);
+            this.Controls.Add(this.lstBoxPlan);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.lblIdPersona);
+            this.Controls.Add(this.lblPlan);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "UsuarioABM";
+            this.Name = "PersonaABM";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Usuario";
-            this.Load += new System.EventHandler(this.UsuarioABM_Load);
+            this.Text = "Persona";
+            this.Load += new System.EventHandler(this.PersonaABM_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -316,22 +325,24 @@
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Label lblClave;
-        private System.Windows.Forms.CheckBox chkHabilitado;
+        private System.Windows.Forms.Label lblLegajo;
         private System.Windows.Forms.Label lblApellido;
-        private System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.Label lblConfirmClave;
+        private System.Windows.Forms.Label lblTelefono;
+        private System.Windows.Forms.Label lblFechaNac;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtClave;
+        private System.Windows.Forms.TextBox txtLegajo;
         private System.Windows.Forms.TextBox txtApellido;
-        private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.TextBox txtConfirmarClave;
-        private System.Windows.Forms.CheckBox chkPass;
-        private System.Windows.Forms.Label lblIdPersona;
-        private System.Windows.Forms.ListBox lstBoxPersonas;
+        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.Label lblPlan;
+        private System.Windows.Forms.ListBox lstBoxPlan;
+        private System.Windows.Forms.DateTimePicker dateFechaNac;
+        private System.Windows.Forms.ListBox lstBoxTipoPersona;
+        private System.Windows.Forms.Label lblTipoPersona;
+        private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.Label lblDireccion;
     }
 }

@@ -59,6 +59,18 @@
     <Compile Include="Loggin\Loggin.Designer.cs">
       <DependentUpon>Loggin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Persona\PersonaABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Persona\PersonaABM.Designer.cs">
+      <DependentUpon>PersonaABM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persona\PersonaPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Persona\PersonaPrincipal.Designer.cs">
+      <DependentUpon>PersonaPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal\FormularioPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +91,12 @@
     <Compile Include="Usuario\UsuarioPrincipal.Designer.cs">
       <DependentUpon>UsuarioPrincipal.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Persona\PersonaABM.resx">
+      <DependentUpon>PersonaABM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persona\PersonaPrincipal.resx">
+      <DependentUpon>PersonaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal\FormularioPrincipal.resx">
       <DependentUpon>FormularioPrincipal.cs</DependentUpon>
     </EmbeddedResource>

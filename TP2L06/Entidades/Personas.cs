@@ -17,7 +17,7 @@ namespace Entidades
         private string nombre;
         private string telefono;
         private TipoPersona tipoPersona;
-
+        private string personaString;
 
 
         public string Apellido
@@ -134,6 +134,20 @@ namespace Entidades
             set
             {
                 telefono = value;
+            }
+        }
+
+
+        public string PersonaString
+        {
+            get
+            {
+                return (Id + " - " + Nombre + " " + Apellido);
+            }
+
+            set
+            {
+                personaString = value;
             }
         }
 
