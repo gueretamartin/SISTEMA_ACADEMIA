@@ -4,19 +4,30 @@
 <html>
 <head runat="server">
     <title></title>
+    <link href="css/customCss/login.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="scripts/jquery-3.1.1.min.js"></script>
+    <script src="scripts/login.js"></script>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <label>Usuario</label><br />
-        <asp:TextBox ID="txtUser" runat="server" Text="nicocda" /><br />
-        <label>Password</label><br />
-        <asp:TextBox ID="txtPass" runat="server" Text="nicolas23" TextMode="Password" /><br />   
-        <p>
-        <asp:Button ID="btnLogin" Text="Ingresar" runat="server" OnClick="validarEIngresar"  />
-        </p>
-        <p>
-            <asp:Label ID="lblError" runat="server" Enabled="False" ForeColor="Red" Text="Usuario y/o Contraseña incorrectos" Visible="False"></asp:Label>
-        </p>
-    </form>
+    <div class="container">
+        <div class="row">
+            <div class="formulario col-sm-6 col-md-4 col-md-offset-4">
+                <form id="form1" class="form-signin" runat="server">
+                    <label>Usuario</label><br />
+                    <asp:TextBox ID="txtUser" class="form-control" runat="server" Text="nicocda" /><br />
+                    <label>Password</label><br />
+                    <asp:TextBox ID="txtPass" class="form-control" runat="server" Text="nicolas23" TextMode="Password" /><br />
+                    <p>
+                        <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
+                    </p>
+                    <p>
+                        <asp:Button ID="btnLogin" class="btn btn-info" Text="Ingresar" runat="server" OnClick="validarEIngresar" />
+                    </p>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
