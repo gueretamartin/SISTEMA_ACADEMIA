@@ -81,8 +81,10 @@ namespace Escritorio.Usuario
             this.txtApellido.Text = this.UsuarioActual.Persona.Apellido;
             this.txtClave.Text = this.UsuarioActual.Clave;
             this.txtEmail.Text = this.UsuarioActual.Persona.Email;
-            this.txtUsuario.Text = this.UsuarioActual.NombreUsuario;
-            this.textIdPersona.Text = this.UsuarioActual.Persona.Id.ToString(); ;
+            // traer listas de us this.txtUsuario.Text = this.UsuarioActual.NombreUsuario;
+            // this.lstBoxPersonas.DataSource = this.
+            // this.lstBoxPersonas.ValueMember = 
+            // this.lstBoxPersonas.DisplayMember = 
         }
 
         public virtual void GuardarCambios()
@@ -105,7 +107,7 @@ namespace Escritorio.Usuario
                         this.UsuarioActual.Clave = this.txtClave.Text;
                         this.UsuarioActual.NombreUsuario = this.txtUsuario.Text;
                         this.UsuarioActual.Persona = p;
-                        this.UsuarioActual.Persona.Id = Convert.ToInt32(this.textIdPersona.Text); 
+                        this.UsuarioActual.Persona.Id = Convert.ToInt32(this.lstBoxPersonas.Text); 
                         this.UsuarioActual.State = Entidades.EntidadBase.States.New;
                         break;
                     }
@@ -114,7 +116,7 @@ namespace Escritorio.Usuario
                         this.UsuarioActual.Habilitado = this.chkHabilitado.Checked;
                         this.UsuarioActual.Clave = this.txtClave.Text;
                         this.UsuarioActual.NombreUsuario = this.txtUsuario.Text;
-                        this.UsuarioActual.Persona.Id = Convert.ToInt32(this.textIdPersona.Text);
+                        this.UsuarioActual.Persona.Id = Convert.ToInt32(this.lstBoxPersonas.Text);
                         this.UsuarioActual.State = Entidades.EntidadBase.States.Modified;
                         break;
                     }
@@ -133,7 +135,7 @@ namespace Escritorio.Usuario
 
         public virtual bool Validar()
         {
-            int idP = Convert.ToInt32(textIdPersona.Text);
+            int idP = Convert.ToInt32(lstBoxPersonas.Text);
             bool est = validarPersonaExiste(idP);
             Boolean estado = true;
             if (est == true)
@@ -155,7 +157,8 @@ namespace Escritorio.Usuario
                     {
                         Notificar("Campos vacíos", "Existen campos sin completar.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    /* else if (!(Util.ValidarEMails.esMailValido(this.txtEmail.Text)))
+                    /* ESTO IRIA PARA CARGAR UNA PERSONA
+                    else if (!(Util.ValidarEMails.esMailValido(this.txtEmail.Text)))
                       {
                           estado = false;
                           Notificar("Mail no valido", "Mail no valido. Escribe una dirección de correo electrónico con el formato alguien@ejemplo.com.", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -249,8 +252,12 @@ namespace Escritorio.Usuario
             }
         }
 
+
         #endregion
 
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }

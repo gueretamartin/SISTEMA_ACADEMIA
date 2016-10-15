@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Escritorio</RootNamespace>
     <AssemblyName>Escritorio</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -89,6 +90,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Usuario\UsuarioABM.resx">
       <DependentUpon>UsuarioABM.cs</DependentUpon>
@@ -132,6 +134,11 @@
     <Folder Include="Materia\" />
     <Folder Include="Plan\" />
     <Folder Include="TipoPersona\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="imgs\16x16_nr_19359190.jpg" />
+    <Content Include="imgs\anadir-mas-icono-5518-16.png" />
+    <Content Include="imgs\cross.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

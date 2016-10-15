@@ -48,3 +48,6 @@ C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Datos.pdb
 C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Consola\obj\Debug\Consola.csprojResolveAssemblyReference.cache
 C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Consola\obj\Debug\Consola.exe
 C:\Proyectos\SISTEMA_ACADEMIA\TP2L06\Consola\obj\Debug\Consola.pdb
+C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Consola.exe.config
+C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\obj\Debug\Consola.exe
+C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\obj\Debug\Consola.pdb
