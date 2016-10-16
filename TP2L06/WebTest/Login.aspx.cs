@@ -21,6 +21,7 @@ namespace WebTest
             if(user != null)
             {
                 Session["idUsuario"] = user.Id;
+                Session["user"] = user.NombreUsuario;
                 Session["nombreUsuario"] = user.Persona.Nombre;
                 Session["apellidoUsuario"] = user.Persona.Apellido;
                 Response.Redirect("~/Home.aspx");   
@@ -29,8 +30,7 @@ namespace WebTest
             }
             else
             {
-
-                //TODO ERRO
+                this.lblError.Text = "No se encontró el Usuario, intente de nuevo";
             }
          }
     }

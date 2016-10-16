@@ -79,14 +79,13 @@
     <Content Include="README.md" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
-    <Content Include="scripts\customScripts\login.js" />
     <None Include="scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="scripts\jquery-3.1.1.js" />
     <Content Include="scripts\jquery-3.1.1.min.js" />
     <Content Include="scripts\jquery-3.1.1.slim.js" />
     <Content Include="scripts\jquery-3.1.1.slim.min.js" />
     <Content Include="scripts\jquery.js" />
-    <Content Include="scripts\login.js" />
+    <Content Include="scripts\customScripts\login.js" />
     <Content Include="WebForm.aspx" />
     <Content Include="scripts\jquery-3.1.1.min.map" />
     <Content Include="scripts\jquery-3.1.1.slim.min.map" />

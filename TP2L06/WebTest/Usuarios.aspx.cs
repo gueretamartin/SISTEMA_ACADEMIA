@@ -42,7 +42,7 @@ namespace WebTest
                 p.Direccion = user.Persona.Direccion;
                 p.Email = user.Persona.Email;
                 p.Legajo = user.Persona.Legajo.ToString();
-                p.Telefono = user.Persona.Telefono.ToString();
+                p.Telefono = user.Persona.Telefono;
                 p.Fecha = user.Persona.FechaNacimiento.ToString();
                 p.Id = user.Id;
                 p.IdPersona = user.Persona.Id;

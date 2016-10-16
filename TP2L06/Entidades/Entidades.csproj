@@ -46,6 +46,7 @@
     <Compile Include="Curso.cs" />
     <Compile Include="Docente.cs" />
     <Compile Include="EntidadBase.cs" />
+    <Compile Include="CustomEntity\RespuestaServidor.cs" />
     <Compile Include="Especialidad.cs" />
     <Compile Include="Materia.cs" />
     <Compile Include="Modulo.cs" />
