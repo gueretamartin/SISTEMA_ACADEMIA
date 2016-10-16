@@ -9,12 +9,17 @@ namespace Entidades
     public class Modulo : EntidadBase
     {
         private string descripcion;
+        private string ejecuta;
 
-        private string Descripcion
+        public string Descripcion
         {
             get { return descripcion; }
             set { descripcion = value; }
         }
         
+        public string Ejecuta
+        {
+            get; set;
+        }
     }
 }

@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControladorComisiones.cs" />
+    <Compile Include="ControladorCursos.cs" />
+    <Compile Include="ControladorEspecialidad.cs" />
+    <Compile Include="ControladorInscripcionAlumno.cs" />
+    <Compile Include="ControladorMaterias.cs" />
     <Compile Include="ControladorPersona.cs" />
     <Compile Include="ControladorPlanes.cs" />
     <Compile Include="ControladorTipoPersona.cs" />

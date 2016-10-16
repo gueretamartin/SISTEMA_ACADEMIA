@@ -8,24 +8,8 @@ namespace Entidades
 {
     public class Especialidad : EntidadBase
     {
-        private string nombreEspecialidad;
         private string descripcionEspecialidad;
-
-
-        public string NombreEspecialidad
-        {
-            get
-            {
-                return nombreEspecialidad;
-
-            }
-
-            set
-            {
-                nombreEspecialidad = value;
-            }
-        }
-
+        
         public string DescripcionEspecialidad
         {
             get

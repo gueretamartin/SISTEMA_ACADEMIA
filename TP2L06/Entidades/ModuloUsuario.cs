@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    class ModuloUsuario : EntidadBase
+    public class ModuloUsuario : EntidadBase
     {
         #region VARIABLES 
         private Usuario usuario;

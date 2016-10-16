@@ -26,7 +26,7 @@ namespace Entidades
             }
         }
 
-        internal Personas Alumno
+        public Personas Alumno
         {
             get
             {
@@ -39,7 +39,7 @@ namespace Entidades
             }
         }
 
-        internal Curso Curso
+        public Curso Curso
         {
             get
             {

@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -59,6 +60,18 @@
     <Compile Include="Loggin\Loggin.Designer.cs">
       <DependentUpon>Loggin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Materia\MateriaABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Materia\MateriaABM.Designer.cs">
+      <DependentUpon>MateriaABM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Materia\MateriaPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Materia\MateriaPrincipal.Designer.cs">
+      <DependentUpon>MateriaPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Persona\PersonaABM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +104,12 @@
     <Compile Include="Usuario\UsuarioPrincipal.Designer.cs">
       <DependentUpon>UsuarioPrincipal.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Materia\MateriaABM.resx">
+      <DependentUpon>MateriaABM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Materia\MateriaPrincipal.resx">
+      <DependentUpon>MateriaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Persona\PersonaABM.resx">
       <DependentUpon>PersonaABM.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,6 +135,7 @@
     <EmbeddedResource Include="Usuario\UsuarioPrincipal.resx">
       <DependentUpon>UsuarioPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\Entidades.Personas.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -149,7 +169,6 @@
     <Folder Include="Curso\" />
     <Folder Include="Docente\" />
     <Folder Include="Especialidad\" />
-    <Folder Include="Materia\" />
     <Folder Include="Plan\" />
     <Folder Include="TipoPersona\" />
   </ItemGroup>

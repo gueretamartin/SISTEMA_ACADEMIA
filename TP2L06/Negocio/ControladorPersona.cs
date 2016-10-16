@@ -22,6 +22,9 @@ namespace Negocio
             return personas;
         }
 
-        
+        public void save(Personas per)
+        {
+            personasData.Save(per);
+        }
     }
 }

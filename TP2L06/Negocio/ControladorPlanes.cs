@@ -10,16 +10,23 @@ namespace Negocio
 {
     public class ControladorPlanes
     {
-        private CatalogoPlanes usuarioData = new CatalogoPlanes();
+        private CatalogoPlanes planesData = new CatalogoPlanes();
 
         public Plan dameUno(int id)
         {
-            return usuarioData.GetOne(id);
+            return planesData.GetOne(id);
         }
 
         internal Plan GetOne(int id)
         {
             throw new NotImplementedException();
         }
+
+        public List<Plan> dameTodos() {
+            List<Plan> planes = new List<Plan>();
+            planes = planesData.GetAll();
+            return planes;
+        }
+       
     }
 }

@@ -10,7 +10,6 @@ namespace Entidades
     {
         private int anioCalendario;
         private int cupo;
-        private string descripcionCurso;
         private Comision comision;
         private Materia materia;
 
@@ -40,20 +39,8 @@ namespace Entidades
             }
         }
 
-        public string DescripcionCurso
-        {
-            get
-            {
-                return descripcionCurso;
-            }
 
-            set
-            {
-                descripcionCurso = value;
-            }
-        }
-
-        internal Comision Comision
+        public Comision Comision
         {
             get
             {
@@ -66,7 +53,7 @@ namespace Entidades
             }
         }
 
-        internal Materia Materia
+        public Materia Materia
         {
             get
             {

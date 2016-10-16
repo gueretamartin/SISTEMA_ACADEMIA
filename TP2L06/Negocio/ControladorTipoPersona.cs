@@ -16,5 +16,10 @@ namespace Negocio
         {
             return cp.GetOne(id);
         }
+
+        public List<TipoPersona> dameTodos()
+        {
+            return cp.getAll();
+        }
     }
 }

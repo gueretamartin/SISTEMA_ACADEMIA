@@ -13,22 +13,41 @@ namespace Escritorio.Persona
 {
     public partial class PersonaPrincipal : Form
     {
+        #region Constructores
         public PersonaPrincipal()
         {
             InitializeComponent();
             this.dgvPersonas.AutoGenerateColumns = false;
-        }
 
+        }
+        #endregion
 
         #region Metodos
 
         public void Listar()
         {
-            ControladorPersona ul = new ControladorPersona();
-            dgvPersonas.DataSource = ul.dameTodos();  //asignaremos el resultado a la propiedad DataSource de la grilla
+            ControladorPersona cp = new ControladorPersona();
+            this.dgvPersonas.DataSource = cp.dameTodos();  //asignaremos el resultado a la propiedad DataSource de la grilla
         }
 
         #endregion
+
+        #region Eventos
+
+        private void Personas_Load(object sender, EventArgs e)
+        {
+            this.Listar();
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            this.Listar();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         private void tbsNuevo_Click(object sender, EventArgs e)
         {
@@ -50,7 +69,7 @@ namespace Escritorio.Persona
                     this.Listar();
                 }
             }
-            catch (ArgumentOutOfRangeException ef)
+            catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("No existen registros a editar.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -68,30 +87,12 @@ namespace Escritorio.Persona
                     this.Listar();
                 }
             }
-            catch (ArgumentOutOfRangeException ef)
+            catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("No existen registros a eliminar.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void dgvPersonas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void PersonaPrincipal_Load(object sender, EventArgs e)
-        {
-            this.Listar();
-        }
-
-        private void btnActualizar_Click(object sender, EventArgs e)
-        {
-            this.Listar();
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        #endregion
     }
 }
