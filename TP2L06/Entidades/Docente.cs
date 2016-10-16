@@ -11,7 +11,7 @@ namespace Entidades
         private Curso curso;
         private Personas docenteCurso;
         // tipoCargo? private TipoCargo cargo;
-        internal Curso Curso
+        public Curso Curso
         {
             get
             {
@@ -24,7 +24,7 @@ namespace Entidades
             }
         }
 
-        internal Personas DocenteCurso
+        public Personas DocenteCurso
         {
             get
             {

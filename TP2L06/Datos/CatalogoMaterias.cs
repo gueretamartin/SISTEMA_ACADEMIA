@@ -77,6 +77,8 @@ namespace Datos
             return mat;
         }
 
+        #region METODOS PARA EL ABM
+
         public void Save(Materia mat)
         {
             if (mat.State == Entidades.EntidadBase.States.Deleted)
@@ -171,5 +173,6 @@ namespace Datos
                 this.CloseConnection();
             }
         }
+        #endregion
     }
 }

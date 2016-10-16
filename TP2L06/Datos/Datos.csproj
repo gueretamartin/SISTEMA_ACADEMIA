@@ -41,13 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CatalogoComisiones.cs" />
+    <Compile Include="CatalogoCursos.cs" />
     <Compile Include="CatalogoEspecialidad.cs" />
     <Compile Include="CatalogoMaterias.cs" />
+    <Compile Include="CatalogoModuloUsuario.cs" />
     <Compile Include="CatalogoPersonas.cs" />
     <Compile Include="CatalogoPlanes.cs" />
     <Compile Include="CatalogoTipoPersona.cs" />
     <Compile Include="CatalogoUsuario.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="CatalogoModulos.cs" />
+    <Compile Include="CatalogoAlumnoInscripcion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

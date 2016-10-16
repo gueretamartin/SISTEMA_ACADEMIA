@@ -38,7 +38,7 @@ namespace Entidades
             }
         }
 
-        internal Plan Plan
+        public Plan Plan
         {
             get
             {

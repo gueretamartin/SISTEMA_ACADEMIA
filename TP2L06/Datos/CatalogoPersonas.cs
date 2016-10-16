@@ -42,7 +42,7 @@ namespace Datos
             catch (Exception Ex)
             {
                 Exception ExcepcionManejada =
-                new Exception("Error al recuperar datos de usuario", Ex);
+                new Exception("Error al recuperar datos de la persona", Ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -80,7 +80,7 @@ namespace Datos
             catch (SqlException Ex)
             {
                 Exception ExcepcionManejada =
-                new Exception("Error al recuperar datos de usuario", Ex);
+                new Exception("Error al recuperar datos de persona", Ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -90,7 +90,8 @@ namespace Datos
             return personas;
         }
 
-         public void Save(Personas mat)
+        #region METODOS PARA EL ABM
+        public void Save(Personas mat)
         {
             if (mat.State == Entidades.EntidadBase.States.Deleted)
             {
@@ -196,5 +197,7 @@ namespace Datos
                 this.CloseConnection();
             }
         }
+
+        #endregion
     }
 }
