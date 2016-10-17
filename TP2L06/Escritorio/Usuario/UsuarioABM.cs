@@ -32,7 +32,17 @@ namespace Escritorio.Usuario
         #region CONSTRUCTORES
         public UsuarioABM()
         {
+           
             InitializeComponent();
+            this.lstBoxPersonas.DataSource = (new ControladorPersona()).dameTodos();
+            this.lstBoxPersonas.ValueMember = "Id";
+            this.lstBoxPersonas.DisplayMember = "PersonaString";
+
+            if (ModoForm.Baja == this.Modo)
+            {
+                this.lstBoxPersonas.Visible = false;
+                this.lblIdPersona.Visible = false;
+            }
         }
 
         //Recibe el modo del formulario. Internamete debe setear a ModoForm en el modo enviado, este constructor
@@ -82,9 +92,7 @@ namespace Escritorio.Usuario
             this.txtClave.Text = this.UsuarioActual.Clave;
             this.txtEmail.Text = this.UsuarioActual.Persona.Email;
             this.txtUsuario.Text = this.UsuarioActual.NombreUsuario;
-           
-
-
+            this.lstBoxPersonas.SelectedIndex = this.lstBoxPersonas.FindString(UsuarioActual.Persona.PersonaString);
         }
 
         public override void GuardarCambios()
@@ -265,16 +273,7 @@ namespace Escritorio.Usuario
 
         private void UsuarioABM_Load(object sender, EventArgs e)
         {
-            this.lstBoxPersonas.DataSource = (new ControladorPersona()).dameTodos();
-            this.lstBoxPersonas.ValueMember = "Id";
-            this.lstBoxPersonas.DisplayMember = "PersonaString";
-            this.lstBoxPersonas.SelectedIndex = this.lstBoxPersonas.FindString(UsuarioActual.Persona.PersonaString);
-
-            if (ModoForm.Baja == this.Modo)
-            {
-                this.lstBoxPersonas.Visible = false;
-                this.lblIdPersona.Visible = false;
-            }
+           
         }
     }
 }

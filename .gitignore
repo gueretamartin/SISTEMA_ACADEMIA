@@ -36,3 +36,4 @@ bin
 obj
 packages
 datos/Conexion.cs
+*.suo
