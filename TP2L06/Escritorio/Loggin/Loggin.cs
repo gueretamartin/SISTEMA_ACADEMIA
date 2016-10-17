@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,10 +25,17 @@ namespace Escritorio.Loggin
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            //la propiedad Text de los TextBox contiene el texto escrito en ellos
-            if (this.txtUsuario.Text == "Admin" && this.txtPass.Text == "admin")
+            Entidades.Usuario us = new Entidades.Usuario();
+            us = new ControladorUsuario().validarUsuario(txtUsuario.Text, txtPass.Text);
+
+            if (us!=null)
             {
-                this.DialogResult = DialogResult.OK;
+                if ((us.Habilitado == true)) { this.DialogResult = DialogResult.OK; }
+                else
+                {
+                     MessageBox.Show("El usuario no se encuentra Habilitado", "Login"
+                        , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
