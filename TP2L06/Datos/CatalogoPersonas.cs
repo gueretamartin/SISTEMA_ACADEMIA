@@ -136,9 +136,7 @@ namespace Datos
             {
                 this.OpenConnection();
 
-                SqlCommand cmdSave = new SqlCommand("UPDATE personas SET nombre=@nomb, apellido=@ape, direccion=@dire, "+
-                    " email@email, telefono=@tel, fecha_nac=@fNac, legajo=@legajo, id_tipo_persona=@idTipo, id_plan=@idPlan "+
-                    "WHERE id_persona = @id", Con);
+                SqlCommand cmdSave = new SqlCommand("UPDATE personas SET nombre=@nomb, apellido=@ape, direccion=@dire, email@email, telefono=@tel, fecha_nac=@fNac, legajo=@legajo, id_tipo_persona=@idTipo, id_plan=@idPlan WHERE id_persona=@id", Con);
 
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = mat.Id;
                 cmdSave.Parameters.Add("@nomb", SqlDbType.VarChar, 50).Value = mat.Nombre;
@@ -169,7 +167,7 @@ namespace Datos
             {
                 this.OpenConnection();
 
-                SqlCommand cmdSave = new SqlCommand("INSERT INTO usuarios(nombre,apellido,direccion,email,telefono,fecha_nac,legajo,id_tipo_persona,id_tipo_plan) " +
+                SqlCommand cmdSave = new SqlCommand("INSERT INTO personas(nombre,apellido,direccion,email,telefono,fecha_nac,legajo,id_tipo_persona,id_plan) " +
                     "VALUES(@nomb,@ape,@dire,@email,@tel,@fNac,@legajo,@idTipo,@idPlan) " +
                     "SELECT @@identity", //esta linea es para recuperar el ID que asignó el SQL automaticamente
                     Con);

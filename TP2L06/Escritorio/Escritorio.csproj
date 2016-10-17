@@ -54,6 +54,18 @@
     <Compile Include="Base\FormularioBase.Designer.cs">
       <DependentUpon>FormularioBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Comision\ComisionABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comision\ComisionABM.Designer.cs">
+      <DependentUpon>ComisionABM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Comision\ComisionPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comision\ComisionPrincipal.Designer.cs">
+      <DependentUpon>ComisionPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Loggin\Loggin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +116,12 @@
     <Compile Include="Usuario\UsuarioPrincipal.Designer.cs">
       <DependentUpon>UsuarioPrincipal.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Comision\ComisionABM.resx">
+      <DependentUpon>ComisionABM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comision\ComisionPrincipal.resx">
+      <DependentUpon>ComisionPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Materia\MateriaABM.resx">
       <DependentUpon>MateriaABM.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,7 +183,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AlumnoInscripcion\" />
-    <Folder Include="Comision\" />
     <Folder Include="Curso\" />
     <Folder Include="Docente\" />
     <Folder Include="Especialidad\" />

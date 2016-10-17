@@ -17,9 +17,9 @@ namespace Datos
         //private String server = "DESKTOP-JK0GQK6\\SQLEXPRESS";
 
         //NICO
-        private String usuario = "root";
-        private String contraseña = "root";
-        private String server = "localhost";
+        private String usuario = "DESKTOP-JK0GQK6\\Martin";
+        private String contraseña = "";
+        private String server = "DESKTOP-JK0GQK6\\SQLEXPRESS";
 
         //LEO
         //private String usuario = "root";

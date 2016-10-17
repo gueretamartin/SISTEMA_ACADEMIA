@@ -31,24 +31,24 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblID = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.lblClave = new System.Windows.Forms.Label();
-            this.chkHabilitado = new System.Windows.Forms.CheckBox();
-            this.lblApellido = new System.Windows.Forms.Label();
-            this.lblUsuario = new System.Windows.Forms.Label();
-            this.lblConfirmClave = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtClave = new System.Windows.Forms.TextBox();
-            this.txtApellido = new System.Windows.Forms.TextBox();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.txtConfirmarClave = new System.Windows.Forms.TextBox();
-            this.chkPass = new System.Windows.Forms.CheckBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblIdPersona = new System.Windows.Forms.Label();
             this.lstBoxPersonas = new System.Windows.Forms.ListBox();
+            this.chkPass = new System.Windows.Forms.CheckBox();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblClave = new System.Windows.Forms.Label();
+            this.txtClave = new System.Windows.Forms.TextBox();
+            this.lblConfirmClave = new System.Windows.Forms.Label();
+            this.txtConfirmarClave = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.lblApellido = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.chkHabilitado = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +59,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.32155F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.67844F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 259F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 261F));
             this.tableLayoutPanel1.Controls.Add(this.lblID, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblNombre, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblEmail, 0, 2);
@@ -109,143 +109,14 @@
             this.lblNombre.TabIndex = 1;
             this.lblNombre.Text = "Nombre";
             // 
-            // lblEmail
-            // 
-            this.lblEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(15, 78);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(32, 13);
-            this.lblEmail.TabIndex = 2;
-            this.lblEmail.Text = "Email";
-            // 
-            // lblClave
-            // 
-            this.lblClave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblClave.AutoSize = true;
-            this.lblClave.Location = new System.Drawing.Point(14, 113);
-            this.lblClave.Name = "lblClave";
-            this.lblClave.Size = new System.Drawing.Size(34, 13);
-            this.lblClave.TabIndex = 3;
-            this.lblClave.Text = "Clave";
-            // 
-            // chkHabilitado
-            // 
-            this.chkHabilitado.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chkHabilitado.AutoSize = true;
-            this.chkHabilitado.Checked = true;
-            this.chkHabilitado.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkHabilitado.Location = new System.Drawing.Point(282, 7);
-            this.chkHabilitado.Name = "chkHabilitado";
-            this.chkHabilitado.Size = new System.Drawing.Size(73, 17);
-            this.chkHabilitado.TabIndex = 99;
-            this.chkHabilitado.TabStop = false;
-            this.chkHabilitado.Text = "Habilitado";
-            this.chkHabilitado.UseVisualStyleBackColor = true;
-            // 
-            // lblApellido
-            // 
-            this.lblApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(297, 43);
-            this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(44, 13);
-            this.lblApellido.TabIndex = 5;
-            this.lblApellido.Text = "Apellido";
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(297, 78);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(43, 13);
-            this.lblUsuario.TabIndex = 6;
-            this.lblUsuario.Text = "Usuario";
-            // 
-            // lblConfirmClave
-            // 
-            this.lblConfirmClave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblConfirmClave.AutoSize = true;
-            this.lblConfirmClave.Location = new System.Drawing.Point(278, 113);
-            this.lblConfirmClave.Name = "lblConfirmClave";
-            this.lblConfirmClave.Size = new System.Drawing.Size(81, 13);
-            this.lblConfirmClave.TabIndex = 7;
-            this.lblConfirmClave.Text = "Confirmar Clave";
-            // 
             // txtID
             // 
             this.txtID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtID.Location = new System.Drawing.Point(66, 6);
+            this.txtID.Location = new System.Drawing.Point(65, 6);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(201, 20);
+            this.txtID.Size = new System.Drawing.Size(200, 20);
             this.txtID.TabIndex = 10;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNombre.Location = new System.Drawing.Point(66, 39);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.ReadOnly = true;
-            this.txtNombre.Size = new System.Drawing.Size(201, 20);
-            this.txtNombre.TabIndex = 1;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtEmail.Location = new System.Drawing.Point(66, 74);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.ReadOnly = true;
-            this.txtEmail.Size = new System.Drawing.Size(201, 20);
-            this.txtEmail.TabIndex = 3;
-            // 
-            // txtClave
-            // 
-            this.txtClave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtClave.Location = new System.Drawing.Point(66, 110);
-            this.txtClave.Name = "txtClave";
-            this.txtClave.PasswordChar = '•';
-            this.txtClave.Size = new System.Drawing.Size(201, 20);
-            this.txtClave.TabIndex = 5;
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtApellido.Location = new System.Drawing.Point(397, 39);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.ReadOnly = true;
-            this.txtApellido.Size = new System.Drawing.Size(201, 20);
-            this.txtApellido.TabIndex = 2;
-            // 
-            // txtUsuario
-            // 
-            this.txtUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtUsuario.Location = new System.Drawing.Point(397, 74);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(201, 20);
-            this.txtUsuario.TabIndex = 4;
-            // 
-            // txtConfirmarClave
-            // 
-            this.txtConfirmarClave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtConfirmarClave.Location = new System.Drawing.Point(397, 110);
-            this.txtConfirmarClave.Name = "txtConfirmarClave";
-            this.txtConfirmarClave.PasswordChar = '•';
-            this.txtConfirmarClave.Size = new System.Drawing.Size(201, 20);
-            this.txtConfirmarClave.TabIndex = 6;
-            // 
-            // chkPass
-            // 
-            this.chkPass.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chkPass.AutoSize = true;
-            this.chkPass.Location = new System.Drawing.Point(109, 170);
-            this.chkPass.Name = "chkPass";
-            this.chkPass.Size = new System.Drawing.Size(114, 17);
-            this.chkPass.TabIndex = 100;
-            this.chkPass.Text = "Mostrar caracteres";
-            this.chkPass.UseVisualStyleBackColor = true;
-            this.chkPass.CheckedChanged += new System.EventHandler(this.chkPass_CheckedChanged);
             // 
             // btnAceptar
             // 
@@ -287,6 +158,135 @@
             this.lstBoxPersonas.Size = new System.Drawing.Size(616, 160);
             this.lstBoxPersonas.TabIndex = 103;
             // 
+            // chkPass
+            // 
+            this.chkPass.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chkPass.AutoSize = true;
+            this.chkPass.Location = new System.Drawing.Point(108, 170);
+            this.chkPass.Name = "chkPass";
+            this.chkPass.Size = new System.Drawing.Size(114, 17);
+            this.chkPass.TabIndex = 100;
+            this.chkPass.Text = "Mostrar caracteres";
+            this.chkPass.UseVisualStyleBackColor = true;
+            this.chkPass.CheckedChanged += new System.EventHandler(this.chkPass_CheckedChanged);
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(15, 78);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(32, 13);
+            this.lblEmail.TabIndex = 2;
+            this.lblEmail.Text = "Email";
+            // 
+            // lblClave
+            // 
+            this.lblClave.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblClave.AutoSize = true;
+            this.lblClave.Location = new System.Drawing.Point(14, 113);
+            this.lblClave.Name = "lblClave";
+            this.lblClave.Size = new System.Drawing.Size(34, 13);
+            this.lblClave.TabIndex = 3;
+            this.lblClave.Text = "Clave";
+            // 
+            // txtClave
+            // 
+            this.txtClave.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtClave.Location = new System.Drawing.Point(65, 110);
+            this.txtClave.Name = "txtClave";
+            this.txtClave.PasswordChar = '•';
+            this.txtClave.Size = new System.Drawing.Size(200, 20);
+            this.txtClave.TabIndex = 5;
+            // 
+            // lblConfirmClave
+            // 
+            this.lblConfirmClave.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblConfirmClave.AutoSize = true;
+            this.lblConfirmClave.Location = new System.Drawing.Point(276, 113);
+            this.lblConfirmClave.Name = "lblConfirmClave";
+            this.lblConfirmClave.Size = new System.Drawing.Size(81, 13);
+            this.lblConfirmClave.TabIndex = 7;
+            this.lblConfirmClave.Text = "Confirmar Clave";
+            // 
+            // txtConfirmarClave
+            // 
+            this.txtConfirmarClave.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtConfirmarClave.Location = new System.Drawing.Point(396, 110);
+            this.txtConfirmarClave.Name = "txtConfirmarClave";
+            this.txtConfirmarClave.PasswordChar = '•';
+            this.txtConfirmarClave.Size = new System.Drawing.Size(201, 20);
+            this.txtConfirmarClave.TabIndex = 6;
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtUsuario.Location = new System.Drawing.Point(396, 74);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(201, 20);
+            this.txtUsuario.TabIndex = 4;
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtApellido.Location = new System.Drawing.Point(396, 39);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.ReadOnly = true;
+            this.txtApellido.Size = new System.Drawing.Size(201, 20);
+            this.txtApellido.TabIndex = 2;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(295, 78);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(43, 13);
+            this.lblUsuario.TabIndex = 6;
+            this.lblUsuario.Text = "Usuario";
+            // 
+            // lblApellido
+            // 
+            this.lblApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Location = new System.Drawing.Point(295, 43);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(44, 13);
+            this.lblApellido.TabIndex = 5;
+            this.lblApellido.Text = "Apellido";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtEmail.Location = new System.Drawing.Point(65, 74);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.ReadOnly = true;
+            this.txtEmail.Size = new System.Drawing.Size(200, 20);
+            this.txtEmail.TabIndex = 3;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtNombre.Location = new System.Drawing.Point(65, 39);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.ReadOnly = true;
+            this.txtNombre.Size = new System.Drawing.Size(200, 20);
+            this.txtNombre.TabIndex = 1;
+            // 
+            // chkHabilitado
+            // 
+            this.chkHabilitado.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chkHabilitado.AutoSize = true;
+            this.chkHabilitado.Checked = true;
+            this.chkHabilitado.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkHabilitado.Location = new System.Drawing.Point(280, 7);
+            this.chkHabilitado.Name = "chkHabilitado";
+            this.chkHabilitado.Size = new System.Drawing.Size(73, 17);
+            this.chkHabilitado.TabIndex = 99;
+            this.chkHabilitado.TabStop = false;
+            this.chkHabilitado.Text = "Habilitado";
+            this.chkHabilitado.UseVisualStyleBackColor = true;
+            // 
             // UsuarioABM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,15 +315,17 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.Label lblIdPersona;
+        private System.Windows.Forms.ListBox lstBoxPersonas;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblClave;
         private System.Windows.Forms.CheckBox chkHabilitado;
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label lblConfirmClave;
-        private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtClave;
@@ -331,7 +333,5 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtConfirmarClave;
         private System.Windows.Forms.CheckBox chkPass;
-        private System.Windows.Forms.Label lblIdPersona;
-        private System.Windows.Forms.ListBox lstBoxPersonas;
     }
 }

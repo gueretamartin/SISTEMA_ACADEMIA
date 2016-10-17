@@ -7,29 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Entidades;
 using Negocio;
 
-namespace Escritorio.Materia
+namespace Escritorio.Comision
 {
-    public partial class MateriaABM : Base.FormularioBase
+    public partial class ComisionABM : Base.FormularioBase
     {
         #region VARIABLES
-        private Entidades.Materia materiaActual;
-        // bool est = true;
+        private Entidades.Comision comisionActual;
+        bool est = true;
         #endregion
 
         #region PROPIEDADES
 
-        public Entidades.Materia MateriaActual
+        public Entidades.Comision ComisionActual
         {
-            get { return materiaActual; }
-            set { materiaActual = value; }
+            get { return comisionActual; }
+            set { comisionActual = value; }
         }
         #endregion
 
-        #region CONSTRUCTORES
-        public MateriaABM()
+        public ComisionABM()
         {
             InitializeComponent();
             this.lstBoxPlan.DataSource = (new ControladorPlanes()).dameTodos();
@@ -37,20 +35,18 @@ namespace Escritorio.Materia
             this.lstBoxPlan.DisplayMember = "DescripcionPlan";
         }
 
-        //Recibe el modo del formulario. Internamete debe setear a ModoForm en el modo enviado, este constructor
-        //servirá para las altas. Y no recibe ID porque será un nuevo usuario.
-        public MateriaABM(ModoForm modo)
+        public ComisionABM(ModoForm modo)
             : this()
         {
             this.Modo = modo;
         }
 
         //Recibe un entero que representa el ID del usuario y el Modo en que estará el Formulario
-        public MateriaABM(int ID, ModoForm modo)
+        public ComisionABM(int ID, ModoForm modo)
             : this()
         {
             this.Modo = modo;
-            MateriaActual = (new ControladorMaterias()).dameUno(ID);
+            ComisionActual = new ControladorComisiones().dameUno(ID);
             MapearDeDatos();
             switch (modo)
             { //Dependiendo el modo, la ventana de carga como se setea
@@ -68,26 +64,21 @@ namespace Escritorio.Materia
                     break;
             }
         }
-
-
-        #endregion
-
         #region METODOS
 
 
         public override void MapearDeDatos()
         {
-            this.txtID.Text = this.MateriaActual.Id.ToString();
-            this.txtHsSem.Text = this.MateriaActual.HorasSemanales.ToString();
-            this.txtHsTot.Text = this.MateriaActual.HorasTotales.ToString();
-            this.txtDescMateria.Text = this.MateriaActual.DescripcionMateria;
-            this.lstBoxPlan.SelectedIndex = this.lstBoxPlan.FindString(MateriaActual.Plan.DescripcionPlan);
+            this.txtID.Text = this.ComisionActual.Id.ToString();
+            this.txtAnio.Text = this.ComisionActual.AnioEspecialidad.ToString();
+            this.txtDescripcion.Text = this.ComisionActual.DescripcionComision;
+            this.lstBoxPlan.SelectedIndex = this.lstBoxPlan.FindString(ComisionActual.Plan.DescripcionPlan);
         }
 
         public override void GuardarCambios()
         {
             MapearADatos();
-            new ControladorMaterias().save(MateriaActual);
+            new ControladorComisiones().save(ComisionActual);
         }
 
         public override void MapearADatos()
@@ -97,60 +88,58 @@ namespace Escritorio.Materia
             {
                 case (ModoForm.Alta):
                     {
-                        MateriaActual = new Entidades.Materia();
-                        Personas p = new Personas();
-                        this.MateriaActual.HorasSemanales = Convert.ToInt32(this.txtHsSem.Text);
-                        this.MateriaActual.HorasTotales = Convert.ToInt32(this.txtHsTot.Text);
-                        this.MateriaActual.DescripcionMateria = this.txtDescMateria.Text;
-                        this.MateriaActual.Plan = (new ControladorPlanes()).dameUno(Convert.ToInt32(this.lstBoxPlan.SelectedValue));
-                        this.MateriaActual.State = Entidades.EntidadBase.States.New;
+                        ComisionActual = new Entidades.Comision();
+                        this.ComisionActual.AnioEspecialidad = Convert.ToInt32(this.txtAnio.Text);
+                        this.ComisionActual.DescripcionComision = this.txtDescripcion.Text;
+                        this.ComisionActual.Plan = (new ControladorPlanes()).dameUno(Convert.ToInt32(this.lstBoxPlan.SelectedValue));
+                        this.ComisionActual.State = Entidades.EntidadBase.States.New;
+
+
                         break;
                     }
                 case (ModoForm.Modificacion):
                     {
-                        this.MateriaActual.HorasSemanales = Convert.ToInt32(this.txtHsSem.Text);
-                        this.MateriaActual.HorasTotales = Convert.ToInt32(this.txtHsTot.Text);
-                        this.MateriaActual.DescripcionMateria = this.txtDescMateria.Text;
-                        this.MateriaActual.Plan = (new ControladorPlanes()).dameUno(Convert.ToInt32(this.lstBoxPlan.SelectedValue));
-                        this.MateriaActual.State = Entidades.EntidadBase.States.Modified;
+                        this.ComisionActual.AnioEspecialidad = Convert.ToInt32(this.txtAnio.Text);
+                        this.ComisionActual.DescripcionComision = this.txtDescripcion.Text;
+                        this.ComisionActual.Plan = (new ControladorPlanes()).dameUno(Convert.ToInt32(this.lstBoxPlan.SelectedValue));
+                        this.ComisionActual.State = Entidades.EntidadBase.States.Modified;
                         break;
                     }
                 case (ModoForm.Baja):
                     {
-                        this.MateriaActual.State = Entidades.EntidadBase.States.Deleted;
+                        this.ComisionActual.State = Entidades.EntidadBase.States.Deleted;
 
                         break;
                     }
                 case (ModoForm.Consulta):
                     {
-                        this.MateriaActual.State = Entidades.EntidadBase.States.Unmodified;
+                        this.ComisionActual.State = Entidades.EntidadBase.States.Unmodified;
                         break;
                     }
             }
         }
+
         public new void Notificar(string titulo, string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
         {
             MessageBox.Show(mensaje, titulo, botones, icono);
         }
+
+        /*Notificar es el método que utilizaremos para unificar el mecanismo de avisos al usuario y en caso de tener que modificar la forma en que se
+          realizan los avisos al usuario sólo se debe modificar este método, en lugar de tener que reemplazarlo en toda la aplicación.*/
 
 
         public new void Notificar(string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
         {
             this.Notificar(this.Text, mensaje, botones, icono);
         }
-
         #endregion
-
-
-
-        #region Eventos
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-           
-                GuardarCambios();
-                Close();
-            
+
+            GuardarCambios();
+            Close();
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -158,24 +147,26 @@ namespace Escritorio.Materia
             Close();
         }
 
-      
 
 
-        #endregion
 
-      
+            
 
-        private void MateriaABM_Load(object sender, EventArgs e)
+
+
+        private void ComisionABM_Load(object sender, EventArgs e)
         {
-           
+
             if (ModoForm.Baja == this.Modo)
             {
                 this.lstBoxPlan.Visible = false;
-                
+
             }
 
 
         }
-         
-}
+
+
+
+    }
 }

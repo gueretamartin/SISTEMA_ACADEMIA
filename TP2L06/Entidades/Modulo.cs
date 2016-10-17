@@ -9,7 +9,7 @@ namespace Entidades
     public class Modulo : EntidadBase
     {
         private string descripcion;
-        private string ejecuta;
+        //private string ejecuta;
 
         public string Descripcion
         {

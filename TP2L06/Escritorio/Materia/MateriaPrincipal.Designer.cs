@@ -25,16 +25,16 @@
             this.tcUsuarios = new System.Windows.Forms.ToolStripContainer();
             this.tlUsuarios = new System.Windows.Forms.TableLayoutPanel();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescripcionMateria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HorasSemanales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HorasTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.tsUsuarios = new System.Windows.Forms.ToolStrip();
             this.tbsNuevo = new System.Windows.Forms.ToolStripButton();
             this.tbsEditar = new System.Windows.Forms.ToolStripButton();
             this.tbsEliminar = new System.Windows.Forms.ToolStripButton();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescripcionMateria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HorasSemanales = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HorasTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcUsuarios.ContentPanel.SuspendLayout();
             this.tcUsuarios.TopToolStripPanel.SuspendLayout();
             this.tcUsuarios.SuspendLayout();
@@ -99,6 +99,34 @@
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuarios.Size = new System.Drawing.Size(693, 232);
             this.dgvUsuarios.TabIndex = 0;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "ID";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // DescripcionMateria
+            // 
+            this.DescripcionMateria.DataPropertyName = "DescripcionMateria";
+            this.DescripcionMateria.HeaderText = "Descripcion Materia";
+            this.DescripcionMateria.Name = "DescripcionMateria";
+            this.DescripcionMateria.ReadOnly = true;
+            // 
+            // HorasSemanales
+            // 
+            this.HorasSemanales.DataPropertyName = "HorasSemanales";
+            this.HorasSemanales.HeaderText = "Horas Semanales";
+            this.HorasSemanales.Name = "HorasSemanales";
+            this.HorasSemanales.ReadOnly = true;
+            // 
+            // HorasTotales
+            // 
+            this.HorasTotales.DataPropertyName = "HorasTotales";
+            this.HorasTotales.HeaderText = "Horas Totales";
+            this.HorasTotales.Name = "HorasTotales";
+            this.HorasTotales.ReadOnly = true;
             // 
             // btnActualizar
             // 
@@ -166,34 +194,6 @@
             this.tbsEliminar.Text = "Eliminar";
             this.tbsEliminar.Click += new System.EventHandler(this.tbsEliminar_Click);
             // 
-            // id
-            // 
-            this.id.DataPropertyName = "ID";
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // DescripcionMateria
-            // 
-            this.DescripcionMateria.DataPropertyName = "DescripcionMateria";
-            this.DescripcionMateria.HeaderText = "Descripcion Materia";
-            this.DescripcionMateria.Name = "DescripcionMateria";
-            this.DescripcionMateria.ReadOnly = true;
-            // 
-            // HorasSemanales
-            //
-            this.HorasSemanales.DataPropertyName = "HorasSemanales";
-            this.HorasSemanales.HeaderText = "Horas Semanales";
-            this.HorasSemanales.Name = "HorasSemanales";
-            this.HorasSemanales.ReadOnly = true;
-            // 
-            // HorasTotales
-            // 
-            this.HorasTotales.DataPropertyName = "HorasTotales";
-            this.HorasTotales.HeaderText = "Horas Totales";
-            this.HorasTotales.Name = "HorasTotales";
-            this.HorasTotales.ReadOnly = true;
-            // 
             // MateriaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,7 +203,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MateriaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Usuarios";
+            this.Text = "Materias";
             this.Load += new System.EventHandler(this.Materia_Load);
             this.tcUsuarios.ContentPanel.ResumeLayout(false);
             this.tcUsuarios.TopToolStripPanel.ResumeLayout(false);

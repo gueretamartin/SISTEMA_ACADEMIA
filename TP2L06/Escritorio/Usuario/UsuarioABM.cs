@@ -38,11 +38,7 @@ namespace Escritorio.Usuario
             this.lstBoxPersonas.ValueMember = "Id";
             this.lstBoxPersonas.DisplayMember = "PersonaString";
 
-            if (ModoForm.Baja == this.Modo)
-            {
-                this.lstBoxPersonas.Visible = false;
-                this.lblIdPersona.Visible = false;
-            }
+          
         }
 
         //Recibe el modo del formulario. Internamete debe setear a ModoForm en el modo enviado, este constructor

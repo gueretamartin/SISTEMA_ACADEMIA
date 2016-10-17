@@ -23,6 +23,7 @@ namespace Datos
                 while (drComisiones.Read())
                 {
                     com = new Comision();
+                    com.Id = (int)drComisiones["id_comision"];
                     com.DescripcionComision = (string)drComisiones["desc_comision"];
                     com.AnioEspecialidad = (int)drComisiones["anio_especialidad"];
                     com.Plan = new CatalogoPlanes().GetOne((int)drComisiones["id_plan"]);
@@ -54,6 +55,7 @@ namespace Datos
                 SqlDataReader drComisiones = cmdComisiones.ExecuteReader();
                 if (drComisiones.Read())
                 {
+                    com.Id = (int)drComisiones["id_comision"];
                     com.DescripcionComision = (string)drComisiones["desc_comision"];
                     com.AnioEspecialidad = (int)drComisiones["anio_especialidad"];
                     com.Plan = new CatalogoPlanes().GetOne((int)drComisiones["id_plan"]);
@@ -120,12 +122,12 @@ namespace Datos
             {
                 this.OpenConnection();
 
-                SqlCommand cmdSave = new SqlCommand("UPDATE comisiones SET desc_comision=@desc, anio_especialidad=@anio id_plan=@idPlan WHERE id_comision = @id", Con);
+                SqlCommand cmdSave = new SqlCommand("UPDATE comisiones SET desc_comision=@desc, anio_especialidad=@anio, id_plan=@idPlan WHERE id_comision = @id", Con);
 
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = com.Id;
-                cmdSave.Parameters.Add("@desc_comision", SqlDbType.VarChar, 50).Value = com.DescripcionComision;
+                cmdSave.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = com.DescripcionComision;
                 cmdSave.Parameters.Add("@anio", SqlDbType.Int).Value = com.AnioEspecialidad;
-                cmdSave.Parameters.Add("@id_plan", SqlDbType.Int).Value = com.Plan.Id;
+                cmdSave.Parameters.Add("@idPlan", SqlDbType.Int).Value = com.Plan.Id;
                 cmdSave.ExecuteReader();
             }
             catch (Exception Ex)
@@ -145,7 +147,7 @@ namespace Datos
             {
                 this.OpenConnection();
 
-                SqlCommand cmdSave = new SqlCommand("INSERT INTO usuarios(desc_comision,anio_especialidad,id_plan) " +
+                SqlCommand cmdSave = new SqlCommand("INSERT INTO comisiones(desc_comision,anio_especialidad,id_plan) " +
                     "VALUES(@desc_comision,@anio,@id_plan) " +
                     "SELECT @@identity", //esta linea es para recuperar el ID que asignó el SQL automaticamente
                     Con);

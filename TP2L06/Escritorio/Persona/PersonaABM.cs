@@ -35,6 +35,12 @@ namespace Escritorio.Persona
         public PersonaABM()
         {
             InitializeComponent();
+            this.lstBoxPlan.DataSource = (new ControladorPlanes()).dameTodos();
+            this.lstBoxTipoPersona.DataSource = (new ControladorTipoPersona()).dameTodos();
+            this.lstBoxPlan.ValueMember = "Id";
+            this.lstBoxPlan.DisplayMember = "DescripcionPlan";
+            this.lstBoxTipoPersona.ValueMember = "Id";
+            this.lstBoxTipoPersona.DisplayMember = "DescripcionTipo";
         }
 
         //Recibe el modo del formulario. Internamete debe setear a ModoForm en el modo enviado, este constructor
@@ -196,11 +202,10 @@ namespace Escritorio.Persona
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (Validar())
-            {
+           
                 GuardarCambios();
                 Close();
-            }
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -220,14 +225,6 @@ namespace Escritorio.Persona
 
         private void PersonaABM_Load(object sender, EventArgs e)
         {
-            this.lstBoxPlan.DataSource = (new ControladorPlanes()).dameTodos();
-            this.lstBoxTipoPersona.DataSource = (new ControladorTipoPersona()).dameTodos();
-            this.lstBoxPlan.ValueMember = "Id";
-            this.lstBoxPlan.DisplayMember = "DescripcionPlan";
-            this.lstBoxTipoPersona.ValueMember = "Id";
-            this.lstBoxTipoPersona.DisplayMember = "DescripcionTipo";
-
-
             if (ModoForm.Baja == this.Modo)
             {
                 this.lstBoxPlan.Visible = false;

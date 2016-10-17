@@ -82,5 +82,11 @@ namespace Escritorio.Principal
             Escritorio.Materia.MateriaPrincipal formU = new Escritorio.Materia.MateriaPrincipal();
             formU.Show();
         }
+
+        private void comisionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Escritorio.Comision.ComisionPrincipal formU = new Escritorio.Comision.ComisionPrincipal();
+            formU.Show();
+        }
     }
 }

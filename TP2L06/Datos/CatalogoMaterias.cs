@@ -127,10 +127,10 @@ namespace Datos
                 SqlCommand cmdSave = new SqlCommand("UPDATE materias SET desc_materia=@desc, hs_semanales=@hsSem, hs_totales=@hsTot, id_plan=@idPlan WHERE id_materia = @id", Con);
 
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = mat.Id;
-                cmdSave.Parameters.Add("@desc_materia", SqlDbType.VarChar, 50).Value = mat.DescripcionMateria;
+                cmdSave.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = mat.DescripcionMateria;
                 cmdSave.Parameters.Add("@hsSem", SqlDbType.Int).Value = mat.HorasSemanales;
                 cmdSave.Parameters.Add("@hsTot", SqlDbType.Int).Value = mat.HorasTotales;
-                cmdSave.Parameters.Add("@id_plan", SqlDbType.Int).Value = mat.Plan.Id;
+                cmdSave.Parameters.Add("@idPlan", SqlDbType.Int).Value = mat.Plan.Id;
                 cmdSave.ExecuteReader();
             }
             catch (Exception Ex)
@@ -150,7 +150,7 @@ namespace Datos
             {
                 this.OpenConnection();
 
-                SqlCommand cmdSave = new SqlCommand("INSERT INTO usuarios(desc_materia,hs_semanales,hs_totales,id_plan) " +
+                SqlCommand cmdSave = new SqlCommand("INSERT INTO materias(desc_materia,hs_semanales,hs_totales,id_plan) " +
                     "VALUES(@desc_materia,@hsSem,@hsTot,@id_plan) " +
                     "SELECT @@identity", //esta linea es para recuperar el ID que asignó el SQL automaticamente
                     Con);
