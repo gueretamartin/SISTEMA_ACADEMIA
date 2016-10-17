@@ -136,7 +136,7 @@ namespace Datos
             {
                 this.OpenConnection();
 
-                SqlCommand cmdSave = new SqlCommand("UPDATE personas SET nombre=@nomb, apellido=@ape, direccion=@dire, email@email, telefono=@tel, fecha_nac=@fNac, legajo=@legajo, id_tipo_persona=@idTipo, id_plan=@idPlan WHERE id_persona=@id", Con);
+                SqlCommand cmdSave = new SqlCommand("UPDATE personas SET nombre=@nomb, apellido=@ape, direccion=@dire, email=@email, telefono=@tel, fecha_nac=@fNac, legajo=@legajo, id_tipo_persona=@idTipo, id_plan=@idPlan WHERE id_persona=@id", Con);
 
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = mat.Id;
                 cmdSave.Parameters.Add("@nomb", SqlDbType.VarChar, 50).Value = mat.Nombre;
