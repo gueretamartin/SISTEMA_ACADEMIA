@@ -35,38 +35,39 @@
 
     <asp:Panel ID="formPanel" Visible="false" runat="server">
         <div class="form-group">
-        <asp:Label Text="ID Usuario: " ID="lblId" runat="server" />
-        <asp:TextBox class="form-control" Text="ID" ID="txtId" runat="server" ReadOnly="true" /><br />
-         <asp:Label Text="Persona: " ID="lblIdPersona" runat="server" />
-        <asp:ListBox class="form-control"  ID="listIdPersona" runat="server" ReadOnly="false" /><br />
-        <asp:Label Text="Usuario: " ID="lblNombreUsuario" runat="server" />
-        <asp:TextBox  class="form-control"  Text="Usuario" ID="txtNombreUsuario" runat="server" /><br />
-        <asp:Label Text="Nombre: " ID="lblNombrePersona" runat="server" />
-        <asp:TextBox  class="form-control"  Text="Nombre" ID="txtNombrePersona" runat="server" ReadOnly="True" /><br />
-        <asp:Label Text="Apellido: " ID="lblApellidoPersona" runat="server" />
-        <asp:TextBox  class="form-control"  Text="Apellido" ID="txtApellidoPersona" runat="server" ReadOnly="True" /><br />
-        <asp:Label Text="Legajo: " ID="lblLegajo" runat="server" />
-        <asp:TextBox  class="form-control"  Text="Legajo" ID="txtLegajo" runat="server" ReadOnly="True" /><br />
-        <asp:Label Text="Telefono: " ID="lblTelefono" runat="server" />
-        <asp:TextBox   class="form-control"  Text="Telefono" ID="txtTelefono" runat="server" ReadOnly="True" />
-        <br />
-        <asp:Label Text="Email: " ID="lblEmail" runat="server" />
-        <asp:TextBox  class="form-control"  Text="Email" ID="txtEmail" runat="server" ReadOnly="True" /><br />
-        <asp:Label Text="Fecha de Nacimiento: " ID="lblFecha" runat="server" />
-        <asp:TextBox  class="form-control"  Text="Fecha de Nacimiento" ID="txtFecha" runat="server" ReadOnly="True" /><br />
-        <asp:Label    Text="Direccion: " ID="lblDireccion" runat="server" />
-        <asp:TextBox   class="form-control" Text ="Direccion" ID="txtDireccion" runat="server" ReadOnly="True" /><br />
-        <asp:CheckBox id="chkHabilitado" runat="server"/>
-        <asp:Label Text="Clave: " ID="lblClave" runat="server" />
-        <asp:TextBox  class="form-control"  ID="txtClave" runat="server" TextMode="Password" /><br />
-        <asp:Label Text="Repetir Clave: " ID="lblRepetirClave" runat="server" />
-        <asp:TextBox  class="form-control"  ID="txtRepetirClave" runat="server" TextMode="Password" />
+            <asp:Label Text="ID Usuario: " ID="lblId" runat="server" />
+            <asp:TextBox class="form-control" Text="ID" ID="txtId" runat="server" ReadOnly="true" /><br />
+            <asp:Label Text="Persona: " ID="lblIdPersona" runat="server" />
+            <asp:ListBox class="form-control" ID="listIdPersona" runat="server" ReadOnly="false" /><br />
+            <asp:Label Text="Usuario: " ID="lblNombreUsuario" runat="server" />
+            <asp:TextBox class="form-control" Text="Usuario" ID="txtNombreUsuario" runat="server" /><br />
+            <asp:Label Text="Nombre: " ID="lblNombrePersona" runat="server" />
+            <asp:TextBox class="form-control" Text="Nombre" ID="txtNombrePersona" runat="server" ReadOnly="True" /><br />
+            <asp:Label Text="Apellido: " ID="lblApellidoPersona" runat="server" />
+            <asp:TextBox class="form-control" Text="Apellido" ID="txtApellidoPersona" runat="server" ReadOnly="True" /><br />
+            <asp:Label Text="Legajo: " ID="lblLegajo" runat="server" />
+            <asp:TextBox class="form-control" Text="Legajo" ID="txtLegajo" runat="server" ReadOnly="True" /><br />
+            <asp:Label Text="Telefono: " ID="lblTelefono" runat="server" />
+            <asp:TextBox class="form-control" Text="Telefono" ID="txtTelefono" runat="server" ReadOnly="True" />
+            <br />
+            <asp:Label Text="Email: " ID="lblEmail" runat="server" />
+            <asp:TextBox class="form-control" Text="Email" ID="txtEmail" runat="server" ReadOnly="True" /><br />
+            <asp:Label Text="Fecha de Nacimiento: " ID="lblFecha" runat="server" />
+            <asp:TextBox class="form-control" Text="Fecha de Nacimiento" ID="txtFecha" runat="server" ReadOnly="True" /><br />
+            <asp:Label Text="Direccion: " ID="lblDireccion" runat="server" />
+            <asp:TextBox class="form-control" Text="Direccion" ID="txtDireccion" runat="server" ReadOnly="True" /><br />
+            <asp:Label Text="Habilitado: " ID="lblHabilitado" runat="server"></asp:Label>
+            <asp:CheckBox ID="chkHabilitado" runat="server" /><br/><br />
+            <asp:Label Text="Clave: " ID="lblClave" runat="server" />
+            <asp:TextBox class="form-control" ID="txtClave" runat="server" TextMode="Password" /><br />
+            <asp:Label Text="Repetir Clave: " ID="lblRepetirClave" runat="server" />
+            <asp:TextBox class="form-control" ID="txtRepetirClave" runat="server" TextMode="Password" />
         </div>
     </asp:Panel>
 
     <asp:Panel ID="formActionPanel" runat="server">
         <asp:LinkButton class="btn btn-success" ID="lbtnAceptar" runat="server" OnClick="lbtnAceptar_Click">Aceptar</asp:LinkButton>
-        <asp:LinkButton class= "btn btn-danger" ID="lbtnCancelar" runat="server">Cancelar</asp:LinkButton>
+        <asp:LinkButton class="btn btn-danger" ID="lbtnCancelar" runat="server">Cancelar</asp:LinkButton>
     </asp:Panel>
 
 </asp:Content>

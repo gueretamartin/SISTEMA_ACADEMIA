@@ -20,9 +20,22 @@ namespace WebTest
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) this.BindGV();
+            if (!IsPostBack)
+            {
+
+                this.BindGV();
+                var dataList = cp.dameTodos();
+               
+                this.listIdPersona.DataSource = dataList;
+               
+                this.listIdPersona.DataValueField = "Id";
+                this.listIdPersona.DataTextField = "Nombre";
+                this.listIdPersona.DataBind();
+            }
             this.formActionPanel.Visible = false;
             this.formPanel.Visible = false;
+           
+            
 
         }
 
@@ -90,8 +103,8 @@ namespace WebTest
         {
 
             this.UsuarioActual = this.cu.dameUno(id);
-            var dataList = cp.dameTodos();
-        
+         
+
             this.txtNombreUsuario.Text = UsuarioActual.NombreUsuario;
             this.txtNombrePersona.Text = UsuarioActual.Persona.Nombre;
             this.txtApellidoPersona.Text = UsuarioActual.Persona.Apellido;
@@ -103,11 +116,8 @@ namespace WebTest
             this.txtClave.Text = "";
             this.txtRepetirClave.Text = "";
             this.txtId.Text = UsuarioActual.Id.ToString();
-            this.listIdPersona.DataBind();
-            this.listIdPersona  .DataSource = dataList;
-            this.listIdPersona.DataValueField = "Id";
-            this.listIdPersona.DataTextField = "Nombre";
             this.listIdPersona.SelectedValue = UsuarioActual.Persona.Id.ToString();
+
 
         }
 
@@ -181,7 +191,6 @@ namespace WebTest
             this.txtClave.Text = String.Empty;
             this.txtRepetirClave.Text = String.Empty;
             this.txtId.Text = String.Empty;
-            this.listIdPersona.SelectedValue = String.Empty;
         }
 
         public override void habilitarForm(bool enabled)
