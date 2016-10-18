@@ -27,6 +27,10 @@ namespace Negocio
             planes = planesData.GetAll();
             return planes;
         }
-       
+
+        public void save(Plan planActual)
+        {
+            
+        }
     }
 }

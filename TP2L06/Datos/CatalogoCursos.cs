@@ -150,7 +150,7 @@ namespace Datos
             {
                 this.OpenConnection();
 
-                SqlCommand cmdSave = new SqlCommand("INSERT INTO usuarios(id_materia,id_comision,anio_calendario,cupo) " +
+                SqlCommand cmdSave = new SqlCommand("INSERT INTO cursos(id_materia,id_comision,anio_calendario,cupo) " +
                     "VALUES(@idMat,@idCom,@anio,@cupo) " +
                     "SELECT @@identity", //esta linea es para recuperar el ID que asignó el SQL automaticamente
                     Con);

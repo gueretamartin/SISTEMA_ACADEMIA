@@ -47,7 +47,7 @@ namespace Datos
 
         public List<Especialidad> getAll()
         {
-            Especialidad p = new Especialidad();
+            Especialidad p = null;
             List<Especialidad> especialidades = new List<Especialidad>();
             try
             {
@@ -59,6 +59,7 @@ namespace Datos
 
                 while (drEspecialidad.Read())
                 {
+                    p = new Especialidad();
                     p.Id = (int)drEspecialidad["id_especialidad"];
                     p.DescripcionEspecialidad = (string)drEspecialidad["desc_especialidad"];
                     especialidades.Add(p);

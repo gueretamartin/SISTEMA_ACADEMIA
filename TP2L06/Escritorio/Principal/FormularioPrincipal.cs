@@ -88,5 +88,23 @@ namespace Escritorio.Principal
             Escritorio.Comision.ComisionPrincipal formU = new Escritorio.Comision.ComisionPrincipal();
             formU.Show();
         }
+
+        private void especialidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Escritorio.Especialidad.EspecialidadPrincipal formU = new Escritorio.Especialidad.EspecialidadPrincipal();
+            formU.Show();
+        }
+
+        private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Escritorio.Curso.CursoPrincipal formU = new Escritorio.Curso.CursoPrincipal();
+            formU.Show();
+        }
+
+        private void planesToolStripMenuItem_Click_2(object sender, EventArgs e)
+        {
+            Escritorio.Plan.PlanPrincipal formU = new Escritorio.Plan.PlanPrincipal();
+            formU.Show();
+        }
     }
 }

@@ -10,7 +10,20 @@ namespace Entidades
     {
         private string descripcionPlan;
         private Especialidad especialidad;
+        private string descripcionEspecialidad;
 
+         public string DescripcionEspecialidad
+        {
+            get
+            {
+                return descripcionEspecialidad;
+            }
+
+            set
+            {
+                descripcionEspecialidad = value;
+            }
+        }
 
         public string DescripcionPlan
         {
@@ -35,6 +48,7 @@ namespace Entidades
             set
             {
                 especialidad = value;
+                descripcionEspecialidad = this.Especialidad.DescripcionEspecialidad;
             }
         }
     }

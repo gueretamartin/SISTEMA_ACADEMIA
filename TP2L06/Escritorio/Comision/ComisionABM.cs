@@ -15,7 +15,7 @@ namespace Escritorio.Comision
     {
         #region VARIABLES
         private Entidades.Comision comisionActual;
-        bool est = true;
+        //bool est = true;
         #endregion
 
         #region PROPIEDADES

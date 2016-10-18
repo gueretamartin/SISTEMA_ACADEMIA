@@ -66,6 +66,30 @@
     <Compile Include="Comision\ComisionPrincipal.Designer.cs">
       <DependentUpon>ComisionPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Curso\CursoABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Curso\CursoABM.Designer.cs">
+      <DependentUpon>CursoABM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Curso\CursoPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Curso\CursoPrincipal.Designer.cs">
+      <DependentUpon>CursoPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Especialidad\EspecialidadABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Especialidad\EspecialidadABM.Designer.cs">
+      <DependentUpon>EspecialidadABM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Especialidad\EspecialidadPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Especialidad\EspecialidadPrincipal.Designer.cs">
+      <DependentUpon>EspecialidadPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Loggin\Loggin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +120,18 @@
     <Compile Include="Persona\PersonaPrincipal.Designer.cs">
       <DependentUpon>PersonaPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Plan\PlanABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plan\PlanABM.Designer.cs">
+      <DependentUpon>PlanABM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plan\PlanPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plan\PlanPrincipal.Designer.cs">
+      <DependentUpon>PlanPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal\FormularioPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +158,18 @@
     <EmbeddedResource Include="Comision\ComisionPrincipal.resx">
       <DependentUpon>ComisionPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Curso\CursoABM.resx">
+      <DependentUpon>CursoABM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Curso\CursoPrincipal.resx">
+      <DependentUpon>CursoPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Especialidad\EspecialidadABM.resx">
+      <DependentUpon>EspecialidadABM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Especialidad\EspecialidadPrincipal.resx">
+      <DependentUpon>EspecialidadPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Materia\MateriaABM.resx">
       <DependentUpon>MateriaABM.cs</DependentUpon>
     </EmbeddedResource>
@@ -133,6 +181,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Persona\PersonaPrincipal.resx">
       <DependentUpon>PersonaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plan\PlanABM.resx">
+      <DependentUpon>PlanABM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plan\PlanPrincipal.resx">
+      <DependentUpon>PlanPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\FormularioPrincipal.resx">
       <DependentUpon>FormularioPrincipal.cs</DependentUpon>
@@ -183,11 +237,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AlumnoInscripcion\" />
-    <Folder Include="Curso\" />
-    <Folder Include="Docente\" />
-    <Folder Include="Especialidad\" />
-    <Folder Include="Plan\" />
-    <Folder Include="TipoPersona\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="imgs\16x16_nr_19359190.jpg" />
