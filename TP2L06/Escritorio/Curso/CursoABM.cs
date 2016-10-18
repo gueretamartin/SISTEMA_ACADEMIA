@@ -32,14 +32,14 @@ namespace Escritorio.Curso
         {
 
             InitializeComponent();
-            
-            this.lstBoxMaterias.DataSource = (new ControladorMaterias()).dameTodos();
-            this.lstBoxMaterias.ValueMember = "Id";
-            this.lstBoxMaterias.DisplayMember = "DescripcionMateria";
 
-            this.lstBoxComisiones.DataSource = (new ControladorComisiones()).dameTodos();
-            this.lstBoxComisiones.ValueMember = "Id";
-            this.lstBoxComisiones.DisplayMember = "DescripcionComision";
+            this.cmbBoxMaterias.DataSource = (new ControladorMaterias()).dameTodos();
+            this.cmbBoxMaterias.ValueMember = "Id";
+            this.cmbBoxMaterias.DisplayMember = "DescripcionMateria";
+
+            this.cmbBoxComisiones.DataSource = (new ControladorComisiones()).dameTodos();
+            this.cmbBoxComisiones.ValueMember = "Id";
+            this.cmbBoxComisiones.DisplayMember = "DescripcionComision";
 
 
         }
@@ -87,8 +87,8 @@ namespace Escritorio.Curso
             this.txtID.Text = this.CursoActual.Id.ToString();
             this.txtAño.Text = this.CursoActual.AnioCalendario.ToString();
             this.txtCupo.Text = this.CursoActual.Cupo.ToString();
-            this.lstBoxComisiones.SelectedIndex = this.lstBoxComisiones.FindString(CursoActual.Comision.DescripcionComision);
-            this.lstBoxMaterias.SelectedIndex = this.lstBoxMaterias.FindString(CursoActual.Materia.DescripcionMateria);
+            this.cmbBoxComisiones.SelectedIndex = this.cmbBoxComisiones.FindString(CursoActual.Comision.DescripcionComision);
+            this.cmbBoxMaterias.SelectedIndex = this.cmbBoxMaterias.FindString(CursoActual.Materia.DescripcionMateria);
         }
 
         public override void GuardarCambios()
@@ -112,8 +112,8 @@ namespace Escritorio.Curso
                         this.CursoActual.Cupo = Convert.ToInt32(this.txtCupo.Text);
                         this.CursoActual.Materia = m;
                         this.CursoActual.Comision = c;
-                        this.CursoActual.Materia.Id = Convert.ToInt32(this.lstBoxMaterias.SelectedValue);
-                        this.CursoActual.Comision.Id = Convert.ToInt32(this.lstBoxComisiones.SelectedValue);
+                        this.CursoActual.Materia.Id = Convert.ToInt32(this.cmbBoxMaterias.SelectedValue);
+                        this.CursoActual.Comision.Id = Convert.ToInt32(this.cmbBoxComisiones.SelectedValue);
 
                         this.CursoActual.State = Entidades.EntidadBase.States.New;
 
@@ -124,8 +124,8 @@ namespace Escritorio.Curso
                     {
                         this.CursoActual.AnioCalendario = Convert.ToInt32(this.txtAño.Text);
                         this.CursoActual.Cupo = Convert.ToInt32(this.txtCupo.Text);
-                        this.CursoActual.Materia.Id = Convert.ToInt32(this.lstBoxMaterias.SelectedValue);
-                        this.CursoActual.Comision.Id = Convert.ToInt32(this.lstBoxComisiones.SelectedValue);
+                        this.CursoActual.Materia.Id = Convert.ToInt32(this.cmbBoxMaterias.SelectedValue);
+                        this.CursoActual.Comision.Id = Convert.ToInt32(this.cmbBoxComisiones.SelectedValue);
                         this.CursoActual.State = Entidades.EntidadBase.States.Modified;
                         break;
                     }
@@ -143,7 +143,37 @@ namespace Escritorio.Curso
             }
         }
 
-        
+        public override bool Validar()
+        {
+            Boolean estado = true;
+            try
+            {
+                if (!(this.Modo == ModoForm.Baja))
+                {
+                    foreach (Control control in this.tableLayoutPanel1.Controls)
+                    {
+                        if (!(control == txtID))
+                        {
+                            if (control is TextBox && control.Text == String.Empty)
+                            {
+                                estado = false;
+                            }
+                        }
+                    }
+                    if (estado == false)
+                    {
+                        Notificar("Campos vacíos", "Existen campos sin completar.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                return estado;
+            }
+            catch (Exception e)
+            {
+                Notificar("ERROR", e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                estado = false;
+            }
+            return estado;
+        }
 
         public new void Notificar(string titulo, string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
         {
@@ -157,15 +187,16 @@ namespace Escritorio.Curso
 
         #endregion
 
-       
+
         #region Eventos
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-           
-                GuardarCambios();
-                Close();
-            
+            if (Validar())
+            { 
+            GuardarCambios();
+            Close();
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -173,7 +204,7 @@ namespace Escritorio.Curso
             Close();
         }
 
-       
+
 
 
         #endregion
@@ -183,9 +214,15 @@ namespace Escritorio.Curso
 
         }
 
-        private void CursoActual_Load(object sender, EventArgs e)
+        private void CursoABM_Load(object sender, EventArgs e)
         {
-
+            if (ModoForm.Baja == this.Modo)
+            {
+                this.txtAño.Enabled = false;
+                this.txtCupo.Enabled = false;
+                this.cmbBoxComisiones.Enabled = false;
+                this.cmbBoxMaterias.Enabled = false;
+            }
         }
     }
 }

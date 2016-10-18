@@ -27,12 +27,13 @@ namespace Escritorio.Comision
         }
         #endregion
 
+        #region CONSTRUCTORES
         public ComisionABM()
         {
             InitializeComponent();
-            this.lstBoxPlan.DataSource = (new ControladorPlanes()).dameTodos();
-            this.lstBoxPlan.ValueMember = "Id";
-            this.lstBoxPlan.DisplayMember = "DescripcionPlan";
+            this.cmbBoxPlanes.DataSource = (new ControladorPlanes()).dameTodos();
+            this.cmbBoxPlanes.ValueMember = "Id";
+            this.cmbBoxPlanes.DisplayMember = "DescripcionPlan";
         }
 
         public ComisionABM(ModoForm modo)
@@ -64,6 +65,8 @@ namespace Escritorio.Comision
                     break;
             }
         }
+        #endregion
+
         #region METODOS
 
 
@@ -72,7 +75,7 @@ namespace Escritorio.Comision
             this.txtID.Text = this.ComisionActual.Id.ToString();
             this.txtAnio.Text = this.ComisionActual.AnioEspecialidad.ToString();
             this.txtDescripcion.Text = this.ComisionActual.DescripcionComision;
-            this.lstBoxPlan.SelectedIndex = this.lstBoxPlan.FindString(ComisionActual.Plan.DescripcionPlan);
+            this.cmbBoxPlanes.SelectedIndex = this.cmbBoxPlanes.FindString(ComisionActual.Plan.DescripcionPlan);
         }
 
         public override void GuardarCambios()
@@ -91,7 +94,7 @@ namespace Escritorio.Comision
                         ComisionActual = new Entidades.Comision();
                         this.ComisionActual.AnioEspecialidad = Convert.ToInt32(this.txtAnio.Text);
                         this.ComisionActual.DescripcionComision = this.txtDescripcion.Text;
-                        this.ComisionActual.Plan = (new ControladorPlanes()).dameUno(Convert.ToInt32(this.lstBoxPlan.SelectedValue));
+                        this.ComisionActual.Plan = (new ControladorPlanes()).dameUno(Convert.ToInt32(this.cmbBoxPlanes.SelectedValue));
                         this.ComisionActual.State = Entidades.EntidadBase.States.New;
 
 
@@ -101,7 +104,7 @@ namespace Escritorio.Comision
                     {
                         this.ComisionActual.AnioEspecialidad = Convert.ToInt32(this.txtAnio.Text);
                         this.ComisionActual.DescripcionComision = this.txtDescripcion.Text;
-                        this.ComisionActual.Plan = (new ControladorPlanes()).dameUno(Convert.ToInt32(this.lstBoxPlan.SelectedValue));
+                        this.ComisionActual.Plan = (new ControladorPlanes()).dameUno(Convert.ToInt32(this.cmbBoxPlanes.SelectedValue));
                         this.ComisionActual.State = Entidades.EntidadBase.States.Modified;
                         break;
                     }
@@ -119,54 +122,73 @@ namespace Escritorio.Comision
             }
         }
 
+        public override bool Validar()
+        {
+            Boolean estado = true;
+            try
+            {
+                if (!(this.Modo == ModoForm.Baja))
+                {
+                    foreach (Control control in this.tableLayoutPanel1.Controls)
+                    {
+                        if (!(control == txtID))
+                        {
+                            if (control is TextBox && control.Text == String.Empty)
+                            {
+                                estado = false;
+                            }
+                        }
+                    }
+                    if (estado == false)
+                    {
+                        Notificar("Campos vacíos", "Existen campos sin completar.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                return estado;
+            }
+            catch (Exception e)
+            {
+                Notificar("ERROR", e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                estado = false;
+            }
+            return estado;
+        }
+
         public new void Notificar(string titulo, string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
         {
             MessageBox.Show(mensaje, titulo, botones, icono);
         }
-
-        /*Notificar es el método que utilizaremos para unificar el mecanismo de avisos al usuario y en caso de tener que modificar la forma en que se
-          realizan los avisos al usuario sólo se debe modificar este método, en lugar de tener que reemplazarlo en toda la aplicación.*/
-
-
+        
         public new void Notificar(string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
         {
             this.Notificar(this.Text, mensaje, botones, icono);
         }
         #endregion
 
+        #region EVENTOS
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-
+            if (Validar()) { 
             GuardarCambios();
             Close();
-
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
         }
-
-
-
-
-            
-
-
-
+        
         private void ComisionABM_Load(object sender, EventArgs e)
         {
 
             if (ModoForm.Baja == this.Modo)
             {
-                this.lstBoxPlan.Visible = false;
-
-            }
-
-
+                this.cmbBoxPlanes.Enabled = false;
+                this.txtAnio.Enabled = false;
+                this.txtDescripcion.Enabled = false;
+            }           
         }
-
-
-
+        #endregion
     }
 }

@@ -43,7 +43,7 @@ namespace Escritorio.Especialidad
             // btnAceptar
             // 
             this.btnAceptar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAceptar.Location = new System.Drawing.Point(378, 139);
+            this.btnAceptar.Location = new System.Drawing.Point(211, 116);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(88, 25);
             this.btnAceptar.TabIndex = 7;
@@ -54,7 +54,7 @@ namespace Escritorio.Especialidad
             // btnCancelar
             // 
             this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnCancelar.Location = new System.Drawing.Point(484, 139);
+            this.btnCancelar.Location = new System.Drawing.Point(305, 116);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(88, 25);
             this.btnCancelar.TabIndex = 8;
@@ -64,16 +64,16 @@ namespace Escritorio.Especialidad
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDescripcion.Location = new System.Drawing.Point(252, 54);
+            this.txtDescripcion.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtDescripcion.Location = new System.Drawing.Point(84, 54);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(199, 20);
             this.txtDescripcion.TabIndex = 1;
             // 
             // txtID
             // 
-            this.txtID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtID.Location = new System.Drawing.Point(252, 10);
+            this.txtID.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtID.Location = new System.Drawing.Point(84, 10);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(199, 20);
@@ -83,7 +83,7 @@ namespace Escritorio.Especialidad
             // 
             this.lblDescripcion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(35, 57);
+            this.lblDescripcion.Location = new System.Drawing.Point(9, 57);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(63, 13);
             this.lblDescripcion.TabIndex = 1;
@@ -93,7 +93,7 @@ namespace Escritorio.Especialidad
             // 
             this.lblID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(57, 14);
+            this.lblID.Location = new System.Drawing.Point(31, 14);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(18, 13);
             this.lblID.TabIndex = 0;
@@ -111,7 +111,7 @@ namespace Escritorio.Especialidad
             this.tableLayoutPanel1.Controls.Add(this.lblDescripcion, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtDescripcion, 1, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 23);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(42, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.14286F));
@@ -120,7 +120,7 @@ namespace Escritorio.Especialidad
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(571, 87);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(351, 87);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -128,7 +128,7 @@ namespace Escritorio.Especialidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(612, 176);
+            this.ClientSize = new System.Drawing.Size(401, 153);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnCancelar);

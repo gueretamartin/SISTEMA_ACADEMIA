@@ -242,6 +242,9 @@
     <Content Include="imgs\16x16_nr_19359190.jpg" />
     <Content Include="imgs\anadir-mas-icono-5518-16.png" />
     <Content Include="imgs\cross.png" />
+    <Content Include="imgs\images.ico" />
+    <Content Include="imgs\logoutngrande.jpg" />
+    <None Include="Resources\img.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

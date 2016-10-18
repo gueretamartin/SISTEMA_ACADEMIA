@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Util;
 
 namespace Escritorio.Persona
 {
@@ -35,12 +35,12 @@ namespace Escritorio.Persona
         public PersonaABM()
         {
             InitializeComponent();
-            this.lstBoxPlan.DataSource = (new ControladorPlanes()).dameTodos();
-            this.lstBoxTipoPersona.DataSource = (new ControladorTipoPersona()).dameTodos();
-            this.lstBoxPlan.ValueMember = "Id";
-            this.lstBoxPlan.DisplayMember = "DescripcionPlan";
-            this.lstBoxTipoPersona.ValueMember = "Id";
-            this.lstBoxTipoPersona.DisplayMember = "DescripcionTipo";
+            this.cmbBoxPlanes.DataSource = (new ControladorPlanes()).dameTodos();
+            this.cmbBoxTipoPersona.DataSource = (new ControladorTipoPersona()).dameTodos();
+            this.cmbBoxPlanes.ValueMember = "Id";
+            this.cmbBoxPlanes.DisplayMember = "DescripcionPlan";
+            this.cmbBoxTipoPersona.ValueMember = "Id";
+            this.cmbBoxTipoPersona.DisplayMember = "DescripcionTipo";
         }
 
         //Recibe el modo del formulario. Internamete debe setear a ModoForm en el modo enviado, este constructor
@@ -94,8 +94,8 @@ namespace Escritorio.Persona
             this.dateFechaNac.Text = this.PersonaActual.FechaNacimiento.ToString();
 
 
-            this.lstBoxPlan.SelectedIndex = this.lstBoxPlan.FindString(PersonaActual.Plan.DescripcionPlan);
-            this.lstBoxTipoPersona.SelectedIndex = this.lstBoxTipoPersona.FindString(PersonaActual.TipoPersona.DescripcionTipo);
+            this.cmbBoxPlanes.SelectedIndex = this.cmbBoxPlanes.FindString(PersonaActual.Plan.DescripcionPlan);
+            this.cmbBoxTipoPersona.SelectedIndex = this.cmbBoxTipoPersona.FindString(PersonaActual.TipoPersona.DescripcionTipo);
 
 
 
@@ -116,18 +116,15 @@ namespace Escritorio.Persona
                     {
                         PersonaActual = new Entidades.Personas();
                         Personas p = new Personas();
-
                         this.PersonaActual.Nombre = this.txtNombre.Text;
                         this.PersonaActual.Apellido = this.txtApellido.Text;
                         this.PersonaActual.Direccion = this.txtDireccion.Text;
                         this.PersonaActual.Telefono = this.txtTelefono.Text;
                         this.PersonaActual.FechaNacimiento = Convert.ToDateTime(this.dateFechaNac.Text);
                         this.PersonaActual.Email = this.txtEmail.Text;
-                        this.PersonaActual.Legajo = Convert.ToInt32(this.txtLegajo.Text);
-                        this.PersonaActual.TipoPersona = (new ControladorTipoPersona()).dameUno(Convert.ToInt32(this.lstBoxTipoPersona.SelectedValue));
-                        this.PersonaActual.Plan = (new ControladorPlanes()).dameUno(Convert.ToInt32(this.lstBoxPlan.SelectedValue));
+                        this.PersonaActual.TipoPersona = (new ControladorTipoPersona()).dameUno(Convert.ToInt32(this.cmbBoxTipoPersona.SelectedValue));
+                        this.PersonaActual.Plan = (new ControladorPlanes()).dameUno(Convert.ToInt32(this.cmbBoxPlanes.SelectedValue));
                         this.PersonaActual.State = Entidades.EntidadBase.States.New;
-
                         break;
                     }
                 case (ModoForm.Modificacion):
@@ -139,10 +136,9 @@ namespace Escritorio.Persona
                         this.PersonaActual.FechaNacimiento = Convert.ToDateTime(this.dateFechaNac.Text);
                         this.PersonaActual.Email = this.txtEmail.Text;
                         this.PersonaActual.Legajo = Convert.ToInt32(this.txtLegajo.Text);
-                        this.PersonaActual.TipoPersona = (new ControladorTipoPersona()).dameUno(Convert.ToInt32(this.lstBoxTipoPersona.SelectedValue));
-                        this.PersonaActual.Plan = (new ControladorPlanes()).dameUno(Convert.ToInt32(this.lstBoxPlan.SelectedValue));
+                        this.PersonaActual.TipoPersona = (new ControladorTipoPersona()).dameUno(Convert.ToInt32(this.cmbBoxTipoPersona.SelectedValue));
+                        this.PersonaActual.Plan = (new ControladorPlanes()).dameUno(Convert.ToInt32(this.cmbBoxPlanes.SelectedValue));
                         this.PersonaActual.State = Entidades.EntidadBase.States.Modified;
-
                         break;
                     }
                 case (ModoForm.Baja):
@@ -174,23 +170,49 @@ namespace Escritorio.Persona
             return est;
         }
 
-        /*MapearDeDatos va a ser utilizado en cada formulario para copiar la información de las entidades a los controles del formulario (TextBox,
-          ComboBox, etc) para mostrar la infromación de cada entidad 
-         * MapearADatos se va a utilizar para pasar la información de los controles a una entidad para luego enviarla a las capas inferiores
-         * GuardarCambios es el método que se encargará de invocar al método correspondiente de la capa de negocio según sea el ModoForm en que se
-         encuentre el formulario
-         * Validar será el método que devuelva si los datos son válidos para poder registrar los cambios realizados. */
+        public override bool Validar()
+        {
+            Boolean estado = true;
+            try
+            {
+                if (!(this.Modo == ModoForm.Baja))
+                {
+                    foreach (Control control in this.tableLayoutPanel1.Controls)
+                    {
+                        if (!(control == txtID))
+                        {
+                            if (control is TextBox && control.Text == String.Empty)
+                            {
+                                estado = false;
+                            }
+                        }
+                    }
+                    if (estado == false)
+                    {
+                        Notificar("Campos vacíos", "Existen campos sin completar.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (!(Util.ValidarEmails.esMailValido(this.txtEmail.Text)))
+                    {
+                        estado = false;
+                        Notificar("Mail no valido", "Mail no valido. Escribe una dirección de correo electrónico con el formato alguien@ejemplo.com.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                return estado;
+            }
+            catch (Exception e)
+            {
+                Notificar("ERROR", e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                estado = false;
+            }
+            return estado;
+        }
 
 
         public new void Notificar(string titulo, string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
         {
             MessageBox.Show(mensaje, titulo, botones, icono);
         }
-
-        /*Notificar es el método que utilizaremos para unificar el mecanismo de avisos al usuario y en caso de tener que modificar la forma en que se
-          realizan los avisos al usuario sólo se debe modificar este método, en lugar de tener que reemplazarlo en toda la aplicación.*/
-
-
+        
         public new void Notificar(string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
         {
             this.Notificar(this.Text, mensaje, botones, icono);
@@ -202,10 +224,11 @@ namespace Escritorio.Persona
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-           
+            if (Validar())
+            { 
                 GuardarCambios();
                 Close();
-            
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -227,8 +250,17 @@ namespace Escritorio.Persona
         {
             if (ModoForm.Baja == this.Modo)
             {
-                this.lstBoxPlan.Visible = false;
-                this.lstBoxTipoPersona.Visible = false; 
+                this.txtApellido.Enabled = false;
+                this.txtDireccion.Enabled = false;
+                this.txtEmail.Enabled = false;
+                this.txtLegajo.Enabled = false;
+                this.txtNombre.Enabled = false;
+                this.txtTelefono.Enabled = false;
+                this.cmbBoxPlanes.Enabled = false;
+                this.cmbBoxTipoPersona.Enabled = false;
+                this.dateFechaNac.Enabled = false;
+
+
             } 
         }
 

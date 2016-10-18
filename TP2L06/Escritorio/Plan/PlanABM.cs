@@ -32,9 +32,9 @@ namespace Escritorio.Plan
         {
 
             InitializeComponent();
-            this.lstBoxEspecialidades.DataSource = (new ControladorEspecialidad()).dameTodos();
-            this.lstBoxEspecialidades.ValueMember = "Id";
-            this.lstBoxEspecialidades.DisplayMember = "DescripcionEspecialidad";
+            this.cmbBoxEspecialidades.DataSource = (new ControladorEspecialidad()).dameTodos();
+            this.cmbBoxEspecialidades.ValueMember = "Id";
+            this.cmbBoxEspecialidades.DisplayMember = "DescripcionEspecialidad";
 
 
         }
@@ -81,7 +81,7 @@ namespace Escritorio.Plan
         {
             this.txtID.Text = this.PlanActual.Id.ToString();
             this.txtPlan.Text = this.PlanActual.DescripcionPlan;
-            this.lstBoxEspecialidades.SelectedIndex = this.lstBoxEspecialidades.FindString(PlanActual.Especialidad.DescripcionEspecialidad);
+            this.cmbBoxEspecialidades.SelectedIndex = this.cmbBoxEspecialidades.FindString(PlanActual.Especialidad.DescripcionEspecialidad);
         }
 
         public override void GuardarCambios()
@@ -102,7 +102,7 @@ namespace Escritorio.Plan
 
                         this.PlanActual.DescripcionPlan = this.txtPlan.Text;
                         this.PlanActual.Especialidad = e;
-                        this.PlanActual.Especialidad.Id = Convert.ToInt32(this.lstBoxEspecialidades.SelectedValue);
+                        this.PlanActual.Especialidad.Id = Convert.ToInt32(this.cmbBoxEspecialidades.SelectedValue);
                         this.PlanActual.State = Entidades.EntidadBase.States.New;
 
 
@@ -111,7 +111,7 @@ namespace Escritorio.Plan
                 case (ModoForm.Modificacion):
                     {
                         this.PlanActual.DescripcionPlan = this.txtPlan.Text;
-                        this.PlanActual.Especialidad.Id = Convert.ToInt32(this.lstBoxEspecialidades.SelectedValue);
+                        this.PlanActual.Especialidad.Id = Convert.ToInt32(this.cmbBoxEspecialidades.SelectedValue);
                         this.PlanActual.State = Entidades.EntidadBase.States.Modified;
                         break;
                     }
@@ -129,10 +129,37 @@ namespace Escritorio.Plan
             }
         }
 
-      
-
-
-       
+        public override bool Validar()
+        {
+            Boolean estado = true;
+            try
+            {
+                if (!(this.Modo == ModoForm.Baja))
+                {
+                    foreach (Control control in this.tableLayoutPanel1.Controls)
+                    {
+                        if (!(control == txtID))
+                        {
+                            if (control is TextBox && control.Text == String.Empty)
+                            {
+                                estado = false;
+                            }
+                        }
+                    }
+                    if (estado == false)
+                    {
+                        Notificar("Campos vacíos", "Existen campos sin completar.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                return estado;
+            }
+            catch (Exception e)
+            {
+                Notificar("ERROR", e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                estado = false;
+            }
+            return estado;
+        }
 
         public new void Notificar(string titulo, string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
         {
@@ -152,19 +179,17 @@ namespace Escritorio.Plan
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-           
+            if (Validar())
+            { 
                 GuardarCambios();
                 Close();
-           
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
         }
-
-       
-
 
         #endregion
 
@@ -175,7 +200,11 @@ namespace Escritorio.Plan
 
         private void PlanABM_Load(object sender, EventArgs e)
         {
-
+            if (ModoForm.Baja == this.Modo)
+            {
+                this.txtPlan.Enabled = false;
+                this.cmbBoxEspecialidades.Enabled = false;
+            }
         }
     }
 }

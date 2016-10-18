@@ -124,7 +124,37 @@ namespace Escritorio.Especialidad
             }
         }
 
-      
+        public override bool Validar()
+        {
+            Boolean estado = true;
+            try
+            {
+                if (!(this.Modo == ModoForm.Baja))
+                {
+                    foreach (Control control in this.tableLayoutPanel1.Controls)
+                    {
+                        if (!(control == txtID))
+                        {
+                            if (control is TextBox && control.Text == String.Empty)
+                            {
+                                estado = false;
+                            }
+                        }
+                    }
+                    if (estado == false)
+                    {
+                        Notificar("Campos vacíos", "Existen campos sin completar.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                return estado;
+            }
+            catch (Exception e)
+            {
+                Notificar("ERROR", e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                estado = false;
+            }
+            return estado;
+        }
 
 
         public new void Notificar(string titulo, string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
@@ -148,9 +178,11 @@ namespace Escritorio.Especialidad
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            if (Validar())
+            { 
                 GuardarCambios();
                 Close();
-            
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -161,7 +193,10 @@ namespace Escritorio.Especialidad
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-
+            if (ModoForm.Baja == this.Modo)
+            {
+                this.txtDescripcion.Enabled = false;
+            }
         }
 
       
