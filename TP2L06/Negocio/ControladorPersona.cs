@@ -26,5 +26,11 @@ namespace Negocio
         {
             personasData.Save(per);
         }
+
+        public List<Personas> dameTodosAlumnos()
+        {
+            var personas = personasData.GetAllAlumnos();
+            return personas;
+        }
     }
 }

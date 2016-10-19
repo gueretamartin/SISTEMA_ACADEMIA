@@ -106,5 +106,11 @@ namespace Escritorio.Principal
             Escritorio.Plan.PlanPrincipal formU = new Escritorio.Plan.PlanPrincipal();
             formU.Show();
         }
+
+        private void alumnoInscripcionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Escritorio.AlumnoInscripcion.AlumnoInscripcionPrincipal formU = new Escritorio.AlumnoInscripcion.AlumnoInscripcionPrincipal();
+            formU.Show();
+        }
     }
 }

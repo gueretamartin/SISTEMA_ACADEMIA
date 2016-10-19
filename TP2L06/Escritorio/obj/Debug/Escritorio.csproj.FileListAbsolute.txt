@@ -29,3 +29,5 @@ C:\Users\Martin\Desktop\Sistema_Academia\SISTEMA_ACADEMIA\TP2L06\Escritorio\obj\
 C:\Users\Martin\Desktop\Sistema_Academia\SISTEMA_ACADEMIA\TP2L06\Escritorio\obj\Debug\Escritorio.Curso.CursoPrincipal.resources
 C:\Users\Martin\Desktop\Sistema_Academia\SISTEMA_ACADEMIA\TP2L06\Escritorio\obj\Debug\Escritorio.Plan.PlanPrincipal.resources
 C:\Users\Martin\Desktop\Sistema_Academia\SISTEMA_ACADEMIA\TP2L06\Escritorio\obj\Debug\Escritorio.Plan.PlanABM.resources
+C:\Users\Martin\Desktop\Sistema_Academia\SISTEMA_ACADEMIA\TP2L06\Escritorio\obj\Debug\Escritorio.AlumnoInscripcion.AlumnoInscripcionABM.resources
+C:\Users\Martin\Desktop\Sistema_Academia\SISTEMA_ACADEMIA\TP2L06\Escritorio\obj\Debug\Escritorio.AlumnoInscripcion.AlumnoInscripcionPrincipal.resources

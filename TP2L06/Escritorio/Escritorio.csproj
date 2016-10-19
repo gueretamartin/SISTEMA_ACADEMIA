@@ -48,6 +48,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlumnoInscripcion\AlumnoInscripcionABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlumnoInscripcion\AlumnoInscripcionABM.Designer.cs">
+      <DependentUpon>AlumnoInscripcionABM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AlumnoInscripcion\AlumnoInscripcionPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlumnoInscripcion\AlumnoInscripcionPrincipal.Designer.cs">
+      <DependentUpon>AlumnoInscripcionPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Base\FormularioBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +164,12 @@
     <Compile Include="Usuario\UsuarioPrincipal.Designer.cs">
       <DependentUpon>UsuarioPrincipal.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AlumnoInscripcion\AlumnoInscripcionABM.resx">
+      <DependentUpon>AlumnoInscripcionABM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlumnoInscripcion\AlumnoInscripcionPrincipal.resx">
+      <DependentUpon>AlumnoInscripcionPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Comision\ComisionABM.resx">
       <DependentUpon>ComisionABM.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,16 +253,14 @@
       <Name>Util</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AlumnoInscripcion\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="imgs\16x16_nr_19359190.jpg" />
     <Content Include="imgs\anadir-mas-icono-5518-16.png" />
     <Content Include="imgs\cross.png" />
     <Content Include="imgs\images.ico" />
+    <Content Include="imgs\images.png" />
     <Content Include="imgs\logoutngrande.jpg" />
-    <None Include="Resources\img.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

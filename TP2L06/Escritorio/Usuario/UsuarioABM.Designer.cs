@@ -59,7 +59,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.32155F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.67844F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 267F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 269F));
             this.tableLayoutPanel1.Controls.Add(this.cmbBoxPersonas, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.lblID, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblNombre, 0, 1);
@@ -94,7 +94,7 @@
             // 
             this.cmbBoxPersonas.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cmbBoxPersonas.FormattingEnabled = true;
-            this.cmbBoxPersonas.Location = new System.Drawing.Point(72, 141);
+            this.cmbBoxPersonas.Location = new System.Drawing.Point(71, 141);
             this.cmbBoxPersonas.Name = "cmbBoxPersonas";
             this.cmbBoxPersonas.Size = new System.Drawing.Size(201, 21);
             this.cmbBoxPersonas.TabIndex = 104;
@@ -123,7 +123,7 @@
             // 
             this.lblIdPersona.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblIdPersona.AutoSize = true;
-            this.lblIdPersona.Location = new System.Drawing.Point(10, 144);
+            this.lblIdPersona.Location = new System.Drawing.Point(9, 144);
             this.lblIdPersona.Name = "lblIdPersona";
             this.lblIdPersona.Size = new System.Drawing.Size(49, 13);
             this.lblIdPersona.TabIndex = 101;
@@ -133,7 +133,7 @@
             // 
             this.lblApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(323, 43);
+            this.lblApellido.Location = new System.Drawing.Point(321, 43);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(44, 13);
             this.lblApellido.TabIndex = 5;
@@ -142,7 +142,7 @@
             // txtID
             // 
             this.txtID.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtID.Location = new System.Drawing.Point(72, 6);
+            this.txtID.Location = new System.Drawing.Point(71, 6);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(199, 20);
@@ -151,7 +151,7 @@
             // txtNombre
             // 
             this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtNombre.Location = new System.Drawing.Point(72, 39);
+            this.txtNombre.Location = new System.Drawing.Point(71, 39);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.ReadOnly = true;
             this.txtNombre.Size = new System.Drawing.Size(199, 20);
@@ -160,7 +160,7 @@
             // txtApellido
             // 
             this.txtApellido.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtApellido.Location = new System.Drawing.Point(397, 39);
+            this.txtApellido.Location = new System.Drawing.Point(395, 39);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.ReadOnly = true;
             this.txtApellido.Size = new System.Drawing.Size(201, 20);
@@ -169,7 +169,7 @@
             // txtConfirmarClave
             // 
             this.txtConfirmarClave.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtConfirmarClave.Location = new System.Drawing.Point(397, 141);
+            this.txtConfirmarClave.Location = new System.Drawing.Point(395, 141);
             this.txtConfirmarClave.Name = "txtConfirmarClave";
             this.txtConfirmarClave.PasswordChar = '•';
             this.txtConfirmarClave.Size = new System.Drawing.Size(201, 20);
@@ -179,7 +179,7 @@
             // 
             this.lblConfirmClave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblConfirmClave.AutoSize = true;
-            this.lblConfirmClave.Location = new System.Drawing.Point(304, 144);
+            this.lblConfirmClave.Location = new System.Drawing.Point(302, 144);
             this.lblConfirmClave.Name = "lblConfirmClave";
             this.lblConfirmClave.Size = new System.Drawing.Size(81, 13);
             this.lblConfirmClave.TabIndex = 7;
@@ -188,7 +188,7 @@
             // txtClave
             // 
             this.txtClave.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtClave.Location = new System.Drawing.Point(397, 110);
+            this.txtClave.Location = new System.Drawing.Point(395, 110);
             this.txtClave.Name = "txtClave";
             this.txtClave.PasswordChar = '•';
             this.txtClave.Size = new System.Drawing.Size(199, 20);
@@ -198,7 +198,7 @@
             // 
             this.lblClave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblClave.AutoSize = true;
-            this.lblClave.Location = new System.Drawing.Point(328, 113);
+            this.lblClave.Location = new System.Drawing.Point(326, 113);
             this.lblClave.Name = "lblClave";
             this.lblClave.Size = new System.Drawing.Size(34, 13);
             this.lblClave.TabIndex = 3;
@@ -219,7 +219,7 @@
             // txtUsuario
             // 
             this.txtUsuario.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtUsuario.Location = new System.Drawing.Point(72, 110);
+            this.txtUsuario.Location = new System.Drawing.Point(71, 110);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(201, 20);
             this.txtUsuario.TabIndex = 4;
@@ -228,7 +228,7 @@
             // 
             this.lblUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(13, 113);
+            this.lblUsuario.Location = new System.Drawing.Point(12, 113);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 6;
@@ -237,7 +237,7 @@
             // txtEmail
             // 
             this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtEmail.Location = new System.Drawing.Point(397, 74);
+            this.txtEmail.Location = new System.Drawing.Point(395, 74);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(199, 20);
@@ -247,7 +247,7 @@
             // 
             this.lblEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(329, 78);
+            this.lblEmail.Location = new System.Drawing.Point(327, 78);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(32, 13);
             this.lblEmail.TabIndex = 2;

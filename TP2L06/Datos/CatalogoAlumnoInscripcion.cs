@@ -176,7 +176,7 @@ namespace Datos
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("INSERT into alumnos_inscripciones (id_alumno,id_curso,condicion,nota) values(@alumno,@curso,@condicion,@nota) select @@identity", Con);
+                SqlCommand cmdSave = new SqlCommand("INSERT into alumnos_inscripciones (id_alumno,id_curso,condicion,nota) values(@id_alumno,@id_curso,@condicion,@nota) select @@identity", Con);
                 cmdSave.Parameters.Add("@id_alumno", SqlDbType.Int).Value = AlumnoInscripcion.Alumno.Id;
                 cmdSave.Parameters.Add("@id_curso", SqlDbType.Int).Value = AlumnoInscripcion.Curso.Id;
                 cmdSave.Parameters.Add("@condicion", SqlDbType.VarChar, 50).Value = AlumnoInscripcion.Condicion;

@@ -12,6 +12,33 @@ namespace Entidades
         private Personas alumno;
         private Curso curso;
         private int nota;
+        private string nombreAlumno;
+        private string nombreCurso;
+
+        public string NombreAlumno
+        {
+            get
+            {
+                return nombreAlumno;
+            }
+
+            set
+            {
+                nombreAlumno = value;
+            }
+        }
+        public string NombreCurso
+        {
+            get
+            {
+                return nombreCurso;
+            }
+
+            set
+            {
+                nombreCurso = value;
+            }
+        }
 
         public string Condicion
         {
@@ -36,6 +63,7 @@ namespace Entidades
             set
             {
                 alumno = value;
+                nombreAlumno = Alumno.Nombre;
             }
         }
 
@@ -49,6 +77,7 @@ namespace Entidades
             set
             {
                 curso = value;
+                nombreCurso = Curso.Id.ToString(); ;
             }
         }
 
