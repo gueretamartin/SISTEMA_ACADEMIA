@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Entidades.CustomEntity;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -44,6 +45,7 @@ namespace Datos
             }
             return cursos;
         }
+      
 
         public Curso GetOne(int id)
         {

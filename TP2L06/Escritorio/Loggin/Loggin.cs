@@ -13,9 +13,12 @@ namespace Escritorio.Loggin
 {
     public partial class Loggin : Form
     {
+        public Entidades.Usuario us;
+
         public Loggin()
         {
             InitializeComponent();
+            us = new Entidades.Usuario();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -25,7 +28,7 @@ namespace Escritorio.Loggin
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            Entidades.Usuario us = new Entidades.Usuario();
+           
             us = new ControladorUsuario().validarUsuario(txtUsuario.Text, txtPass.Text);
 
             if (us!=null)
