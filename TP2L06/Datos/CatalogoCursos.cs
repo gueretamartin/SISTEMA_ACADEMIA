@@ -28,7 +28,7 @@ namespace Datos
                     mat.AnioCalendario = (int)drCursos["anio_calendario"];
                     mat.Materia = new CatalogoMaterias().GetOne((int)drCursos["id_materia"]);
                     mat.Id = (int)drCursos["id_curso"];
-                    mat.Comision = new CatalogoComisiones().GetOne((int)drCursos["id_comision"]);
+             
                     cursos.Add(mat);
                 }
                 drCursos.Close();
@@ -62,7 +62,7 @@ namespace Datos
                     mat.AnioCalendario = (int)drCursos["anio_calendario"];
                     mat.Materia = new CatalogoMaterias().GetOne((int)drCursos["id_materia"]);
                     mat.Id = (int)drCursos["id_curso"];
-                    mat.Comision = new CatalogoComisiones().GetOne((int)drCursos["id_comision"]);
+                   
                 }
                 drCursos.Close();
             }
@@ -126,11 +126,11 @@ namespace Datos
             {
                 this.OpenConnection();
 
-                SqlCommand cmdSave = new SqlCommand("UPDATE cursos SET id_materia= @idMat, id_comision=@idCom, anio_calendario=@anio, cupo=@cupo WHERE id_curso = @id", Con);
+                SqlCommand cmdSave = new SqlCommand("UPDATE cursos SET id_materia= @idMat,  anio_calendario=@anio, cupo=@cupo WHERE id_curso = @id", Con);
 
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = mat.Id;
                 cmdSave.Parameters.Add("@idMat", SqlDbType.Int).Value = mat.Materia.Id;
-                cmdSave.Parameters.Add("@idCom", SqlDbType.Int).Value = mat.Comision.Id;
+               
                 cmdSave.Parameters.Add("@anio", SqlDbType.Int).Value = mat.AnioCalendario;
                 cmdSave.Parameters.Add("@cupo", SqlDbType.Int).Value = mat.Cupo;
                 cmdSave.ExecuteReader();
@@ -152,13 +152,13 @@ namespace Datos
             {
                 this.OpenConnection();
 
-                SqlCommand cmdSave = new SqlCommand("INSERT INTO cursos(id_materia,id_comision,anio_calendario,cupo) " +
-                    "VALUES(@idMat,@idCom,@anio,@cupo) " +
+                SqlCommand cmdSave = new SqlCommand("INSERT INTO cursos(id_materia,anio_calendario,cupo) " +
+                    "VALUES(@idMat,@anio,@cupo) " +
                     "SELECT @@identity", //esta linea es para recuperar el ID que asignó el SQL automaticamente
                     Con);
 
                 cmdSave.Parameters.Add("@idMat", SqlDbType.Int).Value = mat.Materia.Id;
-                cmdSave.Parameters.Add("@idCom", SqlDbType.Int).Value = mat.Comision.Id;
+            
                 cmdSave.Parameters.Add("@anio", SqlDbType.Int).Value = mat.AnioCalendario;
                 cmdSave.Parameters.Add("@cupo", SqlDbType.Int).Value = mat.Cupo;
 

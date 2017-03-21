@@ -10,24 +10,14 @@ namespace Entidades
     {
         private int anioCalendario;
         private int cupo;
-        private Comision comision;
+    
         private Materia materia;
-        private string descripcionComision;
+  
         private string descripcionMateria;
 
 
 
-        public string DescripcionComision
-        {
-            get
-            {
-                return descripcionComision;
-            }
-            set
-            {
-                descripcionComision = this.Comision.DescripcionComision;
-            }
-        }
+       
 
         public string DescripcionMateria
         {
@@ -69,20 +59,7 @@ namespace Entidades
         }
 
 
-        public Comision Comision
-        {
-            get
-            {
-                return comision;
-            }
-
-            set
-            {
-                comision = value;
-                descripcionComision = comision.DescripcionComision;
-
-            }
-        }
+       
 
         public Materia Materia
         {

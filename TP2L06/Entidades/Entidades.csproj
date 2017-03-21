@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlumnoInscripcion.cs" />
-    <Compile Include="Comision.cs" />
     <Compile Include="Curso.cs" />
     <Compile Include="Docente.cs" />
     <Compile Include="EntidadBase.cs" />

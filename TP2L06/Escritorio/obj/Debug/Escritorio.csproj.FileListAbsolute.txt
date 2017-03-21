@@ -45,8 +45,6 @@ C:\Users\Martin\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Escritorio\bin\Debug\Datos.p
 C:\Users\Martin\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Escritorio\obj\Debug\Escritorio.csprojResolveAssemblyReference.cache
 C:\Users\Martin\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Escritorio\obj\Debug\Escritorio.AlumnoInscripcion.AlumnoInscripcionABM.resources
 C:\Users\Martin\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Escritorio\obj\Debug\Escritorio.AlumnoInscripcion.AlumnoInscripcionPrincipal.resources
-C:\Users\Martin\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Escritorio\obj\Debug\Escritorio.Comision.ComisionABM.resources
-C:\Users\Martin\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Escritorio\obj\Debug\Escritorio.Comision.ComisionPrincipal.resources
 C:\Users\Martin\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Escritorio\obj\Debug\Escritorio.Curso.CursoABM.resources
 C:\Users\Martin\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Escritorio\obj\Debug\Escritorio.Curso.CursoPrincipal.resources
 C:\Users\Martin\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Escritorio\obj\Debug\Escritorio.Especialidad.EspecialidadABM.resources
