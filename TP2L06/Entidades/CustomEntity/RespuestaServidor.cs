@@ -27,7 +27,7 @@ namespace Entidades.CustomEntity
             {
                 Mensajeria.MostrarExito(this.Mensaje);
             }
-            else
+            else if(this.Error)
             {
                 Mensajeria.MostrarErrores(this.ListaErrores);
             }
@@ -44,6 +44,20 @@ namespace Entidades.CustomEntity
             else
             {
                 this.ListaErrores.Add(ex.Message);
+            }
+        }
+
+        public bool ContieneExcepcion(Exception ex, string cadenaContenida)
+        {
+            this.Error = true;
+            if (ex.InnerException != null)
+            {
+                this.ContieneExcepcion(ex, cadenaContenida);
+                return false;
+            }
+            else
+            {
+                return ex.Message.Contains(cadenaContenida);
             }
         }
 

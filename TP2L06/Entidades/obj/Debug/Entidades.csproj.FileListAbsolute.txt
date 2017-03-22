@@ -10,3 +10,10 @@ C:\Users\Martin\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Entidades\bin\Debug\Util.pdb
 C:\Users\Martin\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
 C:\Users\Martin\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Entidades\obj\Debug\Entidades.dll
 C:\Users\Martin\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Entidades\obj\Debug\Entidades.pdb
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Entidades\bin\Debug\Entidades.dll
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Entidades\bin\Debug\Entidades.pdb
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Entidades\bin\Debug\Util.dll
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Entidades\bin\Debug\Util.pdb
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Entidades\obj\Debug\Entidades.dll
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Entidades\obj\Debug\Entidades.pdb

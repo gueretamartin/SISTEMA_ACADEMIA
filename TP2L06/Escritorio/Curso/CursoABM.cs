@@ -1,4 +1,5 @@
-﻿using Negocio;
+﻿using Entidades.CustomEntity;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -85,6 +86,7 @@ namespace Escritorio.Curso
             this.txtID.Text = this.CursoActual.Id.ToString();
             this.txtAño.Text = this.CursoActual.AnioCalendario.ToString();
             this.txtCupo.Text = this.CursoActual.Cupo.ToString();
+            this.txtDenominacion.Text = this.CursoActual.Denominacion.ToString();
            
             this.cmbBoxMaterias.SelectedIndex = this.cmbBoxMaterias.FindString(CursoActual.Materia.DescripcionMateria);
         }
@@ -92,7 +94,8 @@ namespace Escritorio.Curso
         public override void GuardarCambios()
         {
             MapearADatos();
-            new ControladorCursos().save(CursoActual);
+            RespuestaServidor sr = new ControladorCursos().save(CursoActual);
+            sr.MostrarMensajes();
         }
 
         public override void MapearADatos()
@@ -111,9 +114,9 @@ namespace Escritorio.Curso
                         this.CursoActual.Materia = m;
                        
                         this.CursoActual.Materia.Id = Convert.ToInt32(this.cmbBoxMaterias.SelectedValue);
-                        
+                        this.CursoActual.Denominacion = this.txtDenominacion.Text;
                         this.CursoActual.State = Entidades.EntidadBase.States.New;
-
+      
 
                         break;
                     }
@@ -122,7 +125,8 @@ namespace Escritorio.Curso
                         this.CursoActual.AnioCalendario = Convert.ToInt32(this.txtAño.Text);
                         this.CursoActual.Cupo = Convert.ToInt32(this.txtCupo.Text);
                         this.CursoActual.Materia.Id = Convert.ToInt32(this.cmbBoxMaterias.SelectedValue);
-                         this.CursoActual.State = Entidades.EntidadBase.States.Modified;
+                        this.CursoActual.Denominacion = this.txtDenominacion.Text;
+                        this.CursoActual.State = Entidades.EntidadBase.States.Modified;
                         break;
                     }
                 case (ModoForm.Baja):

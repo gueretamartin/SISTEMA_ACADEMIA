@@ -41,6 +41,8 @@ namespace Escritorio.Curso
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblMaterias = new System.Windows.Forms.Label();
             this.cmbBoxMaterias = new System.Windows.Forms.ComboBox();
+            this.lblDenominacion = new System.Windows.Forms.Label();
+            this.txtDenominacion = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +71,7 @@ namespace Escritorio.Curso
             // txtCupo
             // 
             this.txtCupo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtCupo.Location = new System.Drawing.Point(335, 14);
+            this.txtCupo.Location = new System.Drawing.Point(348, 14);
             this.txtCupo.Name = "txtCupo";
             this.txtCupo.Size = new System.Drawing.Size(31, 20);
             this.txtCupo.TabIndex = 2;
@@ -95,7 +97,7 @@ namespace Escritorio.Curso
             // 
             this.lblCupo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCupo.AutoSize = true;
-            this.lblCupo.Location = new System.Drawing.Point(282, 17);
+            this.lblCupo.Location = new System.Drawing.Point(288, 17);
             this.lblCupo.Name = "lblCupo";
             this.lblCupo.Size = new System.Drawing.Size(32, 13);
             this.lblCupo.TabIndex = 5;
@@ -127,8 +129,8 @@ namespace Escritorio.Curso
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.86207F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.13793F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 68F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 267F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 254F));
             this.tableLayoutPanel1.Controls.Add(this.lblID, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblAño, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtID, 1, 0);
@@ -137,6 +139,8 @@ namespace Escritorio.Curso
             this.tableLayoutPanel1.Controls.Add(this.txtCupo, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblMaterias, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.cmbBoxMaterias, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblDenominacion, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtDenominacion, 3, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(44, 18);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
@@ -168,6 +172,24 @@ namespace Escritorio.Curso
             this.cmbBoxMaterias.Name = "cmbBoxMaterias";
             this.cmbBoxMaterias.Size = new System.Drawing.Size(153, 21);
             this.cmbBoxMaterias.TabIndex = 106;
+            // 
+            // lblDenominacion
+            // 
+            this.lblDenominacion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDenominacion.AutoSize = true;
+            this.lblDenominacion.Location = new System.Drawing.Point(266, 68);
+            this.lblDenominacion.Name = "lblDenominacion";
+            this.lblDenominacion.Size = new System.Drawing.Size(75, 13);
+            this.lblDenominacion.TabIndex = 107;
+            this.lblDenominacion.Text = "Denominacion";
+            // 
+            // txtDenominacion
+            // 
+            this.txtDenominacion.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtDenominacion.Location = new System.Drawing.Point(348, 64);
+            this.txtDenominacion.Name = "txtDenominacion";
+            this.txtDenominacion.Size = new System.Drawing.Size(249, 20);
+            this.txtDenominacion.TabIndex = 108;
             // 
             // CursoABM
             // 
@@ -203,5 +225,7 @@ namespace Escritorio.Curso
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lblMaterias;
         private System.Windows.Forms.ComboBox cmbBoxMaterias;
+        private System.Windows.Forms.Label lblDenominacion;
+        private System.Windows.Forms.TextBox txtDenominacion;
     }
 }

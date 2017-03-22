@@ -41,6 +41,10 @@ namespace Escritorio.AlumnoInscripcion
             this.cmbBoxCursos.DataSource = (new ControladorCursos()).dameTodos();
             this.cmbBoxCursos.ValueMember = "Id";
             this.cmbBoxCursos.DisplayMember = "Id";
+
+            this.cbCondicion.DataSource = (new ControladorCondicion()).dameTodos();
+            this.cbCondicion.ValueMember = "Id";
+            this.cbCondicion.DisplayMember = "Denominacion";
         }
 
       
@@ -85,7 +89,7 @@ namespace Escritorio.AlumnoInscripcion
             this.txtID.Text = this.AlumnoInscripcionActual.Id.ToString();
             this.cmbBoxCursos.SelectedIndex = this.cmbBoxCursos.FindString(AlumnoInscripcionActual.Curso.Id.ToString());
             this.cmbBoxAlumnos.SelectedIndex = this.cmbBoxAlumnos.FindString(AlumnoInscripcionActual.Alumno.PersonaString);
-            this.txtCondicion.Text = this.AlumnoInscripcionActual.Condicion;
+            this.cbCondicion.SelectedIndex = this.cbCondicion.FindString(cbCondicion.Text);
             this.txtNota.Text = this.AlumnoInscripcionActual.Nota.ToString();
             
         }
@@ -107,7 +111,7 @@ namespace Escritorio.AlumnoInscripcion
                        AlumnoInscripcionActual = new Entidades.AlumnoInscripcion();
                        //Hay que ver si no hay que crear una instancia de alumno y curso
 
-                        this.AlumnoInscripcionActual.Condicion = this.txtCondicion.Text;
+                        this.AlumnoInscripcionActual.Condicion = this.cbCondicion.Text;
                         if(!String.IsNullOrEmpty(this.txtNota.Text))
                             this.AlumnoInscripcionActual.Nota = Convert.ToInt32(this.txtNota.Text);
                         this.AlumnoInscripcionActual.Alumno = new ControladorPersona().dameUno(Convert.ToInt32(this.cmbBoxAlumnos.SelectedValue));
@@ -119,7 +123,7 @@ namespace Escritorio.AlumnoInscripcion
                     }
                 case (ModoForm.Modificacion):
                     {
-                        this.AlumnoInscripcionActual.Condicion = this.txtCondicion.Text;
+                        this.AlumnoInscripcionActual.Condicion = this.cbCondicion.Text;
                         if (!String.IsNullOrEmpty(this.txtNota.Text))
                             this.AlumnoInscripcionActual.Nota = Convert.ToInt32(this.txtNota.Text);
                         this.AlumnoInscripcionActual.Alumno = new ControladorPersona().dameUno(Convert.ToInt32(this.cmbBoxAlumnos.SelectedValue));

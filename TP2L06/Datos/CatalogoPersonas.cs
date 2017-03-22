@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Entidades;
 using System.Data.SqlClient;
 using System.Data;
+using Entidades.CustomEntity;
 
 namespace Datos
 {
@@ -133,11 +134,12 @@ namespace Datos
         }
 
         #region METODOS PARA EL ABM
-        public void Save(Personas mat)
+        public RespuestaServidor Save(Personas mat)
         {
+            RespuestaServidor sr = new RespuestaServidor();
             if (mat.State == Entidades.EntidadBase.States.Deleted)
             {
-                this.Delete(mat.Id);
+                sr = this.Delete(mat.Id);
             }
             else if (mat.State == Entidades.EntidadBase.States.New)
             {
@@ -148,10 +150,12 @@ namespace Datos
                 this.Update(mat);
             }
             mat.State = Entidades.EntidadBase.States.Unmodified;
+            return sr;
         }
 
-        public void Delete(int id)
+        public RespuestaServidor Delete(int id)
         {
+            RespuestaServidor sr = new RespuestaServidor();
             try
             {
                 this.OpenConnection();
@@ -164,12 +168,16 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                 new Exception("Error al eliminar la persona", Ex);
-                throw ExcepcionManejada;
+                if (sr.ContieneExcepcion(Ex, "FK_alumnos_inscripciones_personas"))
+                    sr.AgregarError("El alumno no puede ser eliminado porque está inscripto a un curso");
+                if (sr.ContieneExcepcion(Ex, "FK_usuarios_personas"))
+                    sr.AgregarError("La persona tiene un usuario registrado en el sistema, no puede eliminarse");
             }
             finally
             {
                 this.CloseConnection();
             }
+            return sr;
         }
 
         public void Update(Personas mat)

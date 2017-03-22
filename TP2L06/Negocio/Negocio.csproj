@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControladorCondicion.cs" />
     <Compile Include="ControladorCursos.cs" />
     <Compile Include="ControladorEspecialidad.cs" />
     <Compile Include="ControladorInscripcionAlumno.cs" />

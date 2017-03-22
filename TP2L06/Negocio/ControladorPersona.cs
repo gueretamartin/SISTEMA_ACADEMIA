@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Datos;
 using Entidades;
+using Entidades.CustomEntity;
+
 namespace Negocio
 {
     public class ControladorPersona
@@ -22,9 +24,9 @@ namespace Negocio
             return personas;
         }
 
-        public void save(Personas per)
+        public RespuestaServidor save(Personas per)
         {
-            personasData.Save(per);
+            return personasData.Save(per);
         }
 
         public List<Personas> dameTodosAlumnos()

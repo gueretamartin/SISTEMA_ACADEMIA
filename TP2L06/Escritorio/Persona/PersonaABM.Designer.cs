@@ -72,7 +72,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.73726F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.26273F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 269F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
             this.tableLayoutPanel1.Controls.Add(this.lblID, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblTipoPersona, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.lblNombre, 0, 1);
@@ -150,7 +150,7 @@
             // 
             this.lblApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(395, 40);
+            this.lblApellido.Location = new System.Drawing.Point(394, 40);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(44, 13);
             this.lblApellido.TabIndex = 5;
@@ -160,7 +160,7 @@
             // 
             this.lblDireccion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(391, 75);
+            this.lblDireccion.Location = new System.Drawing.Point(390, 75);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(52, 13);
             this.lblDireccion.TabIndex = 6;
@@ -212,7 +212,7 @@
             // txtApellido
             // 
             this.txtApellido.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtApellido.Location = new System.Drawing.Point(469, 37);
+            this.txtApellido.Location = new System.Drawing.Point(468, 37);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(201, 20);
             this.txtApellido.TabIndex = 2;
@@ -220,7 +220,7 @@
             // txtDireccion
             // 
             this.txtDireccion.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtDireccion.Location = new System.Drawing.Point(469, 71);
+            this.txtDireccion.Location = new System.Drawing.Point(468, 71);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(201, 20);
             this.txtDireccion.TabIndex = 4;
@@ -229,7 +229,7 @@
             // 
             this.lblLegajo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblLegajo.AutoSize = true;
-            this.lblLegajo.Location = new System.Drawing.Point(397, 8);
+            this.lblLegajo.Location = new System.Drawing.Point(396, 8);
             this.lblLegajo.Name = "lblLegajo";
             this.lblLegajo.Size = new System.Drawing.Size(39, 13);
             this.lblLegajo.TabIndex = 7;
@@ -238,7 +238,7 @@
             // txtLegajo
             // 
             this.txtLegajo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtLegajo.Location = new System.Drawing.Point(469, 5);
+            this.txtLegajo.Location = new System.Drawing.Point(468, 5);
             this.txtLegajo.Name = "txtLegajo";
             this.txtLegajo.Size = new System.Drawing.Size(201, 20);
             this.txtLegajo.TabIndex = 6;
@@ -247,7 +247,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(387, 104);
+            this.label1.Location = new System.Drawing.Point(386, 104);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 26);
             this.label1.TabIndex = 11;
@@ -267,7 +267,7 @@
             this.cmbBoxPlanes.FormattingEnabled = true;
             this.cmbBoxPlanes.Location = new System.Drawing.Point(97, 138);
             this.cmbBoxPlanes.Name = "cmbBoxPlanes";
-            this.cmbBoxPlanes.Size = new System.Drawing.Size(268, 21);
+            this.cmbBoxPlanes.Size = new System.Drawing.Size(267, 21);
             this.cmbBoxPlanes.TabIndex = 102;
             // 
             // cmbBoxTipoPersona
@@ -276,7 +276,7 @@
             this.cmbBoxTipoPersona.FormattingEnabled = true;
             this.cmbBoxTipoPersona.Location = new System.Drawing.Point(97, 165);
             this.cmbBoxTipoPersona.Name = "cmbBoxTipoPersona";
-            this.cmbBoxTipoPersona.Size = new System.Drawing.Size(268, 21);
+            this.cmbBoxTipoPersona.Size = new System.Drawing.Size(267, 21);
             this.cmbBoxTipoPersona.TabIndex = 103;
             // 
             // btnAceptar
