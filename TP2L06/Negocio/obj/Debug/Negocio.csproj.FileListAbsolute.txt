@@ -9,3 +9,14 @@ C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\
 C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
 C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Negocio\obj\Debug\Negocio.dll
 C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Negocio\obj\Debug\Negocio.pdb
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Negocio.dll
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Negocio.pdb
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Datos.dll
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Entidades.dll
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Util.dll
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Datos.pdb
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Entidades.pdb
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Util.pdb
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Negocio\obj\Debug\Negocio.dll
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Negocio\obj\Debug\Negocio.pdb

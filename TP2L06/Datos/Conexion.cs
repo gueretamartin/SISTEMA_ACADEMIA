@@ -24,7 +24,7 @@ namespace Datos
         //LEO
         private String usuario = "root";
         private String contraseña = "root";
-        private String server = "LEOPERETTI";
+        private String server = @"LEO\MSSQL2014";
 
         //Clave por defecto a utlizar para la cadena de conexion
         const string consKeyDefaultCnnString = "ConnStringLocal";

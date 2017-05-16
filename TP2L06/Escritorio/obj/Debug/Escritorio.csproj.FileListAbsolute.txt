@@ -29,3 +29,6 @@ C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Escritorio\bin\Deb
 C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Escritorio\bin\Debug\Datos.pdb
 C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Escritorio\obj\Debug\Escritorio.exe
 C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Escritorio\obj\Debug\Escritorio.pdb
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Escritorio\bin\Debug\Escritorio.exe.config
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Escritorio\obj\Debug\Escritorio.exe
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Escritorio\obj\Debug\Escritorio.pdb
