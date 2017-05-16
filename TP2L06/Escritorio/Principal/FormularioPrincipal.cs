@@ -83,11 +83,7 @@ namespace Escritorio.Principal
             formU.Show();
         }
 
-        private void comisionesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Escritorio.Comision.ComisionPrincipal formU = new Escritorio.Comision.ComisionPrincipal();
-            formU.Show();
-        }
+      
 
         private void especialidadesToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -1,10 +1,12 @@
 ﻿using Datos;
 using Entidades;
+using Entidades.CustomEntity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Util;
 
 namespace Negocio
 {
@@ -23,9 +25,35 @@ namespace Negocio
             return alumnoInscripcion;
         }
 
-        public void save(AlumnoInscripcion per)
+        public RespuestaServidor Save(AlumnoInscripcion per)
         {
-            alumnoInscripcionData.Save(per);
+            RespuestaServidor rs = new RespuestaServidor();
+            if(per.Curso == null)
+            {
+                rs.AgregarError("No existe la comision");
+            }
+            else if (per.State == EntidadBase.States.New)
+            {
+                if(per.Curso.Cupo <= 0)
+                    rs.AgregarError("El curso no dispone de cupo para la inscripcion");
+                else
+                {
+                    per.Curso.Cupo--;
+                    (new CatalogoCursos()).Update(per.Curso);
+                }
+            }
+           else if (per.State == EntidadBase.States.Deleted)
+            {
+                per.Curso.Cupo++;
+                (new CatalogoCursos()).Update(per.Curso);
+            }
+            //El metodo rs.AgregarError(); setea el rs.Error en true
+            if (!rs.Error)
+            {
+                rs = alumnoInscripcionData.Save(per, rs);
+            }
+            return rs;
+
         }
         public bool alumnoEstaInscripto(int idAlumno, int idCurso)
         {

@@ -1,4 +1,5 @@
-﻿using Negocio;
+﻿using Entidades.CustomEntity;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Util;
 
 namespace Escritorio.AlumnoInscripcion
 {
@@ -40,6 +42,9 @@ namespace Escritorio.AlumnoInscripcion
             this.cmbBoxCursos.ValueMember = "Id";
             this.cmbBoxCursos.DisplayMember = "Id";
 
+            this.cbCondicion.DataSource = (new ControladorCondicion()).dameTodos();
+            this.cbCondicion.ValueMember = "Id";
+            this.cbCondicion.DisplayMember = "Denominacion";
         }
 
       
@@ -84,7 +89,7 @@ namespace Escritorio.AlumnoInscripcion
             this.txtID.Text = this.AlumnoInscripcionActual.Id.ToString();
             this.cmbBoxCursos.SelectedIndex = this.cmbBoxCursos.FindString(AlumnoInscripcionActual.Curso.Id.ToString());
             this.cmbBoxAlumnos.SelectedIndex = this.cmbBoxAlumnos.FindString(AlumnoInscripcionActual.Alumno.PersonaString);
-            this.txtCondicion.Text = this.AlumnoInscripcionActual.Condicion;
+            this.cbCondicion.SelectedIndex = this.cbCondicion.FindString(cbCondicion.Text);
             this.txtNota.Text = this.AlumnoInscripcionActual.Nota.ToString();
             
         }
@@ -92,7 +97,8 @@ namespace Escritorio.AlumnoInscripcion
         public override void GuardarCambios()
         {
             MapearADatos();
-            new ControladorInscripcionAlumno().save(AlumnoInscripcionActual);
+            RespuestaServidor rs = (new ControladorInscripcionAlumno()).Save(AlumnoInscripcionActual);
+            rs.MostrarMensajes();
         }
 
         public override void MapearADatos()
@@ -104,9 +110,13 @@ namespace Escritorio.AlumnoInscripcion
                     {
                        AlumnoInscripcionActual = new Entidades.AlumnoInscripcion();
                        //Hay que ver si no hay que crear una instancia de alumno y curso
-
-                        this.AlumnoInscripcionActual.Condicion = String.IsNullOrEmpty(this.txtCondicion.Text) ? "-------" : this.txtCondicion.Text;
+                        //this.AlumnoInscripcionActual.Condicion = String.IsNullOrEmpty(this.txtCondicion.Text) ? "-------" : this.txtCondicion.Text;
                         this.AlumnoInscripcionActual.Nota = String.IsNullOrEmpty(this.txtNota.Text) ? 0 : Convert.ToInt32(this.txtNota.Text);
+
+                        this.AlumnoInscripcionActual.Condicion = this.cbCondicion.Text;
+                        if(!String.IsNullOrEmpty(this.txtNota.Text))
+                            this.AlumnoInscripcionActual.Nota = Convert.ToInt32(this.txtNota.Text);
+
                         this.AlumnoInscripcionActual.Alumno = new ControladorPersona().dameUno(Convert.ToInt32(this.cmbBoxAlumnos.SelectedValue));
                         this.AlumnoInscripcionActual.Curso = new ControladorCursos().dameUno(Convert.ToInt32(this.cmbBoxCursos.SelectedValue));
                         this.AlumnoInscripcionActual.State = Entidades.EntidadBase.States.New;
@@ -114,8 +124,9 @@ namespace Escritorio.AlumnoInscripcion
                     }
                 case (ModoForm.Modificacion):
                     {
-                        this.AlumnoInscripcionActual.Condicion = this.txtCondicion.Text;
-                        this.AlumnoInscripcionActual.Nota = Convert.ToInt32(this.txtNota.Text);
+                        this.AlumnoInscripcionActual.Condicion = this.cbCondicion.Text;
+                        if (!String.IsNullOrEmpty(this.txtNota.Text))
+                            this.AlumnoInscripcionActual.Nota = Convert.ToInt32(this.txtNota.Text);
                         this.AlumnoInscripcionActual.Alumno = new ControladorPersona().dameUno(Convert.ToInt32(this.cmbBoxAlumnos.SelectedValue));
                         this.AlumnoInscripcionActual.Curso = new ControladorCursos().dameUno(Convert.ToInt32(this.cmbBoxCursos.SelectedValue));
                         this.AlumnoInscripcionActual.State = Entidades.EntidadBase.States.Modified;

@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControladorComisiones.cs" />
+    <Compile Include="ControladorCondicion.cs" />
     <Compile Include="ControladorCursos.cs" />
     <Compile Include="ControladorEspecialidad.cs" />
     <Compile Include="ControladorInscripcionAlumno.cs" />
@@ -62,6 +62,10 @@
     <ProjectReference Include="..\Entidades\Entidades.csproj">
       <Project>{362a57e1-77b3-4f16-a2db-4e3fa44ebca1}</Project>
       <Name>Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Util\Util.csproj">
+      <Project>{25618681-3339-4BDD-B0D0-D0DCCAC628E4}</Project>
+      <Name>Util</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

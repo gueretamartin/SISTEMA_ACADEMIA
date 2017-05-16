@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Entidades.CustomEntity;
 using Negocio;
 using System;
 using System.Collections.Generic;
@@ -104,7 +105,8 @@ namespace Escritorio.Persona
         public override void GuardarCambios()
         {
             MapearADatos();
-            new ControladorPersona().save(PersonaActual);
+            RespuestaServidor sr = new ControladorPersona().save(PersonaActual);
+            sr.MostrarMensajes();
         }
 
         public override void MapearADatos()

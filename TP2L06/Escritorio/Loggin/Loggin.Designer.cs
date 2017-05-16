@@ -74,7 +74,7 @@
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(290, 20);
             this.txtPass.TabIndex = 4;
-            this.txtPass.Text = "admin";
+            this.txtPass.Text = "administrador";
             // 
             // btnIngresar
             // 
@@ -97,7 +97,7 @@
             this.lnkOlvidaPass.Text = "Olvidé mi contraseña";
             this.lnkOlvidaPass.Click += new System.EventHandler(this.lnkOlvidaPass_Click);
             // 
-            // formLogin
+            // Loggin
             // 
             this.AcceptButton = this.btnIngresar;
             this.AccessibleName = "formLogin";
@@ -114,7 +114,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "formLogin";
+            this.Name = "Loggin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ingreso";
             this.Load += new System.EventHandler(this.Form1_Load);

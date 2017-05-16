@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Entidades.CustomEntity;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -108,7 +109,7 @@ namespace Datos
             return mu;
         }
 
-        public void Delete(int ID)
+        public RespuestaServidor Delete(int ID, RespuestaServidor rs)
         {
             try
             {
@@ -116,37 +117,42 @@ namespace Datos
                 SqlCommand cmdDelete = new SqlCommand("delete alumnos_inscripciones where id_inscripcion = @id", Con);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 cmdDelete.ExecuteNonQuery();
+                rs.Mensaje = "Inscripción eliminada con éxito";
 
             }
             catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al eliminar AlumnoInscripcion", ex);
-                throw ExcepcionManejada;
+                rs.AgregarError("Error al eliminar la inscripción");
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
 
-        public void Save(AlumnoInscripcion AlumnoInscripcion)
+        public RespuestaServidor Save(AlumnoInscripcion AlumnoInscripcion, RespuestaServidor rs)
         {
-            if (AlumnoInscripcion.State == Entidades.EntidadBase.States.New)
+            if (AlumnoInscripcion.State == Entidades.EntidadBase.States.New )
             {
-                this.Insert(AlumnoInscripcion);
+               rs = this.Insert(AlumnoInscripcion,rs);
             }
             else if (AlumnoInscripcion.State == Entidades.EntidadBase.States.Deleted)
             {
-                this.Delete(AlumnoInscripcion.Id);
+               rs = this.Delete(AlumnoInscripcion.Id,rs);
             }
             else if (AlumnoInscripcion.State == Entidades.EntidadBase.States.Modified)
             {
-                this.Update(AlumnoInscripcion);
+              rs =   this.Update(AlumnoInscripcion,rs);
             }
-            AlumnoInscripcion.State = Entidades.EntidadBase.States.Unmodified;
+            else
+            {
+                AlumnoInscripcion.State = Entidades.EntidadBase.States.Unmodified;
+            }
+            return rs;
         }
 
-        public void Update(AlumnoInscripcion AlumnoInscripcion)
+        public RespuestaServidor Update(AlumnoInscripcion AlumnoInscripcion, RespuestaServidor rs)
         {
             try
             {
@@ -159,19 +165,20 @@ namespace Datos
                 cmdSave.Parameters.Add("@condicion", SqlDbType.VarChar, 50).Value = AlumnoInscripcion.Condicion;
                 cmdSave.Parameters.Add("@nota", SqlDbType.Int).Value = AlumnoInscripcion.Nota;
                 cmdSave.ExecuteNonQuery();
+                rs.Mensaje = "Cambios en la inscripción registrados con éxito";
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Exception ExcepcionManejada = new Exception("Error al modificar datos del AlumnoInscripcion", ex);
-                throw ExcepcionManejada;
+                rs.AgregarError("Error al modificar la inscripción");
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
 
-        protected void Insert(AlumnoInscripcion AlumnoInscripcion)
+        protected RespuestaServidor Insert(AlumnoInscripcion AlumnoInscripcion, RespuestaServidor rs)
         {
             try
             {
@@ -182,16 +189,17 @@ namespace Datos
                 cmdSave.Parameters.Add("@condicion", SqlDbType.VarChar, 50).Value = AlumnoInscripcion.Condicion;
                 cmdSave.Parameters.Add("@nota", SqlDbType.Int).Value = AlumnoInscripcion.Nota;
                 AlumnoInscripcion.Id = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
+                rs.Mensaje = "Inscripción cargada con éxito";
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Exception ExcepcionManejada = new Exception("Error al crear AlumnoInscripcion", ex);
-                throw ExcepcionManejada;
+                rs.AgregarError("Error al crear la inscripcion de un alumno");
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
     }
 }

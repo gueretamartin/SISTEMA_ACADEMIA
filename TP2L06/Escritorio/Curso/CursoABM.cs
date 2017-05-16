@@ -1,4 +1,5 @@
-﻿using Negocio;
+﻿using Entidades.CustomEntity;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,9 +38,7 @@ namespace Escritorio.Curso
             this.cmbBoxMaterias.ValueMember = "Id";
             this.cmbBoxMaterias.DisplayMember = "DescripcionMateria";
 
-            this.cmbBoxComisiones.DataSource = (new ControladorComisiones()).dameTodos();
-            this.cmbBoxComisiones.ValueMember = "Id";
-            this.cmbBoxComisiones.DisplayMember = "DescripcionComision";
+       
 
 
         }
@@ -87,14 +86,16 @@ namespace Escritorio.Curso
             this.txtID.Text = this.CursoActual.Id.ToString();
             this.txtAño.Text = this.CursoActual.AnioCalendario.ToString();
             this.txtCupo.Text = this.CursoActual.Cupo.ToString();
-            this.cmbBoxComisiones.SelectedIndex = this.cmbBoxComisiones.FindString(CursoActual.Comision.DescripcionComision);
+            this.txtDenominacion.Text = this.CursoActual.Denominacion.ToString();
+           
             this.cmbBoxMaterias.SelectedIndex = this.cmbBoxMaterias.FindString(CursoActual.Materia.DescripcionMateria);
         }
 
         public override void GuardarCambios()
         {
             MapearADatos();
-            new ControladorCursos().save(CursoActual);
+            RespuestaServidor sr = new ControladorCursos().save(CursoActual);
+            sr.MostrarMensajes();
         }
 
         public override void MapearADatos()
@@ -106,17 +107,16 @@ namespace Escritorio.Curso
                     {
                         CursoActual = new Entidades.Curso();
                         Entidades.Materia m = new Entidades.Materia();
-                        Entidades.Comision c = new Entidades.Comision();
+                        
 
                         this.CursoActual.AnioCalendario = Convert.ToInt32(this.txtAño.Text);
                         this.CursoActual.Cupo = Convert.ToInt32(this.txtCupo.Text);
                         this.CursoActual.Materia = m;
-                        this.CursoActual.Comision = c;
+                       
                         this.CursoActual.Materia.Id = Convert.ToInt32(this.cmbBoxMaterias.SelectedValue);
-                        this.CursoActual.Comision.Id = Convert.ToInt32(this.cmbBoxComisiones.SelectedValue);
-
+                        this.CursoActual.Denominacion = this.txtDenominacion.Text;
                         this.CursoActual.State = Entidades.EntidadBase.States.New;
-
+      
 
                         break;
                     }
@@ -125,7 +125,7 @@ namespace Escritorio.Curso
                         this.CursoActual.AnioCalendario = Convert.ToInt32(this.txtAño.Text);
                         this.CursoActual.Cupo = Convert.ToInt32(this.txtCupo.Text);
                         this.CursoActual.Materia.Id = Convert.ToInt32(this.cmbBoxMaterias.SelectedValue);
-                        this.CursoActual.Comision.Id = Convert.ToInt32(this.cmbBoxComisiones.SelectedValue);
+                        this.CursoActual.Denominacion = this.txtDenominacion.Text;
                         this.CursoActual.State = Entidades.EntidadBase.States.Modified;
                         break;
                     }
@@ -220,7 +220,7 @@ namespace Escritorio.Curso
             {
                 this.txtAño.Enabled = false;
                 this.txtCupo.Enabled = false;
-                this.cmbBoxComisiones.Enabled = false;
+   
                 this.cmbBoxMaterias.Enabled = false;
             }
         }

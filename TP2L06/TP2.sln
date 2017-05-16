@@ -19,8 +19,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTest", "WebTest\WebTest.csproj", "{343FE63B-F881-4960-B187-C70FEC5D4B02}"
 EndProject
-Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "TestReports", "TestReports\TestReports.rptproj", "{0BCEA812-D70C-4EDF-893A-6B53B5C3D33A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,14 +73,6 @@ Global
 		{343FE63B-F881-4960-B187-C70FEC5D4B02}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
 		{343FE63B-F881-4960-B187-C70FEC5D4B02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{343FE63B-F881-4960-B187-C70FEC5D4B02}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0BCEA812-D70C-4EDF-893A-6B53B5C3D33A}.Debug|Any CPU.ActiveCfg = Debug
-		{0BCEA812-D70C-4EDF-893A-6B53B5C3D33A}.Debug|Any CPU.Build.0 = Debug
-		{0BCEA812-D70C-4EDF-893A-6B53B5C3D33A}.Debug|Any CPU.Deploy.0 = Debug
-		{0BCEA812-D70C-4EDF-893A-6B53B5C3D33A}.DebugLocal|Any CPU.ActiveCfg = DebugLocal
-		{0BCEA812-D70C-4EDF-893A-6B53B5C3D33A}.DebugLocal|Any CPU.Build.0 = DebugLocal
-		{0BCEA812-D70C-4EDF-893A-6B53B5C3D33A}.Release|Any CPU.ActiveCfg = Release
-		{0BCEA812-D70C-4EDF-893A-6B53B5C3D33A}.Release|Any CPU.Build.0 = Release
-		{0BCEA812-D70C-4EDF-893A-6B53B5C3D33A}.Release|Any CPU.Deploy.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

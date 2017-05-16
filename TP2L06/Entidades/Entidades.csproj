@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlumnoInscripcion.cs" />
-    <Compile Include="Comision.cs" />
+    <Compile Include="Condicion.cs" />
     <Compile Include="Curso.cs" />
     <Compile Include="Docente.cs" />
     <Compile Include="EntidadBase.cs" />
@@ -56,6 +56,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TipoPersona.cs" />
     <Compile Include="Usuario.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Util\Util.csproj">
+      <Project>{25618681-3339-4BDD-B0D0-D0DCCAC628E4}</Project>
+      <Name>Util</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

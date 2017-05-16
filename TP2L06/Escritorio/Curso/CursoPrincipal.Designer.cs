@@ -40,7 +40,6 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AñoCalendario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcUsuarios.ContentPanel.SuspendLayout();
             this.tcUsuarios.TopToolStripPanel.SuspendLayout();
@@ -96,7 +95,6 @@
             this.id,
             this.AñoCalendario,
             this.Cupo,
-            this.Comision,
             this.Materia});
             this.tlUsuarios.SetColumnSpan(this.dgvCursos, 2);
             this.dgvCursos.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -195,13 +193,6 @@
             this.Cupo.Name = "Cupo";
             this.Cupo.ReadOnly = true;
             // 
-            // Comision
-            // 
-            this.Comision.DataPropertyName = "DescripcionComision";
-            this.Comision.HeaderText = "Comision";
-            this.Comision.Name = "Comision";
-            this.Comision.ReadOnly = true;
-            // 
             // Materia
             // 
             this.Materia.DataPropertyName = "DescripcionMateria";
@@ -247,7 +238,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn AñoCalendario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cupo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Comision;
         private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
     }
 }

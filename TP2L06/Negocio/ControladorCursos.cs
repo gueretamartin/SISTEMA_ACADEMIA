@@ -1,5 +1,6 @@
 ﻿using Datos;
 using Entidades;
+using Entidades.CustomEntity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,9 +26,9 @@ namespace Negocio
             return cursos;
         }
         //Metodo que le pide que guarde el curso
-        public void save(Curso curso)
+        public RespuestaServidor save(Curso curso)
         {
-            cursoData.Save(curso);
+            return cursoData.Save(curso);
         }
     }
 }

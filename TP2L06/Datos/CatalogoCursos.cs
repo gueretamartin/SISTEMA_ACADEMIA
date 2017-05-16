@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Entidades.CustomEntity;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,7 +15,7 @@ namespace Datos
         public List<Curso> getAll()
         {
             List<Curso> cursos = new List<Curso>();
-            Curso mat = null;
+            Curso cur = null;
             this.OpenConnection();
             try
             {
@@ -22,13 +23,13 @@ namespace Datos
                 SqlDataReader drCursos = cmdCursos.ExecuteReader();
                 while (drCursos.Read())
                 {
-                    mat = new Curso();
-                    mat.Cupo = (int)drCursos["cupo"];
-                    mat.AnioCalendario = (int)drCursos["anio_calendario"];
-                    mat.Materia = new CatalogoMaterias().GetOne((int)drCursos["id_materia"]);
-                    mat.Id = (int)drCursos["id_curso"];
-                    mat.Comision = new CatalogoComisiones().GetOne((int)drCursos["id_comision"]);
-                    cursos.Add(mat);
+                    cur = new Curso();
+                    cur.Cupo = (int)drCursos["cupo"];
+                    cur.AnioCalendario = (int)drCursos["anio_calendario"];
+                    cur.Materia = new CatalogoMaterias().GetOne((int)drCursos["id_materia"]);
+                    cur.Id = (int)drCursos["id_curso"];
+                    cur.Denominacion = (string)drCursos["denominacion"];
+                    cursos.Add(cur);
                 }
                 drCursos.Close();
             }
@@ -44,10 +45,11 @@ namespace Datos
             }
             return cursos;
         }
+      
 
         public Curso GetOne(int id)
         {
-            Curso mat = new Curso();
+            Curso cur = new Curso();
             this.OpenConnection();
             try
             {
@@ -56,11 +58,12 @@ namespace Datos
                 SqlDataReader drCursos = cmdCursos.ExecuteReader();
                 while (drCursos.Read())
                 {
-                    mat.Cupo = (int)drCursos["cupo"];
-                    mat.AnioCalendario = (int)drCursos["anio_calendario"];
-                    mat.Materia = new CatalogoMaterias().GetOne((int)drCursos["id_materia"]);
-                    mat.Id = (int)drCursos["id_curso"];
-                    mat.Comision = new CatalogoComisiones().GetOne((int)drCursos["id_comision"]);
+                    cur.Cupo = (int)drCursos["cupo"];
+                    cur.AnioCalendario = (int)drCursos["anio_calendario"];
+                    cur.Materia = new CatalogoMaterias().GetOne((int)drCursos["id_materia"]);
+                    cur.Id = (int)drCursos["id_curso"];
+                    cur.Denominacion = (string)drCursos["denominacion"];
+
                 }
                 drCursos.Close();
             }
@@ -74,30 +77,33 @@ namespace Datos
             {
                 this.CloseConnection();
             }
-            return mat;
+            return cur;
         }
 
         #region METODOS PARA EL ABM
 
-        public void Save(Curso mat)
+        public RespuestaServidor Save(Curso cur)
         {
-            if (mat.State == Entidades.EntidadBase.States.Deleted)
+            RespuestaServidor sr = new RespuestaServidor();
+            if (cur.State == Entidades.EntidadBase.States.Deleted)
             {
-                this.Delete(mat.Id);
+                sr = this.Delete(cur.Id);
             }
-            else if (mat.State == Entidades.EntidadBase.States.New)
+            else if (cur.State == Entidades.EntidadBase.States.New)
             {
-                this.Insert(mat);
+                this.Insert(cur);
             }
-            else if (mat.State == Entidades.EntidadBase.States.Modified)
+            else if (cur.State == Entidades.EntidadBase.States.Modified)
             {
-                this.Update(mat);
+                this.Update(cur);
             }
-            mat.State = Entidades.EntidadBase.States.Unmodified;
+            cur.State = Entidades.EntidadBase.States.Unmodified;
+            return sr;
         }
 
-        public void Delete(int id)
+        public RespuestaServidor Delete(int id)
         {
+            RespuestaServidor rs = new RespuestaServidor();
             try
             {
                 this.OpenConnection();
@@ -110,27 +116,31 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                 new Exception("Error al eliminar el curso", Ex);
-                throw ExcepcionManejada;
+                if(rs.ContieneExcepcion(Ex, "FK_alumnos_inscripciones_cursos"))
+                {
+                    rs.AgregarError("No se puede eliminar el curso, porque existen alumnos inscriptos.");
+                }
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
 
-        public void Update(Curso mat)
+        public void Update(Curso cur)
         {
             try
             {
                 this.OpenConnection();
 
-                SqlCommand cmdSave = new SqlCommand("UPDATE cursos SET id_materia= @idMat, id_comision=@idCom, anio_calendario=@anio, cupo=@cupo WHERE id_curso = @id", Con);
+                SqlCommand cmdSave = new SqlCommand("UPDATE cursos SET id_materia= @idMat,  anio_calendario=@anio, cupo=@cupo, denominacion= @denominacion WHERE id_curso = @id", Con);
 
-                cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = mat.Id;
-                cmdSave.Parameters.Add("@idMat", SqlDbType.Int).Value = mat.Materia.Id;
-                cmdSave.Parameters.Add("@idCom", SqlDbType.Int).Value = mat.Comision.Id;
-                cmdSave.Parameters.Add("@anio", SqlDbType.Int).Value = mat.AnioCalendario;
-                cmdSave.Parameters.Add("@cupo", SqlDbType.Int).Value = mat.Cupo;
+                cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = cur.Id;
+                cmdSave.Parameters.Add("@idMat", SqlDbType.Int).Value = cur.Materia.Id;
+                cmdSave.Parameters.Add("@anio", SqlDbType.Int).Value = cur.AnioCalendario;
+                cmdSave.Parameters.Add("@cupo", SqlDbType.Int).Value = cur.Cupo;
+                cmdSave.Parameters.Add("@denominacion", SqlDbType.VarChar).Value = cur.Cupo;
                 cmdSave.ExecuteReader();
             }
             catch (Exception Ex)
@@ -144,23 +154,25 @@ namespace Datos
             }
         }
 
-        public void Insert(Curso mat)
+        public void Insert(Curso cur)
         {
             try
             {
                 this.OpenConnection();
 
-                SqlCommand cmdSave = new SqlCommand("INSERT INTO cursos(id_materia,id_comision,anio_calendario,cupo) " +
-                    "VALUES(@idMat,@idCom,@anio,@cupo) " +
-                    "SELECT @@identity", //esta linea es para recuperar el ID que asignó el SQL automaticamente
+                SqlCommand cmdSave = new SqlCommand("INSERT INTO cursos(id_materia,anio_calendario,cupo,denominacion) " +
+                    "VALUES(@idMat,@anio,@cupo,@denominacion) " +
+                    "SELECT @@identity", //esta linea es para recuperar el ID que asignó el SQL autocuricamente
                     Con);
 
-                cmdSave.Parameters.Add("@idMat", SqlDbType.Int).Value = mat.Materia.Id;
-                cmdSave.Parameters.Add("@idCom", SqlDbType.Int).Value = mat.Comision.Id;
-                cmdSave.Parameters.Add("@anio", SqlDbType.Int).Value = mat.AnioCalendario;
-                cmdSave.Parameters.Add("@cupo", SqlDbType.Int).Value = mat.Cupo;
+                cmdSave.Parameters.Add("@idMat", SqlDbType.Int).Value = cur.Materia.Id;
+            
+                cmdSave.Parameters.Add("@anio", SqlDbType.Int).Value = cur.AnioCalendario;
+                cmdSave.Parameters.Add("@cupo", SqlDbType.Int).Value = cur.Cupo;
+                cmdSave.Parameters.Add("@denominacion", SqlDbType.VarChar).Value = cur.Denominacion;
 
-                mat.Id = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar()); // asi se obtiene el ID que asigno al BD automaticamente
+
+                cur.Id = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar()); // asi se obtiene el ID que asigno al BD autocuricamente
             }
             catch (Exception Ex)
             {
