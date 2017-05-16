@@ -5,3 +5,10 @@ C:\Users\Martin\Desktop\Sistema_Academia\SISTEMA_ACADEMIA\TP2L06\Datos\bin\Debug
 C:\Users\Martin\Desktop\Sistema_Academia\SISTEMA_ACADEMIA\TP2L06\Datos\obj\Debug\Datos.csprojResolveAssemblyReference.cache
 C:\Users\Martin\Desktop\Sistema_Academia\SISTEMA_ACADEMIA\TP2L06\Datos\obj\Debug\Datos.dll
 C:\Users\Martin\Desktop\Sistema_Academia\SISTEMA_ACADEMIA\TP2L06\Datos\obj\Debug\Datos.pdb
+C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Datos\bin\Debug\Datos.dll
+C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Datos\bin\Debug\Datos.pdb
+C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Datos\bin\Debug\Entidades.dll
+C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Datos\bin\Debug\Entidades.pdb
+C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Datos\obj\Debug\Datos.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Datos\obj\Debug\Datos.dll
+C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Datos\obj\Debug\Datos.pdb

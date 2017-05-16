@@ -3,3 +3,8 @@ C:\Users\Martin\Desktop\Sistema_Academia\SISTEMA_ACADEMIA\TP2L06\Entidades\bin\D
 C:\Users\Martin\Desktop\Sistema_Academia\SISTEMA_ACADEMIA\TP2L06\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
 C:\Users\Martin\Desktop\Sistema_Academia\SISTEMA_ACADEMIA\TP2L06\Entidades\obj\Debug\Entidades.dll
 C:\Users\Martin\Desktop\Sistema_Academia\SISTEMA_ACADEMIA\TP2L06\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Entidades\bin\Debug\Entidades.dll
+C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Entidades\obj\Debug\Entidades.dll
+C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Entidades\obj\Debug\Entidades.pdb

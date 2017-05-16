@@ -105,13 +105,11 @@ namespace Escritorio.AlumnoInscripcion
                        AlumnoInscripcionActual = new Entidades.AlumnoInscripcion();
                        //Hay que ver si no hay que crear una instancia de alumno y curso
 
-                        this.AlumnoInscripcionActual.Condicion = this.txtCondicion.Text;
-                        this.AlumnoInscripcionActual.Nota = Convert.ToInt32(this.txtNota.Text);
+                        this.AlumnoInscripcionActual.Condicion = String.IsNullOrEmpty(this.txtCondicion.Text) ? "-------" : this.txtCondicion.Text;
+                        this.AlumnoInscripcionActual.Nota = String.IsNullOrEmpty(this.txtNota.Text) ? 0 : Convert.ToInt32(this.txtNota.Text);
                         this.AlumnoInscripcionActual.Alumno = new ControladorPersona().dameUno(Convert.ToInt32(this.cmbBoxAlumnos.SelectedValue));
                         this.AlumnoInscripcionActual.Curso = new ControladorCursos().dameUno(Convert.ToInt32(this.cmbBoxCursos.SelectedValue));
                         this.AlumnoInscripcionActual.State = Entidades.EntidadBase.States.New;
-
-
                         break;
                     }
                 case (ModoForm.Modificacion):
