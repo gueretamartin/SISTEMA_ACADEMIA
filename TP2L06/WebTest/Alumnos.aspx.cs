@@ -10,75 +10,64 @@ using Entidades;
 namespace WebTest
 {
 
-    public partial class Usuarios : WebForm
+    public partial class Alumnos : WebForm
     {
         ControladorUsuario cu = new ControladorUsuario();
         ControladorPersona cp = new ControladorPersona();
-        Usuario usuarioActual;
-        public Usuario UsuarioActual { get { return usuarioActual; } set { usuarioActual = value; } }
+        ControladorPlanes cplan = new ControladorPlanes();
+      
 
+
+        Personas personaActual;
+
+        public Personas PersonaActual { get { return personaActual; } set { personaActual = value; } }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
 
                 this.BindGV();
-                var dataList = cp.dameTodos();
-               
-                this.listIdPersona.DataSource = dataList;
-               
-                this.listIdPersona.DataValueField = "Id";
-                this.listIdPersona.DataTextField = "Nombre";
-                this.listIdPersona.DataBind();
+                var dataList = cplan.dameTodos();
+
+                this.listIdPlan.DataSource = dataList;
+
+                this.listIdPlan.DataValueField = "Id";
+                this.listIdPlan.DataTextField = "DescripcionPlan";
+                this.listIdPlan.DataBind();
             }
             this.formActionPanel.Visible = false;
             this.formPanel.Visible = false;
-           
-            
+
+
 
         }
 
         protected void BindGV()
         {
             List<PersonaMostrar> personasMostrar = new List<PersonaMostrar>();
-            List<Usuario> usuarios = new List<Usuario>();
+            List<Personas> personas = new List<Personas>();
 
-            usuarios = cu.dameTodos();
-            foreach (Usuario user in usuarios)
+            personas = cp.dameTodos();
+            foreach (Personas per in personas)
             {
                 PersonaMostrar p = new PersonaMostrar();
-                p.NombreUsuario = user.NombreUsuario;
-                p.Habilitado = user.Habilitado.ToString();
-                p.NombrePersona = user.Persona.Nombre;
-                p.ApellidoPersona = user.Persona.Apellido;
-                p.Direccion = user.Persona.Direccion;
-                p.Email = user.Persona.Email;
-                p.Legajo = user.Persona.Legajo.ToString();
-                p.Telefono = user.Persona.Telefono;
-                p.Fecha = user.Persona.FechaNacimiento.ToString();
-                p.Id = user.Id;
-                p.IdPersona = user.Persona.Id;
-                personasMostrar.Add(p);
-            }
+                ControladorPlanes cplan = new ControladorPlanes();
 
+                p.NombrePersona = per.Nombre;
+                p.ApellidoPersona = per.Apellido;
+                p.Direccion = per.Direccion;
+                p.Email = per.Email;
+                p.Legajo = per.Legajo.ToString();
+                p.Telefono = per.Telefono;
+                p.Fecha = per.FechaNacimiento.ToString();
+                p.Id = per.Id;
+                p.Plan = per.Plan.DescripcionPlan;
+                personasMostrar.Add(p);
+    }
             this.gridView.DataSource = personasMostrar;
             this.gridView.DataBind();
-
-
         }
-
-        private ControladorUsuario Cu
-        {
-            get
-            {
-                if (cu == null)
-                {
-                    cu = new ControladorUsuario();
-                }
-                return cu;
-            }
-        }
-
+        
         private ControladorPersona Cp
         {
             get
@@ -100,23 +89,16 @@ namespace WebTest
 
         protected void LoadForm(int id)
         {
-            this.UsuarioActual = this.cu.dameUno(id);
 
-
-            this.txtNombreUsuario.Text = UsuarioActual.NombreUsuario;
-            this.txtNombrePersona.Text = UsuarioActual.Persona.Nombre;
-            this.txtApellidoPersona.Text = UsuarioActual.Persona.Apellido;
-            this.txtDireccion.Text = UsuarioActual.Persona.Direccion;
-            this.txtEmail.Text = UsuarioActual.Persona.Email;
-            this.txtLegajo.Text = UsuarioActual.Persona.Legajo.ToString();
-            this.txtTelefono.Text = UsuarioActual.Persona.Telefono.ToString();
-            this.txtFecha.Text = UsuarioActual.Persona.FechaNacimiento.ToString();
-            this.txtClave.Text = "";
-            this.txtRepetirClave.Text = "";
-            this.txtId.Text = UsuarioActual.Id.ToString();
-            this.listIdPersona.SelectedValue = UsuarioActual.Persona.Id.ToString();
-
-           
+            this.PersonaActual = this.cp.dameUno(id);
+            this.txtNombrePersona.Text = PersonaActual.Nombre;
+            this.txtApellidoPersona.Text = PersonaActual.Apellido;
+            this.txtDireccion.Text = PersonaActual.Direccion;
+            this.txtEmail.Text = PersonaActual.Email;
+            this.txtLegajo.Text = PersonaActual.Legajo.ToString();
+            this.txtTelefono.Text = PersonaActual.Telefono.ToString();
+            this.txtFecha.Text = PersonaActual.FechaNacimiento.ToString();
+            this.listIdPlan.SelectedValue = PersonaActual.Plan.Id.ToString();
 
 
         }
@@ -136,10 +118,7 @@ namespace WebTest
         class PersonaMostrar
         {
             internal int IdPersona;
-
             public int Id { get; set; }
-            public string NombreUsuario { get; set; }
-            public string Habilitado { get; set; }
             public string NombrePersona { get; set; }
             public string ApellidoPersona { get; set; }
             public string Direccion { get; set; }
@@ -147,6 +126,8 @@ namespace WebTest
             public string Legajo { get; set; }
             public string Telefono { get; set; }
             public string Fecha { get; set; }
+            public string Plan { get; set; }
+
         }
 
         protected void lbtnAceptar_Click(object sender, EventArgs e)
@@ -157,25 +138,28 @@ namespace WebTest
             switch (formMode)
             {
                 case FormModes.Alta:
-                    this.UsuarioActual = new Usuario();
-                    this.usuarioActual.State = Entidades.EntidadBase.States.New;
-                    this.cargarUsuario(this.usuarioActual);
-                    cu.guardarUsuario(this.usuarioActual);
+                    this.personaActual = new Personas();
+                    this.personaActual.State = Entidades.EntidadBase.States.New;
+                    this.cargarPersona(this.personaActual);
+                    cp.save(this.personaActual);
                     break;
                 case FormModes.Modificacion:
-                    this.usuarioActual = new Usuario();
-                    this.usuarioActual.Id = this.IdSeleccionado;
-                    this.usuarioActual.State = Entidades.EntidadBase.States.Modified;
-                    this.cargarUsuario(this.usuarioActual);
-                    cu.guardarUsuario(this.usuarioActual);
+                    this.personaActual = new Personas();
+                    this.personaActual.Id = this.IdSeleccionado;
+                    this.personaActual.State = Entidades.EntidadBase.States.Modified;
+                    this.cargarPersona(this.personaActual);
+                    cp.save(this.personaActual);
                     break;
                 case FormModes.Baja:
-                    this.usuarioActual = new Usuario();
-                    this.usuarioActual.Id = this.IdSeleccionado;
-                    this.usuarioActual.State = Entidades.EntidadBase.States.Deleted;
-                    cu.guardarUsuario(this.usuarioActual);
-                    break;
+                    //this.planActual = new Entidades.Plan();
+                    //this.planActual.Id = this.IdSeleccionado;
+                    //this.planActual.State = Entidades.EntidadBase.States.Deleted;
+                    //ce.save(this.planActual);
 
+                    this.personaActual.State = Entidades.EntidadBase.States.Deleted;
+                    
+                    cp.save(this.personaActual);
+                    break;
             }
             this.renovarForm();
 
@@ -183,7 +167,7 @@ namespace WebTest
         }
         public override void renovarForm()
         {
-            this.txtNombreUsuario.Text = String.Empty;
+         
             this.txtNombrePersona.Text = String.Empty;
             this.txtApellidoPersona.Text = String.Empty;
             this.txtDireccion.Text = String.Empty;
@@ -191,15 +175,13 @@ namespace WebTest
             this.txtLegajo.Text = String.Empty;
             this.txtTelefono.Text = String.Empty;
             this.txtFecha.Text = String.Empty;
-            this.txtClave.Text = String.Empty;
-            this.txtRepetirClave.Text = String.Empty;
+            
             this.txtId.Text = String.Empty;
-          
         }
 
         public override void habilitarForm(bool enabled)
         {
-            this.txtNombreUsuario.Enabled = enabled;
+          
             this.txtNombrePersona.Enabled = enabled;
             this.txtApellidoPersona.Enabled = enabled;
             this.txtDireccion.Enabled = enabled;
@@ -207,16 +189,15 @@ namespace WebTest
             this.txtLegajo.Enabled = enabled;
             this.txtTelefono.Enabled = enabled;
             this.txtFecha.Enabled = enabled;
-            this.txtClave.Enabled = enabled;
-            this.txtRepetirClave.Enabled = enabled;
             this.txtId.Enabled = enabled;
-            this.listIdPersona.Enabled = enabled;
+            this.listIdPlan.Enabled = enabled;
+
 
         }
 
-        public void guardarPersona(Personas per)
-        { 
-            this.cp.save(per);
+        public void guardarUsuario(Usuario usu)
+        {
+            this.cu.guardarUsuario(usu);
         }
         protected void lbtnEliminar_Click(object sender, EventArgs e)
         {
@@ -225,24 +206,47 @@ namespace WebTest
                 this.formActionPanel.Visible = true;
                 this.formMode = FormModes.Baja;
                 this.cargarForm(this.IdSeleccionado);
-                this.txtRepetirClave.Text = "";
-                this.txtClave.Text = "";
+             
             }
         }
+        //public override void borrarEntidad(int id)
+        //{
+        //    this.cp.
+        //}
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             this.formActionPanel.Visible = false;
             this.renovarForm();
         }
-        public void cargarUsuario(Usuario usu)
+        public void cargarPersona(Entidades.Personas persona)
         {
-           // usu.Id = Convert.ToInt32(this.txtId.Text);
-            usu.NombreUsuario = this.txtNombreUsuario.Text;
-            usu.Habilitado = this.chkHabilitado.Checked;
-            usu.Clave = this.txtClave.Text;
-            Personas per = new Personas();
-            per = this.cp.dameUno(Convert.ToInt32(listIdPersona.SelectedValue));
-            usu.Persona = per;
+            persona.Nombre = this.txtNombrePersona.Text;
+            persona.Apellido = this.txtApellidoPersona.Text;
+            persona.Direccion = this.txtDireccion.Text;
+            persona.Plan  = this.cplan.dameUno(Convert.ToInt32(listIdPlan.SelectedValue));
+            persona.Email = this.txtEmail.Text;
+            persona.Legajo = Int32.Parse(this.txtLegajo.Text);
+            persona.Telefono = this.txtTelefono.Text;
+            persona.FechaNacimiento = DateTime.Parse(this.txtFecha.Text);
+
+            TipoPersona tp = new TipoPersona();
+            ControladorTipoPersona ctp = new ControladorTipoPersona();
+            tp = ctp.dameUno(2);
+
+           
+            persona.TipoPersona = tp; //CREAR ENUMERADOR
+
+
+
+            //this.txtNombrePersona.Enabled = enabled;
+            //this.txtApellidoPersona.Enabled = enabled;
+            //this.txtDireccion.Enabled = enabled;
+            //this.txtEmail.Enabled = enabled;
+            //this.txtLegajo.Enabled = enabled;
+            //this.txtTelefono.Enabled = enabled;
+            //this.txtFecha.Enabled = enabled;
+            //this.txtId.Enabled = enabled;
+            //this.listIdPlan.Enabled = enabled;
         }
 
         protected void lbtnNuevo_Click(object sender, EventArgs e)
@@ -250,6 +254,7 @@ namespace WebTest
             {
                 // this.formPanel.Visible = true;
                 //  this.LoadForm(this.IdSeleccionado);
+
                 this.formPanel.Visible = true;
                 this.formActionPanel.Visible = true;
                 this.renovarForm();

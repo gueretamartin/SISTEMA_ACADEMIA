@@ -130,7 +130,7 @@ namespace Datos
             {
                 this.OpenConnection();
 
-                SqlCommand cmdSave = new SqlCommand("UPDATE planes SET desc_plan@descripcion, id_especialidad = @idEspec " +
+                SqlCommand cmdSave = new SqlCommand("UPDATE planes SET desc_plan = @descripcion, id_especialidad = @idEspec " +
                     "WHERE id_plan=@id", Con);
 
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = plan.Id;

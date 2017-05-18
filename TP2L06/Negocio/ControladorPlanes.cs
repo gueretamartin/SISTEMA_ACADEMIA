@@ -28,9 +28,9 @@ namespace Negocio
             return planes;
         }
 
-        public void save(Plan planActual)
+        public void save(Plan plan)
         {
-            
+            planesData.Save(plan);
         }
     }
 }
