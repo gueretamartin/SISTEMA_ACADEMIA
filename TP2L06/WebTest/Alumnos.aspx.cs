@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
 using Entidades;
+using Util;
 
 namespace WebTest
 {
@@ -15,17 +16,20 @@ namespace WebTest
         ControladorUsuario cu = new ControladorUsuario();
         ControladorPersona cp = new ControladorPersona();
         ControladorPlanes cplan = new ControladorPlanes();
-      
-
 
         Personas personaActual;
 
         public Personas PersonaActual { get { return personaActual; } set { personaActual = value; } }
         protected void Page_Load(object sender, EventArgs e)
         {
+            //TODO: AL INICIAR EL FORMULARIO VALIDO QUE TIPO DE PERSONA ES Y VALIDO SI DEJO ENTRAR O NO...
+            //TODO: TODOS LOS WEB FORM DEBEN IMPLEMENTAR ESTE PEDAZO DE CODIGO PARA QUE SE VALIDEN LOS PERMISOS DE USUARIOS...
+            TipoPersona tipo = (TipoPersona)Session["tipousuario"];
+            if (tipo != null)
+                if (!ValidarPermisos.TienePermisosUsuario(tipo.Id, "Alumnos"))
+                    Response.Redirect("~/Permisos.aspx");
             if (!IsPostBack)
             {
-
                 this.BindGV();
                 var dataList = cplan.dameTodos();
 
@@ -63,11 +67,11 @@ namespace WebTest
                 p.Id = per.Id;
                 p.Plan = per.Plan.DescripcionPlan;
                 personasMostrar.Add(p);
-    }
+            }
             this.gridView.DataSource = personasMostrar;
             this.gridView.DataBind();
         }
-        
+
         private ControladorPersona Cp
         {
             get
@@ -140,8 +144,12 @@ namespace WebTest
                 case FormModes.Alta:
                     this.personaActual = new Personas();
                     this.personaActual.State = Entidades.EntidadBase.States.New;
-                    this.cargarPersona(this.personaActual);
-                    cp.save(this.personaActual);
+                    //DENTRO EL METODO CARGAR PERSON VALIDO LOS OBLIGATORIOS, Y DEVUELVO EXITO = FALSE SI FALTA ALGUNO.
+                    bool exito = this.cargarPersona(this.personaActual);
+                    if (exito)
+                    {
+                        cp.save(this.personaActual);
+                    }
                     break;
                 case FormModes.Modificacion:
                     this.personaActual = new Personas();
@@ -157,7 +165,7 @@ namespace WebTest
                     //ce.save(this.planActual);
 
                     this.personaActual.State = Entidades.EntidadBase.States.Deleted;
-                    
+
                     cp.save(this.personaActual);
                     break;
             }
@@ -167,7 +175,7 @@ namespace WebTest
         }
         public override void renovarForm()
         {
-         
+
             this.txtNombrePersona.Text = String.Empty;
             this.txtApellidoPersona.Text = String.Empty;
             this.txtDireccion.Text = String.Empty;
@@ -175,13 +183,13 @@ namespace WebTest
             this.txtLegajo.Text = String.Empty;
             this.txtTelefono.Text = String.Empty;
             this.txtFecha.Text = String.Empty;
-            
+
             this.txtId.Text = String.Empty;
         }
 
         public override void habilitarForm(bool enabled)
         {
-          
+
             this.txtNombrePersona.Enabled = enabled;
             this.txtApellidoPersona.Enabled = enabled;
             this.txtDireccion.Enabled = enabled;
@@ -206,7 +214,7 @@ namespace WebTest
                 this.formActionPanel.Visible = true;
                 this.formMode = FormModes.Baja;
                 this.cargarForm(this.IdSeleccionado);
-             
+
             }
         }
         //public override void borrarEntidad(int id)
@@ -218,23 +226,31 @@ namespace WebTest
             this.formActionPanel.Visible = false;
             this.renovarForm();
         }
-        public void cargarPersona(Entidades.Personas persona)
+        public bool cargarPersona(Entidades.Personas persona)
         {
-            persona.Nombre = this.txtNombrePersona.Text;
-            persona.Apellido = this.txtApellidoPersona.Text;
-            persona.Direccion = this.txtDireccion.Text;
-            persona.Plan  = this.cplan.dameUno(Convert.ToInt32(listIdPlan.SelectedValue));
-            persona.Email = this.txtEmail.Text;
-            persona.Legajo = Int32.Parse(this.txtLegajo.Text);
-            persona.Telefono = this.txtTelefono.Text;
-            persona.FechaNacimiento = DateTime.Parse(this.txtFecha.Text);
+            if (String.IsNullOrEmpty(listIdPlan.SelectedValue))
+            {
+                this.txtMensaje.Text = "Debe seleccionar un plan para el alumno.";
+                return false;
+            }
+            else
+            {
+                persona.Plan = this.cplan.dameUno(Convert.ToInt32(listIdPlan.SelectedValue));
+                persona.Nombre = this.txtNombrePersona.Text;
+                persona.Apellido = this.txtApellidoPersona.Text;
+                persona.Direccion = this.txtDireccion.Text;
+                persona.Email = this.txtEmail.Text;
+                persona.Legajo = this.txtLegajo.Text == "" ? 0 : Int32.Parse(this.txtLegajo.Text);
+                persona.Telefono = this.txtTelefono.Text;
+                persona.FechaNacimiento = DateTime.Parse(this.txtFecha.Text);
 
-            TipoPersona tp = new TipoPersona();
-            ControladorTipoPersona ctp = new ControladorTipoPersona();
-            tp = ctp.dameUno(2);
+                TipoPersona tp = new TipoPersona();
+                ControladorTipoPersona ctp = new ControladorTipoPersona();
+                tp = ctp.dameUno(2);
 
-           
-            persona.TipoPersona = tp; //CREAR ENUMERADOR
+                persona.TipoPersona = tp; //CREAR ENUMERADOR
+                return true;
+            }
 
 
 

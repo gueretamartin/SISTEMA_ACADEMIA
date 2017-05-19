@@ -27,6 +27,8 @@
         <asp:LinkButton class="btn btn-success" ID="lbtnNuevo" runat="server" OnClick="lbtnNuevo_Click">Nuevo</asp:LinkButton>
         <br />
         <br />
+        <asp:Label class="form-control" ForeColor="Red" Text="" ID="txtMensaje" runat="server" />
+        <br />
     </asp:Panel>
 
     <!-- Formulario de edicion -->
@@ -40,7 +42,7 @@
             <asp:Label Text="Apellido: " ID="lblApellidoPersona" runat="server" />
             <asp:TextBox class="form-control" Text="Apellido" ID="txtApellidoPersona" runat="server"  /><br />
             <asp:Label Text="Legajo: " ID="lblLegajo" runat="server" />
-            <asp:TextBox class="form-control" Text="Legajo" ID="txtLegajo" runat="server" /><br />
+            <asp:TextBox class="form-control" Text="Legajo" ID="txtLegajo" type="number" runat="server" /><br />
             <asp:Label Text="Telefono: " ID="lblTelefono" runat="server" />
             <asp:TextBox class="form-control" Text="Telefono" ID="txtTelefono" runat="server" /><br />
             <asp:Label Text="Email: " ID="lblEmail" runat="server" />

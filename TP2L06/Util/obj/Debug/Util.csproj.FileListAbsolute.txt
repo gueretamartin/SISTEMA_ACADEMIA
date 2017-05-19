@@ -7,3 +7,8 @@ C:\Users\Martin\Desktop\SIS_ACADEMIA_ULT\SISTEMA_ACADEMIA\TP2L06\Util\bin\Debug\
 C:\Users\Martin\Desktop\SIS_ACADEMIA_ULT\SISTEMA_ACADEMIA\TP2L06\Util\obj\Debug\Util.csprojResolveAssemblyReference.cache
 C:\Users\Martin\Desktop\SIS_ACADEMIA_ULT\SISTEMA_ACADEMIA\TP2L06\Util\obj\Debug\Util.dll
 C:\Users\Martin\Desktop\SIS_ACADEMIA_ULT\SISTEMA_ACADEMIA\TP2L06\Util\obj\Debug\Util.pdb
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Util\bin\Debug\Util.dll
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Util\bin\Debug\Util.pdb
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Util\obj\Debug\Util.dll
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Util\obj\Debug\Util.pdb
+C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Util\obj\Debug\Util.csprojResolveAssemblyReference.cache

@@ -45,6 +45,7 @@
     <Compile Include="Mensajeria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidarEmails.cs" />
+    <Compile Include="ValidarPermisos.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

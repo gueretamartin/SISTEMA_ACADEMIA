@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
 using Entidades;
+using Util;
 
 namespace WebTest
 {
@@ -19,6 +20,10 @@ namespace WebTest
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            TipoPersona tipo = (TipoPersona)Session["tipousuario"];
+            if (tipo != null)
+                if (!ValidarPermisos.TienePermisosUsuario(tipo.Id, "Especialidad"))
+                    Response.Redirect("~/Permisos.aspx");
             if (!IsPostBack)
             {
                 this.BindGV();

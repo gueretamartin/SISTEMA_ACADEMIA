@@ -8,12 +8,13 @@ namespace Entidades
 {
     public class Personas : EntidadBase
     {
+        //TODO: ACA AGREGUÉ EL SIGNO DE PREGUNTAS A LOS DATETIME E INT QUE SON NULLEABLES EN LA BASE DE DATOS, PARA QUE ACEPTEN NULOS DURANTE LA EJECUCIÓN.
         private string apellido;
         private string direccion;
         private string email;
-        private DateTime fechaNacimiento;
+        private DateTime? fechaNacimiento;
         private Plan plan;
-        private int legajo;
+        private int? legajo;
         private string nombre;
         private string telefono;
         private TipoPersona tipoPersona;
@@ -59,7 +60,7 @@ namespace Entidades
             }
         }
 
-        public DateTime FechaNacimiento
+        public DateTime? FechaNacimiento
         {
             get
             {
@@ -98,7 +99,7 @@ namespace Entidades
             }
         }
 
-        public int Legajo
+        public int? Legajo
         {
             get
             {
