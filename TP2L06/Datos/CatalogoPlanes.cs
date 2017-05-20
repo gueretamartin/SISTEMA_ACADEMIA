@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 using Entidades;
 using System.Data.SqlClient;
 using System.Data;
+using Entidades.CustomEntity;
 
 namespace Datos
 {
     public class CatalogoPlanes : Conexion
     {
+        RespuestaServidor rs = new RespuestaServidor();
+
         public Plan GetOne(int Id)
         {
             Plan p = new Plan();
@@ -85,25 +88,27 @@ namespace Datos
 
 
         #region METODOS PARA EL ABM
-        public void Save(Plan plan)
+        public RespuestaServidor Save(Plan plan)
         {
             if (plan.State == Entidades.EntidadBase.States.Deleted)
             {
-                this.Delete(plan.Id);
+              return this.Delete(plan.Id);
             }
             else if (plan.State == Entidades.EntidadBase.States.New)
             {
-                this.Insert(plan);
+                return this.Insert(plan);
             }
             else if (plan.State == Entidades.EntidadBase.States.Modified)
             {
-                this.Update(plan);
+                return this.Update(plan);
             }
             plan.State = Entidades.EntidadBase.States.Unmodified;
+            return rs;
         }
 
-        public void Delete(int ID)
+        public RespuestaServidor Delete(int ID)
         {
+            RespuestaServidor rs = new RespuestaServidor();
             try
             {
                 this.OpenConnection();
@@ -111,21 +116,22 @@ namespace Datos
                 SqlCommand cmdDelete = new SqlCommand("DELETE planes WHERE id_plan=@id", Con);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 cmdDelete.ExecuteReader();
+                rs.Mensaje = "Plan eliminado correctamente";
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada =
-                new Exception("Error al eliminar plan", Ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
 
-        protected void Update(Plan plan)
+        protected RespuestaServidor Update(Plan plan)
         {
+            
             try
             {
                 this.OpenConnection();
@@ -137,19 +143,20 @@ namespace Datos
                 cmdSave.Parameters.Add("@descripcion", SqlDbType.VarChar, 50).Value = plan.DescripcionPlan;
                 cmdSave.Parameters.Add("@idEspec", SqlDbType.Int).Value = plan.Especialidad.Id;
                 cmdSave.ExecuteReader();
+                rs.Mensaje = "Plan modificado con éxito";
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al modificar datos del plan", Ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
 
-        protected void Insert(Plan plan)
+        protected RespuestaServidor Insert(Plan plan)
         {
             try
             {
@@ -165,21 +172,20 @@ namespace Datos
                  * vendria a ser la persona que esta usando el plan 
                  * por eso facu hace plan.Per.ID
 
-
                 */
                 // cmdSave.Parameters.Add("@id_persona", SqlDbType.Int).Value = plan.Persona.Id;
                 plan.Id = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar()); // asi se obtiene el ID que asigno al BD automaticamente
+                rs.Mensaje = "Plan cargado con éxito";
             }
             catch (Exception Ex)
             {
-                Console.WriteLine(Ex.Message);
-                Exception ExcepcionManejada = new Exception("Error al crear plan", Ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
         #endregion
     }

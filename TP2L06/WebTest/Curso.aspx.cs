@@ -153,6 +153,7 @@ namespace WebTest
         {
             cur.AnioCalendario = Int32.Parse(this.txtAnioCalendario.Text);
             cur.Cupo = Int32.Parse(this.txtCupo.Text);
+            cur.Denominacion = this.txtDenominacion.Text;
             Entidades.Materia mate = new Entidades.Materia();
             mate = this.conte.dameUno(Convert.ToInt32(listIdMateria.SelectedValue));
             cur.Materia = mate;

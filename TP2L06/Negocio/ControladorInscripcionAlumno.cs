@@ -25,36 +25,59 @@ namespace Negocio
             return alumnoInscripcion;
         }
 
-        public RespuestaServidor Save(AlumnoInscripcion per)
+        public List<AlumnoInscripcion> dameTodosAlumno(int idAlumno)
+        {
+            List<AlumnoInscripcion> alumnoInscripcion = alumnoInscripcionData.GetAllAlumnos(idAlumno);
+            return alumnoInscripcion;
+        }
+
+
+
+        public RespuestaServidor Save(AlumnoInscripcion alInscr)
         {
             RespuestaServidor rs = new RespuestaServidor();
-            if(per.Curso == null)
+
+            if (alInscr.State == EntidadBase.States.New)
             {
-                rs.AgregarError("No existe la comision");
-            }
-            else if (per.State == EntidadBase.States.New)
-            {
-                if(per.Curso.Cupo <= 0)
+                if (alInscr.Curso == null)
+                {
+                    rs.AgregarError("No existe el curso");
+                }
+                else if (alumnoInscripcionData.GetOne(alInscr.Alumno.Id, alInscr.Curso.Id) != null)
+                {
+                    rs.AgregarError("La persona ya pertenece a este curso");
+                }
+                else if (alInscr.Curso.Cupo <= 0)
                     rs.AgregarError("El curso no dispone de cupo para la inscripcion");
                 else
                 {
-                    per.Curso.Cupo--;
-                    (new CatalogoCursos()).Update(per.Curso);
+                    alInscr.Curso.Cupo--;
+                    (new CatalogoCursos()).Update(alInscr.Curso);
                 }
             }
-           else if (per.State == EntidadBase.States.Deleted)
+            else if (alInscr.State == EntidadBase.States.Deleted)
             {
-                per.Curso.Cupo++;
-                (new CatalogoCursos()).Update(per.Curso);
+                alInscr.Curso = new CatalogoCursos().GetOneByInscripcionAlumno(alInscr.Id);
+                if (alInscr.Curso == null)
+                {
+                    rs.AgregarError("No existe el curso");
+                }
+                else
+                {
+                    alInscr.Curso.Cupo++;
+                    (new CatalogoCursos()).Update(alInscr.Curso);
+                }
             }
             //El metodo rs.AgregarError(); setea el rs.Error en true
             if (!rs.Error)
             {
-                rs = alumnoInscripcionData.Save(per, rs);
+                rs = alumnoInscripcionData.Save(alInscr, rs);
             }
             return rs;
 
         }
+
+    
         public bool alumnoEstaInscripto(int idAlumno, int idCurso)
         {
             if (alumnoInscripcionData.GetAll().Count(c => c.Alumno.Id == idAlumno && c.Curso.Id == idCurso) != 0)

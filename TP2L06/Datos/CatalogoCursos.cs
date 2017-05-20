@@ -45,7 +45,113 @@ namespace Datos
             }
             return cursos;
         }
-      
+
+        public List<Curso> GetCursosPlanNoAlumno(int idPlan, int idAlumno)
+        {
+            string query = "SELECT cursos.* FROM cursos INNER JOIN materias AS m ON m.id_materia = cursos.id_materia INNER JOIN planes AS p ON  p.id_plan = m.id_plan WHERE p.id_plan = @idPlan AND cursos.cupo > 0  AND cursos.id_curso NOT IN (SELECT id_curso FROM alumnos_inscripciones WHERE id_alumno = @idALumno)";
+            List<Curso> cursos = new List<Curso>();
+            Curso cur = null;
+            this.OpenConnection();
+            try
+            {
+                SqlCommand cmdCursos = new SqlCommand(query, Con);
+                cmdCursos.Parameters.Add("@idPlan", SqlDbType.Int).Value = idPlan;
+                cmdCursos.Parameters.Add("@idAlumno", SqlDbType.Int).Value = idAlumno;
+                SqlDataReader drCursos = cmdCursos.ExecuteReader();
+                while (drCursos.Read())
+                {
+                    cur = new Curso();
+                    cur.Cupo = (int)drCursos["cupo"];
+                    cur.AnioCalendario = (int)drCursos["anio_calendario"];
+                    cur.Materia = new CatalogoMaterias().GetOne((int)drCursos["id_materia"]);
+                    cur.Id = (int)drCursos["id_curso"];
+                    cur.Denominacion = (string)drCursos["denominacion"];
+                    cursos.Add(cur);
+                }
+                drCursos.Close();
+            }
+            catch (SqlException Ex)
+            {
+                Exception ExcepcionManejada =
+               new Exception("Error al recuperar los cursos", Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return cursos;
+        }
+
+        public Curso GetOneByInscripcionAlumno(int idInscripcion)
+        {
+            Curso cur = new Curso();
+            this.OpenConnection();
+            try
+            {
+                SqlCommand cmdCursos = new SqlCommand("SELECT c.* FROM alumnos_inscripciones INNER JOIN cursos AS c ON c.id_curso = alumnos_inscripciones.id_curso WHERE id_inscripcion = @idInscripcion", Con);
+                cmdCursos.Parameters.Add("@idInscripcion", SqlDbType.Int).Value = idInscripcion;
+                SqlDataReader drCursos = cmdCursos.ExecuteReader();
+                while (drCursos.Read())
+                {
+                    cur.Cupo = (int)drCursos["cupo"];
+                    cur.AnioCalendario = (int)drCursos["anio_calendario"];
+                    cur.Materia = new CatalogoMaterias().GetOne((int)drCursos["id_materia"]);
+                    cur.Id = (int)drCursos["id_curso"];
+                    cur.Denominacion = (string)drCursos["denominacion"];
+
+                }
+                drCursos.Close();
+            }
+            catch (SqlException Ex)
+            {
+                Exception ExcepcionManejada =
+               new Exception("Error al recuperar el curso", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return cur;
+        }
+
+        public List<Curso> GetCursosPlan(int idPlan)
+        {
+            string query = "SELECT cursos.* FROM cursos INNER JOIN materias AS m ON m.id_materia = cursos.id_materia INNER JOIN planes AS p ON  p.id_plan = m.id_plan WHERE p.id_plan = @idPlan AND cursos.cupo > 0 ";
+            List<Curso> cursos = new List<Curso>();
+            Curso cur = null;
+            this.OpenConnection();
+            try
+            {
+                SqlCommand cmdCursos = new SqlCommand(query, Con);
+                cmdCursos.Parameters.Add("@idPlan", SqlDbType.Int).Value = idPlan;
+                SqlDataReader drCursos = cmdCursos.ExecuteReader();
+                while (drCursos.Read())
+                {
+                    cur = new Curso();
+                    cur.Cupo = (int)drCursos["cupo"];
+                    cur.AnioCalendario = (int)drCursos["anio_calendario"];
+                    cur.Materia = new CatalogoMaterias().GetOne((int)drCursos["id_materia"]);
+                    cur.Id = (int)drCursos["id_curso"];
+                    cur.Denominacion = (string)drCursos["denominacion"];
+                    cursos.Add(cur);
+                }
+                drCursos.Close();
+            }
+            catch (SqlException Ex)
+            {
+                Exception ExcepcionManejada =
+               new Exception("Error al recuperar los cursos", Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return cursos;
+
+        }
+
+
 
         public Curso GetOne(int id)
         {
@@ -116,7 +222,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                 new Exception("Error al eliminar el curso", Ex);
-                if(rs.ContieneExcepcion(Ex, "FK_alumnos_inscripciones_cursos"))
+                if (rs.ContieneExcepcion(Ex, "FK_alumnos_inscripciones_cursos"))
                 {
                     rs.AgregarError("No se puede eliminar el curso, porque existen alumnos inscriptos.");
                 }
@@ -166,7 +272,7 @@ namespace Datos
                     Con);
 
                 cmdSave.Parameters.Add("@idMat", SqlDbType.Int).Value = cur.Materia.Id;
-            
+
                 cmdSave.Parameters.Add("@anio", SqlDbType.Int).Value = cur.AnioCalendario;
                 cmdSave.Parameters.Add("@cupo", SqlDbType.Int).Value = cur.Cupo;
                 cmdSave.Parameters.Add("@denominacion", SqlDbType.VarChar).Value = cur.Denominacion;

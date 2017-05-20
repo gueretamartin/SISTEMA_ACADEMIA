@@ -44,6 +44,72 @@ namespace Datos
             return AlumnoInscripcion;
         }
 
+        public List<AlumnoInscripcion> GetAllAlumnos(int idAlumno)
+        {
+            List<AlumnoInscripcion> AlumnoInscripcion = new List<AlumnoInscripcion>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdAlumnoInscripcion = new SqlCommand("select * from alumnos_inscripciones where id_alumno = @IdAlumno", Con);
+                cmdAlumnoInscripcion.Parameters.Add("@idAlumno", SqlDbType.Int).Value = idAlumno;
+                SqlDataReader drAlumnoInscripcion = cmdAlumnoInscripcion.ExecuteReader();
+                while (drAlumnoInscripcion.Read())
+                {
+                    AlumnoInscripcion mu = new AlumnoInscripcion();
+                    mu.Id = (int)drAlumnoInscripcion["id_inscripcion"];
+                    mu.Alumno = new CatalogoPersonas().GetOne((int)drAlumnoInscripcion["id_alumno"]);
+                    mu.Curso = new CatalogoCursos().GetOne((int)drAlumnoInscripcion["id_curso"]);
+                    mu.Condicion = (String)drAlumnoInscripcion["condicion"];
+                    mu.Nota = (int)drAlumnoInscripcion["nota"];
+                    AlumnoInscripcion.Add(mu);
+                }
+                drAlumnoInscripcion.Close();
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de AlumnoInscripcion", ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return AlumnoInscripcion;
+        }
+
+        public AlumnoInscripcion GetOne(int idALumno, int idCurso)
+        {
+            AlumnoInscripcion alInscr = null;
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdAlumnoInscripcions = new SqlCommand("select * from alumnos_inscripciones where id_alumno = @idAlumno and id_curso = @idCurso", Con);
+                cmdAlumnoInscripcions.Parameters.Add("@idAlumno", SqlDbType.Int).Value = idALumno;
+                cmdAlumnoInscripcions.Parameters.Add("@idCurso", SqlDbType.Int).Value = idCurso;
+                SqlDataReader drAlumnoInscripcion = cmdAlumnoInscripcions.ExecuteReader();
+                if (drAlumnoInscripcion.Read())
+                {
+                    alInscr = new AlumnoInscripcion();
+                    alInscr.Id = (int)drAlumnoInscripcion["id_inscripcion"];
+                    alInscr.Alumno = new CatalogoPersonas().GetOne((int)drAlumnoInscripcion["id_alumno"]);
+                    alInscr.Curso = new CatalogoCursos().GetOne((int)drAlumnoInscripcion["id_curso"]);
+                    alInscr.Condicion = (String)drAlumnoInscripcion["condicion"];
+                    alInscr.Nota = (int)drAlumnoInscripcion["nota"];
+                }
+                drAlumnoInscripcion.Close();
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos de AlumnoInscripcion", ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return alInscr;
+        }
+
         //public List<AlumnoCursoPersona> ObtenerAlumnosPorCurso(int idCurso)
         //{
         //    List<AlumnoCursoPersona> AlumnoInscripcion = new List<AlumnoCursoPersona>();
@@ -133,17 +199,17 @@ namespace Datos
 
         public RespuestaServidor Save(AlumnoInscripcion AlumnoInscripcion, RespuestaServidor rs)
         {
-            if (AlumnoInscripcion.State == Entidades.EntidadBase.States.New )
+            if (AlumnoInscripcion.State == Entidades.EntidadBase.States.New)
             {
-               rs = this.Insert(AlumnoInscripcion,rs);
+                rs = this.Insert(AlumnoInscripcion, rs);
             }
             else if (AlumnoInscripcion.State == Entidades.EntidadBase.States.Deleted)
             {
-               rs = this.Delete(AlumnoInscripcion.Id,rs);
+                rs = this.Delete(AlumnoInscripcion.Id, rs);
             }
             else if (AlumnoInscripcion.State == Entidades.EntidadBase.States.Modified)
             {
-              rs =   this.Update(AlumnoInscripcion,rs);
+                rs = this.Update(AlumnoInscripcion, rs);
             }
             else
             {

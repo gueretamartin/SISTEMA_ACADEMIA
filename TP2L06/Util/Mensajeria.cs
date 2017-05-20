@@ -21,7 +21,12 @@ namespace Util
 
         public static void MostrarExito(string exito)
         {
-            MessageBox.Show(exito, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(exito, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public static void MostrarAlerta(string alerta)
+        {
+            MessageBox.Show(alerta, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Datos;
+using Entidades.CustomEntity;
 
 namespace Negocio
 {
@@ -16,21 +17,16 @@ namespace Negocio
         {
             return planesData.GetOne(id);
         }
-
-        internal Plan GetOne(int id)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public List<Plan> dameTodos() {
             List<Plan> planes = new List<Plan>();
             planes = planesData.GetAll();
             return planes;
         }
 
-        public void save(Plan plan)
+        public RespuestaServidor save(Plan plan)
         {
-            planesData.Save(plan);
+          return  planesData.Save(plan);
         }
     }
 }

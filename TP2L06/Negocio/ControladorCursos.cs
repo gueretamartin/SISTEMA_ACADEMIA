@@ -25,6 +25,21 @@ namespace Negocio
             cursos = cursoData.getAll();
             return cursos;
         }
+
+        public List<Curso> dameTodosPlan(int idPlan)
+        {
+            List<Curso> cursos = new List<Curso>();
+            cursos = cursoData.GetCursosPlan(idPlan);
+            return cursos;
+        }
+
+        public List<Curso> dameTodosPlanNoAlumno(int idPlan, int idAlumno)
+        {
+            List<Curso> cursos = new List<Curso>();
+            cursos = cursoData.GetCursosPlanNoAlumno(idPlan,idAlumno);
+            return cursos;
+        }
+
         //Metodo que le pide que guarde el curso
         public RespuestaServidor save(Curso curso)
         {

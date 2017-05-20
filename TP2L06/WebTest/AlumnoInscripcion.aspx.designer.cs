@@ -10,7 +10,7 @@
 namespace WebTest {
     
     
-    public partial class Plan {
+    public partial class AlumnoInscripcion {
         
         /// <summary>
         /// gridPanel control.
@@ -40,15 +40,6 @@ namespace WebTest {
         protected global::System.Web.UI.WebControls.Panel gridActionPanel;
         
         /// <summary>
-        /// lbtnEditar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnEditar;
-        
-        /// <summary>
         /// lbtnEliminar control.
         /// </summary>
         /// <remarks>
@@ -65,15 +56,6 @@ namespace WebTest {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbtnNuevo;
-        
-        /// <summary>
-        /// lblError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
         /// formPanel control.
@@ -103,40 +85,22 @@ namespace WebTest {
         protected global::System.Web.UI.WebControls.TextBox txtId;
         
         /// <summary>
-        /// lblPlan control.
+        /// lblIdCurso control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPlan;
+        protected global::System.Web.UI.WebControls.Label lblIdCurso;
         
         /// <summary>
-        /// txtPlan control.
+        /// listIdCurso control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPlan;
-        
-        /// <summary>
-        /// lblIdEspecidad control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdEspecidad;
-        
-        /// <summary>
-        /// listIdPlan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox listIdPlan;
+        protected global::System.Web.UI.WebControls.ListBox listIdCurso;
         
         /// <summary>
         /// formActionPanel control.

@@ -26,6 +26,8 @@ namespace WebTest
                 Session["apellidoUsuario"] = user.Persona.Apellido;
                 //TODO: ACA OBTENGO EL TIPO DE PERSONA Y LO SETEO EN LA SESION PARA VER CUAL PUEDE ACCEDER O NO.
                 Session["tipousuario"] = user.Persona.TipoPersona;
+                Session["Persona"] = user.Persona;
+                Session["idPlan"] = user.Persona.Plan.Id;
                 Response.Redirect("~/Home.aspx");   
                 
                 //TODO CREAR VAR DE SESION Y REDIRECCIONARLO

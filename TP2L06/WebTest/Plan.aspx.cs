@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
 using Entidades;
+using Entidades.CustomEntity;
+using Util;
 
 namespace WebTest
 {
@@ -63,38 +65,58 @@ namespace WebTest
             Page.Validate();
             if (!Page.IsValid)
                 return;
-            switch (formMode)
+            this.planActual = new Entidades.Plan();
+            if (validarPagina())
             {
-                case FormModes.Alta:
-                    this.PlanActual = new Entidades.Plan();
-                    this.planActual.State = Entidades.EntidadBase.States.New;
-                    this.cargarPlan(this.planActual);
-                    ce.save(this.planActual);
-                    break;
-                case FormModes.Modificacion:
-                    this.planActual = new Entidades.Plan();
-                    this.planActual.Id = this.IdSeleccionado;
-                    this.planActual.State = Entidades.EntidadBase.States.Modified;
-                    this.cargarPlan(this.planActual);
-                    ce.save(this.planActual);
-                    break;
-                case FormModes.Baja:
-                    this.planActual = new Entidades.Plan();
-                    this.planActual.Id = this.IdSeleccionado;
-                    this.planActual.State = Entidades.EntidadBase.States.Deleted;
-                    ce.save(this.planActual);
-                    break;
-
+                switch (formMode)
+                {
+                    case FormModes.Alta:
+                        this.planActual.State = Entidades.EntidadBase.States.New;
+                        this.cargarPlan(this.planActual);
+                        break;
+                    case FormModes.Modificacion:
+                        this.planActual.Id = this.IdSeleccionado;
+                        this.planActual.State = Entidades.EntidadBase.States.Modified;
+                        this.cargarPlan(this.planActual);
+                        break;
+                    case FormModes.Baja:
+                        this.planActual.Id = this.IdSeleccionado;
+                        this.planActual.State = Entidades.EntidadBase.States.Deleted;
+                        break;
+                }
+                RespuestaServidor rs = ce.save(this.planActual);
+                rs.MostrarMensajes();
+                this.renovarForm();
+                this.BindGV();
             }
-            this.renovarForm();
-
-            this.BindGV();
+            else
+            { this.formActionPanel.Visible = true;
+                this.formPanel.Visible = true;
+            }
         }
+
+        private bool validarPagina()
+        {
+            if ((this.formMode == FormModes.Alta || this.formMode == FormModes.Modificacion) && string.IsNullOrEmpty(this.listIdPlan.SelectedValue))
+            {
+                Mensajeria.MostrarAlerta("Seleccione una Especialidad");
+                return false;
+            }
+
+            else if ((this.formMode == FormModes.Alta || this.formMode == FormModes.Modificacion) && string.IsNullOrEmpty(this.txtPlan.Text))
+            {
+                Mensajeria.MostrarAlerta("Especifique la denominación del Plan");
+                return false;
+            }
+            return true;
+        }
+
         public override void renovarForm()
         {
          
             this.txtId.Text = String.Empty;
             this.txtPlan.Text = String.Empty;
+            this.lblError.Text = "";
 
         }
 
@@ -140,6 +162,7 @@ namespace WebTest
             this.PlanActual = this.ce.dameUno(id);
             this.txtId.Text = PlanActual.Id.ToString();
             this.txtPlan.Text = PlanActual.DescripcionPlan;
+            this.listIdPlan.SelectedValue = PlanActual.Especialidad.Id.ToString();
         }
 
         public void cargarPlan(Entidades.Plan esp)

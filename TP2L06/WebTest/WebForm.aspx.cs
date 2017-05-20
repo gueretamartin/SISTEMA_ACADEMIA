@@ -34,6 +34,7 @@ namespace WebTest
                 this.ViewState["idSeleccionado"] = value;
             }
         }
+       
         protected bool entidadSeleccionada
         {
             get

@@ -59,6 +59,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -66,6 +67,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AlumnoInscripcion.aspx" />
     <Content Include="Alumnos.aspx" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
@@ -75,6 +77,7 @@
     <Content Include="Curso.aspx" />
     <Content Include="img\info.png" />
     <Content Include="img\info2.png" />
+    <Content Include="Inscripciones.aspx" />
     <Content Include="Materias.aspx" />
     <Content Include="Permisos.aspx" />
     <Content Include="Plan.aspx" />
@@ -114,6 +117,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlumnoInscripcion.aspx.cs">
+      <DependentUpon>AlumnoInscripcion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AlumnoInscripcion.aspx.designer.cs">
+      <DependentUpon>AlumnoInscripcion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Alumnos.aspx.cs">
       <DependentUpon>Alumnos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -127,6 +137,14 @@
     </Compile>
     <Compile Include="Curso.aspx.designer.cs">
       <DependentUpon>Curso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DatagridViewRow.cs" />
+    <Compile Include="Inscripciones.aspx.cs">
+      <DependentUpon>Inscripciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscripciones.aspx.designer.cs">
+      <DependentUpon>Inscripciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Materias.aspx.cs">
       <DependentUpon>Materias.aspx</DependentUpon>
