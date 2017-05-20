@@ -11,7 +11,7 @@ using Util;
 namespace WebTest
 {
 
-    public partial class Alumnos : WebForm
+    public partial class Profesores : WebForm
     {
         ControladorUsuario cu = new ControladorUsuario();
         ControladorPersona cp = new ControladorPersona();
@@ -51,7 +51,7 @@ namespace WebTest
             List<PersonaMostrar> personasMostrar = new List<PersonaMostrar>();
             List<Personas> personas = new List<Personas>();
 
-            personas = cp.dameTodosAlumnos();
+            personas = cp.dameTodosProfesores();
             foreach (Personas per in personas)
             {
                 PersonaMostrar p = new PersonaMostrar();
@@ -245,7 +245,7 @@ namespace WebTest
                 persona.FechaNacimiento = DateTime.Parse(this.txtFecha.Text);
                 TipoPersona tp = new TipoPersona();
                 ControladorTipoPersona ctp = new ControladorTipoPersona();
-                tp = ctp.dameUno(2);
+                tp = ctp.dameUno(1);
 
                 persona.TipoPersona = tp; //CREAR ENUMERADOR
                 return true;

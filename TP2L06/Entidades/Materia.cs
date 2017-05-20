@@ -12,7 +12,21 @@ namespace Entidades
         private int horasSemanales;
         private int horasTotales;
         private Plan plan;
+        private string descripcionPlan;
 
+
+        public string DescripcionPlan
+        {
+            get
+            {
+                return descripcionPlan;
+            }
+
+            set
+            {
+                descripcionPlan = value;
+            }
+        }
         public string DescripcionMateria
         {
             get
@@ -62,6 +76,7 @@ namespace Entidades
             set
             {
                 plan = value;
+                descripcionPlan = this.Plan.DescripcionPlan;
             }
         }
     }

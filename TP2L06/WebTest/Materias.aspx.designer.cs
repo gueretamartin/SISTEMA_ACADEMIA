@@ -10,7 +10,7 @@
 namespace WebTest {
     
     
-    public partial class Alumnos {
+    public partial class Materias {
         
         /// <summary>
         /// gridPanel control.
@@ -67,15 +67,6 @@ namespace WebTest {
         protected global::System.Web.UI.WebControls.LinkButton lbtnNuevo;
         
         /// <summary>
-        /// txtMensaje control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtMensaje;
-        
-        /// <summary>
         /// formPanel control.
         /// </summary>
         /// <remarks>
@@ -103,139 +94,67 @@ namespace WebTest {
         protected global::System.Web.UI.WebControls.TextBox txtId;
         
         /// <summary>
-        /// lblNombrePersona control.
+        /// lblMateria control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombrePersona;
+        protected global::System.Web.UI.WebControls.Label lblMateria;
         
         /// <summary>
-        /// txtNombrePersona control.
+        /// txtMateria control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombrePersona;
+        protected global::System.Web.UI.WebControls.TextBox txtMateria;
         
         /// <summary>
-        /// lblApellidoPersona control.
+        /// lblHorasSemanales control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblApellidoPersona;
+        protected global::System.Web.UI.WebControls.Label lblHorasSemanales;
         
         /// <summary>
-        /// txtApellidoPersona control.
+        /// txtHsSemanales control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtApellidoPersona;
+        protected global::System.Web.UI.WebControls.TextBox txtHsSemanales;
         
         /// <summary>
-        /// lblLegajo control.
+        /// lblHorasTotales control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLegajo;
+        protected global::System.Web.UI.WebControls.Label lblHorasTotales;
         
         /// <summary>
-        /// txtLegajo control.
+        /// txtHorasTotales control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLegajo;
+        protected global::System.Web.UI.WebControls.TextBox txtHorasTotales;
         
         /// <summary>
-        /// lblTelefono control.
+        /// lblPlan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTelefono;
-        
-        /// <summary>
-        /// txtTelefono control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelefono;
-        
-        /// <summary>
-        /// lblEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmail;
-        
-        /// <summary>
-        /// txtEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
-        
-        /// <summary>
-        /// lblFecha control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFecha;
-        
-        /// <summary>
-        /// txtFecha control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFecha;
-        
-        /// <summary>
-        /// lblDireccion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDireccion;
-        
-        /// <summary>
-        /// txtDireccion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDireccion;
-        
-        /// <summary>
-        /// lblIdPlan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdPlan;
+        protected global::System.Web.UI.WebControls.Label lblPlan;
         
         /// <summary>
         /// listIdPlan control.

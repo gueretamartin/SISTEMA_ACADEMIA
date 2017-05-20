@@ -72,8 +72,10 @@
     <Content Include="css\customCss\login.css" />
     <Content Include="css\jquery-ui.min.css" />
     <Content Include="css\shop-homepage.css" />
+    <Content Include="Curso.aspx" />
     <Content Include="img\info.png" />
     <Content Include="img\info2.png" />
+    <Content Include="Materias.aspx" />
     <Content Include="Permisos.aspx" />
     <Content Include="Plan.aspx" />
     <Content Include="Especialidad.aspx" />
@@ -83,6 +85,7 @@
     <Content Include="packages.config" />
     <Content Include="Page.Master" />
     <Content Include="LICENSE" />
+    <Content Include="Profesores.aspx" />
     <Content Include="README.md" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
@@ -117,6 +120,20 @@
     </Compile>
     <Compile Include="Alumnos.aspx.designer.cs">
       <DependentUpon>Alumnos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Curso.aspx.cs">
+      <DependentUpon>Curso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Curso.aspx.designer.cs">
+      <DependentUpon>Curso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Materias.aspx.cs">
+      <DependentUpon>Materias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Materias.aspx.designer.cs">
+      <DependentUpon>Materias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Permisos.aspx.cs">
       <DependentUpon>Permisos.aspx</DependentUpon>
@@ -159,6 +176,13 @@
     </Compile>
     <Compile Include="Page.Master.designer.cs">
       <DependentUpon>Page.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Profesores.aspx.cs">
+      <DependentUpon>Profesores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesores.aspx.designer.cs">
+      <DependentUpon>Profesores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuarios.aspx.cs">

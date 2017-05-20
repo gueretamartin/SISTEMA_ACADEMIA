@@ -34,5 +34,11 @@ namespace Negocio
             var personas = personasData.GetAllAlumnos();
             return personas;
         }
+
+        public List<Personas> dameTodosProfesores()
+        {
+            var personas = personasData.GetAllProfesores();
+            return personas;
+        }
     }
 }

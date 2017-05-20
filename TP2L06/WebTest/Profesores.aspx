@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Page.Master" AutoEventWireup="true" CodeBehind="Alumnos.aspx.cs" Inherits="WebTest.Alumnos" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Page.Master" AutoEventWireup="true" CodeBehind="Profesores.aspx.cs" Inherits="WebTest.Profesores" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="server">
     <asp:Panel ID="gridPanel" runat="server">

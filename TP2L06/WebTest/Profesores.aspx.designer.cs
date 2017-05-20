@@ -10,7 +10,7 @@
 namespace WebTest {
     
     
-    public partial class Alumnos {
+    public partial class Profesores {
         
         /// <summary>
         /// gridPanel control.

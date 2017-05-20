@@ -91,7 +91,6 @@ namespace Datos
             return personas;
         }
 
-
         public List<Personas> GetAllAlumnos()
         {
             List<Personas> personas = new List<Personas>();
@@ -99,13 +98,11 @@ namespace Datos
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdPersonas = new SqlCommand("Select * from personas", Con);
+                SqlCommand cmdPersonas = new SqlCommand("Select * from personas where id_tipo_persona = 2", Con);
                 SqlDataReader drPersonas = cmdPersonas.ExecuteReader();
                 while (drPersonas.Read())
                 {
                     p = new Personas();
-                    if ((int)drPersonas["id_tipo_persona"] == 2)
-                    {
                     p.Id = (int)drPersonas["id_persona"];
                     p.Nombre = (string)drPersonas["nombre"];
                     p.Apellido = (string)drPersonas["apellido"];
@@ -117,7 +114,6 @@ namespace Datos
                     p.TipoPersona = new CatalogoTipoPersona().GetOne((int)drPersonas["id_tipo_persona"]);
                     p.Plan = new CatalogoPlanes().GetOne((int)drPersonas["id_plan"]);
                     personas.Add(p);
-                    }
                 }
             }
             catch (SqlException Ex)
@@ -132,6 +128,46 @@ namespace Datos
             }
             return personas;
         }
+
+        public List<Personas> GetAllProfesores()
+        {
+            List<Personas> personas = new List<Personas>();
+            Personas p = null;
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdPersonas = new SqlCommand("Select * from personas  where id_tipo_persona = 1", Con);
+                
+                SqlDataReader drPersonas = cmdPersonas.ExecuteReader();
+                while (drPersonas.Read())
+                {
+                    p = new Personas();
+                    p.Id = (int)drPersonas["id_persona"];
+                    p.Nombre = (string)drPersonas["nombre"];
+                    p.Apellido = (string)drPersonas["apellido"];
+                    p.Direccion = (string)drPersonas["direccion"];
+                    p.Email = (string)drPersonas["email"];
+                    p.Telefono = (string)drPersonas["telefono"];
+                    p.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
+                    p.Legajo = (int)drPersonas["legajo"];
+                    p.TipoPersona = new CatalogoTipoPersona().GetOne((int)drPersonas["id_tipo_persona"]);
+                    p.Plan = new CatalogoPlanes().GetOne((int)drPersonas["id_plan"]);
+                    personas.Add(p);
+                }
+            }
+            catch (SqlException Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al recuperar datos de persona", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return personas;
+        }
+
 
         #region METODOS PARA EL ABM
         public RespuestaServidor Save(Personas mat)
