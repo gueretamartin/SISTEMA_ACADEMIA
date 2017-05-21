@@ -83,7 +83,7 @@
                     <a href="/Usuarios.aspx" class="list-group-item">Usuarios</a>
                     <!-- Reportes --> 
                     <a href="#" class="list-group-item">Ver cursos</a>
-                    <a href="#" class="list-group-item">Ver planes</a>
+                    <a href="/ReportePlanes.aspx" class="list-group-item">Ver planes</a>
                     <a href="#" class="list-group-item">Mejores promedios</a>
                 </div>
             </div>
