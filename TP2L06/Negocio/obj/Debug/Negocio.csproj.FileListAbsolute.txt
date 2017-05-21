@@ -31,3 +31,14 @@ C:\Users\Martin\Desktop\SIS_ACADEMIA_ULT\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Deb
 C:\Users\Martin\Desktop\SIS_ACADEMIA_ULT\SISTEMA_ACADEMIA\TP2L06\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
 C:\Users\Martin\Desktop\SIS_ACADEMIA_ULT\SISTEMA_ACADEMIA\TP2L06\Negocio\obj\Debug\Negocio.dll
 C:\Users\Martin\Desktop\SIS_ACADEMIA_ULT\SISTEMA_ACADEMIA\TP2L06\Negocio\obj\Debug\Negocio.pdb
+C:\Users\nicolas\Desktop\ACADEMY\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Negocio.dll
+C:\Users\nicolas\Desktop\ACADEMY\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Negocio.pdb
+C:\Users\nicolas\Desktop\ACADEMY\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Datos.dll
+C:\Users\nicolas\Desktop\ACADEMY\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Entidades.dll
+C:\Users\nicolas\Desktop\ACADEMY\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Util.dll
+C:\Users\nicolas\Desktop\ACADEMY\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Datos.pdb
+C:\Users\nicolas\Desktop\ACADEMY\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Entidades.pdb
+C:\Users\nicolas\Desktop\ACADEMY\SISTEMA_ACADEMIA\TP2L06\Negocio\bin\Debug\Util.pdb
+C:\Users\nicolas\Desktop\ACADEMY\SISTEMA_ACADEMIA\TP2L06\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
+C:\Users\nicolas\Desktop\ACADEMY\SISTEMA_ACADEMIA\TP2L06\Negocio\obj\Debug\Negocio.dll
+C:\Users\nicolas\Desktop\ACADEMY\SISTEMA_ACADEMIA\TP2L06\Negocio\obj\Debug\Negocio.pdb
