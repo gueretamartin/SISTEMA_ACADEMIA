@@ -77,7 +77,7 @@
     <Content Include="Curso.aspx" />
     <Content Include="img\info.png" />
     <Content Include="img\info2.png" />
-    <Content Include="Inscripciones.aspx" />
+    <Content Include="RegistrarNotas.aspx" />
     <Content Include="Materias.aspx" />
     <Content Include="Permisos.aspx" />
     <Content Include="Plan.aspx" />
@@ -139,12 +139,12 @@
       <DependentUpon>Curso.aspx</DependentUpon>
     </Compile>
     <Compile Include="DatagridViewRow.cs" />
-    <Compile Include="Inscripciones.aspx.cs">
-      <DependentUpon>Inscripciones.aspx</DependentUpon>
+    <Compile Include="RegistrarNotas.aspx.cs">
+      <DependentUpon>RegistrarNotas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Inscripciones.aspx.designer.cs">
-      <DependentUpon>Inscripciones.aspx</DependentUpon>
+    <Compile Include="RegistrarNotas.aspx.designer.cs">
+      <DependentUpon>RegistrarNotas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Materias.aspx.cs">
       <DependentUpon>Materias.aspx</DependentUpon>

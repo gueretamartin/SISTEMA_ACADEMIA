@@ -25,6 +25,12 @@ namespace Negocio
             return alumnoInscripcion;
         }
 
+        public List<AlumnoInscripcion> dameTodosDocente(int idDocente)
+        {
+            var alumnoInscripcion = alumnoInscripcionData.GetAllDocente(idDocente);
+            return alumnoInscripcion;
+        }
+
         public List<AlumnoInscripcion> dameTodosAlumno(int idAlumno)
         {
             List<AlumnoInscripcion> alumnoInscripcion = alumnoInscripcionData.GetAllAlumnos(idAlumno);
@@ -68,6 +74,10 @@ namespace Negocio
                     (new CatalogoCursos()).Update(alInscr.Curso);
                 }
             }
+            else if (alInscr.State == EntidadBase.States.Modified)
+            {
+
+            }
             //El metodo rs.AgregarError(); setea el rs.Error en true
             if (!rs.Error)
             {
@@ -86,6 +96,8 @@ namespace Negocio
             //No está inscripto
             return false;
         }
+
+    
 
         //public List<AlumnoCursoPersona> ObtenerAlumnosPorCurso(int idCurso)
         //{

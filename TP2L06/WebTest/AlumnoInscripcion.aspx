@@ -8,13 +8,11 @@
             SelectedRowStyle-ForeColor="WindowText"
             DataKeyNames="ID" Width="147px">
             <Columns>
-
                 <asp:BoundField HeaderText="ID" DataField="ID" />
                 <asp:BoundField HeaderText="Curso" DataField="NombreCurso" />
                 <asp:BoundField HeaderText="Condicion" DataField="Condicion" />
                 <asp:BoundField HeaderText="Nota" DataField="Nota" />
                 <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
-                    
                 </Columns>
         </asp:GridView>
     </asp:Panel>

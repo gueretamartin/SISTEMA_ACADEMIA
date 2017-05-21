@@ -26,8 +26,12 @@ namespace WebTest
             //TODO: TODOS LOS WEB FORM DEBEN IMPLEMENTAR ESTE PEDAZO DE CODIGO PARA QUE SE VALIDEN LOS PERMISOS DE USUARIOS...
             TipoPersona tipo = (TipoPersona)Session["tipousuario"];
             if (tipo != null)
-                if (!ValidarPermisos.TienePermisosUsuario(tipo.Id, "Alumnos"))
+            {
+                if (!ValidarPermisos.TienePermisosUsuario(tipo.Id, this.Page.AppRelativeVirtualPath.Replace("~/", "").Replace(".aspx", "")))
                     Response.Redirect("~/Permisos.aspx");
+            }
+            else
+                Response.Redirect("~/Login.aspx");
             if (!IsPostBack)
             {
                 this.BindGV();

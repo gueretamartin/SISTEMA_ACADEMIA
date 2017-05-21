@@ -19,3 +19,10 @@ C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Entidades\bin\Debug\Entidades
 C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Entidades\bin\Debug\Entidades.pdb
 C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Entidades\bin\Debug\Util.dll
 C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Entidades\bin\Debug\Util.pdb
+C:\Users\nico-\Documents\Visual Studio 2017\Projects\SISTEMA_ACADEMIA\TP2L06\Entidades\bin\Debug\Entidades.dll
+C:\Users\nico-\Documents\Visual Studio 2017\Projects\SISTEMA_ACADEMIA\TP2L06\Entidades\bin\Debug\Entidades.pdb
+C:\Users\nico-\Documents\Visual Studio 2017\Projects\SISTEMA_ACADEMIA\TP2L06\Entidades\bin\Debug\Util.dll
+C:\Users\nico-\Documents\Visual Studio 2017\Projects\SISTEMA_ACADEMIA\TP2L06\Entidades\bin\Debug\Util.pdb
+C:\Users\nico-\Documents\Visual Studio 2017\Projects\SISTEMA_ACADEMIA\TP2L06\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+C:\Users\nico-\Documents\Visual Studio 2017\Projects\SISTEMA_ACADEMIA\TP2L06\Entidades\obj\Debug\Entidades.dll
+C:\Users\nico-\Documents\Visual Studio 2017\Projects\SISTEMA_ACADEMIA\TP2L06\Entidades\obj\Debug\Entidades.pdb

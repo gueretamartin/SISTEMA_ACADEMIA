@@ -23,8 +23,12 @@ namespace WebTest
         {
             TipoPersona tipo = (TipoPersona)Session["tipousuario"];
             if (tipo != null)
-                if (!ValidarPermisos.TienePermisosUsuario(tipo.Id, "Materia"))
+            {
+                if (!Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, this.Page.AppRelativeVirtualPath.Replace("~/", "").Replace(".aspx", "")))
                     Response.Redirect("~/Permisos.aspx");
+            }
+            else
+                Response.Redirect("~/Login.aspx");
             if (!IsPostBack)
             {
                 this.BindGV();
