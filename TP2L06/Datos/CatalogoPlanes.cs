@@ -49,6 +49,41 @@ namespace Datos
             return p;
         }
 
+        public List<Plan> dameTodosPorCondicion(string where)
+        {
+            Plan p = new Plan();
+            List<Plan> planes = new List<Plan>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdPlanes = new SqlCommand("SELECT * FROM planes " + where, Con);
+                SqlDataReader drPlanes = cmdPlanes.ExecuteReader();
+
+                while (drPlanes.Read())
+                {
+                    p = new Plan();
+                    p.Id = (int)drPlanes["id_plan"];
+                    p.DescripcionPlan = (string)drPlanes["desc_plan"];
+                    p.Especialidad = new CatalogoEspecialidad().getOne((int)drPlanes["id_especialidad"]);
+                    planes.Add(p);
+
+                }
+
+                drPlanes.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al recuperar datos de plan", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return planes;
+        }
+
         public List<Plan> GetAll()
         {
             Plan p = new Plan();

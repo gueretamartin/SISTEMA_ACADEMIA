@@ -2,6 +2,14 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="server">
     
+    
+               <h4>Seleccione la Especialidad: <asp:DropDownList id="idwher" runat="server" Width="89px" CssClass="text-center" OnSelectedIndexChanged="idwher_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+                   <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Ver todos" />
+               </h4>
+                <br />
+                <br />
+
+
     <h1>Planes</h1><br />
         <table class="table table-striped table-bordered table-hover table-condensed">
         

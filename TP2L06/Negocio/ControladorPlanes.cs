@@ -28,5 +28,12 @@ namespace Negocio
         {
           return  planesData.Save(plan);
         }
+
+        public List<Plan> dameTodosPorCondicion(string where)
+        {
+            List<Plan> planes = new List<Plan>();
+            planes = planesData.dameTodosPorCondicion(where);
+            return planes;
+        }
     }
 }

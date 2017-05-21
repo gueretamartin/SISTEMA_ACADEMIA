@@ -15,11 +15,12 @@ namespace Util
                 case 1: // Profesores
                     if (moduloAcceso.Equals("RegistrarNotas"))
                        return true;
+                
                     return false;
                 case 2: //Alumnos
                     if (moduloAcceso.Equals("AlumnoInscripcion"))
                         return true;
-                    break;
+                    return false;
                 case 3: //Recepcionista
                     if (moduloAcceso.Equals("Curso"))
                         return true;
