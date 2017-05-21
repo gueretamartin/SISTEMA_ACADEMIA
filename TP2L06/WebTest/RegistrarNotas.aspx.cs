@@ -95,7 +95,11 @@ namespace WebTest
 
         public void guardarUsuario(Entidades.AlumnoInscripcion alinsc)
         {
+<<<<<<< HEAD
             this.cia.Save(alinsc).MostrarMensajes();
+=======
+            this.cia.Save(alinsc);
+>>>>>>> a956606c5b00efec1cbe6a6a222ff42ae8f35659
         }
         protected void lbtnEliminar_Click(object sender, EventArgs e)
         {

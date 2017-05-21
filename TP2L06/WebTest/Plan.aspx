@@ -1,14 +1,17 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Page.Master" AutoEventWireup="true" CodeBehind="Plan.aspx.cs" Inherits="WebTest.Plan" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="server">
+  
+    
     <asp:Panel ID="gridPanel" runat="server">
+      
+
         <asp:GridView class="table table-hover" ID="gridView" runat="server" AutoGenerateColumns="False"
             OnSelectedIndexChanged="gridView_SelectedIndexChanged"
             SelectedRowStyle-BackColor="#cacaca"
             SelectedRowStyle-ForeColor="WindowText"
             DataKeyNames="ID" Width="147px">
             <Columns>
-
                 <asp:BoundField HeaderText="ID" DataField="ID" />
                 <asp:BoundField HeaderText="DescripcionPlan" DataField="DescripcionPlan" />
                 <asp:BoundField HeaderText="DescripcionEspecialidad" DataField="DescripcionEspecialidad" />

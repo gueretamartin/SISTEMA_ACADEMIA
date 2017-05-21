@@ -68,8 +68,7 @@ namespace Datos
             catch (Exception ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al recuperar lista de AlumnoInscripcion", ex);
-               
-            }
+}
             finally
             {
                 this.CloseConnection();
@@ -220,7 +219,7 @@ namespace Datos
                 rs.Mensaje = "Inscripción eliminada con éxito";
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 rs.AgregarError("Error al eliminar la inscripción");
             }

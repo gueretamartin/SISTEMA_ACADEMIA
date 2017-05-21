@@ -91,7 +91,6 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                 new Exception("Error al recuperar datos de persona", Ex);
-               
             }
             finally
             {

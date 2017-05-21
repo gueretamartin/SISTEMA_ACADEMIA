@@ -67,7 +67,9 @@
             <div class="col-md-3">
                 <p class="lead">Menu</p>
                 <div class="list-group">
+                     <% Entidades.TipoPersona tipo = (Entidades.TipoPersona)Session["tipousuario"]; %>
                     <!-- Alumnos -->
+<<<<<<< HEAD
                     <a href="/AlumnoInscripcion.aspx" class="list-group-item">Inscripción a Cursado</a>
                     <!-- Solo del tipo profesor -->
                     <a href="/RegistrarNotas.aspx" class="list-group-item">Registrar Notas</a>
@@ -81,18 +83,94 @@
                     <!-- Admin --> 
                    
                     <a href="/Usuarios.aspx" class="list-group-item">Usuarios</a>
+=======
+                    <%
+    if (tipo != null)
+    {
+        if (Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, "AlumnoInscripcion"))
+        {%>
+                    <a href="/AlumnoInscripcion.aspx" class="list-group-item">Inscripción a Cursado</a> <% }
+    }; %>
+                    <!-- Solo del tipo profesor -->
+                     <% 
+    if (tipo != null)
+    {
+        if (Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, "RegistrarNotas"))
+        {%>
+                    <a href="/RegistrarNotas.aspx" class="list-group-item">Registrar Notas</a> <% }}; %>
+                     
+                    <!-- Recepcionista--> 
+                        <% 
+    if (tipo != null)
+    {
+        if (Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, "Curso"))
+        {%>
+                    <a href="/Curso.aspx" class="list-group-item">Cursos</a> <% }}; %>
+
+         <% 
+    if (tipo != null)
+    {
+        if (Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, "Profesores"))
+        {%>
+                    <a href="/Profesores.aspx" class="list-group-item">Profesores</a> <% }}; %>
+                 
+                        <% 
+    if (tipo != null)
+    {
+        if (Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, "Materias"))
+        {%>
+                    <a href="/Materias.aspx" class="list-group-item">Materias</a> <% }}; %>
+                            
+                        <% 
+    if (tipo != null)
+    {
+        if (Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, "Plan"))
+        {%>  <a href="/Plan.aspx" class="list-group-item">Planes</a><% }}; %>
+                            <% 
+    if (tipo != null)
+    {
+        if (Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, "Alumnos"))
+        {%>         <a href="/Alumnos.aspx" class="list-group-item">Alumnos</a> <% }}; %>
+                               <% 
+    if (tipo != null)
+    {
+        if (Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, "Especialidad"))
+        {%>      <a href="/Especialidad.aspx" class="list-group-item">Especialidades</a><% }}; %>
+                    <!-- Admin --> 
+                   
+               <% 
+    if (tipo != null)
+    {
+        if (Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, "Usuarios"))
+        {%>       <a href="/Usuarios.aspx" class="list-group-item">Usuarios</a><% }}; %>
+>>>>>>> a956606c5b00efec1cbe6a6a222ff42ae8f35659
                     <!-- Reportes --> 
-                    <a href="#" class="list-group-item">Ver cursos</a>
-                    <a href="/ReportePlanes.aspx" class="list-group-item">Ver planes</a>
-                    <a href="#" class="list-group-item">Mejores promedios</a>
+                          <% 
+    if (tipo != null)
+    {
+        if (Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, "ReporteCursos"))
+        {%>       <a href="/ReporteCursos" class="list-group-item">Ver cursos</a><% }}; %>
+                           <% 
+    if (tipo != null)
+    {
+        if (Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, "ReportePlanes"))
+        {%>      <a href="/ReportePlanes.aspx" class="list-group-item">Ver planes</a> <% }}; %>
+                       <% 
+    if (tipo != null)
+    {
+        if (Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, "Usuarios"))
+        {%>          <a href="#" class="list-group-item">Mejores promedios</a><% }}; %>
                 </div>
             </div>
           
           <div class="col-md-9">
           <!-- Aca va el contenido dinamico -->
- <form id="form1" runat="server">           
-            <asp:ContentPlaceHolder ID="contenido" runat="server">
+ <form id="form1" runat="server" >           
+     <div style ="padding-bottom:50px;">
+            <asp:ContentPlaceHolder ID="contenido" runat="server" >
             </asp:ContentPlaceHolder>
+
+    </div>
 </form>
           </div>
             </div>
