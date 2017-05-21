@@ -77,7 +77,7 @@ namespace Entidades
             set
             {
                 curso = value;
-                nombreCurso = Curso.Id.ToString(); ;
+                nombreCurso = Curso.NombreMostrar.ToString(); 
             }
         }
 

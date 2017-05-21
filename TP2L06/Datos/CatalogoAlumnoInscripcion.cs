@@ -35,7 +35,7 @@ namespace Datos
             catch (Exception ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al recuperar lista de AlumnoInscripcion", ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -43,6 +43,40 @@ namespace Datos
             }
             return AlumnoInscripcion;
         }
+
+        public List<AlumnoInscripcion> GetAllDocente(int idDocente)
+        {
+            List<AlumnoInscripcion> AlumnoInscripcion = new List<AlumnoInscripcion>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdAlumnoInscripcion = new SqlCommand("select ai.* from personas pr inner join docentes_cursos dc on pr.id_persona = dc.id_docente inner join cursos c on dc.id_curso = c.id_curso	inner join alumnos_inscripciones ai on ai.id_curso = c.id_curso where pr.id_persona = @idDocente", Con);
+                cmdAlumnoInscripcion.Parameters.Add("@idDocente", SqlDbType.Int).Value = idDocente;
+                SqlDataReader drAlumnoInscripcion = cmdAlumnoInscripcion.ExecuteReader();
+                while (drAlumnoInscripcion.Read())
+                {
+                    AlumnoInscripcion mu = new AlumnoInscripcion();
+                    mu.Id = (int)drAlumnoInscripcion["id_inscripcion"];
+                    mu.Alumno = new CatalogoPersonas().GetOne((int)drAlumnoInscripcion["id_alumno"]);
+                    mu.Curso = new CatalogoCursos().GetOne((int)drAlumnoInscripcion["id_curso"]);
+                    mu.Condicion = (String)drAlumnoInscripcion["condicion"];
+                    mu.Nota = (int)drAlumnoInscripcion["nota"];
+                    AlumnoInscripcion.Add(mu);
+                }
+                drAlumnoInscripcion.Close();
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de AlumnoInscripcion", ex);
+               
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return AlumnoInscripcion;
+        }
+
 
         public List<AlumnoInscripcion> GetAllAlumnos(int idAlumno)
         {
@@ -68,7 +102,7 @@ namespace Datos
             catch (Exception ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al recuperar lista de AlumnoInscripcion", ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -101,7 +135,7 @@ namespace Datos
             catch (Exception ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al recuperar datos de AlumnoInscripcion", ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -135,7 +169,7 @@ namespace Datos
         //    catch (Exception ex)
         //    {
         //        Exception ExcepcionManejada = new Exception("Error al recuperar lista de AlumnoInscripcion", ex);
-        //        throw ExcepcionManejada;
+        //       
         //    }
         //    finally
         //    {
@@ -166,7 +200,7 @@ namespace Datos
             catch (Exception ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al recuperar datos de AlumnoInscripcion", ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -233,9 +267,9 @@ namespace Datos
                 cmdSave.ExecuteNonQuery();
                 rs.Mensaje = "Cambios en la inscripción registrados con éxito";
             }
-            catch (Exception)
+            catch (Exception Ex)
             {
-                rs.AgregarError("Error al modificar la inscripción");
+                rs.AgregarExcepcion(Ex);
             }
             finally
             {

@@ -30,10 +30,10 @@
                        Debido al nivel de permisos es imposible acceder a este lugar.
                     </p>
                 </div>
-                <h3 style="font-size:25px;">Serás redireccionado a la página principal... TKM AMI :)</h3>
+                <h3 style="font-size:25px;">Serás redireccionado a la página principal... </h3>
                 <div>
                     <p>
-                       Usche
+                      
                     </p>
                 </div>
 

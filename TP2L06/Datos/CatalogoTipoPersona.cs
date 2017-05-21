@@ -35,7 +35,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                 new Exception("Error al recuperar tipos de persona", Ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -70,7 +70,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                 new Exception("Error al recuperar tipos de persona", Ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {

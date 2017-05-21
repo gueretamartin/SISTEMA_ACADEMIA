@@ -26,8 +26,12 @@ namespace WebTest
             //TODO: TODOS LOS WEB FORM DEBEN IMPLEMENTAR ESTE PEDAZO DE CODIGO PARA QUE SE VALIDEN LOS PERMISOS DE USUARIOS...
             TipoPersona tipo = (TipoPersona)Session["tipousuario"];
             if (tipo != null)
-                if (!ValidarPermisos.TienePermisosUsuario(tipo.Id, "Alumnos"))
+            {
+                if (!ValidarPermisos.TienePermisosUsuario(tipo.Id, this.Page.AppRelativeVirtualPath.Replace("~/", "").Replace(".aspx", "")))
                     Response.Redirect("~/Permisos.aspx");
+            }
+            else
+                Response.Redirect("~/Login.aspx");
             if (!IsPostBack)
             {
                 this.BindGV();
@@ -148,7 +152,7 @@ namespace WebTest
                     bool exito = this.cargarPersona(this.personaActual);
                     if (exito)
                     {
-                        cp.save(this.personaActual);
+                        cp.save(this.personaActual).MostrarMensajes();
                     }
                     break;
                 case FormModes.Modificacion:
@@ -156,17 +160,17 @@ namespace WebTest
                     this.personaActual.Id = this.IdSeleccionado;
                     this.personaActual.State = Entidades.EntidadBase.States.Modified;
                     this.cargarPersona(this.personaActual);
-                    cp.save(this.personaActual);
+                    cp.save(this.personaActual).MostrarMensajes();
                     break;
                 case FormModes.Baja:
                     //this.planActual = new Entidades.Plan();
                     //this.planActual.Id = this.IdSeleccionado;
                     //this.planActual.State = Entidades.EntidadBase.States.Deleted;
-                    //ce.save(this.planActual);
+                    //ce.save(this.planActual).MostrarMensajes();
 
                     this.personaActual.State = Entidades.EntidadBase.States.Deleted;
 
-                    cp.save(this.personaActual);
+                    cp.save(this.personaActual).MostrarMensajes();
                     break;
             }
             this.renovarForm();

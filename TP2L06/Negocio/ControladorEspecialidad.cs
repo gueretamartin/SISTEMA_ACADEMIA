@@ -25,9 +25,9 @@ namespace Negocio
             return especialidades;
         }
         //Metodo que le pide que guarde el especialidad
-        public void save(Especialidad especialidad)
+        public Entidades.CustomEntity.RespuestaServidor save(Especialidad especialidad)
         {
-            especialidadData.Save(especialidad);
+            return especialidadData.Save(especialidad);
         }
     }
 }

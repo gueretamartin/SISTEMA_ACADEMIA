@@ -25,9 +25,9 @@ namespace Negocio
             return materias;
         }
         //Metodo que le pide que guarde el materia
-        public void save(Materia materia)
+        public Entidades.CustomEntity.RespuestaServidor save(Materia materia)
         {
-            materiaData.Save(materia);
+           return  materiaData.Save(materia);
         }
     }
 }

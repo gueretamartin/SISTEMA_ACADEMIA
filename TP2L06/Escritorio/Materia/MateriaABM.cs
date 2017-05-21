@@ -87,7 +87,7 @@ namespace Escritorio.Materia
         public override void GuardarCambios()
         {
             MapearADatos();
-            new ControladorMaterias().save(MateriaActual);
+            new ControladorMaterias().save(MateriaActual).MostrarMensajes();
         }
 
         public override void MapearADatos()

@@ -23,8 +23,12 @@ namespace WebTest
         {
             TipoPersona tipo = (TipoPersona)Session["tipousuario"];
             if (tipo != null)
-                if (!ValidarPermisos.TienePermisosUsuario(tipo.Id, "Materia"))
+            {
+                if (!Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, this.Page.AppRelativeVirtualPath.Replace("~/", "").Replace(".aspx", "")))
                     Response.Redirect("~/Permisos.aspx");
+            }
+            else
+                Response.Redirect("~/Login.aspx");
             if (!IsPostBack)
             {
                 this.BindGV();
@@ -75,20 +79,20 @@ namespace WebTest
                     this.MateriaActual = new Entidades.Materia();
                     this.materiaActual.State = Entidades.EntidadBase.States.New;
                     this.cargarMateria(this.materiaActual);
-                    ce.save(this.materiaActual);
+                    ce.save(this.materiaActual).MostrarMensajes();
                     break;
                 case FormModes.Modificacion:
                     this.materiaActual = new Entidades.Materia();
                     this.materiaActual.Id = this.IdSeleccionado;
                     this.materiaActual.State = Entidades.EntidadBase.States.Modified;
                     this.cargarMateria(this.materiaActual);
-                    ce.save(this.materiaActual);
+                    ce.save(this.materiaActual).MostrarMensajes();
                     break;
                 case FormModes.Baja:
                     this.materiaActual = new Entidades.Materia();
                     this.materiaActual.Id = this.IdSeleccionado;
                     this.materiaActual.State = Entidades.EntidadBase.States.Deleted;
-                    ce.save(this.materiaActual);
+                    ce.save(this.materiaActual).MostrarMensajes();
                     break;
 
             }

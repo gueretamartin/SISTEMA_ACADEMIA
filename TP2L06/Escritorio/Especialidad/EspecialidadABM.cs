@@ -86,7 +86,7 @@ namespace Escritorio.Especialidad
         public override void GuardarCambios()
         {
             MapearADatos();
-            new ControladorEspecialidad().save(EspecialidadActual);
+            new ControladorEspecialidad().save(EspecialidadActual).MostrarMensajes();
         }
 
         public override void MapearADatos()

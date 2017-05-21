@@ -68,17 +68,19 @@
                 <p class="lead">Menu</p>
                 <div class="list-group">
                     <!-- Alumnos -->
-                    <a href="/Curso.aspx" class="list-group-item">Cursos</a>
                     <a href="/AlumnoInscripcion.aspx" class="list-group-item">Inscripción a Cursado</a>
                     <!-- Solo del tipo profesor -->
+                    <a href="/RegistrarNotas.aspx" class="list-group-item">Registrar Notas</a>
+                    <!-- Recepcionista--> 
+                     <a href="/Curso.aspx" class="list-group-item">Cursos</a>
                     <a href="/Profesores.aspx" class="list-group-item">Profesores</a>
-                    <a href="/Plan.aspx" class="list-group-item">Planes</a>
                     <a href="/Materias.aspx" class="list-group-item">Materias</a>
-                    <!-- Admin -->
-                    <a href="/Usuarios.aspx" class="list-group-item">Usuarios</a>
+                    <a href="/Plan.aspx" class="list-group-item">Planes</a>
                     <a href="/Alumnos.aspx" class="list-group-item">Alumnos</a>
                     <a href="/Especialidad.aspx" class="list-group-item">Especialidades</a>
-                    <a href="#" class="list-group-item">Ver notas</a>
+                    <!-- Admin --> 
+                   
+                    <a href="/Usuarios.aspx" class="list-group-item">Usuarios</a>
                     <!-- Reportes --> 
                     <a href="#" class="list-group-item">Ver cursos</a>
                     <a href="/ReportePlanes.aspx" class="list-group-item">Ver planes</a>

@@ -20,6 +20,14 @@ namespace WebTest
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            TipoPersona tipo = (TipoPersona)Session["tipousuario"];
+            if (tipo != null)
+            {
+                if (!Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, this.Page.AppRelativeVirtualPath.Replace("~/", "").Replace(".aspx", "")))
+                    Response.Redirect("~/Permisos.aspx");
+            }
+            else
+                Response.Redirect("~/Login.aspx");
             if (!IsPostBack)
             {
                 this.BindGV();
@@ -69,20 +77,20 @@ namespace WebTest
                     this.CursoActual = new Entidades.Curso();
                     this.planActual.State = Entidades.EntidadBase.States.New;
                     this.cargarCurso(this.planActual);
-                    ce.save(this.planActual);
+                    ce.save(this.planActual).MostrarMensajes();
                     break;
                 case FormModes.Modificacion:
                     this.planActual = new Entidades.Curso();
                     this.planActual.Id = this.IdSeleccionado;
                     this.planActual.State = Entidades.EntidadBase.States.Modified;
                     this.cargarCurso(this.planActual);
-                    ce.save(this.planActual);
+                    ce.save(this.planActual).MostrarMensajes();
                     break;
                 case FormModes.Baja:
                     this.planActual = new Entidades.Curso();
                     this.planActual.Id = this.IdSeleccionado;
                     this.planActual.State = Entidades.EntidadBase.States.Deleted;
-                    ce.save(this.planActual);
+                    ce.save(this.planActual).MostrarMensajes();
                     break;
 
             }

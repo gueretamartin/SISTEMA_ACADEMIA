@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Entidades.CustomEntity;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,6 +12,14 @@ namespace Datos
 {
     public class CatalogoModuloUsuario : Conexion
     {
+        RespuestaServidor rs;
+
+        public CatalogoModuloUsuario()
+        {
+            rs = new RespuestaServidor();
+        }
+
+
         public List<ModuloUsuario> GetAll()
         {
             List<ModuloUsuario> ModuloUsuarios = new List<ModuloUsuario>();
@@ -36,7 +45,7 @@ namespace Datos
             catch (Exception ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al recuperar lista de ModuloUsuarios", ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -70,7 +79,7 @@ namespace Datos
             catch (Exception ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al recuperar lista de ModuloUsuarios", ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -103,7 +112,7 @@ namespace Datos
             catch (Exception ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al recuperar datos de ModuloUsuarios", ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -137,7 +146,7 @@ namespace Datos
             catch (Exception ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al recuperar datos de ModuloUsuarios", ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -147,7 +156,7 @@ namespace Datos
         }
 
 
-        public void Delete(int ID)
+        public RespuestaServidor Delete(int ID)
         {
             try
             {
@@ -155,37 +164,38 @@ namespace Datos
                 SqlCommand cmdDelete = new SqlCommand("delete modulos_usuarios where id_modulo_usuario = @id", Con);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 cmdDelete.ExecuteNonQuery();
-
+                rs.Mensaje = "Modulo usuario eliminado con éxito";
             }
             catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al eliminar ModuloUsuario", ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
 
-        public void Save(ModuloUsuario ModuloUsuario)
+        public RespuestaServidor Save(ModuloUsuario ModuloUsuario)
         {
             if (ModuloUsuario.State == Entidades.EntidadBase.States.New)
             {
-                this.Insert(ModuloUsuario);
+               rs =  this.Insert(ModuloUsuario);
             }
             else if (ModuloUsuario.State == Entidades.EntidadBase.States.Deleted)
             {
-                this.Delete(ModuloUsuario.Id);
+                rs = this.Delete(ModuloUsuario.Id);
             }
             else if (ModuloUsuario.State == Entidades.EntidadBase.States.Modified)
             {
-                this.Update(ModuloUsuario);
-            }
+                rs = this.Update(ModuloUsuario);
+            }else
             ModuloUsuario.State = Entidades.EntidadBase.States.Unmodified;
+            return rs;
         }
 
-        protected void Update(ModuloUsuario ModuloUsuario)
+        protected RespuestaServidor Update(ModuloUsuario ModuloUsuario)
         {
             try
             {
@@ -201,19 +211,20 @@ namespace Datos
                 cmdSave.Parameters.Add("@modificacion", SqlDbType.Bit).Value = ModuloUsuario.PermiteModificacion;
                 cmdSave.Parameters.Add("@consulta", SqlDbType.Bit).Value = ModuloUsuario.PermiteConsulta;
                 cmdSave.ExecuteNonQuery();
+                rs.Mensaje = "Modulo usuario modificado con éxito";
             }
             catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al modificar datos del ModuloUsuario", ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
 
-        protected void Insert(ModuloUsuario ModuloUsuario)
+        protected RespuestaServidor Insert(ModuloUsuario ModuloUsuario)
         {
             try
             {
@@ -227,16 +238,17 @@ namespace Datos
                 cmdSave.Parameters.Add("@modificacion", SqlDbType.Bit).Value = ModuloUsuario.PermiteModificacion;
                 cmdSave.Parameters.Add("@consulta", SqlDbType.Bit).Value = ModuloUsuario.PermiteConsulta;
                 ModuloUsuario.Id = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
+                rs.Mensaje = "Modulo usuario insertado con éxito";
             }
             catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al crear ModuloUsuario", ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
 
     }

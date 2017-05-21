@@ -10,9 +10,10 @@ namespace Entidades
     {
         private int anioCalendario;
         private int cupo;
+        private string denominacion;
         private Materia materia;
         private string descripcionMateria;
-        private string denominacion;
+
 
        public string Denominacion
         {
@@ -23,6 +24,14 @@ namespace Entidades
             set
             {
                 denominacion = value;
+            }
+        }
+
+        public string NombreMostrar
+        {
+            get
+            {
+                return materia.DescripcionMateria + ", " + this.denominacion; 
             }
         }
 

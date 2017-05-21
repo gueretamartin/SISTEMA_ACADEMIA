@@ -18,9 +18,9 @@
                 </div>
                 <form id="form1" class="form-signin" runat="server">
                     <label>Usuario</label><br />
-                    <asp:TextBox ID="txtUser" class="form-control" runat="server" Text="adminnn" /><br />
+                    <asp:TextBox ID="txtUser" class="form-control" runat="server" Text="admin" /><br />
                     <label>Password</label><br />
-                    <asp:TextBox ID="txtPass" class="form-control" runat="server" Text="123" TextMode="Password" /><br />
+                    <asp:TextBox ID="txtPass" class="form-control" runat="server" Text="admin" TextMode="Password" /><br />
                     <p>
                         <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
                     </p>

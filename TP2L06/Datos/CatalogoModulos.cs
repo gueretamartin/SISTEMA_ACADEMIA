@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Entidades.CustomEntity;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,6 +12,13 @@ namespace Datos
 {
     public class CatalogoModulos : Conexion
     {
+        RespuestaServidor rs;
+
+        public CatalogoModulos()
+        {
+            rs = new RespuestaServidor();
+        }
+
         public List<Modulo> GetAll()
         {
             List<Modulo> modulos = new List<Modulo>();
@@ -32,7 +40,7 @@ namespace Datos
             catch (Exception ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al recuperar lista de módulos", ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -61,7 +69,7 @@ namespace Datos
             catch (Exception ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al recuperar datos de mòdulo", ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -70,7 +78,7 @@ namespace Datos
             return mdo;
         }
 
-        public void Delete(int ID)
+        public RespuestaServidor Delete(int ID)
         {
             try
             {
@@ -78,37 +86,39 @@ namespace Datos
                 SqlCommand cmdPlanes = new SqlCommand("delete modulos where id_modulo = @id", Con);
                 cmdPlanes.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 cmdPlanes.ExecuteNonQuery();
-
+                rs.Mensaje = "Modulo eliminado con éxito";
             }
-            catch (Exception ex)
+            catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al eliminar módulo", ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
 
-        public void Save(Modulo modulo)
+        public RespuestaServidor Save(Modulo modulo)
         {
             if (modulo.State == Entidades.EntidadBase.States.New)
             {
-                this.Insert(modulo);
+                rs = this.Insert(modulo);
             }
             else if (modulo.State == Entidades.EntidadBase.States.Deleted)
             {
-                this.Delete(modulo.Id);
+                rs = this.Delete(modulo.Id);
             }
             else if (modulo.State == Entidades.EntidadBase.States.Modified)
             {
-                this.Update(modulo);
+                rs = this.Update(modulo);
             }
-            modulo.State = Entidades.EntidadBase.States.Unmodified;
+            else
+                modulo.State = Entidades.EntidadBase.States.Unmodified;
+            return rs;
         }
 
-        protected void Update(Modulo modulo)
+        protected RespuestaServidor Update(Modulo modulo)
         {
             try
             {
@@ -120,19 +130,21 @@ namespace Datos
                 cmdSave.Parameters.Add("@desc_modulo", SqlDbType.VarChar, 50).Value = modulo.Descripcion;
                 cmdSave.Parameters.Add("@ejecuta", SqlDbType.VarChar, 50).Value = modulo.Ejecuta;
                 cmdSave.ExecuteNonQuery();
+
+                rs.Mensaje = "Modulo modificado con éxito";
             }
-            catch (Exception ex)
+            catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al modificar datos del modulo", ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
 
-        protected void Insert(Modulo modulo)
+        protected RespuestaServidor Insert(Modulo modulo)
         {
             try
             {
@@ -144,16 +156,17 @@ namespace Datos
                 cmdSave.Parameters.Add("@desc_modulo", SqlDbType.VarChar, 50).Value = modulo.Descripcion;
                 cmdSave.Parameters.Add("@ejecuta", SqlDbType.VarChar, 50).Value = modulo.Ejecuta;
                 modulo.Id = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
+                rs.Mensaje = "Modulo agregada con éxito";
             }
-            catch (Exception ex)
+            catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al crear plan", ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
 
     }

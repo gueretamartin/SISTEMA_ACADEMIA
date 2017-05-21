@@ -31,14 +31,14 @@ namespace Negocio
             return usuarios;
         }
         //Metodo que le pide que guarde el usuario
-        public void guardarUsuario(Usuario usu)
+        public Entidades.CustomEntity.RespuestaServidor guardarUsuario(Usuario usu)
         {
             Usuario usuario = usu;
-            usuarioData.Save(usuario);
+           return  usuarioData.Save(usuario);
         }
 
-        public void eliminarUsuario(int id) {
-            usuarioData.Delete(id);
+        public Entidades.CustomEntity.RespuestaServidor eliminarUsuario(int id) {
+            return usuarioData.Delete(id);
         }
         //Metodo que le pide que valide el usuario
         public Usuario validarUsuario(string nombreUsuario, string pass)

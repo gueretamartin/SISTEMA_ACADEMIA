@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Entidades.CustomEntity;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,6 +12,13 @@ namespace Datos
 {
     public class CatalogoMaterias : Conexion
     {
+        RespuestaServidor rs;
+
+        public CatalogoMaterias()
+        {
+            rs = new RespuestaServidor();
+        }
+
         public List<Materia> getAll()
         {
             List<Materia> materias = new List<Materia>();
@@ -36,7 +44,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                new Exception("Error al recuperar lista de usuarios", Ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -68,7 +76,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                new Exception("Error al recuperar lista de usuarios", Ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -79,24 +87,26 @@ namespace Datos
 
         #region METODOS PARA EL ABM
 
-        public void Save(Materia mat)
+        public RespuestaServidor Save(Materia mat)
         {
             if (mat.State == Entidades.EntidadBase.States.Deleted)
             {
-                this.Delete(mat.Id);
+                rs = this.Delete(mat.Id);
             }
             else if (mat.State == Entidades.EntidadBase.States.New)
             {
-                this.Insert(mat);
+                rs = this.Insert(mat);
             }
             else if (mat.State == Entidades.EntidadBase.States.Modified)
             {
-                this.Update(mat);
+                rs = this.Update(mat);
             }
+            else
             mat.State = Entidades.EntidadBase.States.Unmodified;
+            return rs;
         }
 
-        public void Delete(int id)
+        public RespuestaServidor Delete(int id)
         {
             try
             {
@@ -105,20 +115,20 @@ namespace Datos
                 SqlCommand cmdDelete = new SqlCommand("DELETE materias WHERE id_materia=@id", Con);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = id;
                 cmdDelete.ExecuteReader();
+                rs.Mensaje = "Materia eliminada con éxito";
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada =
-                new Exception("Error al eliminar la materia", Ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
 
-        public void Update(Materia mat)
+        public RespuestaServidor Update(Materia mat)
         {
             try
             {
@@ -132,19 +142,20 @@ namespace Datos
                 cmdSave.Parameters.Add("@hsTot", SqlDbType.Int).Value = mat.HorasTotales;
                 cmdSave.Parameters.Add("@idPlan", SqlDbType.Int).Value = mat.Plan.Id;
                 cmdSave.ExecuteReader();
+                rs.Mensaje = "Materia modificada con éxito";
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al modificar los datos de la materia", Ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
 
-        public void Insert(Materia mat)
+        public RespuestaServidor Insert(Materia mat)
         {
             try
             {
@@ -161,17 +172,17 @@ namespace Datos
                 cmdSave.Parameters.Add("@id_plan", SqlDbType.Int).Value = mat.Plan.Id;
 
                 mat.Id = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar()); // asi se obtiene el ID que asigno al BD automaticamente
+                rs.Mensaje = "Materia cargada con éxito";
             }
             catch (Exception Ex)
             {
-                Console.WriteLine(Ex.Message);
-                Exception ExcepcionManejada = new Exception("Error al crear materia", Ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
         #endregion
     }

@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Entidades.CustomEntity;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -10,6 +11,12 @@ namespace Datos
 {
     public class CatalogoCondicion : Conexion
     {
+        RespuestaServidor rs;
+        public CatalogoCondicion()
+        {
+            rs = new RespuestaServidor();
+        }
+
         public List<Condicion> getAll()
         {
             List<Condicion> condiciones = new List<Condicion>();
@@ -32,7 +39,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                new Exception("Error al recuperar las condiciones", Ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {

@@ -12,6 +12,12 @@ namespace Datos
 {
     public class CatalogoCursos : Conexion
     {
+        RespuestaServidor rs;
+
+        public CatalogoCursos()
+        {
+            rs = new RespuestaServidor();
+        }
         public List<Curso> getAll()
         {
             List<Curso> cursos = new List<Curso>();
@@ -37,7 +43,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                new Exception("Error al recuperar los cursos", Ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -106,7 +112,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                new Exception("Error al recuperar el curso", Ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -177,7 +183,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                new Exception("Error al recuperar el curso", Ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -209,7 +215,6 @@ namespace Datos
 
         public RespuestaServidor Delete(int id)
         {
-            RespuestaServidor rs = new RespuestaServidor();
             try
             {
                 this.OpenConnection();
@@ -234,7 +239,7 @@ namespace Datos
             return rs;
         }
 
-        public void Update(Curso cur)
+        public RespuestaServidor Update(Curso cur)
         {
             try
             {
@@ -248,19 +253,20 @@ namespace Datos
                 cmdSave.Parameters.Add("@cupo", SqlDbType.Int).Value = cur.Cupo;
                 cmdSave.Parameters.Add("@denominacion", SqlDbType.VarChar).Value = cur.Cupo;
                 cmdSave.ExecuteReader();
+                rs.Mensaje = "Curso modificado correctamente";
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al modificar los datos del curso", Ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
 
-        public void Insert(Curso cur)
+        public RespuestaServidor Insert(Curso cur)
         {
             try
             {
@@ -279,17 +285,17 @@ namespace Datos
 
 
                 cur.Id = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar()); // asi se obtiene el ID que asigno al BD autocuricamente
+                rs.Mensaje = "Curso cargado correctamente";
             }
             catch (Exception Ex)
             {
-                Console.WriteLine(Ex.Message);
-                Exception ExcepcionManejada = new Exception("Error al crear curso", Ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
         #endregion
     }

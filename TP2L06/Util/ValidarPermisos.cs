@@ -9,34 +9,40 @@ namespace Util
     public static class ValidarPermisos
     {
         public static bool TienePermisosUsuario(int tipoUsuario, string moduloAcceso)
-        {
-            bool permiso = false;
+        { 
             switch (tipoUsuario)
             {
-                case 1:
-                    permiso = false;
+                case 1: // Profesores
+                    if (moduloAcceso.Equals("RegistrarNotas"))
+                       return true;
+                    return false;
+                case 2: //Alumnos
+                    if (moduloAcceso.Equals("AlumnoInscripcion"))
+                        return true;
                     break;
-                case 2:
-                    //TODO: ACA HAGO QUE UN ALUMNO LOGUEADO SOLO PUEDA ACCEDER AL MODULO DE ALUMNOS. SI INTENTA ACCEDER A CUALQUIER OTRA PARTE, NO VA A PODER...
-                    //PARA QUE TENGA ACCESO VALIDA EN UN IF EL NOMBRE DEL MODULO AL QUE QUIERE ACCEDER Y RETORNA TRUE...
-                    //EL NOMBRE DEL FORMULARIO QUE NO APAREZCA ACA ES PORQUE NO PUEDE ACCEDER...
+                case 3: //Recepcionista
+                    if (moduloAcceso.Equals("Curso"))
+                        return true;
+                    if (moduloAcceso.Equals("Profesores"))
+                        return true;
+                    if (moduloAcceso.Equals("Materias"))
+                        return true;
+                    if (moduloAcceso.Equals("Plan"))
+                        return true;
                     if (moduloAcceso.Equals("Alumnos"))
-                        permiso = true;
-                    else
-                        permiso = false;
-                    break;
-                case 3:
-                    permiso = false;
-                    break;
+                        return true;
+                    if (moduloAcceso.Equals("Especialidad"))
+                        return true;
+                    return false;
                 case 4:
-                    permiso = false;
-                    break;
-                case 5:
-                    //TODO: EL ADMINISTRADOR TIENE ACCESO A TODAS PARTES.
-                    permiso = true;
-                    break;
+                    return false;
+                case 5: //Administrador
+                        //TODO: EL ADMINISTRADOR TIENE ACCESO A TODAS PARTES.
+                    return true;
+                default:
+                    return false;
             }
-            return permiso;
+            return false;
         }
     }
 }

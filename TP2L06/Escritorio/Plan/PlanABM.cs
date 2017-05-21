@@ -87,7 +87,7 @@ namespace Escritorio.Plan
         public override void GuardarCambios()
         {
             MapearADatos();
-            new ControladorPlanes().save(PlanActual);
+            new ControladorPlanes().save(PlanActual).MostrarMensajes();
         }
 
         public override void MapearADatos()

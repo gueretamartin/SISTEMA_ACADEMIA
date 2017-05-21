@@ -7,11 +7,18 @@ using System.Threading.Tasks;
 using Entidades;
 using System.Data;
 using Datos;
+using Entidades.CustomEntity;
 
 namespace Datos
 {
     public class CatalogoUsuario : Conexion
     {
+        RespuestaServidor rs;
+
+        public CatalogoUsuario()
+        {
+            rs = new RespuestaServidor();
+        }
         public List<Usuario> GetAll()
         {
             List<Usuario> usuarios = new List<Usuario>();
@@ -42,7 +49,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                 new Exception("Error al recuperar lista de usuarios", Ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -81,7 +88,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                 new Exception("Error al recuperar datos de usuario", Ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -120,7 +127,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                 new Exception("Error al recuperar datos de usuario", Ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -131,24 +138,25 @@ namespace Datos
         }
 
         #region METODOS PARA EL ABM
-        public void Save(Usuario usuario)
+        public RespuestaServidor Save(Usuario usuario)
         {
             if (usuario.State == Entidades.EntidadBase.States.Deleted)
             {
-                this.Delete(usuario.Id);
+               rs =  this.Delete(usuario.Id);
             }
             else if (usuario.State == Entidades.EntidadBase.States.New)
             {
-                this.Insert(usuario);
+                rs = this.Insert(usuario);
             }
             else if (usuario.State == Entidades.EntidadBase.States.Modified)
             {
-                this.Update(usuario);
-            }
+                rs = this.Update(usuario);
+            }else
             usuario.State = Entidades.EntidadBase.States.Unmodified;
+            return rs;
         }
 
-        public void Delete(int ID)
+        public RespuestaServidor Delete(int ID)
         {
             try
             {
@@ -157,20 +165,20 @@ namespace Datos
                 SqlCommand cmdDelete = new SqlCommand("DELETE usuarios WHERE id_usuario=@id", Con);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 cmdDelete.ExecuteReader();
+                rs.Mensaje = "Usuario eliminado correctamente";
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada =
-                new Exception("Error al eliminar usuario", Ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
 
-        protected void Update(Usuario usuario)
+        protected RespuestaServidor Update(Usuario usuario)
         {
             try
             {
@@ -186,19 +194,20 @@ namespace Datos
                 cmdSave.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
                 cmdSave.Parameters.Add("@id_persona", SqlDbType.Int).Value = usuario.Persona.Id;
                 cmdSave.ExecuteReader();
+                rs.Mensaje = "Usuario modificado correctamente";
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al modificar datos del usuario", Ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
 
-        protected void Insert(Usuario usuario)
+        protected RespuestaServidor Insert(Usuario usuario)
         {
             try
             {
@@ -213,25 +222,18 @@ namespace Datos
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
                 cmdSave.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
                 cmdSave.Parameters.Add("@id_persona", SqlDbType.Int).Value = usuario.Persona.Id;
-                /* Aca hay que ver como lo manejamos, porque aparentemente la persona que se le esta asignando el nuevo usuario 
-                 * vendria a ser la persona que esta usando el usuario 
-                 * por eso facu hace usuario.Per.ID
-
-
-                */
-               // cmdSave.Parameters.Add("@id_persona", SqlDbType.Int).Value = usuario.Persona.Id;
                 usuario.Id = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar()); // asi se obtiene el ID que asigno al BD automaticamente
+                rs.Mensaje = "Usuario insertado correctamente";
             }
             catch (Exception Ex)
             {
-                Console.WriteLine(Ex.Message);
-                Exception ExcepcionManejada = new Exception("Error al crear usuario", Ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
 
 
@@ -264,7 +266,6 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                 new Exception("Error al recuperar datos de usuario", Ex);
-                throw ExcepcionManejada;
             }
             finally
             {

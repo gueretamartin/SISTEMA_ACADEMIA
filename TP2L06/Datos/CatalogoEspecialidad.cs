@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 using Entidades;
 using System.Data.SqlClient;
 using System.Data;
+using Entidades.CustomEntity;
 
 namespace Datos
 {
     public class CatalogoEspecialidad : Conexion
     {
+        RespuestaServidor rs;
+
+        public CatalogoEspecialidad()
+        {
+            rs = new RespuestaServidor();
+        }
         public Especialidad getOne(int Id)
         {
             Especialidad p = new Especialidad();
@@ -27,7 +34,7 @@ namespace Datos
                 {
                     p.Id = (int)drEspecialidad["id_especialidad"];
                     p.DescripcionEspecialidad = (string)drEspecialidad["desc_especialidad"];
-            }
+                }
 
                 drEspecialidad.Close();
             }
@@ -35,7 +42,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                 new Exception("Error al recuperar especialidad", Ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -71,7 +78,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                 new Exception("Error al recuperar especialidades", Ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -81,24 +88,26 @@ namespace Datos
         }
 
         #region METODOS PARA EL ABM
-        public void Save(Especialidad especialidad)
+        public RespuestaServidor Save(Especialidad especialidad)
         {
             if (especialidad.State == Entidades.EntidadBase.States.Deleted)
             {
-                this.Delete(especialidad.Id);
+                rs = this.Delete(especialidad.Id);
             }
             else if (especialidad.State == Entidades.EntidadBase.States.New)
             {
-                this.Insert(especialidad);
+                rs = this.Insert(especialidad);
             }
             else if (especialidad.State == Entidades.EntidadBase.States.Modified)
             {
-                this.Update(especialidad);
+                rs = this.Update(especialidad);
             }
-            especialidad.State = Entidades.EntidadBase.States.Unmodified;
+            else
+                especialidad.State = Entidades.EntidadBase.States.Unmodified;
+            return rs;
         }
 
-        public void Delete(int ID)
+        public RespuestaServidor Delete(int ID)
         {
             try
             {
@@ -107,20 +116,20 @@ namespace Datos
                 SqlCommand cmdDelete = new SqlCommand("DELETE especialidades WHERE id_especialidad=@id", Con);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 cmdDelete.ExecuteReader();
+                rs.Mensaje = "Especialidad eliminada con éxito";
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada =
-                new Exception("Error al eliminar especialidad", Ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
 
-        protected void Update(Especialidad especialidad)
+        protected RespuestaServidor Update(Especialidad especialidad)
         {
             try
             {
@@ -132,19 +141,20 @@ namespace Datos
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = especialidad.Id;
                 cmdSave.Parameters.Add("@descripcion", SqlDbType.VarChar, 50).Value = especialidad.DescripcionEspecialidad;
                 cmdSave.ExecuteReader();
+                rs.Mensaje = "Especialidad modificada con éxito";
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al modificar datos de la especialidad", Ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
 
-        protected void Insert(Especialidad especialidad)
+        protected RespuestaServidor Insert(Especialidad especialidad)
         {
             try
             {
@@ -156,20 +166,20 @@ namespace Datos
                     Con);
 
                 cmdSave.Parameters.Add("@descripcion", SqlDbType.VarChar, 50).Value = especialidad.DescripcionEspecialidad;
-                
+
                 // cmdSave.Parameters.Add("@id_persona", SqlDbType.Int).Value = especialidad.Persona.Id;
                 especialidad.Id = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar()); // asi se obtiene el ID que asigno al BD automaticamente
+                rs.Mensaje = "Especialidad cargada con éxito";
             }
             catch (Exception Ex)
             {
-                Console.WriteLine(Ex.Message);
-                Exception ExcepcionManejada = new Exception("Error al crear la especialidad", Ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
         #endregion
     }

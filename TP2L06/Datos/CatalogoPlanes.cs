@@ -40,7 +40,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                 new Exception("Error al recuperar datos de plan", Ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -77,7 +77,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                 new Exception("Error al recuperar datos de plan", Ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {

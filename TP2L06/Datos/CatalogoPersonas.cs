@@ -12,6 +12,14 @@ namespace Datos
 {
     public class CatalogoPersonas : Conexion
     {
+        RespuestaServidor rs;
+
+        public CatalogoPersonas()
+        {
+            rs = new RespuestaServidor(); 
+        }
+
+
         public Personas GetOne(int Id)
         {
             Personas p = new Personas();
@@ -44,7 +52,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                 new Exception("Error al recuperar datos de la persona", Ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -52,6 +60,47 @@ namespace Datos
             }
             return p;
         }
+
+        public List<Personas> GetAllAlumnosPlan(int IdPlan)
+        {
+            List<Personas> personas = new List<Personas>();
+            Personas p = null;
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdPersonas = new SqlCommand("select p.* from personas p  inner join planes pl on pl.id_plan = p.id_plan where pl.id_plan = @IdPlan and p.id_tipo_persona = 2", Con);
+                cmdPersonas.Parameters.Add("@IdPlan", SqlDbType.Int).Value = IdPlan;
+                SqlDataReader drPersonas = cmdPersonas.ExecuteReader();
+                while (drPersonas.Read())
+                {
+                    p = new Personas();
+                    p.Id = (int)drPersonas["id_persona"];
+                    p.Nombre = (string)drPersonas["nombre"];
+                    p.Apellido = (string)drPersonas["apellido"];
+                    p.Direccion = (string)drPersonas["direccion"];
+                    p.Email = (string)drPersonas["email"];
+                    p.Telefono = (string)drPersonas["telefono"];
+                    p.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
+                    p.Legajo = (int)drPersonas["legajo"];
+                    p.TipoPersona = new CatalogoTipoPersona().GetOne((int)drPersonas["id_tipo_persona"]);
+                    p.Plan = new CatalogoPlanes().GetOne((int)drPersonas["id_plan"]);
+                    personas.Add(p);
+                }
+            }
+            catch (SqlException Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al recuperar datos de persona", Ex);
+               
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return personas;
+        }
+
+
 
         public List<Personas> GetAll()
         {
@@ -82,7 +131,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                 new Exception("Error al recuperar datos de persona", Ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -120,7 +169,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                 new Exception("Error al recuperar datos de persona", Ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -159,7 +208,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                 new Exception("Error al recuperar datos de persona", Ex);
-                throw ExcepcionManejada;
+               
             }
             finally
             {
@@ -191,7 +240,6 @@ namespace Datos
 
         public RespuestaServidor Delete(int id)
         {
-            RespuestaServidor sr = new RespuestaServidor();
             try
             {
                 this.OpenConnection();
@@ -199,24 +247,25 @@ namespace Datos
                 SqlCommand cmdDelete = new SqlCommand("DELETE personas WHERE id_persona=@id", Con);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = id;
                 cmdDelete.ExecuteReader();
+                rs.Mensaje = "Persona eliminada correctamete";
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada =
-                new Exception("Error al eliminar la persona", Ex);
-                if (sr.ContieneExcepcion(Ex, "FK_alumnos_inscripciones_personas"))
-                    sr.AgregarError("El alumno no puede ser eliminado porque está inscripto a un curso");
-                if (sr.ContieneExcepcion(Ex, "FK_usuarios_personas"))
-                    sr.AgregarError("La persona tiene un usuario registrado en el sistema, no puede eliminarse");
+                if (rs.ContieneExcepcion(Ex, "FK_alumnos_inscripciones_personas"))
+                    rs.AgregarError("El alumno no puede ser eliminado porque está inscripto a un curso");
+                else if (rs.ContieneExcepcion(Ex, "FK_usuarios_personas"))
+                    rs.AgregarError("La persona tiene un usuario registrado en el sistema, no puede eliminarse");
+                else
+                    rs.AgregarExcepcion(Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
-            return sr;
+            return rs;
         }
 
-        public void Update(Personas mat)
+        public RespuestaServidor Update(Personas mat)
         {
             try
             {
@@ -235,19 +284,20 @@ namespace Datos
                 cmdSave.Parameters.Add("@idTipo", SqlDbType.Int).Value = mat.TipoPersona.Id;
                 cmdSave.Parameters.Add("@idPlan", SqlDbType.Int).Value = mat.Plan.Id;
                 cmdSave.ExecuteReader();
+                rs.Mensaje = "Persona modificada correctamente";
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al modificar los datos de la persona", Ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
 
-        public void Insert(Personas mat)
+        public RespuestaServidor Insert(Personas mat)
         {
             try
             {
@@ -269,17 +319,17 @@ namespace Datos
                 cmdSave.Parameters.Add("@idPlan", SqlDbType.Int).Value = mat.Plan.Id;
 
                 mat.Id = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar()); // asi se obtiene el ID que asigno al BD automaticamente
+                rs.Mensaje = "Persona insertada correctamente";
             }
             catch (Exception Ex)
             {
-                Console.WriteLine(Ex.Message);
-                Exception ExcepcionManejada = new Exception("Error al crear la persona", Ex);
-                throw ExcepcionManejada;
+                rs.AgregarExcepcion(Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+            return rs;
         }
 
         #endregion
