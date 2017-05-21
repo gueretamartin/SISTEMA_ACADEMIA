@@ -1,40 +1,14 @@
-C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Consola.exe.config
-C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Consola.exe
-C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Consola.pdb
-C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Entidades.dll
-C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Negocio.dll
-C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Datos.dll
-C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Entidades.pdb
-C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Negocio.pdb
-C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Datos.pdb
-C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\obj\Debug\Consola.csprojResolveAssemblyReference.cache
-C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\obj\Debug\Consola.exe
-C:\Users\Leo\Desktop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\obj\Debug\Consola.pdb
-C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Consola.exe.config
-C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Consola.exe
-C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Consola.pdb
-C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Entidades.dll
-C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Negocio.dll
-C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Util.dll
-C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Datos.dll
-C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Entidades.pdb
-C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Negocio.pdb
-C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Util.pdb
-C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Datos.pdb
-C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Consola\obj\Debug\Consola.csprojResolveAssemblyReference.cache
-C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Consola\obj\Debug\Consola.exe
-C:\Users\leos_\Desktop\NET\SISTEMA_ACADEMIA\TP2L06\Consola\obj\Debug\Consola.pdb
-C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\obj\Debug\Consola.csprojResolveAssemblyReference.cache
-C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Consola.exe.config
-C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Consola.exe
-C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Consola.pdb
-C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Entidades.dll
-C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Negocio.dll
-C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Util.dll
-C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Datos.dll
-C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Entidades.pdb
-C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Negocio.pdb
-C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Util.pdb
-C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Datos.pdb
-C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\obj\Debug\Consola.exe
-C:\Users\Leo\Desktop\Develop\Academia\SISTEMA_ACADEMIA\TP2L06\Consola\obj\Debug\Consola.pdb
+C:\Users\nico-\Documents\Visual Studio 2017\Projects\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Consola.exe.config
+C:\Users\nico-\Documents\Visual Studio 2017\Projects\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Consola.exe
+C:\Users\nico-\Documents\Visual Studio 2017\Projects\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Consola.pdb
+C:\Users\nico-\Documents\Visual Studio 2017\Projects\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Entidades.dll
+C:\Users\nico-\Documents\Visual Studio 2017\Projects\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Negocio.dll
+C:\Users\nico-\Documents\Visual Studio 2017\Projects\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Util.dll
+C:\Users\nico-\Documents\Visual Studio 2017\Projects\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Datos.dll
+C:\Users\nico-\Documents\Visual Studio 2017\Projects\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Entidades.pdb
+C:\Users\nico-\Documents\Visual Studio 2017\Projects\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Negocio.pdb
+C:\Users\nico-\Documents\Visual Studio 2017\Projects\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Util.pdb
+C:\Users\nico-\Documents\Visual Studio 2017\Projects\SISTEMA_ACADEMIA\TP2L06\Consola\bin\Debug\Datos.pdb
+C:\Users\nico-\Documents\Visual Studio 2017\Projects\SISTEMA_ACADEMIA\TP2L06\Consola\obj\Debug\Consola.csprojResolveAssemblyReference.cache
+C:\Users\nico-\Documents\Visual Studio 2017\Projects\SISTEMA_ACADEMIA\TP2L06\Consola\obj\Debug\Consola.exe
+C:\Users\nico-\Documents\Visual Studio 2017\Projects\SISTEMA_ACADEMIA\TP2L06\Consola\obj\Debug\Consola.pdb
