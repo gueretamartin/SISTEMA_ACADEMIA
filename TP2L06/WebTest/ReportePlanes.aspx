@@ -10,9 +10,9 @@
                 <br />
 
 
-    <h1>Planes</h1><br />
-        <table class="table table-striped table-bordered table-hover table-condensed">
-        
+    <div id="pdfPrinter">
+        <h1>Reporte de Planes</h1>
+        <table id="table" class="table table-striped table-bordered table-hover table-condensed">
       <thead>
       <tr>
         <th>Id Plan</th>
@@ -37,6 +37,7 @@
       </tbody>
 
         </table>  
-
+        </div>  
+    <button onclick="javascript:imprimirReporte('Planes')">PDF</button>
 </asp:Content>
     

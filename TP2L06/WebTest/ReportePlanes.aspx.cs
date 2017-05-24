@@ -1,9 +1,6 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace WebTest
 {
@@ -12,14 +9,21 @@ namespace WebTest
         List<Entidades.Plan> planes = new List<Entidades.Plan>();
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-            planes = new Negocio.ControladorPlanes().dameTodos();
-            
-            if(!IsPostBack)
+            TipoPersona tipo = (TipoPersona)Session["tipousuario"];
+            if (tipo != null)
             {
-                //Entidades.Plan planTodos = new Entidades.Plan();
-                ////planTodos.DescripcionEspecialidad = "Todos";
-                //planes.Add(planTodos);
+                if (!Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, this.Page.AppRelativeVirtualPath.Replace("~/", "").Replace(".aspx", "")))
+                    Response.Redirect("~/Permisos.aspx");
+            }
+            else
+                Response.Redirect("~/Login.aspx");
+
+
+            planes = new Negocio.ControladorPlanes().dameTodos();
+
+
+            if (!IsPostBack)
+            {
                 repeaterPlanes.DataSource = planes;
                 repeaterPlanes.DataBind();
 
@@ -30,8 +34,6 @@ namespace WebTest
                 this.idwher.DataTextField = "DescripcionEspecialidad";
                 this.idwher.DataBind();
 
-
-                
             }
 
         }

@@ -15,11 +15,16 @@ namespace Util
                 case 1: // Profesores
                     if (moduloAcceso.Equals("RegistrarNotas"))
                        return true;
+                    if (moduloAcceso.Equals("ReporteCursos"))
+                        return true;
 
                     return false;
                 case 2: //Alumnos
                     if (moduloAcceso.Equals("AlumnoInscripcion"))
                         return true;
+                    if (moduloAcceso.Equals("ReportePlanes"))
+                        return true;
+
                     return false;
                 case 3: //Recepcionista
                     if (moduloAcceso.Equals("Curso"))
@@ -34,11 +39,18 @@ namespace Util
                         return true;
                     if (moduloAcceso.Equals("Especialidad"))
                         return true;
+                    if (moduloAcceso.Equals("ReportePlanes"))
+                        return true;
+                    if (moduloAcceso.Equals("ReporteCursos"))
+                        return true;
+
                     return false;
                 case 4:
+
                     return false;
                 case 5: //Administrador
                         //TODO: EL ADMINISTRADOR TIENE ACCESO A TODAS PARTES.
+
                     return true;
                 default:
                     return false;

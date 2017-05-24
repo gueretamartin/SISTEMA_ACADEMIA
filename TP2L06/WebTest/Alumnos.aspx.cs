@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using Negocio;
 using Entidades;
 using Util;
+using Entidades.CustomEntity;
+using System.Drawing;
 
 namespace WebTest
 {
@@ -90,6 +92,7 @@ namespace WebTest
 
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.lblMensaje.Visible = false;
             this.IdSeleccionado = (int)this.gridView.SelectedValue;
         }
 
@@ -109,7 +112,6 @@ namespace WebTest
 
         class PersonaMostrar
         {
-            internal int IdPersona;
             public int Id { get; set; }
             public string NombrePersona { get; set; }
             public string ApellidoPersona { get; set; }
@@ -127,8 +129,9 @@ namespace WebTest
             Page.Validate();
             if (!Page.IsValid)
                 return;
-            String mensaje = "";
-            if (this.ValidarCamposNulos())
+            this.lblMensaje.Visible = false;
+            RespuestaServidor rs = this.ValidarCamposNulos();
+            if (!rs.Error)
             {
                 switch (formMode)
                 {
@@ -136,68 +139,81 @@ namespace WebTest
                         this.personaActual = new Personas();
                         this.personaActual.State = Entidades.EntidadBase.States.New;
                         //DENTRO EL METODO CARGAR PERSON VALIDO LOS OBLIGATORIOS, Y DEVUELVO EXITO = FALSE SI FALTA ALGUNO.
-                        bool exito = this.cargarPersona(this.personaActual);
-                        if (exito)
-                        {
-                            mensaje = cp.save(this.personaActual).MostrarMensajesTexto();
-                        }
+                        this.cargarPersona(this.personaActual);
                         break;
                     case FormModes.Modificacion:
                         this.personaActual = new Personas();
                         this.personaActual.Id = this.IdSeleccionado;
                         this.personaActual.State = Entidades.EntidadBase.States.Modified;
                         this.cargarPersona(this.personaActual);
-                        mensaje = cp.save(this.personaActual).MostrarMensajesTexto();
                         break;
                     case FormModes.Baja:
                         this.personaActual = new Entidades.Personas();
                         this.personaActual.Id = this.IdSeleccionado;
-
                         this.personaActual.State = Entidades.EntidadBase.States.Deleted;
-
-                        mensaje = cp.save(this.personaActual).MostrarMensajesTexto();
+                        
                         break;
                 }
-                this.lblMensaje.Text = mensaje;
+                rs = cp.save(this.personaActual);
+                this.lblMensaje.ForeColor = Color.Green;
+                this.lblMensaje.Text = rs.Mensaje;
                 this.lblMensaje.Visible = true;
                 this.renovarForm();
                 this.BindGV();
             }
             else
             {
-                this.lblMensajeError.Visible = true;
+                string errorStr = "";
+                foreach(string error in rs.ListaErrores)
+                {
+                    this.lblMensaje.ForeColor = Color.Red;
+                    errorStr += error + "</br>";
+                }
+                this.lblMensaje.Text = errorStr;
+                this.lblMensaje.Visible = true;
                 this.formActionPanel.Visible = true;
                 this.formPanel.Visible = true;
             }
         }
 
-        private bool ValidarCamposNulos()
+        private RespuestaServidor ValidarCamposNulos()
         {
-            bool rta; rta = true;
-            List<String> lista = new List<String>();
-            lista.Add(this.txtApellidoPersona.Text);
-            lista.Add(this.txtDireccion.Text);
-            lista.Add(this.txtEmail.Text);
-            lista.Add(this.txtFecha.Text);
-            lista.Add(this.txtLegajo.Text);
-            lista.Add(this.txtNombrePersona.Text);
-            lista.Add(this.txtTelefono.Text);
-            lista.Add(this.listIdPlan.SelectedValue);
-
-            foreach (String elemento in lista)
+            RespuestaServidor rs = new RespuestaServidor();
+            int validaInt;
+            DateTime validaFecha;
+            if (string.IsNullOrEmpty(this.txtNombrePersona.Text))
             {
-                if (string.IsNullOrEmpty(elemento))
-                {
-                    rta = false;
-                }
+                rs.AgregarError("Nombre obligatorio");
             }
-
-            return rta;
+            if (string.IsNullOrEmpty(this.txtApellidoPersona.Text))
+            {
+                rs.AgregarError("Apellido obligatorio");
+            }
+            if (string.IsNullOrEmpty(this.txtLegajo.Text))
+            {
+                rs.AgregarError("Legajo obligatorio");
+            }
+            if (!int.TryParse(this.txtLegajo.Text, out validaInt))
+            {
+                rs.AgregarError("Legajo debe ser un número válido");
+            }
+            if (string.IsNullOrEmpty(this.txtFecha.Text))
+            {
+                rs.AgregarError("Fecha obligatorio");
+            }
+            if(!DateTime.TryParse(this.txtFecha.Text, out validaFecha))
+            {
+                rs.AgregarError("La fecha debe ser del formato yyyy/MM/dd");
+            }
+            if (string.IsNullOrEmpty(this.listIdPlan.SelectedValue))
+            {
+                rs.AgregarError("Plan obligatorio");
+            }
+            return rs;
         }
 
         public override void renovarForm()
         {
-            this.lblMensajeError.Visible = false;
             this.txtNombrePersona.Text = String.Empty;
             this.txtApellidoPersona.Text = String.Empty;
             this.txtDireccion.Text = String.Empty;
@@ -206,11 +222,11 @@ namespace WebTest
             this.txtTelefono.Text = String.Empty;
             this.txtFecha.Text = String.Empty;
             this.txtId.Text = String.Empty;
+            this.listIdPlan.DataSource = cplan.dameTodos(); ;
         }
 
         public override void habilitarForm(bool enabled)
         {
-
             this.txtNombrePersona.Enabled = enabled;
             this.txtApellidoPersona.Enabled = enabled;
             this.txtDireccion.Enabled = enabled;
@@ -220,8 +236,6 @@ namespace WebTest
             this.txtFecha.Enabled = enabled;
             this.txtId.Enabled = enabled;
             this.listIdPlan.Enabled = enabled;
-
-
         }
 
         public void guardarUsuario(Usuario usu)
@@ -257,14 +271,17 @@ namespace WebTest
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
+            this.lblMensaje.Visible = false;
             this.formActionPanel.Visible = false;
             this.renovarForm();
         }
+
         public bool cargarPersona(Entidades.Personas persona)
         {
             if (String.IsNullOrEmpty(listIdPlan.SelectedValue))
             {
-                this.txtMensaje.Text = "Debe seleccionar un plan para el alumno.";
+                this.lblMensaje.Text = "Debe seleccionar un plan para el alumno.";
+                this.lblMensaje.Visible = true;
                 return false;
             }
             else

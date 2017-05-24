@@ -52,6 +52,40 @@ namespace Datos
             return cursos;
         }
 
+        public List<Curso> getAllPorCondicion(string where)
+        {
+            List<Curso> cursos = new List<Curso>();
+            Curso cur = null;
+            this.OpenConnection();
+            try
+            {
+                SqlCommand cmdCursos = new SqlCommand("Select * from cursos "+where, Con);
+                SqlDataReader drCursos = cmdCursos.ExecuteReader();
+                while (drCursos.Read())
+                {
+                    cur = new Curso();
+                    cur.Cupo = (int)drCursos["cupo"];
+                    cur.AnioCalendario = (int)drCursos["anio_calendario"];
+                    cur.Materia = new CatalogoMaterias().GetOne((int)drCursos["id_materia"]);
+                    cur.Id = (int)drCursos["id_curso"];
+                    cur.Denominacion = (string)drCursos["denominacion"];
+                    cursos.Add(cur);
+                }
+                drCursos.Close();
+            }
+            catch (SqlException Ex)
+            {
+                Exception ExcepcionManejada =
+               new Exception("Error al recuperar los cursos", Ex);
+
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return cursos;
+        }
+
         public List<Curso> GetCursosPlanNoAlumno(int idPlan, int idAlumno)
         {
             string query = "SELECT cursos.* FROM cursos INNER JOIN materias AS m ON m.id_materia = cursos.id_materia INNER JOIN planes AS p ON  p.id_plan = m.id_plan WHERE p.id_plan = @idPlan AND cursos.cupo > 0  AND cursos.id_curso NOT IN (SELECT id_curso FROM alumnos_inscripciones WHERE id_alumno = @idALumno)";

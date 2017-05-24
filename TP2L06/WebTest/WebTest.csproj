@@ -90,11 +90,13 @@
     <Content Include="LICENSE" />
     <Content Include="Profesores.aspx" />
     <Content Include="README.md" />
+    <Content Include="ReporteCursos.aspx" />
     <Content Include="ReportePlanes.aspx" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="scripts\customScripts\errorPermiso.js" />
     <Content Include="scripts\jquery-ui.min.js" />
+    <Content Include="scripts\jspdf.js" />
     <Content Include="WebForm.aspx" />
     <None Include="scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="scripts\jquery-3.1.1.js" />
@@ -105,6 +107,7 @@
     <Content Include="scripts\customScripts\login.js" />
     <Content Include="scripts\jquery-3.1.1.min.map" />
     <Content Include="scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="scripts\printToPDF.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -204,6 +207,13 @@
       <DependentUpon>Profesores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReporteCursos.aspx.cs">
+      <DependentUpon>ReporteCursos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReporteCursos.aspx.designer.cs">
+      <DependentUpon>ReporteCursos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ReportePlanes.aspx.cs">
       <DependentUpon>ReportePlanes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -45,5 +45,27 @@ namespace Negocio
         {
             return cursoData.Save(curso);
         }
+
+        public object dameTodosPorCondicion(int idMateria, int año)
+        {
+            List<Curso> cursos = new List<Curso>();
+            string where = "";
+            if (idMateria != -1)
+            {
+                if (where.Length == 0)
+                    where += "WHERE id_materia = " + idMateria;
+                else
+                    where += "AND id_materia = " + idMateria; 
+            }
+            if(año != -1)
+            {
+                if (where.Length == 0)
+                    where += "WHERE anio_calendario = " + año;
+                else
+                    where += "AND anio_calendario = " + año;
+            }
+            cursos = cursoData.getAllPorCondicion(where);
+            return cursos;
+        }
     }
 }

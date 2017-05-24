@@ -20,6 +20,8 @@
     <script src="scripts/jquery-3.1.1.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
     <link href="css/shop-homepage.css" rel="stylesheet">
+    <script src="scripts/jspdf.js"></script>
+    <script src="scripts/printToPDF.js"></script>
 
 </head>
 
@@ -135,7 +137,7 @@
     if (tipo != null)
     {
         if (Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, "ReporteCursos"))
-        {%>       <a href="/ReporteCursos" class="list-group-item">Ver cursos</a><% }}; %>
+        {%>       <a href="/ReporteCursos.aspx" class="list-group-item">Ver cursos</a><% }}; %>
                            <% 
     if (tipo != null)
     {

@@ -12,14 +12,14 @@ namespace Datos
         private String dataBase = "academia";
         private SqlConnection con;
         // MARTIN
-        private String usuario = "DESKTOP-JK0GQK6\\Martin";
-        private String contraseña = "";
-        private String server = "DESKTOP-JK0GQK6\\SQLEXPRESS";
+        //private String usuario = "DESKTOP-JK0GQK6\\Martin";
+        //private String contraseña = "";
+        //private String server = "DESKTOP-JK0GQK6\\SQLEXPRESS";
 
         //NICO
-        //private String usuario = "DESKTOP-SJRVTAL\\nico-";
-        //private String contraseña = "";
-        //private String server = "DESKTOP-SJRVTAL\\SQLEXPRESS";
+        private string usuario = "desktop-sjrvtal\\nico-";
+        private string contraseña = "";
+        private string server = "desktop-sjrvtal\\sqlexpress";
 
         //LEO
         //private String usuario = "root";  

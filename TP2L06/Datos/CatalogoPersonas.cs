@@ -220,21 +220,21 @@ namespace Datos
         #region METODOS PARA EL ABM
         public RespuestaServidor Save(Personas mat)
         {
-            RespuestaServidor sr = new RespuestaServidor();
+            RespuestaServidor rs = new RespuestaServidor();
             if (mat.State == Entidades.EntidadBase.States.Deleted)
             {
-                sr = this.Delete(mat.Id);
+                rs = this.Delete(mat.Id);
             }
             else if (mat.State == Entidades.EntidadBase.States.New)
             {
-                this.Insert(mat);
+                rs = this.Insert(mat);
             }
             else if (mat.State == Entidades.EntidadBase.States.Modified)
             {
-                this.Update(mat);
+                rs = this.Update(mat);
             }
             mat.State = Entidades.EntidadBase.States.Unmodified;
-            return sr;
+            return rs;
         }
 
         public RespuestaServidor Delete(int id)
