@@ -31,6 +31,15 @@ namespace WebTest {
         protected global::System.Web.UI.WebControls.GridView gridView;
         
         /// <summary>
+        /// lblMensaje control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
+        
+        /// <summary>
         /// gridActionPanel control.
         /// </summary>
         /// <remarks>
@@ -245,6 +254,15 @@ namespace WebTest {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox listIdPlan;
+        
+        /// <summary>
+        /// lblMensajeError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensajeError;
         
         /// <summary>
         /// formActionPanel control.

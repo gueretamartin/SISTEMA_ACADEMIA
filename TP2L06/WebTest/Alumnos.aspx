@@ -19,6 +19,7 @@
                 <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
             </Columns>
         </asp:GridView>
+       <asp:Label ID="lblMensaje" runat="server" Visible ="false" ForeColor ="green"></asp:Label>
     </asp:Panel>
     <br />
     <asp:Panel ID="gridActionPanel" runat="server">
@@ -55,7 +56,8 @@
             <asp:ListBox class="form-control" ID="listIdPlan" runat="server" ReadOnly="false" /><br />
 </div>
     </asp:Panel>
-
+    <asp:Label ID="lblMensajeError" runat="server" Visible ="false" ForeColor ="red">Por favor, complete todos los campos</asp:Label>
+    <br />
     <asp:Panel ID="formActionPanel" runat="server">
         <asp:LinkButton class="btn btn-success" ID="lbtnAceptar" runat="server" OnClick="lbtnAceptar_Click">Aceptar</asp:LinkButton>
         <asp:LinkButton class="btn btn-danger" ID="lbtnCancelar" runat="server">Cancelar</asp:LinkButton>

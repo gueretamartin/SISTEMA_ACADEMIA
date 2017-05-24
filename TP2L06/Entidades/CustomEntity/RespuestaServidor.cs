@@ -33,6 +33,20 @@ namespace Entidades.CustomEntity
             }
         }
 
+        public string MostrarMensajesTexto()
+        {
+            if (!this.Error && this.Mensaje != null)
+            {
+                return (this.Mensaje);
+            }
+            else if (this.Error)
+            {
+              Mensaje =  Mensajeria.MostrarErroresTexto(this.ListaErrores) ;
+            
+            }
+            return Mensaje;
+        }
+
 
         public void AgregarExcepcion(Exception ex)
         {
