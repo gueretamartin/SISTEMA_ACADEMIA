@@ -69,21 +69,7 @@
                 <div class="list-group">
                      <% Entidades.TipoPersona tipo = (Entidades.TipoPersona)Session["tipousuario"]; %>
                     <!-- Alumnos -->
-<<<<<<< HEAD
-                    <a href="/AlumnoInscripcion.aspx" class="list-group-item">Inscripción a Cursado</a>
-                    <!-- Solo del tipo profesor -->
-                    <a href="/RegistrarNotas.aspx" class="list-group-item">Registrar Notas</a>
-                    <!-- Recepcionista--> 
-                     <a href="/Curso.aspx" class="list-group-item">Cursos</a>
-                    <a href="/Profesores.aspx" class="list-group-item">Profesores</a>
-                    <a href="/Materias.aspx" class="list-group-item">Materias</a>
-                    <a href="/Plan.aspx" class="list-group-item">Planes</a>
-                    <a href="/Alumnos.aspx" class="list-group-item">Alumnos</a>
-                    <a href="/Especialidad.aspx" class="list-group-item">Especialidades</a>
-                    <!-- Admin --> 
-                   
-                    <a href="/Usuarios.aspx" class="list-group-item">Usuarios</a>
-=======
+
                     <%
     if (tipo != null)
     {
@@ -143,7 +129,7 @@
     {
         if (Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, "Usuarios"))
         {%>       <a href="/Usuarios.aspx" class="list-group-item">Usuarios</a><% }}; %>
->>>>>>> a956606c5b00efec1cbe6a6a222ff42ae8f35659
+
                     <!-- Reportes --> 
                           <% 
     if (tipo != null)

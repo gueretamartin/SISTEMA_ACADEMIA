@@ -44,6 +44,8 @@ namespace WebTest
         }
         public virtual void cargarForm(int id)
         {
+
+
         }
         public virtual void borrarEntidad(int id)
         {

@@ -118,6 +118,8 @@ namespace WebTest
                 this.formActionPanel.Visible = true;
                 this.formMode = FormModes.Modificacion;
                 this.formPanel.Visible = true;
+
+                this.modoReadOnly(false);
                 this.LoadForm(this.IdSeleccionado);
             }
         }
@@ -215,16 +217,31 @@ namespace WebTest
         {
             if (entidadSeleccionada)
             {
+                this.formPanel.Visible = true;
                 this.formActionPanel.Visible = true;
                 this.formMode = FormModes.Baja;
                 this.cargarForm(this.IdSeleccionado);
+                this.habilitarForm(true);
+                this.modoReadOnly(true);
 
             }
         }
-        //public override void borrarEntidad(int id)
-        //{
-        //    this.cp.
-        //}
+
+        private void modoReadOnly(bool enabled)
+        {
+            this.txtApellidoPersona.ReadOnly = enabled;
+            this.txtNombrePersona.ReadOnly = enabled;
+            this.txtApellidoPersona.ReadOnly = enabled;
+            this.txtDireccion.ReadOnly = enabled;
+            this.txtEmail.ReadOnly = enabled;
+            this.txtLegajo.ReadOnly = enabled;
+            this.txtTelefono.ReadOnly = enabled;
+            this.txtFecha.ReadOnly = enabled;
+            this.txtId.ReadOnly = true;
+
+
+        }
+
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             this.formActionPanel.Visible = false;
@@ -268,6 +285,23 @@ namespace WebTest
             //this.listIdPlan.Enabled = enabled;
         }
 
+        override public void cargarForm(int id)
+        {
+            Personas alu = new Personas();
+            alu = this.cp.dameUno(id);
+
+            this.txtNombrePersona.Text = alu.Nombre;
+            this.txtApellidoPersona.Text = alu.Apellido;
+            this.txtDireccion.Text = alu.Direccion;
+            this.txtEmail.Text = alu.Email;
+            this.txtLegajo.Text = alu.Legajo.ToString();
+            this.txtTelefono.Text = alu.Telefono.ToString();
+            this.txtFecha.Text = alu.FechaNacimiento.ToString();
+            this.txtId.Text = alu.Id.ToString();
+            this.listIdPlan.SelectedValue = alu.Plan.Id.ToString();
+        
+        }
+
         protected void lbtnNuevo_Click(object sender, EventArgs e)
         {
             {
@@ -279,7 +313,9 @@ namespace WebTest
                 this.renovarForm();
                 this.formMode = FormModes.Alta;
                 this.habilitarForm(true);
+                this.modoReadOnly(false);
                 this.txtId.Enabled = false;
+
             }
         }
     }
