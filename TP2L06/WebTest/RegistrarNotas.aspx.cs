@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Negocio;
 using Entidades;
+using Entidades.CustomEntity;
 
 namespace WebTest
 {
@@ -36,7 +37,16 @@ namespace WebTest
             List<Entidades.AlumnoInscripcion> alumnosInscripciones = new List<Entidades.AlumnoInscripcion>();
             if (Session["Persona"] != null){
                 alumnosInscripciones = cia.dameTodosDocente(((Personas)Session["Persona"]).Id);
-                this.gridView.DataSource = alumnosInscripciones;
+                if (alumnosInscripciones.Count == 0)
+                {
+                    this.formActionPanel.Visible = false;
+                    this.gridActionPanel.Visible = false;
+                    this.lblMensaje.ForeColor = System.Drawing.Color.Red;
+                    this.lblMensaje.Visible = true;
+                    this.lblMensaje.Text = "No hay alumnos registrados en ninguno de sus cursos";
+                }
+                else
+                    this.gridView.DataSource = alumnosInscripciones;
                 this.gridView.DataBind();
             }
         }
@@ -74,16 +84,61 @@ namespace WebTest
             Page.Validate();
             if (!Page.IsValid)
                 return;
-            switch (formMode)
+            RespuestaServidor rs = this.ValidarCamposNulos();
+            if (!rs.Error)
+            {
+                switch (formMode)
             {
                 case FormModes.Modificacion:
                     this.cargarAlumnoInscripcion();
                     this.inscripcionActual.State = Entidades.EntidadBase.States.Modified;
-                    cia.Save(this.inscripcionActual).MostrarMensajes();
+                        rs = cia.Save(this.inscripcionActual);
                     break;
             }
-            this.renovarForm();
-            this.BindGV();
+                if (rs.Error)
+                {
+                    string errorStr = "";
+                    foreach (string error in rs.ListaErrores)
+                    {
+                        errorStr += error + "</br>";
+                    }
+                    this.lblMensaje.ForeColor = System.Drawing.Color.Red;
+                }
+                else
+                {
+                    this.lblMensaje.ForeColor = System.Drawing.Color.Green;
+                    this.lblMensaje.Text = rs.Mensaje;
+                }
+                this.lblMensaje.Visible = true;
+                this.renovarForm();
+                this.BindGV();
+            }
+            else
+            {
+                string errorStr = "";
+                foreach (string error in rs.ListaErrores)
+                {
+                    errorStr += error + "</br>";
+                }
+                this.lblMensaje.ForeColor = System.Drawing.Color.Red;
+                this.lblMensaje.Text = errorStr;
+                this.lblMensaje.Visible = true;
+                this.formActionPanel.Visible = true;
+                this.formPanel.Visible = true;
+            }
+        }
+
+        private RespuestaServidor ValidarCamposNulos()
+        {
+            int validaInt;
+            RespuestaServidor rs = new RespuestaServidor();
+            if (string.IsNullOrEmpty(this.txtNota.Text))
+                rs.AgregarError("La nota es obligatoria");
+            else if (int.TryParse(this.txtNota.Text, out validaInt))
+                rs.AgregarError("La nota debe ser un entero válido");
+            if (string.IsNullOrEmpty(this.txtCondicion.Text))
+                rs.AgregarError("La condición es obligatoria");
+            return rs;
         }
 
         public override void habilitarForm(bool enabled)
@@ -99,16 +154,7 @@ namespace WebTest
             this.cia.Save(alinsc).MostrarMensajes();
 
         }
-        protected void lbtnEliminar_Click(object sender, EventArgs e)
-        {
-            if (entidadSeleccionada)
-            {
-                this.formActionPanel.Visible = true;
-                this.formMode = FormModes.Baja;
-                this.cargarForm(this.IdSeleccionado);
-
-            }
-        }
+       
         //public override void borrarEntidad(int id)
         //{
         //    this.cp.
