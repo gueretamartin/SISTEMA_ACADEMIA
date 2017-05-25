@@ -32,13 +32,13 @@
 
             <asp:Label Text="ID Especialidad: " ID="lblId" runat="server" />
             <asp:TextBox class="form-control" Text="ID" ID="txtId" runat="server" ReadOnly="true" /><br />
-             
-            <asp:TextBox class="form-control" Text="Especialidad" ID="txtEspecialidad" runat="server" /><br />
+            
             <asp:Label Text="Especialidad: " ID="lblHabilitado" runat="server"></asp:Label>
+            <asp:TextBox class="form-control" Text="Especialidad" ID="txtEspecialidad" runat="server" /><br />
 
         </div>
     </asp:Panel>
-
+    <asp:Label ID="lblMensaje" runat="server"></asp:Label>
     <asp:Panel ID="formActionPanel" runat="server">
         <asp:LinkButton class="btn btn-success" ID="lbtnAceptar" runat="server" OnClick="lbtnAceptar_Click">Aceptar</asp:LinkButton>
         <asp:LinkButton class="btn btn-danger" ID="lbtnCancelar" runat="server">Cancelar</asp:LinkButton>

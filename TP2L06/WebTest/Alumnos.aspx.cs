@@ -237,11 +237,7 @@ namespace WebTest
             this.txtId.Enabled = enabled;
             this.listIdPlan.Enabled = enabled;
         }
-
-        public void guardarUsuario(Usuario usu)
-        {
-            this.cu.guardarUsuario(usu);
-        }
+        
         protected void lbtnEliminar_Click(object sender, EventArgs e)
         {
             if (entidadSeleccionada)

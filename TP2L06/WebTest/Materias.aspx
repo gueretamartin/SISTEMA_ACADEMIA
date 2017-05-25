@@ -51,7 +51,7 @@
 
         </div>
     </asp:Panel>
-
+    <asp:Label ID="lblMensaje" runat="server"></asp:Label>
     <asp:Panel ID="formActionPanel" runat="server">
         <asp:LinkButton class="btn btn-success" ID="lbtnAceptar" runat="server" OnClick="lbtnAceptar_Click">Aceptar</asp:LinkButton>
         <asp:LinkButton class="btn btn-danger" ID="lbtnCancelar" runat="server">Cancelar</asp:LinkButton>

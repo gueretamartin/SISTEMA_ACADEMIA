@@ -119,7 +119,10 @@ namespace Datos
             }
             catch (Exception Ex)
             {
-                rs.AgregarExcepcion(Ex);
+                if (rs.ContieneExcepcion(Ex, "FK_cursos_materias"))
+                    rs.AgregarError("La materia no puede ser eliminada porque tiene cursos asignados");
+                 else
+                    rs.AgregarExcepcion(Ex);
             }
             finally
             {

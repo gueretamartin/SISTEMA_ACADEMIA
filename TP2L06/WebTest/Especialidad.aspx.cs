@@ -7,6 +7,9 @@ using System.Web.UI.WebControls;
 using Negocio;
 using Entidades;
 using Util;
+using Entidades.CustomEntity;
+using System.Drawing;
+
 
 namespace WebTest
 {
@@ -47,6 +50,7 @@ namespace WebTest
 
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.lblMensaje.Visible = false;
             this.IdSeleccionado = (int)this.gridView.SelectedValue;
         }
 
@@ -54,10 +58,12 @@ namespace WebTest
         {
             if (entidadSeleccionada)
             {
+                this.lblMensaje.Visible = false;
                 this.formActionPanel.Visible = true;
                 this.formMode = FormModes.Modificacion;
                 this.formPanel.Visible = true;
-                this.LoadForm(this.IdSeleccionado);
+                this.modoReadOnly(false);
+                this.cargarForm(this.IdSeleccionado);
             }
         }
 
@@ -66,33 +72,75 @@ namespace WebTest
             Page.Validate();
             if (!Page.IsValid)
                 return;
-            switch (formMode)
+            this.lblMensaje.Visible = false;
+            RespuestaServidor rs = this.ValidarCamposNulos();
+            if (!rs.Error)
+            {
+                switch (formMode)
             {
                 case FormModes.Alta:
                     this.EspecialidadActual = new Entidades.Especialidad();
                     this.especialidadActual.State = Entidades.EntidadBase.States.New;
                     this.cargarEspecialidad(this.especialidadActual);
-                    ce.save(this.especialidadActual).MostrarMensajes();
                     break;
                 case FormModes.Modificacion:
                     this.especialidadActual = new Entidades.Especialidad();
                     this.especialidadActual.Id = this.IdSeleccionado;
                     this.especialidadActual.State = Entidades.EntidadBase.States.Modified;
                     this.cargarEspecialidad(this.especialidadActual);
-                    ce.save(this.especialidadActual).MostrarMensajes();
                     break;
                 case FormModes.Baja:
                     this.especialidadActual = new Entidades.Especialidad();
                     this.especialidadActual.Id = this.IdSeleccionado;
                     this.especialidadActual.State = Entidades.EntidadBase.States.Deleted;
-                    ce.save(this.especialidadActual).MostrarMensajes();
                     break;
-
             }
-            this.renovarForm();
+                rs = ce.save(this.especialidadActual);
+                if (rs.Error)
+                {
+                    string errorStr = "";
+                    foreach (string error in rs.ListaErrores)
+                    {
+                        this.lblMensaje.ForeColor = Color.Red;
+                        errorStr += error + "</br>";
+                    }
+                    this.lblMensaje.Text = errorStr;
+                }
+                else
+                {
+                    this.lblMensaje.ForeColor = Color.Green;
+                    this.lblMensaje.Text = rs.Mensaje;
 
-            this.BindGV();
+                }
+                this.lblMensaje.Visible = true;
+                this.renovarForm();
+                this.BindGV();
+            }
+            else
+            {
+                string errorStr = "";
+                foreach (string error in rs.ListaErrores)
+                {
+                    this.lblMensaje.ForeColor = Color.Red;
+                    errorStr += error + "</br>";
+                }
+                this.lblMensaje.Text = errorStr;
+                this.lblMensaje.Visible = true;
+                this.formActionPanel.Visible = true;
+                this.formPanel.Visible = true;
+            }
         }
+
+        private RespuestaServidor ValidarCamposNulos()
+        {
+            RespuestaServidor rs = new RespuestaServidor();
+            if (string.IsNullOrEmpty(this.txtEspecialidad.Text))
+            {
+                rs.AgregarError("Descripción obligatoria");
+            }
+            return rs;
+        }
+
         public override void renovarForm()
         {
          
@@ -112,14 +160,25 @@ namespace WebTest
         {
             if (entidadSeleccionada)
             {
+                this.lblMensaje.Visible = false;
                 this.formActionPanel.Visible = true;
+                this.formPanel.Visible = true;
                 this.formMode = FormModes.Baja;
                 this.cargarForm(this.IdSeleccionado);
-               
+                this.habilitarForm(true);
+                this.modoReadOnly(true);
+
             }
+        }
+
+        private void modoReadOnly(bool enabled)
+        {
+            this.txtEspecialidad.ReadOnly = enabled;
+            this.txtId.ReadOnly = true;
         }
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
+            this.lblMensaje.Visible = false;
             this.formActionPanel.Visible = false;
             this.renovarForm();
         }
@@ -127,8 +186,7 @@ namespace WebTest
         protected void lbtnNuevo_Click(object sender, EventArgs e)
         {
             {
-                // this.formPanel.Visible = true;
-                //  this.LoadForm(this.IdSeleccionado);
+                this.lblMensaje.Visible = false;
                 this.formPanel.Visible = true;
                 this.formActionPanel.Visible = true;
                 this.renovarForm();
@@ -137,18 +195,24 @@ namespace WebTest
                 this.txtId.Enabled = false;
             }
         }
-
-        protected void LoadForm(int id)
-        {
-            this.EspecialidadActual = this.ce.dameUno(id);
-            this.txtId.Text = EspecialidadActual.Id.ToString();
-            this.txtEspecialidad.Text = EspecialidadActual.DescripcionEspecialidad;
-        }
-
+        
         public void cargarEspecialidad(Entidades.Especialidad esp)
         {
             esp.DescripcionEspecialidad = this.txtEspecialidad.Text;
         }
+
+        override public void cargarForm(int id)
+        {
+            Entidades.Especialidad esp = new Entidades.Especialidad();
+            esp = this.ce.dameUno(id);
+
+            if (esp != null)
+            {
+                this.txtEspecialidad.Text = esp.DescripcionEspecialidad;
+                this.txtId.Text = esp.Id.ToString();
+            }
+        }
+
 
 
     }
