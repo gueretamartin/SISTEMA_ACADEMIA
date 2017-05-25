@@ -14,7 +14,7 @@
                 <asp:BoundField HeaderText="DescripcionMateria" DataField="DescripcionMateria" />
                 <asp:BoundField HeaderText="AnioCalendario" DataField="AnioCalendario" />
                 <asp:BoundField HeaderText="Cupo" DataField="Cupo" />
-                <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
+                <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />   
 
                 </Columns>
         </asp:GridView>
@@ -50,7 +50,7 @@
         
         </div>
     </asp:Panel>
-
+    <asp:Label ID="lblMensaje" runat="server"></asp:Label>
     <asp:Panel ID="formActionPanel" runat="server">
         <asp:LinkButton class="btn btn-success" ID="lbtnAceptar" runat="server" OnClick="lbtnAceptar_Click">Aceptar</asp:LinkButton>
         <asp:LinkButton class="btn btn-danger" ID="lbtnCancelar" runat="server">Cancelar</asp:LinkButton>

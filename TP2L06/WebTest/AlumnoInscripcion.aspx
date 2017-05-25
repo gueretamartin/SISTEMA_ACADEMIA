@@ -33,10 +33,11 @@
             <asp:TextBox class="form-control" Text="ID" ID="txtId" runat="server" ReadOnly="true" /><br />
 
             <asp:Label Text="Curso: " ID="lblIdCurso" runat="server" />
-            <asp:ListBox class="form-control" ID="listIdCurso" runat="server" Height="204px" Width="181px" /><br />
+            <asp:ListBox class="form-control" ID="listIdCurso" runat="server" Height="204px" /><br />
         </div>
     </asp:Panel>
-
+    
+    <asp:Label ID="lblMensaje" runat="server"></asp:Label>
     <asp:Panel ID="formActionPanel" runat="server">
         <asp:LinkButton class="btn btn-success" ID="lbtnAceptar" runat="server" OnClick="lbtnAceptar_Click">Aceptar</asp:LinkButton>
         <asp:LinkButton class="btn btn-danger" ID="lbtnCancelar" runat="server">Cancelar</asp:LinkButton>
