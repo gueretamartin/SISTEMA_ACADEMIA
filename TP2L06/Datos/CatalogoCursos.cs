@@ -256,6 +256,7 @@ namespace Datos
                 SqlCommand cmdDelete = new SqlCommand("DELETE cursos WHERE id_curso=@id", Con);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = id;
                 cmdDelete.ExecuteReader();
+                rs.Mensaje = "Curso eliminado con èxito.";
             }
             catch (Exception Ex)
             {

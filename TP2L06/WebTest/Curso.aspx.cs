@@ -219,6 +219,7 @@ namespace WebTest
             this.txtAnioCalendario.Text = this.CursoActual.AnioCalendario.ToString();
             this.txtDenominacion.Text = this.CursoActual.Denominacion;
             this.txtCupo.Text = this.CursoActual.Cupo.ToString();
+            this.listIdMateria.SelectedValue = CursoActual.Materia.Id.ToString();
         }
 
         public void cargarCurso(Entidades.Curso cur)

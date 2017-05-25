@@ -156,7 +156,7 @@ namespace Datos
             catch (Exception Ex)
             {
                 if (rs.ContieneExcepcion(Ex, "FK_materias_planes"))
-                    rs.AgregarError("El proceso no puede ser eliminado porque se esta usando.");
+                    rs.AgregarError("El plan no puede ser eliminado porque se esta usando.");
             }
             finally
             {
