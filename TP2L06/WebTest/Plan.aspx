@@ -3,7 +3,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="server">
   
     
-    <asp:Panel ID="gridPanel" runat="server">
+    +<asp:Panel ID="gridPanel" runat="server">
       
 
         <asp:GridView class="table table-hover" ID="gridView" runat="server" AutoGenerateColumns="False"
@@ -48,7 +48,7 @@
 
         </div>
     </asp:Panel>
-
+    <asp:Label ID="lblMensaje" runat="server"></asp:Label>
     <asp:Panel ID="formActionPanel" runat="server">
         <asp:LinkButton class="btn btn-success" ID="lbtnAceptar" runat="server" OnClick="lbtnAceptar_Click">Aceptar</asp:LinkButton>
         <asp:LinkButton class="btn btn-danger" ID="lbtnCancelar" runat="server">Cancelar</asp:LinkButton>

@@ -17,14 +17,14 @@ namespace Datos
         //private String server = "DESKTOP-JK0GQK6\\SQLEXPRESS";
 
         //NICO
-        private string usuario = "desktop-sjrvtal\\nico-";
-        private string contraseña = "";
-        private string server = "desktop-sjrvtal\\sqlexpress";
+        //private string usuario = "desktop-sjrvtal\\nico-";
+        //private string contraseña = "";
+        //private string server = "desktop-sjrvtal\\sqlexpress";
 
         //LEO
-        //private String usuario = "root";  
-        //private String contraseña = "root";
-        //private String server = @"LEO\MSSQL2014";
+        private String usuario = "root";
+        private String contraseña = "root";
+        private String server = @"LEO\MSSQL2014";
 
         //Clave por defecto a utlizar para la cadena de conexion
         const string consKeyDefaultCnnString = "ConnStringLocal";
