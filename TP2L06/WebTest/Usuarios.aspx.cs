@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using Negocio;
 using Entidades;
 using Util;
+using System.Drawing;
+using Entidades.CustomEntity;
 
 namespace WebTest
 {
@@ -31,7 +33,6 @@ namespace WebTest
          
             if (!IsPostBack)
             {
-
                 this.BindGV();
                 var dataList = cp.dameTodos();
                
@@ -43,9 +44,6 @@ namespace WebTest
             }
             this.formActionPanel.Visible = false;
             this.formPanel.Visible = false;
-           
-            
-
         }
 
         protected void BindGV()
@@ -103,42 +101,21 @@ namespace WebTest
 
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.lblMensaje.Visible = false;
             this.IdSeleccionado = (int)this.gridView.SelectedValue;
         }
-
-
-
-        protected void LoadForm(int id)
-        {
-            this.UsuarioActual = this.cu.dameUno(id);
-
-
-            this.txtNombreUsuario.Text = UsuarioActual.NombreUsuario;
-            this.txtNombrePersona.Text = UsuarioActual.Persona.Nombre;
-            this.txtApellidoPersona.Text = UsuarioActual.Persona.Apellido;
-            this.txtDireccion.Text = UsuarioActual.Persona.Direccion;
-            this.txtEmail.Text = UsuarioActual.Persona.Email;
-            this.txtLegajo.Text = UsuarioActual.Persona.Legajo.ToString();
-            this.txtTelefono.Text = UsuarioActual.Persona.Telefono.ToString();
-            this.txtFecha.Text = UsuarioActual.Persona.FechaNacimiento.ToString();
-            this.txtClave.Text = "";
-            this.txtRepetirClave.Text = "";
-            this.txtId.Text = UsuarioActual.Id.ToString();
-            this.listIdPersona.SelectedValue = UsuarioActual.Persona.Id.ToString();
-
-           
-
-
-        }
-
+        
         protected void LbtnEditar_Click(object sender, EventArgs e)
         {
             if (entidadSeleccionada)
             {
+                this.lblMensaje.Visible = false;
                 this.formActionPanel.Visible = true;
                 this.formMode = FormModes.Modificacion;
                 this.formPanel.Visible = true;
-                this.LoadForm(this.IdSeleccionado);
+                this.modoReadOnly(false);
+                this.cargarForm(this.IdSeleccionado);
+
             }
         }
 
@@ -164,33 +141,108 @@ namespace WebTest
             Page.Validate();
             if (!Page.IsValid)
                 return;
-            switch (formMode)
+            this.lblMensaje.Visible = false;
+            RespuestaServidor rs = this.ValidarCamposNulos();
+            if (!rs.Error)
+            {
+                switch (formMode)
             {
                 case FormModes.Alta:
                     this.UsuarioActual = new Usuario();
                     this.usuarioActual.State = Entidades.EntidadBase.States.New;
                     this.cargarUsuario(this.usuarioActual);
-                    cu.guardarUsuario(this.usuarioActual);
                     break;
                 case FormModes.Modificacion:
                     this.usuarioActual = new Usuario();
                     this.usuarioActual.Id = this.IdSeleccionado;
                     this.usuarioActual.State = Entidades.EntidadBase.States.Modified;
                     this.cargarUsuario(this.usuarioActual);
-                    cu.guardarUsuario(this.usuarioActual);
                     break;
                 case FormModes.Baja:
                     this.usuarioActual = new Usuario();
                     this.usuarioActual.Id = this.IdSeleccionado;
                     this.usuarioActual.State = Entidades.EntidadBase.States.Deleted;
-                    cu.guardarUsuario(this.usuarioActual);
                     break;
-
+                }
+                rs = cu.guardarUsuario(this.usuarioActual);
+                if (rs.Error)
+                {
+                    this.lblMensaje.Text = rs.ListaErrores.FirstOrDefault();
+                    this.lblMensaje.ForeColor = Color.Red;
+                }
+                else
+                {
+                    this.lblMensaje.ForeColor = Color.Green;
+                    this.lblMensaje.Text = rs.Mensaje;
+                }
+                this.lblMensaje.Visible = true;
+                this.renovarForm();
+                this.BindGV();
             }
-            this.renovarForm();
-
-            this.BindGV();
+            else
+            {
+                string errorStr = "";
+                foreach (string error in rs.ListaErrores)
+                {
+                    this.lblMensaje.ForeColor = Color.Red;
+                    errorStr += error + "</br>";
+                }
+                this.lblMensaje.Text = errorStr;
+                this.lblMensaje.Visible = true;
+                this.formActionPanel.Visible = true;
+                this.formPanel.Visible = true;
+            }
         }
+
+        private RespuestaServidor ValidarCamposNulos()
+        {
+            RespuestaServidor rs = new RespuestaServidor();
+            int validaInt;
+            DateTime validaFecha;
+            if (string.IsNullOrEmpty(this.txtNombrePersona.Text))
+            {
+                rs.AgregarError("Nombre obligatorio");
+            }
+            if (string.IsNullOrEmpty(this.txtApellidoPersona.Text))
+            {
+                rs.AgregarError("Apellido obligatorio");
+            }
+            if (string.IsNullOrEmpty(this.txtLegajo.Text))
+            {
+                rs.AgregarError("Legajo obligatorio");
+            }
+            if (!int.TryParse(this.txtLegajo.Text, out validaInt))
+            {
+                rs.AgregarError("Legajo debe ser un número válido");
+            }
+            if (string.IsNullOrEmpty(this.txtFecha.Text))
+            {
+                rs.AgregarError("Fecha obligatorio");
+            }
+            if (!DateTime.TryParse(this.txtFecha.Text, out validaFecha))
+            {
+                rs.AgregarError("La fecha debe ser del formato yyyy/MM/dd");
+            }
+            if (string.IsNullOrEmpty(this.listIdPersona.SelectedValue))
+            {
+                rs.AgregarError("Persona obligatorio");
+            }
+            if (string.IsNullOrEmpty(this.txtClave.Text))
+            {
+                rs.AgregarError("Ingrese la Contraseña");
+            }
+            if (string.IsNullOrEmpty(this.txtRepetirClave.Text))
+            {
+                rs.AgregarError("Repita la contraseña");
+            }
+            if (this.txtClave.Text != this.txtRepetirClave.Text)
+            {
+                rs.AgregarError("Las contraseñas no coinciden");
+            }
+
+            return rs;
+        }
+
         public override void renovarForm()
         {
             this.txtNombreUsuario.Text = String.Empty;
@@ -224,29 +276,43 @@ namespace WebTest
 
         }
 
-        public void guardarPersona(Personas per)
-        { 
-            this.cp.save(per).MostrarMensajes();
-        }
         protected void lbtnEliminar_Click(object sender, EventArgs e)
         {
             if (entidadSeleccionada)
             {
+                this.lblMensaje.Visible = false;
+                this.formPanel.Visible = true;
                 this.formActionPanel.Visible = true;
                 this.formMode = FormModes.Baja;
                 this.cargarForm(this.IdSeleccionado);
-                this.txtRepetirClave.Text = "";
-                this.txtClave.Text = "";
+                this.habilitarForm(true);
+                this.modoReadOnly(true);
             }
         }
+
+        private void modoReadOnly(bool enabled)
+        {
+            this.txtApellidoPersona.ReadOnly = enabled;
+            this.txtNombrePersona.ReadOnly = enabled;
+            this.txtApellidoPersona.ReadOnly = enabled;
+            this.txtDireccion.ReadOnly = enabled;
+            this.txtEmail.ReadOnly = enabled;
+            this.txtLegajo.ReadOnly = enabled;
+            this.txtTelefono.ReadOnly = enabled;
+            this.txtFecha.ReadOnly = enabled;
+            this.txtId.ReadOnly = true;
+        }
+
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
+            this.lblMensaje.Visible = false;
             this.formActionPanel.Visible = false;
             this.renovarForm();
         }
+
         public void cargarUsuario(Usuario usu)
         {
-           // usu.Id = Convert.ToInt32(this.txtId.Text);
+          
             usu.NombreUsuario = this.txtNombreUsuario.Text;
             usu.Habilitado = this.chkHabilitado.Checked;
             usu.Clave = this.txtClave.Text;
@@ -255,16 +321,45 @@ namespace WebTest
             usu.Persona = per;
         }
 
+        override public void cargarForm(int id)
+        {
+            Usuario usu = new Usuario();
+            usu = this.cu.dameUno(id);
+
+            Personas alu = new Personas();
+            alu = usu.Persona;
+
+            if (alu != null && usu != null)
+            {
+                this.txtNombrePersona.Text = alu.Nombre;
+                this.txtApellidoPersona.Text = alu.Apellido;
+                this.txtDireccion.Text = alu.Direccion;
+                this.txtEmail.Text = alu.Email;
+                this.txtLegajo.Text = alu.Legajo.ToString();
+                this.txtTelefono.Text = alu.Telefono.ToString();
+                this.txtFecha.Text = alu.FechaNacimiento.ToString();
+                this.txtId.Text = alu.Id.ToString();
+                this.listIdPersona.SelectedValue = usu.Persona.Id.ToString();
+                this.txtNombreUsuario.Text = usu.NombreUsuario;
+                this.chkHabilitado.Checked = usu.Habilitado;
+                this.txtClave.Text = usu.Clave;
+                this.txtRepetirClave.Text = usu.Clave;
+            }
+        }
+
+
+
+
         protected void lbtnNuevo_Click(object sender, EventArgs e)
         {
             {
-                // this.formPanel.Visible = true;
-                //  this.LoadForm(this.IdSeleccionado);
+                this.lblMensaje.Visible = false;
                 this.formPanel.Visible = true;
                 this.formActionPanel.Visible = true;
                 this.renovarForm();
                 this.formMode = FormModes.Alta;
                 this.habilitarForm(true);
+                this.modoReadOnly(false);
                 this.txtId.Enabled = false;
             }
         }

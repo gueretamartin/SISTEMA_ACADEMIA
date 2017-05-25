@@ -59,11 +59,13 @@
             <asp:Label Text="Habilitado: " ID="lblHabilitado" runat="server"></asp:Label>
             <asp:CheckBox ID="chkHabilitado" runat="server" /><br/><br />
             <asp:Label Text="Clave: " ID="lblClave" runat="server" />
-            <asp:TextBox class="form-control" ID="txtClave" runat="server" TextMode="Password" /><br />
+            <asp:TextBox class="form-control" ID="txtClave" runat="server"  /><br />
             <asp:Label Text="Repetir Clave: " ID="lblRepetirClave" runat="server" />
-            <asp:TextBox class="form-control" ID="txtRepetirClave" runat="server" TextMode="Password" />
+            <asp:TextBox class="form-control" ID="txtRepetirClave" runat="server"  />
         </div>
     </asp:Panel>
+
+    <asp:Label ID="lblMensaje" runat="server"></asp:Label>
 
     <asp:Panel ID="formActionPanel" runat="server">
         <asp:LinkButton class="btn btn-success" ID="lbtnAceptar" runat="server" OnClick="lbtnAceptar_Click">Aceptar</asp:LinkButton>
