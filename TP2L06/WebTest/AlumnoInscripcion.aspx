@@ -33,7 +33,7 @@
             <asp:TextBox class="form-control" Text="ID" ID="txtId" runat="server" ReadOnly="true" /><br />
 
             <asp:Label Text="Curso: " ID="lblIdCurso" runat="server" />
-            <asp:ListBox class="form-control" ID="listIdCurso" runat="server" /><br />
+            <asp:ListBox class="form-control" ID="listIdCurso" runat="server" Height="204px" Width="181px" /><br />
         </div>
     </asp:Panel>
 

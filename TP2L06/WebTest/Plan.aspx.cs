@@ -8,13 +8,14 @@ using Negocio;
 using Entidades;
 using Entidades.CustomEntity;
 using Util;
+using System.Drawing;
 
 namespace WebTest
 {
     public partial class Plan : WebForm
 
     {
-        ControladorPlanes ce = new ControladorPlanes();
+        ControladorPlanes cp = new ControladorPlanes();
         ControladorEspecialidad conte = new ControladorEspecialidad();
         Entidades.Plan planActual;
 
@@ -34,10 +35,10 @@ namespace WebTest
             {
                 this.BindGV();
                 var dataList = conte.dameTodos();
-                this.listIdPlan.DataSource = dataList;
-                this.listIdPlan.DataValueField = "Id";
-                this.listIdPlan.DataTextField = "DescripcionEspecialidad";
-                this.listIdPlan.DataBind();
+                this.listEspecialidad.DataSource = dataList;
+                this.listEspecialidad.DataValueField = "Id";
+                this.listEspecialidad.DataTextField = "DescripcionEspecialidad";
+                this.listEspecialidad.DataBind();
             }
             this.formActionPanel.Visible = false;
             this.formPanel.Visible = false;
@@ -47,7 +48,7 @@ namespace WebTest
         {
             List<Entidades.Plan> planes = new List<Entidades.Plan>();
             
-            planes = ce.dameTodos();
+            planes = cp.dameTodos();
             this.gridView.DataSource = planes;
             this.gridView.DataBind();
         }
@@ -64,7 +65,9 @@ namespace WebTest
                 this.formActionPanel.Visible = true;
                 this.formMode = FormModes.Modificacion;
                 this.formPanel.Visible = true;
-                this.LoadForm(this.IdSeleccionado);
+                this.cargarForm(this.IdSeleccionado);
+                this.modoReadOnly(false);
+                this.lblMensaje.Visible = false;
             }
         }
 
@@ -74,7 +77,8 @@ namespace WebTest
             if (!Page.IsValid)
                 return;
             this.planActual = new Entidades.Plan();
-            if (validarPagina())
+            RespuestaServidor rs = this.ValidarCamposNulos();
+            if (!rs.Error)
             {
                 switch (formMode)
                 {
@@ -92,31 +96,48 @@ namespace WebTest
                         this.planActual.State = Entidades.EntidadBase.States.Deleted;
                         break;
                 }
-                RespuestaServidor rs = ce.save(this.planActual);
-                rs.MostrarMensajes();
+                rs = cp.save(this.planActual);
+                if (rs.Error)
+                {
+                    this.lblMensaje.Text = rs.ListaErrores.FirstOrDefault();
+                    this.lblMensaje.ForeColor = Color.Red;
+                }
+                else
+                {
+                    this.lblMensaje.ForeColor = Color.Green;
+                    this.lblMensaje.Text = rs.Mensaje;
+                }
+                this.lblMensaje.Visible = true;
                 this.renovarForm();
                 this.BindGV();
             }
             else
-            { this.formActionPanel.Visible = true;
+            {
+                string errorStr = "";
+                foreach (string error in rs.ListaErrores)
+                {
+                    this.lblMensaje.ForeColor = Color.Red;
+                    errorStr += error + "</br>";
+                }
+                this.lblMensaje.Text = errorStr;
+                this.lblMensaje.Visible = true;
+                this.formActionPanel.Visible = true;
                 this.formPanel.Visible = true;
             }
         }
 
-        private bool validarPagina()
+        private RespuestaServidor ValidarCamposNulos()
         {
-            if ((this.formMode == FormModes.Alta || this.formMode == FormModes.Modificacion) && string.IsNullOrEmpty(this.listIdPlan.SelectedValue))
+            RespuestaServidor rs = new RespuestaServidor();
+            if ((this.formMode == FormModes.Alta || this.formMode == FormModes.Modificacion) && string.IsNullOrEmpty(this.listEspecialidad.SelectedValue))
             {
-                Mensajeria.MostrarAlerta("Seleccione una Especialidad");
-                return false;
+                rs.AgregarError("Seleccione una Especialidad");
             }
-
-            else if ((this.formMode == FormModes.Alta || this.formMode == FormModes.Modificacion) && string.IsNullOrEmpty(this.txtPlan.Text))
+            if ((this.formMode == FormModes.Alta || this.formMode == FormModes.Modificacion) && string.IsNullOrEmpty(this.txtPlan.Text))
             {
-                Mensajeria.MostrarAlerta("Especifique la denominación del Plan");
-                return false;
+                rs.AgregarError("Especifique la denominación del Plan");          
             }
-            return true;
+            return rs;
         }
 
         public override void renovarForm()
@@ -130,10 +151,8 @@ namespace WebTest
 
         public override void habilitarForm(bool enabled)
         {
-           
             this.txtId.Enabled = enabled;
             this.txtPlan.Enabled = enabled;
-
         }
         protected void lbtnEliminar_Click(object sender, EventArgs e)
         {
@@ -152,7 +171,7 @@ namespace WebTest
 
         private void modoReadOnly(bool enabled)
         {
-            this.txtId.ReadOnly = enabled;
+            this.txtId.ReadOnly = true;
             this.txtPlan.ReadOnly = enabled;
         }
 
@@ -172,16 +191,9 @@ namespace WebTest
                 this.renovarForm();
                 this.formMode = FormModes.Alta;
                 this.habilitarForm(true);
-                this.txtId.Enabled = false;
+                this.modoReadOnly(false);
+                this.lblMensaje.Visible = false;
             }
-        }
-
-        protected void LoadForm(int id)
-        {
-            this.PlanActual = this.ce.dameUno(id);
-            this.txtId.Text = PlanActual.Id.ToString();
-            this.txtPlan.Text = PlanActual.DescripcionPlan;
-            this.listIdPlan.SelectedValue = PlanActual.Especialidad.Id.ToString();
         }
 
         public void cargarPlan(Entidades.Plan esp)
@@ -189,10 +201,20 @@ namespace WebTest
             esp.DescripcionPlan = this.txtPlan.Text;
             Entidades.Especialidad espe = new Entidades.Especialidad();
 
-            espe = this.conte.dameUno(Convert.ToInt32(listIdPlan.SelectedValue));
+            espe = this.conte.dameUno(Convert.ToInt32(listEspecialidad.SelectedValue));
             esp.Especialidad = espe;
         }
 
-
+        public override void cargarForm(int id)
+        {
+            Entidades.Plan plan = new Entidades.Plan();
+            plan = cp.dameUno(id);
+            if (plan != null)
+            {
+                this.txtId.Text = plan.Id.ToString();
+                this.txtPlan.Text = plan.DescripcionPlan;
+                this.listEspecialidad.SelectedValue = plan.Especialidad.Id.ToString();
+            }
+        }
     }
 }

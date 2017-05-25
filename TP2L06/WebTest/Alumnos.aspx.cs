@@ -259,8 +259,8 @@ namespace WebTest
                 this.formActionPanel.Visible = true;
                 this.formMode = FormModes.Baja;
                 this.cargarForm(this.IdSeleccionado);
-                this.habilitarForm(false);
-                //this.modoReadOnly(true);
+                this.habilitarForm(true);
+                this.modoReadOnly(true);
             }
         }
 

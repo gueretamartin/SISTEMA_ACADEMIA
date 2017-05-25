@@ -144,10 +144,7 @@
         if (Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, "ReportePlanes"))
         {%>      <a href="/ReportePlanes.aspx" class="list-group-item">Ver planes</a> <% }}; %>
                        <% 
-    if (tipo != null)
-    {
-        if (Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, "Usuarios"))
-        {%>          <a href="#" class="list-group-item">Mejores promedios</a><% }}; %>
+    %>
                 </div>
             </div>
           

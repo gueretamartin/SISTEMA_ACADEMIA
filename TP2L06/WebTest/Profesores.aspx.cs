@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Negocio;
 using Entidades;
 using Util;
+using Entidades.CustomEntity;
 
 namespace WebTest
 {
@@ -141,6 +142,7 @@ namespace WebTest
             Page.Validate();
             if (!Page.IsValid)
                 return;
+            RespuestaServidor rs = this.ValidarCamposNulos();
             switch (formMode)
             {
                 case FormModes.Alta:
@@ -175,6 +177,21 @@ namespace WebTest
 
             this.BindGV();
         }
+
+        private RespuestaServidor ValidarCamposNulos()
+        {
+            RespuestaServidor rs = new RespuestaServidor();
+            if ((this.formMode == FormModes.Alta || this.formMode == FormModes.Modificacion) && string.IsNullOrEmpty(this.listIdPlan.SelectedValue))
+            {
+                rs.AgregarError("Seleccione un Plan");
+            }
+            if ((this.formMode == FormModes.Alta || this.formMode == FormModes.Modificacion) && string.IsNullOrEmpty(this.txtNombrePersona.Text))
+            {
+                rs.AgregarError("Ingrese un nombre");
+            }
+            return rs;
+        }
+
         public override void renovarForm()
         {
 

@@ -44,7 +44,8 @@
             
 
             <asp:Label Text="Especialidad: " ID="lblIdEspecidad" runat="server" />
-            <asp:ListBox class="form-control" ID="listIdPlan" runat="server" ReadOnly="false" /><br />
+            <br />
+            <asp:ListBox class="form-control" ID="listEspecialidad" runat="server" Height="188px" Width="170px" /><br />
 
         </div>
     </asp:Panel>

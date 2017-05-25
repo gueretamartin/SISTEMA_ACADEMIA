@@ -40,7 +40,7 @@
             <asp:TextBox class="form-control"  ID="txtDenominacion" runat="server" /><br />
 
             <asp:Label Text="Materia: " ID="lblIdMateria" runat="server" />
-            <asp:ListBox class="form-control" ID="listIdMateria" runat="server" /><br />
+            <asp:ListBox class="form-control" ID="listIdMateria" runat="server" Height="202px" Width="315px" /><br />
 
             <asp:Label Text="Año calendario: " ID="lblAnioCalendario" runat="server" />
             <asp:TextBox class="form-control"  ID="txtAnioCalendario" runat="server" /><br />
