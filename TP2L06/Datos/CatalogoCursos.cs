@@ -43,7 +43,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                new Exception("Error al recuperar los cursos", Ex);
-               
+
             }
             finally
             {
@@ -59,7 +59,7 @@ namespace Datos
             this.OpenConnection();
             try
             {
-                SqlCommand cmdCursos = new SqlCommand("Select * from cursos "+where, Con);
+                SqlCommand cmdCursos = new SqlCommand("Select * from cursos " + where, Con);
                 SqlDataReader drCursos = cmdCursos.ExecuteReader();
                 while (drCursos.Read())
                 {
@@ -146,7 +146,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                new Exception("Error al recuperar el curso", Ex);
-               
+
             }
             finally
             {
@@ -217,7 +217,7 @@ namespace Datos
             {
                 Exception ExcepcionManejada =
                new Exception("Error al recuperar el curso", Ex);
-               
+
             }
             finally
             {
@@ -230,21 +230,21 @@ namespace Datos
 
         public RespuestaServidor Save(Curso cur)
         {
-            RespuestaServidor sr = new RespuestaServidor();
+            RespuestaServidor rs = new RespuestaServidor();
             if (cur.State == Entidades.EntidadBase.States.Deleted)
             {
-                sr = this.Delete(cur.Id);
+                rs = this.Delete(cur.Id);
             }
             else if (cur.State == Entidades.EntidadBase.States.New)
             {
-                this.Insert(cur);
+                rs = this.Insert(cur);
             }
             else if (cur.State == Entidades.EntidadBase.States.Modified)
             {
-                this.Update(cur);
+                rs = this.Update(cur);
             }
             cur.State = Entidades.EntidadBase.States.Unmodified;
-            return sr;
+            return rs;
         }
 
         public RespuestaServidor Delete(int id)
@@ -259,11 +259,13 @@ namespace Datos
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada =
-                new Exception("Error al eliminar el curso", Ex);
                 if (rs.ContieneExcepcion(Ex, "FK_alumnos_inscripciones_cursos"))
                 {
                     rs.AgregarError("No se puede eliminar el curso, porque existen alumnos inscriptos.");
+                }
+                else if (rs.ContieneExcepcion(Ex, "FK_docentes_cursos_cursos"))
+                {
+                    rs.AgregarError("No se puede eliminar el curso, porque existen docentes asignados.");
                 }
             }
             finally

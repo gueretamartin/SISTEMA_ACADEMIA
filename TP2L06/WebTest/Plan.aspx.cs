@@ -142,9 +142,20 @@ namespace WebTest
                 this.formActionPanel.Visible = true;
                 this.formMode = FormModes.Baja;
                 this.cargarForm(this.IdSeleccionado);
-               
+                this.lblMensaje.Visible = false;
+                this.formPanel.Visible = true;
+                this.habilitarForm(true);
+                this.modoReadOnly(true);
+
             }
         }
+
+        private void modoReadOnly(bool enabled)
+        {
+            this.txtId.ReadOnly = enabled;
+            this.txtPlan.ReadOnly = enabled;
+        }
+
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             this.formActionPanel.Visible = false;

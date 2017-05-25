@@ -30,7 +30,7 @@
     <!-- Formulario de edicion -->
 
     <asp:Panel ID="formPanel" Visible="false" runat="server">
-        <div class="form-group">
+        <div class="form-group" style="margin-top:30px;">
             <asp:Label Text="ID Persona: " ID="lblId" runat="server" />
             <asp:TextBox class="form-control" Text="ID" ID="txtId" runat="server"  /><br />
             <asp:Label Text="Nombre: " ID="lblNombrePersona" runat="server" />

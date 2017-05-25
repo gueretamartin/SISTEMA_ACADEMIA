@@ -155,8 +155,16 @@ namespace WebTest
                         break;
                 }
                 rs = cp.save(this.personaActual);
-                this.lblMensaje.ForeColor = Color.Green;
-                this.lblMensaje.Text = rs.Mensaje;
+                if (rs.Error)
+                {
+                    this.lblMensaje.Text = rs.ListaErrores.FirstOrDefault();
+                    this.lblMensaje.ForeColor = Color.Red;
+                }
+                else
+                {
+                    this.lblMensaje.ForeColor = Color.Green;
+                    this.lblMensaje.Text = rs.Mensaje;
+                }
                 this.lblMensaje.Visible = true;
                 this.renovarForm();
                 this.BindGV();
@@ -247,8 +255,8 @@ namespace WebTest
                 this.formActionPanel.Visible = true;
                 this.formMode = FormModes.Baja;
                 this.cargarForm(this.IdSeleccionado);
-                this.habilitarForm(true);
-                this.modoReadOnly(true);
+                this.habilitarForm(false);
+                //this.modoReadOnly(true);
             }
         }
 

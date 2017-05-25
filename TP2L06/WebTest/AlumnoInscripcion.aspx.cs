@@ -4,6 +4,7 @@ using Negocio;
 using System.Windows.Forms;
 using Entidades;
 using Util;
+using Entidades.CustomEntity;
 
 namespace WebTest
 {
@@ -13,10 +14,10 @@ namespace WebTest
         ControladorInscripcionAlumno ce = new ControladorInscripcionAlumno();
         ControladorCursos conte = new ControladorCursos();
         Entidades.AlumnoInscripcion _AlumnoInscripcionActual;
-        
+
         public Entidades.AlumnoInscripcion AlumnoInscripcionActual { get { return _AlumnoInscripcionActual; } set { _AlumnoInscripcionActual = value; } }
         List<Entidades.AlumnoInscripcion> alumnoinsc { get; set; }
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             TipoPersona tipo = (TipoPersona)Session["tipousuario"];
@@ -30,7 +31,7 @@ namespace WebTest
             if (!IsPostBack)
             {
                 this.BindGV();
-               
+
             }
             this.formActionPanel.Visible = false;
             this.formPanel.Visible = false;
@@ -38,11 +39,19 @@ namespace WebTest
 
         protected void BindGV()
         {
-          alumnoinsc = new List<Entidades.AlumnoInscripcion>();
+            alumnoinsc = new List<Entidades.AlumnoInscripcion>();
 
-            if((Entidades.Personas)Session["Persona"] != null)
+            if ((Entidades.Personas)Session["Persona"] != null)
             {
                 alumnoinsc = ce.dameTodosAlumno(((Entidades.Personas)Session["Persona"]).Id);
+                if (alumnoinsc.Count == 0)
+                {
+                    this.formActionPanel.Visible = false;
+                    this.gridActionPanel.Visible = false;
+                    this.lblMensaje.ForeColor = System.Drawing.Color.Red;
+                    this.lblMensaje.Visible = true;
+                    this.lblMensaje.Text = "No estas inscripto a ningun curso";
+                }else
                 this.gridView.DataSource = alumnoinsc;
                 this.gridView.DataBind();
             }
@@ -51,6 +60,7 @@ namespace WebTest
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.IdSeleccionado = (int)this.gridView.SelectedValue;
+            this.lblMensaje.Visible = false;
         }
 
         protected void lbtnAceptar_Click(object sender, EventArgs e)
@@ -58,25 +68,64 @@ namespace WebTest
             Page.Validate();
             if (!Page.IsValid)
                 return;
-
-            this.AlumnoInscripcionActual = new Entidades.AlumnoInscripcion();
-            switch (formMode)
+            RespuestaServidor rs = this.ValidarCamposNulos();
+            if (!rs.Error)
             {
-                case FormModes.Alta:
-                    this.AlumnoInscripcionActual.State = Entidades.EntidadBase.States.New;
-                    this.cargarAlumnoInscripcion(this.AlumnoInscripcionActual);
-                    
-                    break;
-                case FormModes.Baja:
-                    this.AlumnoInscripcionActual.Id = this.IdSeleccionado;
-                    this.AlumnoInscripcionActual.State = Entidades.EntidadBase.States.Deleted;
-                    break;
+                this.AlumnoInscripcionActual = new Entidades.AlumnoInscripcion();
+                switch (formMode)
+                {
+                    case FormModes.Alta:
+                        this.AlumnoInscripcionActual.State = Entidades.EntidadBase.States.New;
+                        this.cargarAlumnoInscripcion(this.AlumnoInscripcionActual);
+
+                        break;
+                    case FormModes.Baja:
+                        this.AlumnoInscripcionActual.Id = this.IdSeleccionado;
+                        this.AlumnoInscripcionActual.State = Entidades.EntidadBase.States.Deleted;
+                        break;
+                }
+                rs = ce.Save(this.AlumnoInscripcionActual);
+                if (rs.Error)
+                {
+                    string errorStr = "";
+                    foreach (string error in rs.ListaErrores)
+                    {
+                        errorStr += error + "</br>";
+                    }
+                    this.lblMensaje.ForeColor = System.Drawing.Color.Red;
+                }
+                else
+                {
+                    this.lblMensaje.ForeColor = System.Drawing.Color.Green;
+                    this.lblMensaje.Text = rs.Mensaje;
+                }
+                this.lblMensaje.Visible = true;
+                this.renovarForm();
+                this.BindGV();
             }
-            ce.Save(this.AlumnoInscripcionActual).MostrarMensajes();
-            this.renovarForm();
-            this.BindGV();
+            else
+            {
+                string errorStr = "";
+                foreach (string error in rs.ListaErrores)
+                {
+                    errorStr += error + "</br>";
+                }
+                this.lblMensaje.ForeColor = System.Drawing.Color.Red;
+                this.lblMensaje.Text = errorStr;
+                this.lblMensaje.Visible = true;
+                this.formActionPanel.Visible = true;
+                this.formPanel.Visible = true;
+            }
         }
-        
+
+        private RespuestaServidor ValidarCamposNulos()
+        {           
+            RespuestaServidor rs = new RespuestaServidor();
+            if (string.IsNullOrEmpty(this.listIdCurso.SelectedValue))
+                rs.AgregarError("Curso es obligatorio");
+                return rs;
+        }
+
         public override void renovarForm()
         {
             this.txtId.Text = String.Empty;
@@ -94,11 +143,15 @@ namespace WebTest
             if (entidadSeleccionada)
             {
                 this.formActionPanel.Visible = true;
+                this.formPanel.Visible = true;
                 this.formMode = FormModes.Baja;
                 this.cargarForm(this.IdSeleccionado);
-
+                this.lblMensaje.Visible = false;
             }
         }
+
+
+
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             this.formActionPanel.Visible = false;
@@ -112,7 +165,7 @@ namespace WebTest
                 //  this.LoadForm(this.IdSeleccionado);
                 if (Session["idPlan"] != null && Session["Persona"] != null)
                 {
-                    var dataList = conte.dameTodosPlanNoAlumno((int)Session["idPlan"],((Entidades.Personas)Session["Persona"]).Id);
+                    var dataList = conte.dameTodosPlanNoAlumno((int)Session["idPlan"], ((Entidades.Personas)Session["Persona"]).Id);
                     this.listIdCurso.DataSource = dataList;
                     this.listIdCurso.DataValueField = "Id";
                     this.listIdCurso.DataTextField = "Denominacion";
@@ -126,7 +179,7 @@ namespace WebTest
                 this.txtId.Enabled = false;
             }
         }
-        
+
         public void cargarAlumnoInscripcion(Entidades.AlumnoInscripcion alInscr)
         {
             alInscr.Curso = new ControladorCursos().dameUno(Convert.ToInt32(listIdCurso.SelectedValue));
