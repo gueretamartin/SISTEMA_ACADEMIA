@@ -23,14 +23,14 @@ namespace Datos
 
 
         //NICO NOTEBOOK
-        //private String usuario = "root";
-        //private String contraseña = "root";
-        //private String server = "NICOCDA";
-
-        //LEO
         private String usuario = "root";
         private String contraseña = "root";
-        private String server = @"LEO\MSSQL2014";
+        private String server = "NICOCDA";
+
+        //LEO
+        //private String usuario = "root";
+        //private String contraseña = "root";
+        //private String server = @"LEO\MSSQL2014";
 
         //LEO NOOT
         //private String usuario = @"LEOPERETTI\LEO";

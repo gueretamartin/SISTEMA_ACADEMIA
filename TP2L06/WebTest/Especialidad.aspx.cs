@@ -191,6 +191,7 @@ namespace WebTest
                 this.formActionPanel.Visible = true;
                 this.renovarForm();
                 this.formMode = FormModes.Alta;
+                this.modoReadOnly(false);
                 this.habilitarForm(true);
                 this.txtId.Enabled = false;
             }

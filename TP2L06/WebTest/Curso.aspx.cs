@@ -108,6 +108,7 @@ namespace WebTest
                         errorStr += error + "</br>";
                     }
                     this.lblMensaje.ForeColor = System.Drawing.Color.Red;
+                    this.lblMensaje.Text = errorStr;
                 }
                 else
                 {

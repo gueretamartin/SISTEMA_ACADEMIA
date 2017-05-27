@@ -46,8 +46,7 @@ namespace WebTest
                 alumnoinsc = ce.dameTodosAlumno(((Entidades.Personas)Session["Persona"]).Id);
                 if (alumnoinsc.Count == 0)
                 {
-                    this.formActionPanel.Visible = false;
-                    this.gridActionPanel.Visible = false;
+                    this.lbtnEliminar.Visible = false;
                     this.lblMensaje.ForeColor = System.Drawing.Color.Red;
                     this.lblMensaje.Visible = true;
                     this.lblMensaje.Text = "No estas inscripto a ningun curso";
@@ -96,6 +95,7 @@ namespace WebTest
                 }
                 else
                 {
+                    this.lbtnEliminar.Visible = true;
                     this.lblMensaje.ForeColor = System.Drawing.Color.Green;
                     this.lblMensaje.Text = rs.Mensaje;
                 }
@@ -168,7 +168,7 @@ namespace WebTest
                     var dataList = conte.dameTodosPlanNoAlumno((int)Session["idPlan"], ((Entidades.Personas)Session["Persona"]).Id);
                     this.listIdCurso.DataSource = dataList;
                     this.listIdCurso.DataValueField = "Id";
-                    this.listIdCurso.DataTextField = "Denominacion";
+                    this.listIdCurso.DataTextField = "NombreMostrar";
                     this.listIdCurso.DataBind();
                 }
                 this.formPanel.Visible = true;
@@ -179,6 +179,14 @@ namespace WebTest
                 this.txtId.Enabled = false;
             }
         }
+
+        public override void cargarForm(int id)
+        {
+            var InscripcionActual = ce.dameUno(id);
+            if(InscripcionActual != null)
+                this.listIdCurso.SelectedValue = InscripcionActual.Id.ToString();
+        }
+
 
         public void cargarAlumnoInscripcion(Entidades.AlumnoInscripcion alInscr)
         {

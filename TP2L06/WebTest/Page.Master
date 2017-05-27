@@ -47,7 +47,6 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cuenta<span class="caret"></span></a>
                        
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Perfil</a></li>
                             <li><asp:HyperLink id="logout" 
                               NavigateUrl="/Login.aspx"
                               Text="Logout"
@@ -148,7 +147,7 @@
                 </div>
             </div>
           
-          <div class="col-md-9">
+          <div class="col-md-9" style="margin-top:50px;" ">
           <!-- Aca va el contenido dinamico -->
  <form id="form1" runat="server" >           
      <div style ="padding-bottom:50px;">

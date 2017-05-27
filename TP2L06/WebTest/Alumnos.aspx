@@ -43,7 +43,7 @@
             <asp:TextBox class="form-control" Text="Telefono" ID="txtTelefono" runat="server" /><br />
             <asp:Label Text="Email: " ID="lblEmail" runat="server" />
             <asp:TextBox class="form-control" Text="Email" ID="txtEmail" runat="server"  /><br />
-            <asp:Label Text="Fecha de Nacimiento (yyyy/MM/dd): " ID="lblFecha" runat="server" />
+            <asp:Label Text="Fecha de Nacimiento (DD/MM/YYYY): " ID="lblFecha" runat="server" />
             <asp:TextBox class="form-control" Text="Fecha de Nacimiento" ID="txtFecha" runat="server" /><br />
             <asp:Label Text="Direccion: " ID="lblDireccion" runat="server" />
             <asp:TextBox class="form-control" Text="Direccion" ID="txtDireccion" runat="server"  /><br />

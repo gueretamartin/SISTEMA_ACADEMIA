@@ -95,10 +95,11 @@ namespace WebTest
 
 
 
-        protected void LoadForm(int id)
+        public override void cargarForm(int id)
         {
 
             this.PersonaActual = this.cp.dameUno(id);
+            this.txtId.Text = PersonaActual.Id.ToString();
             this.txtNombrePersona.Text = PersonaActual.Nombre;
             this.txtApellidoPersona.Text = PersonaActual.Apellido;
             this.txtDireccion.Text = PersonaActual.Direccion;
@@ -107,8 +108,6 @@ namespace WebTest
             this.txtTelefono.Text = PersonaActual.Telefono.ToString();
             this.txtFecha.Text = PersonaActual.FechaNacimiento.ToString();
             this.listIdPlan.SelectedValue = PersonaActual.Plan.Id.ToString();
-
-
         }
 
         protected void LbtnEditar_Click(object sender, EventArgs e)
@@ -118,8 +117,9 @@ namespace WebTest
             {
                 this.formActionPanel.Visible = true;
                 this.formMode = FormModes.Modificacion;
+                this.modoReadOnly(false);
                 this.formPanel.Visible = true;
-                this.LoadForm(this.IdSeleccionado);
+                this.cargarForm(this.IdSeleccionado);
             }
         }
 

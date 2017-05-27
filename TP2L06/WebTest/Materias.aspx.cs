@@ -185,7 +185,6 @@ namespace WebTest
             this.txtMateria.Enabled = enabled;
             this.txtHorasTotales.Enabled = enabled;
             this.txtHsSemanales.Enabled = enabled;
-            this.listIdPlan.Enabled = enabled;
 
         }
         protected void lbtnEliminar_Click(object sender, EventArgs e)
@@ -204,11 +203,11 @@ namespace WebTest
             }
         }
 
-        private void modoReadOnly(bool enabled)
+        private void modoReadOnly(bool ro)
         {
-            this.txtHorasTotales.ReadOnly = enabled;
-            this.txtHsSemanales.ReadOnly = enabled;
-            this.txtMateria.ReadOnly = enabled;
+            this.txtHorasTotales.ReadOnly = ro;
+            this.txtHsSemanales.ReadOnly = ro;
+            this.txtMateria.ReadOnly = ro;
             this.txtId.ReadOnly = true;
         }
 
@@ -226,6 +225,7 @@ namespace WebTest
                 this.formPanel.Visible = true;
                 this.formActionPanel.Visible = true;
                 this.renovarForm();
+                this.modoReadOnly(false);
                 this.formMode = FormModes.Alta;
                 this.habilitarForm(true);
                 this.txtId.Enabled = false;

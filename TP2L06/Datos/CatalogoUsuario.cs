@@ -106,7 +106,7 @@ namespace Datos
             {
                 this.OpenConnection();
 
-                SqlCommand cmdUsuario = new SqlCommand("SELECT * FROM usuarios WHERE nombre_usuario=@userName", Con);
+                SqlCommand cmdUsuario = new SqlCommand("SELECT * FROM usuarios WHERE nombre_usuario=@userName and habilitado = 1", Con);
                 cmdUsuario.Parameters.Add("@userName", SqlDbType.VarChar).Value = userName;
 
                 SqlDataReader drUsuarios = cmdUsuario.ExecuteReader();

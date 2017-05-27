@@ -157,6 +157,8 @@ namespace Datos
             {
                 if (rs.ContieneExcepcion(Ex, "FK_materias_planes"))
                     rs.AgregarError("El plan no puede ser eliminado porque se esta usando.");
+                else
+                    rs.AgregarExcepcion(Ex);
             }
             finally
             {

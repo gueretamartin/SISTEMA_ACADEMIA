@@ -13,8 +13,8 @@ namespace Consola
 
         static void Main(string[] args)
         {
-            TestProvider testProvider = new TestProvider();
-            testProvider.LeerTabla();
+            //TestProvider testProvider = new TestProvider();
+            //testProvider.LeerTabla();
         }
     }
 }

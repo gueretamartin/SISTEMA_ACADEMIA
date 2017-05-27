@@ -268,6 +268,8 @@ namespace Datos
                 {
                     rs.AgregarError("No se puede eliminar el curso, porque existen docentes asignados.");
                 }
+                else
+                    rs.AgregarExcepcion(Ex);
             }
             finally
             {

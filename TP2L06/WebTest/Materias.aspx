@@ -47,7 +47,7 @@
           
 
             <asp:Label Text="Plan: " ID="lblPlan" runat="server" />
-            <asp:ListBox class="form-control" ID="listIdPlan" runat="server" ReadOnly="false" /><br />
+            <asp:ListBox class="form-control" ID="listIdPlan" runat="server" /><br />
 
         </div>
     </asp:Panel>

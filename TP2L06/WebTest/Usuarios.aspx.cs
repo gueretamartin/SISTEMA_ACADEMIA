@@ -199,30 +199,30 @@ namespace WebTest
             RespuestaServidor rs = new RespuestaServidor();
             int validaInt;
             DateTime validaFecha;
-            if (string.IsNullOrEmpty(this.txtNombrePersona.Text))
-            {
-                rs.AgregarError("Nombre obligatorio");
-            }
-            if (string.IsNullOrEmpty(this.txtApellidoPersona.Text))
-            {
-                rs.AgregarError("Apellido obligatorio");
-            }
-            if (string.IsNullOrEmpty(this.txtLegajo.Text))
-            {
-                rs.AgregarError("Legajo obligatorio");
-            }
-            if (!int.TryParse(this.txtLegajo.Text, out validaInt))
-            {
-                rs.AgregarError("Legajo debe ser un número válido");
-            }
-            if (string.IsNullOrEmpty(this.txtFecha.Text))
-            {
-                rs.AgregarError("Fecha obligatorio");
-            }
-            if (!DateTime.TryParse(this.txtFecha.Text, out validaFecha))
-            {
-                rs.AgregarError("La fecha debe ser del formato yyyy/MM/dd");
-            }
+            //if (string.IsNullOrEmpty(this.txtNombrePersona.Text))
+            //{
+            //    rs.AgregarError("Nombre obligatorio");
+            //}
+            //if (string.IsNullOrEmpty(this.txtApellidoPersona.Text))
+            //{
+            //    rs.AgregarError("Apellido obligatorio");
+            //}
+            //if (string.IsNullOrEmpty(this.txtLegajo.Text))
+            //{
+            //    rs.AgregarError("Legajo obligatorio");
+            //}
+            //if (!int.TryParse(this.txtLegajo.Text, out validaInt))
+            //{
+            //    rs.AgregarError("Legajo debe ser un número válido");
+            //}
+            //if (string.IsNullOrEmpty(this.txtFecha.Text))
+            //{
+            //    rs.AgregarError("Fecha obligatorio");
+            //}
+            //if (!DateTime.TryParse(this.txtFecha.Text, out validaFecha))
+            //{
+            //    rs.AgregarError("La fecha debe ser del formato yyyy/MM/dd");
+            //}
             if (string.IsNullOrEmpty(this.listIdPersona.SelectedValue))
             {
                 rs.AgregarError("Persona obligatorio");
@@ -246,13 +246,13 @@ namespace WebTest
         public override void renovarForm()
         {
             this.txtNombreUsuario.Text = String.Empty;
-            this.txtNombrePersona.Text = String.Empty;
-            this.txtApellidoPersona.Text = String.Empty;
-            this.txtDireccion.Text = String.Empty;
-            this.txtEmail.Text = String.Empty;
-            this.txtLegajo.Text = String.Empty;
-            this.txtTelefono.Text = String.Empty;
-            this.txtFecha.Text = String.Empty;
+            //this.txtNombrePersona.Text = String.Empty;
+            //this.txtApellidoPersona.Text = String.Empty;
+            //this.txtDireccion.Text = String.Empty;
+            //this.txtEmail.Text = String.Empty;
+            //this.txtLegajo.Text = String.Empty;
+            //this.txtTelefono.Text = String.Empty;
+            //this.txtFecha.Text = String.Empty;
             this.txtClave.Text = String.Empty;
             this.txtRepetirClave.Text = String.Empty;
             this.txtId.Text = String.Empty;
@@ -262,13 +262,13 @@ namespace WebTest
         public override void habilitarForm(bool enabled)
         {
             this.txtNombreUsuario.Enabled = enabled;
-            this.txtNombrePersona.Enabled = enabled;
-            this.txtApellidoPersona.Enabled = enabled;
-            this.txtDireccion.Enabled = enabled;
-            this.txtEmail.Enabled = enabled;
-            this.txtLegajo.Enabled = enabled;
-            this.txtTelefono.Enabled = enabled;
-            this.txtFecha.Enabled = enabled;
+            //this.txtNombrePersona.Enabled = enabled;
+            //this.txtApellidoPersona.Enabled = enabled;
+            //this.txtDireccion.Enabled = enabled;
+            //this.txtEmail.Enabled = enabled;
+            //this.txtLegajo.Enabled = enabled;
+            //this.txtTelefono.Enabled = enabled;
+            //this.txtFecha.Enabled = enabled;
             this.txtClave.Enabled = enabled;
             this.txtRepetirClave.Enabled = enabled;
             this.txtId.Enabled = enabled;
@@ -292,14 +292,14 @@ namespace WebTest
 
         private void modoReadOnly(bool enabled)
         {
-            this.txtApellidoPersona.ReadOnly = enabled;
-            this.txtNombrePersona.ReadOnly = enabled;
-            this.txtApellidoPersona.ReadOnly = enabled;
-            this.txtDireccion.ReadOnly = enabled;
-            this.txtEmail.ReadOnly = enabled;
-            this.txtLegajo.ReadOnly = enabled;
-            this.txtTelefono.ReadOnly = enabled;
-            this.txtFecha.ReadOnly = enabled;
+            //this.txtApellidoPersona.ReadOnly = enabled;
+            //this.txtNombrePersona.ReadOnly = enabled;
+            //this.txtApellidoPersona.ReadOnly = enabled;
+            //this.txtDireccion.ReadOnly = enabled;
+            //this.txtEmail.ReadOnly = enabled;
+            //this.txtLegajo.ReadOnly = enabled;
+            //this.txtTelefono.ReadOnly = enabled;
+            //this.txtFecha.ReadOnly = enabled;
             this.txtId.ReadOnly = true;
         }
 
@@ -331,13 +331,13 @@ namespace WebTest
 
             if (alu != null && usu != null)
             {
-                this.txtNombrePersona.Text = alu.Nombre;
-                this.txtApellidoPersona.Text = alu.Apellido;
-                this.txtDireccion.Text = alu.Direccion;
-                this.txtEmail.Text = alu.Email;
-                this.txtLegajo.Text = alu.Legajo.ToString();
-                this.txtTelefono.Text = alu.Telefono.ToString();
-                this.txtFecha.Text = alu.FechaNacimiento.ToString();
+                //this.txtNombrePersona.Text = alu.Nombre;
+                //this.txtApellidoPersona.Text = alu.Apellido;
+                //this.txtDireccion.Text = alu.Direccion;
+                //this.txtEmail.Text = alu.Email;
+                //this.txtLegajo.Text = alu.Legajo.ToString();
+                //this.txtTelefono.Text = alu.Telefono.ToString();
+                //this.txtFecha.Text = alu.FechaNacimiento.ToString();
                 this.txtId.Text = alu.Id.ToString();
                 this.listIdPersona.SelectedValue = usu.Persona.Id.ToString();
                 this.txtNombreUsuario.Text = usu.NombreUsuario;
@@ -346,9 +346,6 @@ namespace WebTest
                 this.txtRepetirClave.Text = usu.Clave;
             }
         }
-
-
-
 
         protected void lbtnNuevo_Click(object sender, EventArgs e)
         {
