@@ -8,6 +8,7 @@ using Negocio;
 using Entidades;
 using Util;
 using Entidades.CustomEntity;
+using System.Drawing;
 
 namespace WebTest
 {
@@ -112,6 +113,7 @@ namespace WebTest
 
         protected void LbtnEditar_Click(object sender, EventArgs e)
         {
+            this.lblMensaje.Text = String.Empty;
             if (entidadSeleccionada)
             {
                 this.formActionPanel.Visible = true;
@@ -142,52 +144,91 @@ namespace WebTest
             Page.Validate();
             if (!Page.IsValid)
                 return;
+            this.personaActual = new Entidades.Personas();
             RespuestaServidor rs = this.ValidarCamposNulos();
-            switch (formMode)
+            if (!rs.Error)
             {
-                case FormModes.Alta:
-                    this.personaActual = new Personas();
-                    this.personaActual.State = Entidades.EntidadBase.States.New;
-                    //DENTRO EL METODO CARGAR PERSON VALIDO LOS OBLIGATORIOS, Y DEVUELVO EXITO = FALSE SI FALTA ALGUNO.
-                    bool exito = this.cargarPersona(this.personaActual);
-                    if (exito)
-                    {
-                        cp.save(this.personaActual).MostrarMensajes();
-                    }
-                    break;
-                case FormModes.Modificacion:
-                    this.personaActual = new Personas();
-                    this.personaActual.Id = this.IdSeleccionado;
-                    this.personaActual.State = Entidades.EntidadBase.States.Modified;
-                    this.cargarPersona(this.personaActual);
-                    cp.save(this.personaActual).MostrarMensajes();
-                    break;
-                case FormModes.Baja:
-                    //this.planActual = new Entidades.Plan();
-                    //this.planActual.Id = this.IdSeleccionado;
-                    //this.planActual.State = Entidades.EntidadBase.States.Deleted;
-                    //ce.save(this.planActual).MostrarMensajes();
-
-                    this.personaActual.State = Entidades.EntidadBase.States.Deleted;
-
-                    cp.save(this.personaActual).MostrarMensajes();
-                    break;
+                switch (formMode)
+                {
+                    case FormModes.Alta:
+                        this.personaActual.State = Entidades.EntidadBase.States.New;
+                        this.cargarPersona(this.personaActual);
+                        break;
+                    case FormModes.Modificacion:
+                        this.personaActual.Id = this.IdSeleccionado;
+                        this.personaActual.State = Entidades.EntidadBase.States.Modified;
+                        this.cargarPersona(this.personaActual);
+                        break;
+                    case FormModes.Baja:
+                        this.personaActual.Id = this.IdSeleccionado;
+                        this.personaActual.State = Entidades.EntidadBase.States.Deleted;
+                        break;
+                }
+                rs = cp.save(this.personaActual);
+                if(rs.Error)
+                {
+                    this.lblMensaje.Text = rs.ListaErrores.FirstOrDefault();
+                    this.lblMensaje.ForeColor = Color.Red;
+                }
+                else
+                {
+                    this.lblMensaje.ForeColor = Color.Green;
+                    this.lblMensaje.Text = rs.Mensaje;
+                }
+                this.lblMensaje.Visible = true;
+                this.renovarForm();
+                this.BindGV();
             }
-            this.renovarForm();
-
-            this.BindGV();
+            else
+            {
+                string errorStr = "";
+                foreach (string error in rs.ListaErrores)
+                {
+                    this.lblMensaje.ForeColor = Color.Red;
+                    errorStr += error + "</br>";
+                }
+                this.lblMensaje.Text = errorStr;
+                this.lblMensaje.Visible = true;
+                this.formActionPanel.Visible = true;
+                this.formPanel.Visible = true;
+            }
+      
         }
 
         private RespuestaServidor ValidarCamposNulos()
         {
             RespuestaServidor rs = new RespuestaServidor();
+            if ((this.formMode == FormModes.Alta || this.formMode == FormModes.Modificacion) && string.IsNullOrEmpty(this.txtNombrePersona.Text))
+            {
+                rs.AgregarError("Ingrese el nombre");
+            }
+            if ((this.formMode == FormModes.Alta || this.formMode == FormModes.Modificacion) && string.IsNullOrEmpty(this.txtApellidoPersona.Text))
+            {
+                rs.AgregarError("Seleccione el apellido");
+            }
+            if ((this.formMode == FormModes.Alta || this.formMode == FormModes.Modificacion) && string.IsNullOrEmpty(this.txtLegajo.Text))
+            {
+                rs.AgregarError("Ingrese el legajo");
+            }
+            if ((this.formMode == FormModes.Alta || this.formMode == FormModes.Modificacion) && string.IsNullOrEmpty(this.txtTelefono.Text))
+            {
+                rs.AgregarError("Ingrese un teléfono");
+            }
+            if ((this.formMode == FormModes.Alta || this.formMode == FormModes.Modificacion) && string.IsNullOrEmpty(this.txtEmail.Text))
+            {
+                rs.AgregarError("Ingrese el email");
+            }
+            if ((this.formMode == FormModes.Alta || this.formMode == FormModes.Modificacion) && string.IsNullOrEmpty(this.txtFecha.Text))
+            {
+                rs.AgregarError("Ingrese la fecha de nacimiento");
+            }
+            if ((this.formMode == FormModes.Alta || this.formMode == FormModes.Modificacion) && string.IsNullOrEmpty(this.txtDireccion.Text))
+            {
+                rs.AgregarError("Ingrese la dirección");
+            }
             if ((this.formMode == FormModes.Alta || this.formMode == FormModes.Modificacion) && string.IsNullOrEmpty(this.listIdPlan.SelectedValue))
             {
                 rs.AgregarError("Seleccione un Plan");
-            }
-            if ((this.formMode == FormModes.Alta || this.formMode == FormModes.Modificacion) && string.IsNullOrEmpty(this.txtNombrePersona.Text))
-            {
-                rs.AgregarError("Ingrese un nombre");
             }
             return rs;
         }
@@ -202,13 +243,11 @@ namespace WebTest
             this.txtLegajo.Text = String.Empty;
             this.txtTelefono.Text = String.Empty;
             this.txtFecha.Text = String.Empty;
-
             this.txtId.Text = String.Empty;
         }
 
         public override void habilitarForm(bool enabled)
         {
-
             this.txtNombrePersona.Enabled = enabled;
             this.txtApellidoPersona.Enabled = enabled;
             this.txtDireccion.Enabled = enabled;
@@ -218,42 +257,42 @@ namespace WebTest
             this.txtFecha.Enabled = enabled;
             this.txtId.Enabled = enabled;
             this.listIdPlan.Enabled = enabled;
-
-
         }
 
         public void guardarUsuario(Usuario usu)
         {
             this.cu.guardarUsuario(usu);
         }
+
         protected void lbtnEliminar_Click(object sender, EventArgs e)
         {
+            this.lblMensaje.Text = String.Empty;
             if (entidadSeleccionada)
             {
                 this.formActionPanel.Visible = true;
                 this.formMode = FormModes.Baja;
                 this.cargarForm(this.IdSeleccionado);
-
+                this.lblMensaje.Visible = false;
+                this.formPanel.Visible = true;
+                this.habilitarForm(true);
+                this.modoReadOnly(true);
             }
         }
-        //public override void borrarEntidad(int id)
-        //{
-        //    this.cp.
-        //}
-        protected void btnCancelar_Click(object sender, EventArgs e)
+
+        private void modoReadOnly(bool enabled)
         {
-            this.formActionPanel.Visible = false;
-            this.renovarForm();
+            this.txtNombrePersona.ReadOnly = enabled;
+            this.txtApellidoPersona.ReadOnly = enabled;
+            this.txtDireccion.ReadOnly = enabled;
+            this.txtEmail.ReadOnly = enabled;
+            this.txtLegajo.ReadOnly = enabled;
+            this.txtTelefono.ReadOnly = enabled;
+            this.txtFecha.ReadOnly = enabled;
+            this.txtId.ReadOnly = true;
         }
+        
         public bool cargarPersona(Entidades.Personas persona)
         {
-            if (String.IsNullOrEmpty(listIdPlan.SelectedValue))
-            {
-                this.txtMensaje.Text = "Debe seleccionar un plan para el alumno.";
-                return false;
-            }
-            else
-            {
                 persona.Plan = this.cplan.dameUno(Convert.ToInt32(listIdPlan.SelectedValue));
                 persona.Nombre = this.txtNombrePersona.Text;
                 persona.Apellido = this.txtApellidoPersona.Text;
@@ -266,36 +305,28 @@ namespace WebTest
                 ControladorTipoPersona ctp = new ControladorTipoPersona();
                 tp = ctp.dameUno(1);
 
-                persona.TipoPersona = tp; //CREAR ENUMERADOR
+                persona.TipoPersona = tp;
                 return true;
-            }
-
-
-
-            //this.txtNombrePersona.Enabled = enabled;
-            //this.txtApellidoPersona.Enabled = enabled;
-            //this.txtDireccion.Enabled = enabled;
-            //this.txtEmail.Enabled = enabled;
-            //this.txtLegajo.Enabled = enabled;
-            //this.txtTelefono.Enabled = enabled;
-            //this.txtFecha.Enabled = enabled;
-            //this.txtId.Enabled = enabled;
-            //this.listIdPlan.Enabled = enabled;
         }
 
         protected void lbtnNuevo_Click(object sender, EventArgs e)
         {
             {
-                // this.formPanel.Visible = true;
-                //  this.LoadForm(this.IdSeleccionado);
-
                 this.formPanel.Visible = true;
                 this.formActionPanel.Visible = true;
                 this.renovarForm();
                 this.formMode = FormModes.Alta;
                 this.habilitarForm(true);
-                this.txtId.Enabled = false;
+                this.modoReadOnly(false);
+                this.lblMensaje.Visible = false;
             }
+        }
+
+        protected void lbtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.lblMensaje.Text = String.Empty;
+            this.formActionPanel.Visible = false;
+            this.renovarForm();
         }
     }
 }

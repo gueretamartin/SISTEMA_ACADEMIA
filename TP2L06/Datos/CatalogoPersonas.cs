@@ -246,7 +246,7 @@ namespace Datos
                 SqlCommand cmdDelete = new SqlCommand("DELETE personas WHERE id_persona=@id", Con);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = id;
                 cmdDelete.ExecuteReader();
-                rs.Mensaje = "Persona eliminada correctamete";
+                rs.Mensaje = "Persona eliminada correctamente";
             }
             catch (Exception Ex)
             {

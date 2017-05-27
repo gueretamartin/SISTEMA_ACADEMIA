@@ -54,6 +54,7 @@
     <Compile Include="CatalogoModulos.cs" />
     <Compile Include="CatalogoAlumnoInscripcion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entidades\Entidades.csproj">

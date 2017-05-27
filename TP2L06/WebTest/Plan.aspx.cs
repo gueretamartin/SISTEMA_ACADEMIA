@@ -60,6 +60,7 @@ namespace WebTest
 
         protected void LbtnEditar_Click(object sender, EventArgs e)
         {
+            this.lblMensaje.Text = String.Empty;
             if (entidadSeleccionada)
             {
                 this.formActionPanel.Visible = true;
@@ -156,6 +157,7 @@ namespace WebTest
         }
         protected void lbtnEliminar_Click(object sender, EventArgs e)
         {
+            this.lblMensaje.Text = String.Empty;
             if (entidadSeleccionada)
             {
                 this.formActionPanel.Visible = true;
@@ -175,17 +177,9 @@ namespace WebTest
             this.txtPlan.ReadOnly = enabled;
         }
 
-        protected void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.formActionPanel.Visible = false;
-            this.renovarForm();
-        }
-
         protected void lbtnNuevo_Click(object sender, EventArgs e)
         {
             {
-                // this.formPanel.Visible = true;
-                //  this.LoadForm(this.IdSeleccionado);
                 this.formPanel.Visible = true;
                 this.formActionPanel.Visible = true;
                 this.renovarForm();
@@ -215,6 +209,13 @@ namespace WebTest
                 this.txtPlan.Text = plan.DescripcionPlan;
                 this.listEspecialidad.SelectedValue = plan.Especialidad.Id.ToString();
             }
+        }
+
+        protected void lbtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.lblMensaje.Text = String.Empty;
+            this.formActionPanel.Visible = false;
+            this.renovarForm();
         }
     }
 }
