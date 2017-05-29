@@ -36,9 +36,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(128, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(202, 26);
+            this.label1.Size = new System.Drawing.Size(226, 26);
             this.label1.TabIndex = 0;
-            this.label1.Text = "¡Bienvenido al Sistema!\r\nPor favor digite su información de Ingreso";
+            this.label1.Text = "¡Bienvenido al Sistema!\r\nPor favor introduzca su información de Ingreso";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2

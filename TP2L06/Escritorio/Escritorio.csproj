@@ -140,6 +140,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Inicio.cs" />
+    <Compile Include="Sesion.cs" />
     <Compile Include="Usuario\UsuarioABM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Especialidad\EspecialidadPrincipal.resx">
       <DependentUpon>EspecialidadPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loggin\Loggin.resx">
+      <DependentUpon>Loggin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Materia\MateriaABM.resx">
       <DependentUpon>MateriaABM.cs</DependentUpon>

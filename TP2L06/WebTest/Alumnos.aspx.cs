@@ -205,6 +205,10 @@ namespace WebTest
             {
                 rs.AgregarError("Legajo debe ser un número válido");
             }
+            if(!string.IsNullOrEmpty(this.txtEmail.Text) &&  !Util.ValidarEmails.esMailValido(txtEmail.Text))
+            {
+                rs.AgregarError("El email debe tener el formato ejemplo@hotmail.com");
+            }
             if (string.IsNullOrEmpty(this.txtFecha.Text))
             {
                 rs.AgregarError("Fecha obligatorio");
@@ -324,6 +328,7 @@ namespace WebTest
                 this.txtId.Text = alu.Id.ToString();
                 this.listIdPlan.SelectedValue = alu.Plan.Id.ToString();
             }
+         
         }
 
         protected void lbtnNuevo_Click(object sender, EventArgs e)

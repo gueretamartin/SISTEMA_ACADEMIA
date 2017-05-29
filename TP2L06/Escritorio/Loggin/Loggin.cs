@@ -33,7 +33,13 @@ namespace Escritorio.Loggin
 
             if (us!=null)
             {
-                if ((us.Habilitado == true)) { this.DialogResult = DialogResult.OK; }
+                if ((us.Habilitado == true)) {
+                    this.DialogResult = DialogResult.OK;
+                    Sesion.UsuarioId = us.Id;
+                    Sesion.TipoPersonaId = us.Persona.TipoPersona.Id;
+                    Sesion.PlanId = us.Persona.Plan.Id;
+                    Sesion.NombreUsuario = us.Persona.Apellido + ", " + us.Persona.Nombre;
+                }
                 else
                 {
                      MessageBox.Show("El usuario no se encuentra Habilitado", "Login"

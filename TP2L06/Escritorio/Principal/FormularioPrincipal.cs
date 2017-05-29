@@ -29,6 +29,21 @@ namespace Escritorio.Principal
             {
                 this.Dispose();
             }
+
+            if (!Util.ValidarPermisos.TienePermisosUsuario(Sesion.TipoPersonaId, "Curso"))
+                this.cursosToolStripMenuItem.Visible = false;
+            if (!Util.ValidarPermisos.TienePermisosUsuario(Sesion.TipoPersonaId, "Especialidad"))
+                this.especialidadesToolStripMenuItem.Visible = false;
+            if (!Util.ValidarPermisos.TienePermisosUsuario(Sesion.TipoPersonaId, "Materias"))
+                this.materiasToolStripMenuItem.Visible = false;
+            if (!Util.ValidarPermisos.TienePermisosUsuario(Sesion.TipoPersonaId, "Personas"))
+                this.personasToolStripMenuItem.Visible = false;
+            if (!Util.ValidarPermisos.TienePermisosUsuario(Sesion.TipoPersonaId, "Plan"))
+                this.planesToolStripMenuItem.Visible = false;
+            if (!Util.ValidarPermisos.TienePermisosUsuario(Sesion.TipoPersonaId, "Usuarios"))
+                this.usuariosToolStripMenuItem.Visible = false;
+            if (!Util.ValidarPermisos.TienePermisosUsuario(Sesion.TipoPersonaId, "AlumnoInscripcion"))
+                this.alumnoInscripcionToolStripMenuItem.Visible = false;
         }
 
         private void aBMUsuariosToolStripMenuItem_Click(object sender, EventArgs e)

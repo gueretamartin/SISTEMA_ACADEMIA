@@ -17,15 +17,15 @@ namespace Datos
         //private string server = "desktop-jk0gqk6\\sqlexpress";
 
         ////NICO
-        //private string usuario = "desktop-sjrvtal\\nico-";
-        //private string contraseña = "";
-        //private string server = "desktop-sjrvtal\\sqlexpress";
+        private string usuario = "desktop-sjrvtal\\nico-";
+        private string contraseña = "";
+        private string server = "desktop-sjrvtal\\sqlexpress";
 
 
         //NICO NOTEBOOK
-        private String usuario = "root";
-        private String contraseña = "root";
-        private String server = "NICOCDA";
+        //private String usuario = "root";
+        //private String contraseña = "root";
+        //private String server = "NICOCDA";
 
         //LEO
         //private String usuario = "root";

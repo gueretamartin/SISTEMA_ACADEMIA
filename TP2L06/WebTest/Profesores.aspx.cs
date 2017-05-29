@@ -214,9 +214,9 @@ namespace WebTest
             {
                 rs.AgregarError("Ingrese un teléfono");
             }
-            if ((this.formMode == FormModes.Alta || this.formMode == FormModes.Modificacion) && string.IsNullOrEmpty(this.txtEmail.Text))
+            if ((this.formMode == FormModes.Alta || this.formMode == FormModes.Modificacion) && !string.IsNullOrEmpty(this.txtEmail.Text) && !Util.ValidarEmails.esMailValido(txtEmail.Text))
             {
-                rs.AgregarError("Ingrese el email");
+                rs.AgregarError("El email debe tener el formato ejemplo@hotmail.com");
             }
             if ((this.formMode == FormModes.Alta || this.formMode == FormModes.Modificacion) && string.IsNullOrEmpty(this.txtFecha.Text))
             {

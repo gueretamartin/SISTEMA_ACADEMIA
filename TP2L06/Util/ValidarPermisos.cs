@@ -43,7 +43,8 @@ namespace Util
                         return true;
                     if (moduloAcceso.Equals("ReporteCursos"))
                         return true;
-
+                    if (moduloAcceso.Equals("Personas"))
+                        return true;
                     return false;
                 case 4:
 
