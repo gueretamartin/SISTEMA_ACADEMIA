@@ -18,14 +18,14 @@
                 </div>
                 <form id="form1" class="form-signin" runat="server">
                     <label>Usuario</label><br />
-                    <asp:TextBox ID="txtUser" class="form-control" runat="server" Text="admin" /><br />
+                    <asp:TextBox ID="txtUser" class="form-control" runat="server" Width="350px"  /><br />
                     <label>Password</label><br />
-                    <asp:TextBox ID="txtPass" class="form-control" runat="server" Text="admin" TextMode="Password" /><br />
+                    <asp:TextBox ID="txtPass" class="form-control" runat="server" TextMode="Password" Width="350px"/><br />
                     <p>
                         <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
                     </p>
                     <p>
-                        <asp:Button ID="btnLogin" class="btn btn-info" Text="Ingresar" runat="server" OnClick="validarEIngresar" />
+                        <asp:Button ID="btnLogin" class="btn btn-info" Text="Ingresar" runat="server" Width="350px" OnClick="validarEIngresar" />
                     </p>
                 </form>
             </div>

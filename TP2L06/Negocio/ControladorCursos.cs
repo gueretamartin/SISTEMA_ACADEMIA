@@ -46,7 +46,7 @@ namespace Negocio
             return cursoData.Save(curso);
         }
 
-        public object dameTodosPorCondicion(int idMateria, int año)
+        public List<Curso> dameTodosPorCondicion(int idMateria, int año)
         {
             List<Curso> cursos = new List<Curso>();
             string where = "";

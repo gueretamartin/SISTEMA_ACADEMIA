@@ -136,12 +136,12 @@
     if (tipo != null)
     {
         if (Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, "ReporteCursos"))
-        {%>       <a href="/ReporteCursos.aspx" class="list-group-item">Ver cursos</a><% }}; %>
+        {%>       <a href="/ReporteCursos.aspx" class="list-group-item">Reporte de cursos</a><% }}; %>
                            <% 
     if (tipo != null)
     {
         if (Util.ValidarPermisos.TienePermisosUsuario(tipo.Id, "ReportePlanes"))
-        {%>      <a href="/ReportePlanes.aspx" class="list-group-item">Ver planes</a> <% }}; %>
+        {%>      <a href="/ReportePlanes.aspx" class="list-group-item">Reporte de planes</a> <% }}; %>
                        <% 
     %>
                 </div>

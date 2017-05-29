@@ -19,7 +19,7 @@
     <br />
     <asp:Panel ID="gridActionPanel" runat="server">
         <asp:LinkButton class="btn btn-danger" ID="lbtnEliminar" runat="server" OnClick="lbtnEliminar_Click">Eliminar</asp:LinkButton>
-        <asp:LinkButton class="btn btn-success" ID="lbtnNuevo" runat="server" OnClick="lbtnNuevo_Click">Nuevo</asp:LinkButton>
+        <asp:LinkButton class="btn btn-success" ID="lbtnNuevo" runat="server" OnClick="lbtnNuevo_Click">Nueva Inscripción</asp:LinkButton>
         <br />
         <br />
     </asp:Panel>

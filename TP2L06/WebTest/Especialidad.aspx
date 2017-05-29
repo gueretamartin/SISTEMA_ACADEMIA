@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Page.Master" AutoEventWireup="true" CodeBehind="Especialidad.aspx.cs" Inherits="WebTest.Especialidad" %>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="server"> 
     <asp:Panel ID="gridPanel" runat="server">
         <asp:GridView class="table table-hover" ID="gridView" runat="server" AutoGenerateColumns="False"
             OnSelectedIndexChanged="gridView_SelectedIndexChanged"

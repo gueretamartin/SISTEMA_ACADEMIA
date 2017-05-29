@@ -19,7 +19,7 @@ namespace WebTest
                 Response.Redirect("~/Login.aspx");
 
 
-            planes = new Negocio.ControladorPlanes().dameTodos();
+            planes = new Negocio.ControladorPlanes().dameTodosPorCondicion("");
 
 
             if (!IsPostBack)
@@ -49,7 +49,7 @@ namespace WebTest
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            planes = new Negocio.ControladorPlanes().dameTodos();
+            planes = new Negocio.ControladorPlanes().dameTodosPorCondicion("");
             repeaterPlanes.DataSource = planes;
             repeaterPlanes.DataBind();
         }

@@ -31,7 +31,7 @@ namespace Entidades
         {
             get
             {
-                return materia.DescripcionMateria + ", " + this.denominacion; 
+                return materia.DescripcionMateria + ", " + this.denominacion + ", " + this.anioCalendario; 
             }
         }
 

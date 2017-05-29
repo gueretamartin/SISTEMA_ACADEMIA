@@ -18,7 +18,7 @@
     </asp:Panel>
     <br />
     <asp:Panel ID="gridActionPanel" runat="server">
-        <asp:LinkButton class="btn btn-primary" ID="lbtnEditar" runat="server" OnClick="LbtnEditar_Click">Editar</asp:LinkButton>
+        <asp:LinkButton class="btn btn-primary" ID="lbtnEditar" runat="server" OnClick="LbtnEditar_Click">Editar Nota</asp:LinkButton>
         <br />
         <br />
         <asp:Label class="form-control" ForeColor="Red" Text="" ID="txtMensaje" runat="server" Enabled ="false" />

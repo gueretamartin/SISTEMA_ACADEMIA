@@ -48,7 +48,7 @@ namespace WebTest
         {
             List<Entidades.Curso> planes = new List<Entidades.Curso>();
 
-            planes = ce.dameTodos();
+            planes = ce.dameTodosPorCondicion(-1,-1);
             this.gridView.DataSource = planes;
             this.gridView.DataBind();
         }

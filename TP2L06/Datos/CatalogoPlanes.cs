@@ -56,7 +56,7 @@ namespace Datos
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdPlanes = new SqlCommand("SELECT * FROM planes " + where, Con);
+                SqlCommand cmdPlanes = new SqlCommand("SELECT * FROM planes " + where + "order by desc_plan,id_especialidad", Con);
                 SqlDataReader drPlanes = cmdPlanes.ExecuteReader();
 
                 while (drPlanes.Read())

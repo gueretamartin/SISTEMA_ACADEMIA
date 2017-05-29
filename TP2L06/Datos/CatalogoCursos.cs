@@ -59,7 +59,7 @@ namespace Datos
             this.OpenConnection();
             try
             {
-                SqlCommand cmdCursos = new SqlCommand("Select * from cursos " + where, Con);
+                SqlCommand cmdCursos = new SqlCommand("Select * from cursos " + where+ "order by anio_calendario desc,id_materia,denominacion", Con);
                 SqlDataReader drCursos = cmdCursos.ExecuteReader();
                 while (drCursos.Read())
                 {
